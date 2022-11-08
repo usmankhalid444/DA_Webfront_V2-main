@@ -26,9 +26,9 @@ const routes = [
     name: "Exchange",
   },
   {
-    path: "/exchange/:pair",
-    component: () => import("../pages/exchange/exchange"),
-    name: "ExchangePair",
+    path: "/order-history",
+    component: () => import("../pages/exchange/components/OrderHistory.vue"),
+    name: "order-history",
   },
   {
     path: "/news",
