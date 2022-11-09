@@ -1,0 +1,59 @@
+<div id="scxTemplateDialog" class="modal scxDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+                <h4><span id="scxTemplateDialog_headerTitle"></span> Template</h4>
+            </div>
+            <div class="modal-body scxTemplateDialog-body">
+                
+                <div id="templateSaveBody" class="row">
+                    <div class="col-3">
+                        <label data-i18n="templateDialog.nameTemplate"></label>
+                    </div>
+                    <div class="col-6">
+                        <input id="scxTemplateDialog_input_templateNameSave" class="form-control" type="text" class="scxSpectrum">
+                    </div>
+                </div>
+                <div id="templateLoadBody" class="row">
+                    <div class="col-3">
+                        <label data-i18n="templateDialog.selectTemplate"></label>
+                    </div>
+                    <div class="col-6">
+                        <select id="scxTemplateDialog_input_templateNameLoad" class="scxDropdown scxLoadDropdown">
+                            <!--<option >Load Template 1</option>
+                                <option >Load Template 2</option>-->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- <table>
+                    <tr id="templateSaveBody">
+                        <td><label data-i18n="templateDialog.nameTemplate"></label></td>
+                        <td></td>
+                        <td><input id="scxTemplateDialog_input_templateNameSave" class="form-control" type="text" class="scxSpectrum"></td>
+                    </tr>
+                    <tr id="templateLoadBody">
+                        <td><label data-i18n="templateDialog.selectTemplate"></label></td>
+                        <td></td>
+                        <td>
+                            <select id="scxTemplateDialog_input_TemplateNameLoad" class="scxDropdown scxLoadDropdown">
+                                <option >Load Template 1</option>
+                                <option >Load Template 2</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table> -->
+
+            </div>
+            <div class="modal-footer scxTemplateDialog-footer">
+                <div class="scxTemplateDialog-footer-buttons">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" data-i18n="button.close"></button>
+                    <button type="button" class="btn btn-primary" id="btnLoadTemplate" data-i18n="button.load"></button>
+                    <button type="button" class="btn btn-success" id="btnSaveTemplate" data-i18n="button.save" data-dismiss="modal"></button>
+                    <button type="button" class="btn btn-danger" id="btnDeleteTemplate" data-i18n="button.delete"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
