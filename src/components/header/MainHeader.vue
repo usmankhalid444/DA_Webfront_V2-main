@@ -541,9 +541,9 @@ export default {
     z-index: 1;
     width: 183px;
     height: 196px;
-    right: 11px;
+    right: 0px;
     border-radius: 4px;
-    top: 70px;
+    top: 60px;
   }
 
   .dropdown-content-icon a {
