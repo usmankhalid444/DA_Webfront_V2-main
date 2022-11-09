@@ -38,245 +38,217 @@
 
       <!-- Open Order -->
       <div class="tab-pane open-order" v-if="selectedfooter === 'Open Orders'">
-        <div class="row">
-          <div class="col-12 p-0">
-            <ul class="nav mx-2" id="" role="tablist">
-              <li class="nav-item">
-                <button
-                  type="button"
-                  v-for="(tab, index) in openordertabs"
-                  :key="index"
-                  @click="selectedopenorder = tab"
-                  :class="{ active: selectedopenorder === tab }"
-                >
-                  {{ tab }}
-                </button>
-              </li>
-            </ul>
+        <ul class="nav mx-2" id="" role="tablist">
+          <li class="nav-item">
             <button
-              class="bs-cancel-all-btn"
-              @click="$bvModal.show('cancel-all-modal')"
+              type="button"
+              v-for="(tab, index) in openordertabs"
+              :key="index"
+              @click="selectedopenorder = tab"
+              :class="{ active: selectedopenorder === tab }"
             >
-              Cancel All
+              {{ tab }}
             </button>
-          </div>
+          </li>
+        </ul>
+        <button
+          class="bs-cancel-all-btn"
+          @click="$bvModal.show('cancel-all-modal')"
+        >
+          Cancel All
+        </button>
 
-          <!-- Limit & Market Order below -->
-          <div
-            class="fade show tab-pane active"
-            v-if="selectedopenorder === 'Limit & Market Orders'"
-          >
-            <div class="row lm-order-container">
-              <div
-                class="col-md-12 table-responsive mt-3 p-0"
-                style="height: 297px; overflow: auto"
-              >
-                <table class="table table-borderless text-start p-0">
-                  <thead>
-                    <tr>
-                      <th scope="col">
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </th>
-                      <th scope="col">B/S</th>
-                      <th scope="col">Coin</th>
-                      <th scope="col">Type</th>
-                      <th scope="col">Price(THB)</th>
-                      <th scope="col">Amount(BTC)</th>
-                      <th scope="col">Matched(BTC)</th>
-                      <th scope="col">Unmatched(BTC)</th>
-                      <th scope="col">Total(THB)</th>
-                      <th scope="col">Conditions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="green">B</td>
-                      <td>Coin</td>
-                      <td>Market</td>
-                      <td>898,000.00</td>
-                      <td>0.0000029</td>
-                      <td>0.0000029</td>
-                      <td>0.00</td>
-                      <td>1,000.00</td>
-                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="red">S</td>
-                      <td>Coin</td>
-                      <td>Market</td>
-                      <td>898,000.00</td>
-                      <td>0.0000029</td>
-                      <td>0.0000029</td>
-                      <td>0.00</td>
-                      <td>1,000.00</td>
-                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="green">B</td>
-                      <td>Coin</td>
-                      <td>Market</td>
-                      <td>898,000.00</td>
-                      <td>0.0000029</td>
-                      <td>0.0000029</td>
-                      <td>0.00</td>
-                      <td>1,000.00</td>
-                      <td>-</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="red">S</td>
-                      <td>Coin</td>
-                      <td>Market</td>
-                      <td>898,000.00</td>
-                      <td>0.0000029</td>
-                      <td>0.0000029</td>
-                      <td>0.00</td>
-                      <td>1,000.00</td>
-                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="green">B</td>
-                      <td>Coin</td>
-                      <td>Market</td>
-                      <td>898,000.00</td>
-                      <td>0.0000029</td>
-                      <td>0.0000029</td>
-                      <td>0.00</td>
-                      <td>1,000.00</td>
-                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+        <!-- Limit & Market Order below -->
+        <div
+          class="fade show tab-pane active"
+          v-if="selectedopenorder === 'Limit & Market Orders'"
+        >
+          <div class="row lm-order-container">
+            <div
+              class="col-md-12 table-responsive mt-3 p-0"
+              style="height: 297px; overflow: auto"
+            >
+              <table class="table table-borderless text-start p-0">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </th>
+                    <th scope="col">B/S</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Price(THB)</th>
+                    <th scope="col">Amount(BTC)</th>
+                    <th scope="col">Matched(BTC)</th>
+                    <th scope="col">Unmatched(BTC)</th>
+                    <th scope="col">Total(THB)</th>
+                    <th scope="col">Conditions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="green">B</td>
+                    <td>Coin</td>
+                    <td>Market</td>
+                    <td>898,000.00</td>
+                    <td>0.0000029</td>
+                    <td>0.0000029</td>
+                    <td>0.00</td>
+                    <td>1,000.00</td>
+                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="red">S</td>
+                    <td>Coin</td>
+                    <td>Market</td>
+                    <td>898,000.00</td>
+                    <td>0.0000029</td>
+                    <td>0.0000029</td>
+                    <td>0.00</td>
+                    <td>1,000.00</td>
+                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="green">B</td>
+                    <td>Coin</td>
+                    <td>Market</td>
+                    <td>898,000.00</td>
+                    <td>0.0000029</td>
+                    <td>0.0000029</td>
+                    <td>0.00</td>
+                    <td>1,000.00</td>
+                    <td>-</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="red">S</td>
+                    <td>Coin</td>
+                    <td>Market</td>
+                    <td>898,000.00</td>
+                    <td>0.0000029</td>
+                    <td>0.0000029</td>
+                    <td>0.00</td>
+                    <td>1,000.00</td>
+                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="green">B</td>
+                    <td>Coin</td>
+                    <td>Market</td>
+                    <td>898,000.00</td>
+                    <td>0.0000029</td>
+                    <td>0.0000029</td>
+                    <td>0.00</td>
+                    <td>1,000.00</td>
+                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <!-- Trailing Stop below -->
-          <div
-            class="fade show tab-pane active"
-            v-if="selectedopenorder === 'Trailing Stop'"
-          >
-            <div class="row">
-              <div
-                class="col-md-12 table-responsive mt-3 p-0"
-                style="height: 297px; overflow: auto"
-              >
-                <table class="table table-borderless text-start p-0">
-                  <thead>
-                    <tr>
-                      <th scope="col">
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </th>
-                      <th scope="col">B/S</th>
-                      <th scope="col">Coin</th>
-                      <th scope="col">Start Price(THB)</th>
-                      <th scope="col">Trailing cond.</th>
-                      <th scope="col">Amount(BTC)</th>
-                      <th scope="col">Expired Date</th>
-                      <th scope="col">SL Conditions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(item, index) in 4" :key="index">
-                      <td>
-                        <input
-                          type="checkbox"
-                          class="form-check-input shadow"
-                        />
-                      </td>
-                      <td class="green">B</td>
-                      <td>BTC</td>
-                      <td>1,000,000.00</td>
-                      <td>+5,000.00</td>
-                      <td>10,000.00</td>
-                      <td>1 Month (30/07/22)</td>
-                      <td>-</td>
-                      <td>
-                        <button
-                          @click="$bvModal.show('cancel-modal')"
-                          class="btn"
-                        >
-                          Cancel
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+        </div>
+        <!-- Trailing Stop below -->
+        <div
+          class="fade show tab-pane active"
+          v-if="selectedopenorder === 'Trailing Stop'"
+        >
+          <div class="row">
+            <div
+              class="col-md-12 table-responsive mt-3 p-0"
+              style="height: 297px; overflow: auto"
+            >
+              <table class="table table-borderless text-start p-0">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </th>
+                    <th scope="col">B/S</th>
+                    <th scope="col">Coin</th>
+                    <th scope="col">Start Price(THB)</th>
+                    <th scope="col">Trailing cond.</th>
+                    <th scope="col">Amount(BTC)</th>
+                    <th scope="col">Expired Date</th>
+                    <th scope="col">SL Conditions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(item, index) in 4" :key="index">
+                    <td>
+                      <input type="checkbox" class="form-check-input shadow" />
+                    </td>
+                    <td class="green">B</td>
+                    <td>BTC</td>
+                    <td>1,000,000.00</td>
+                    <td>+5,000.00</td>
+                    <td>10,000.00</td>
+                    <td>1 Month (30/07/22)</td>
+                    <td>-</td>
+                    <td>
+                      <button
+                        @click="$bvModal.show('cancel-modal')"
+                        class="btn"
+                      >
+                        Cancel
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

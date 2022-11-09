@@ -4,12 +4,8 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: () => import("../pages/index/home"), name: "Home" },
-  {
-    path: "/home",
-    component: () => import("../pages/index/home"),
-    name: "Home",
-  },
+  { path: "/", component: () => import("../pages/home/Home.vue"), name: "Home" },
+  
   {
     path: "/login",
     component: () => import("../pages/uc/login"),
@@ -22,14 +18,16 @@ const routes = [
   },
   {
     path: "/exchange",
-    component: () => import("../pages/exchange/exchange"),
-    name: "Exchange",
+    component: () => import("../pages/exchange/Exchange.vue"),
+    name: "exchange",
   },
   {
-    path: "/exchange/:pair",
-    component: () => import("../pages/exchange/exchange"),
-    name: "ExchangePair",
+    path: "/order-history",
+    component: () => import("../pages/exchange/components/OrderHistory.vue"),
+    name: "order-history",
   },
+  
+  
   {
     path: "/news",
     component: () => import("../pages/news/news"),

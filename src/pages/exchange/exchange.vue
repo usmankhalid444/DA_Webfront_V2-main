@@ -361,7 +361,6 @@ export default {
     .searching-box {
       z-index: 1;
       position: absolute;
-      width: 630px;
       margin-top: 5px;
       height: auto;
       background-color: #1c262b;
@@ -420,6 +419,7 @@ export default {
       right: 0;
       margin-right: 38px;
       margin-top: 10px;
+      pointer-events: none;
     }
     .coin-image {
       position: absolute;
@@ -1047,6 +1047,14 @@ export default {
   }
 }
 @media only screen and (min-width: 768px) {
+  .buy-sell {
+    .search-container {
+      .searching-box {
+        width: 630px;
+      }
+    }
+  }
+
   .bs-table-s {
     height: 300px;
     overflow: auto;
@@ -1070,6 +1078,11 @@ export default {
   }
   .buy-sell .chart {
     height: 446px;
+  }
+}
+@media only screen and (min-width: 1536px) {
+  .buy-sell {
+    width: 80%;
   }
 }
 </style>

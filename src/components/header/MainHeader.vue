@@ -1,11 +1,10 @@
 <template>
   <div>
     <NavDrawer></NavDrawer>
-    <section class="MainHeader11189292022 bg-navbarHeader">
-      <b-container fluid class="p-0">
-        <!-- d-none d-sm-flex -->
-        <b-navbar class="FDAp-24 h64">
-          <span class="align-baseline">
+    <div class="container-fluid site-main-header">
+      <div class="row">
+        <div class="col-md-12 col-lg-1 my-auto main-header-logo">
+          <span>
             <b-link :to="{ path: '/' }">
               <b-img
                 :src="require('../../assets/images/logo-mh/logo.png')"
@@ -15,92 +14,130 @@
               </b-img>
             </b-link>
           </span>
-          <!--Middle Menu-->
-          <div class="mx-auto">
-            <div class="main-NavMenu">
-              <ul>
-                <li class="listmenu">
-                  <div class="dropdown dropdown-togglemenu">
-                    <button
-                      class="dropbtn"
-                      :class="$route.name == 'Home' ? 'active' : ''"
-                    >
-                      Home
-                    </button>
-                    <div class="dropdown-content">
-                      <b-link href="#" class="fontdropdownLeft">Link 1</b-link>
-                      <b-link href="#" class="fontdropdownmiddle"
-                        >Link 2</b-link
+        </div>
+        <div class="col-md-12 col-lg-10 my-auto">
+          <div class="main-NavMenu">
+            <ul>
+              <li class="listmenu">
+                <div class="dropdown dropdown-togglemenu">
+                  <button
+                    class="dropbtn"
+                    :class="$route.name == 'Home' ? 'active' : ''"
+                  >
+                    Home
+                    <span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                      <b-link href="#" class="fontdropdownRight">Link 3</b-link>
-                    </div>
+                        <path
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="dropdown-content">
+                    <b-link href="#" class="fontdropdownLeft">Link 1</b-link>
+                    <b-link href="#" class="fontdropdownmiddle">Link 2</b-link>
+                    <b-link href="#" class="fontdropdownRight">Link 3</b-link>
                   </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropbtn">
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropbtn">
+                  <b-link
+                    :to="{ path: '/market' }"
+                    class="hovername"
+                    :class="
+                      $route.name == 'MarketFavorite' ||
+                      $route.name == 'MarketAllCoin' ||
+                      $route.name == 'MarketCategories' ||
+                      $route.name == 'MarketThemes' ||
+                      $route.name == 'MarketHeatmap' ||
+                      $route.name == 'MarketCategoryCoinList' ||
+                      $route.name == 'MarketThemesCoinList'
+                        ? 'active'
+                        : ''
+                    "
+                  >
+                    Market
+                  </b-link>
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropbtn dropdown-togglemenu">
+                  <b-link
+                    :to="{ path: '/exchange' }"
+                    class="hovername"
+                    :class="$route.name == 'exchange' ? 'active' : ''"
+                  >
+                    Buy/Sell<span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </span>
+                  </b-link>
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropbtn">
+                  <b-link
+                    :to="{ path: '/chart' }"
+                    class="hovername"
+                    :class="$route.name == 'ChartPair' ? 'active' : ''"
+                    >Chart</b-link
+                  >
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropdown dropdown-togglemenu">
+                  <button
+                    class="dropbtn"
+                    :class="
+                      $route.name == 'AutoMode' ||
+                      $route.name == 'MyPortfolio' ||
+                      $route.name == 'OrderHistory' ||
+                      $route.name == 'history' ||
+                      $route.name == 'DepositWithdrawReport'
+                        ? 'active'
+                        : ''
+                    "
+                  >
+                    Portfolio<span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="dropdown-content">
                     <b-link
-                      :to="{ path: '/market' }"
-                      class="hovername"
-                      :class="
-                        $route.name == 'MarketFavorite' ||
-                        $route.name == 'MarketAllCoin' ||
-                        $route.name == 'MarketCategories' ||
-                        $route.name == 'MarketThemes' ||
-                        $route.name == 'MarketHeatmap' ||
-                        $route.name == 'MarketCategoryCoinList' ||
-                        $route.name == 'MarketThemesCoinList'
-                          ? 'active'
-                          : ''
-                      "
-                    >
-                      Market
+                      :to="{ path: '/uc/my-portfolio' }"
+                      class="fontdropdownLeft"
+                      >My Portfolio
                     </b-link>
-                  </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropbtn">
-                    <router-link
-                      to="/exchange"
-                      class="hovername"
-                      :class="$route.name == 'ExchangePair' ? 'active' : ''"
-                    >
-                      Buy/Sell
-                    </router-link>
-                  </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropbtn">
-                    <b-link
-                      :to="{ path: '/chart' }"
-                      class="hovername"
-                      :class="$route.name == 'ChartPair' ? 'active' : ''"
-                      >Chart</b-link
-                    >
-                  </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropdown dropdown-togglemenu">
-                    <button
-                      class="dropbtn"
-                      :class="
-                        $route.name == 'AutoMode' ||
-                        $route.name == 'MyPortfolio' ||
-                        $route.name == 'OrderHistory' ||
-                        $route.name == 'history' ||
-                        $route.name == 'DepositWithdrawReport'
-                          ? 'active'
-                          : ''
-                      "
-                    >
-                      Portfolio
-                    </button>
-                    <div class="dropdown-content">
-                      <b-link
-                        :to="{ path: '/uc/my-portfolio' }"
-                        class="fontdropdownLeft"
-                        >My Portfolio</b-link
-                      >
-                      <!-- <b-link
+                    <!-- <b-link
                         :to="{ path: '/uc/auto-mode' }"
                         class="fontdropdownmiddle"
                         >Auto Mode</b-link
@@ -110,184 +147,195 @@
                         class="fontdropdownmiddle"
                         >Order History</b-link
                       > -->
-                      <b-link
-                        :to="{ path: '/uc/history' }"
-                        class="fontdropdownmiddle"
-                        >History</b-link
-                      >
-                      <!-- <b-link
+                    <b-link
+                      :to="{ path: '/uc/history' }"
+                      class="fontdropdownmiddle"
+                      >History</b-link
+                    >
+                    <!-- <b-link
                         :to="{ path: '/uc/deposit-withdraw-report' }"
                         class="fontdropdownRight"
                         >Deposit/Withdraw Report</b-link
                       > -->
-                    </div>
                   </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropdown dropdown-togglemenu">
-                    <button
-                      class="dropbtn"
-                      :class="
-                        $route.name == 'DepositCashWallet' ||
-                        $route.name == 'DepositCoinWallet' ||
-                        $route.name == 'WithdrawCashWallet' ||
-                        $route.name == 'WithdrawCoinWallet'
-                          ? 'active'
-                          : ''
-                      "
-                    >
-                      Deposit/Withdraw
-                    </button>
-                    <div class="dropdown-content">
-                      <b-link
-                        :to="{ path: '/uc/deposit' }"
-                        class="fontdropdownLeft"
-                        >Deposit</b-link
-                      >
-                      <b-link
-                        :to="{ path: '/uc/withdraw' }"
-                        class="fontdropdownRight"
-                        >Withdraw</b-link
-                      >
-                    </div>
-                  </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropbtn">
-                    <b-link
-                      :to="{ path: '/news' }"
-                      class="hovername"
-                      :class="
-                        $route.name == 'News' || $route.name == 'NewsDetail'
-                          ? 'active'
-                          : ''
-                      "
-                      >News</b-link
-                    >
-                  </div>
-                </li>
-                <li class="listmenu">
-                  <div class="dropbtn">
-                    <b-link
-                      :to="{ path: '/download' }"
-                      class="hovername"
-                      :class="$route.name == 'Download' ? 'active' : ''"
-                      >Download</b-link
-                    >
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!--END Middle Menu-->
-          <!-- fill="#677F8E" -->
-          <!-- ******** BUTTON Login AND Add   Open Account ******** -->
-          <div class="icon-navbar_right" v-if="$route.name == 'Login'">
-            <b-button
-              class="FDA-BTnLogin"
-              role="button"
-              @click="$router.push('/login')"
-              >Login</b-button
-            >
-            <b-button class="FDA-BTnOpenAcc" role="button">
-              Open Account
-            </b-button>
-          </div>
-          <!-- ******** BUTTON Login AND Add   Open Account ******** -->
-
-          <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
-          <div class="icon-navbar_right" v-if="$route.name != 'Login'">
-            <ul class="header-dots">
-              <li>
-                <span class="btn__dropdownIcon">
-                  <b-link
-                    class="count-indicator"
-                    :to="{ path: '/notification' }"
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropdown dropdown-togglemenu">
+                  <button
+                    class="dropbtn"
+                    :class="
+                      $route.name == 'DepositCashWallet' ||
+                      $route.name == 'DepositCoinWallet' ||
+                      $route.name == 'WithdrawCashWallet' ||
+                      $route.name == 'WithdrawCoinWallet'
+                        ? 'active'
+                        : ''
+                    "
                   >
-                    <span class="icon icon-shape bg-Icon_bell iconR-16">
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
+                    Deposit/Withdraw
+                    <span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.89 22 12 22Z"
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
                           fill="#677F8E"
                         />
                       </svg>
-                      <span class="count count-varient2">3</span>
                     </span>
-                  </b-link>
-                </span>
-              </li>
-              <li>
-                <span class="btn__dropdownIcon">
-                  <div class="iconcover">
-                    <div class="dropdown-icon">
-                      <svg
-                        width="24"
-                        height="80"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clip-path="url(#clip0_3_255)">
-                          <circle cx="12" cy="12" r="9.75" fill="#677F8E" />
-                          <path
-                            d="M12.0002 0.000183105C5.37615 0.000183105 0.000152588 5.37618 0.000152588 12.0002C0.000152588 18.6242 5.37615 24.0002 12.0002 24.0002C18.6242 24.0002 24.0002 18.6242 24.0002 12.0002C24.0002 5.37618 18.6242 0.000183105 12.0002 0.000183105ZM12.0002 3.60018C13.9922 3.60018 15.6002 5.20818 15.6002 7.20018C15.6002 9.19218 13.9922 10.8002 12.0002 10.8002C10.0082 10.8002 8.40015 9.19218 8.40015 7.20018C8.40015 5.20818 10.0082 3.60018 12.0002 3.60018ZM12.0002 20.6402C9.00015 20.6402 6.34815 19.1042 4.80015 16.7762C4.83615 14.3882 9.60015 13.0802 12.0002 13.0802C14.3882 13.0802 19.1642 14.3882 19.2002 16.7762C17.6522 19.1042 15.0002 20.6402 12.0002 20.6402Z"
-                            fill="#222B2F"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_3_255">
-                            <rect width="24" height="24" fill="white" />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                      <div class="dropdown-content-icon">
-                        <ul class="Nameiofo">
-                          <li class="name">Nattamoto Shakanani</li>
-                          <li class="accountnum">Account No. 123123</li>
-                          <li class="accountnum g12">nattamoto@gmail.com</li>
-                        </ul>
-                        <div class="line-icon"></div>
-                        <ul class="coverp0">
-                          <li class="name">
-                            <b-link class="p8" 
-                             :to="{ path: '/ProfileSetting' }"
-                            >Profile & Setting</b-link>
-                          </li>
-                          <br />
-                          <li class="name">
-                            <b-link class="p8">Menu X</b-link>
-                          </li>
-                          <br />
-                          <li class="name">
-                            <b-link class="p8" @click="logout">Logout</b-link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                  </button>
+                  <div class="dropdown-content">
+                    <b-link
+                      :to="{ path: '/uc/deposit' }"
+                      class="fontdropdownLeft"
+                      >Deposit</b-link
+                    >
+                    <b-link
+                      :to="{ path: '/uc/withdraw' }"
+                      class="fontdropdownRight"
+                      >Withdraw</b-link
+                    >
                   </div>
-                </span>
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropbtn">
+                  <b-link
+                    :to="{ path: '/news' }"
+                    class="hovername"
+                    :class="
+                      $route.name == 'News' || $route.name == 'NewsDetail'
+                        ? 'active'
+                        : ''
+                    "
+                    >News</b-link
+                  >
+                </div>
+              </li>
+              <li class="listmenu">
+                <div class="dropbtn">
+                  <b-link
+                    :to="{ path: '/download' }"
+                    class="hovername"
+                    :class="$route.name == 'Download' ? 'active' : ''"
+                    >Download</b-link
+                  >
+                </div>
               </li>
             </ul>
           </div>
-          <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
-        </b-navbar>
-      </b-container>
-    </section>
+        </div>
+        <!-- ******** BUTTON Login AND Add   Open Account ******** -->
+        <div
+          class="col-3 border icon-navbar_right"
+          v-if="$route.name == 'Login'"
+        >
+          <b-button
+            class="FDA-BTnLogin"
+            role="button"
+            @click="$router.push('/login')"
+            >Login</b-button
+          >
+          <b-button class="FDA-BTnOpenAcc" role="button">
+            Open Account
+          </b-button>
+        </div>
+        <!-- ******** BUTTON Login AND Add   Open Account ******** -->
+        <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
+        <div
+          class="col-md-12 col-lg-1 icon-navbar_right my-auto"
+          v-if="$route.name != 'Login'"
+        >
+          <ul class="header-dots">
+            <li>
+              <span class="btn__dropdownIcon">
+                <b-link class="count-indicator" :to="{ path: '/notification' }">
+                  <span class="icon icon-shape bg-Icon_bell iconR-16">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M18 16V11C18 7.93 16.36 5.36 13.5 4.68V4C13.5 3.17 12.83 2.5 12 2.5C11.17 2.5 10.5 3.17 10.5 4V4.68C7.63 5.36 6 7.92 6 11V16L4 18V19H20V18L18 16ZM12 22C13.1 22 14 21.1 14 20H10C10 21.1 10.89 22 12 22Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                    <span class="count count-varient2">3</span>
+                  </span>
+                </b-link>
+              </span>
+            </li>
+            <li>
+              <span class="btn__dropdownIcon">
+                <div class="iconcover">
+                  <div class="dropdown-icon">
+                    <svg
+                      width="24"
+                      height="80"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_3_255)">
+                        <circle cx="12" cy="12" r="9.75" fill="#677F8E" />
+                        <path
+                          d="M12.0002 0.000183105C5.37615 0.000183105 0.000152588 5.37618 0.000152588 12.0002C0.000152588 18.6242 5.37615 24.0002 12.0002 24.0002C18.6242 24.0002 24.0002 18.6242 24.0002 12.0002C24.0002 5.37618 18.6242 0.000183105 12.0002 0.000183105ZM12.0002 3.60018C13.9922 3.60018 15.6002 5.20818 15.6002 7.20018C15.6002 9.19218 13.9922 10.8002 12.0002 10.8002C10.0082 10.8002 8.40015 9.19218 8.40015 7.20018C8.40015 5.20818 10.0082 3.60018 12.0002 3.60018ZM12.0002 20.6402C9.00015 20.6402 6.34815 19.1042 4.80015 16.7762C4.83615 14.3882 9.60015 13.0802 12.0002 13.0802C14.3882 13.0802 19.1642 14.3882 19.2002 16.7762C17.6522 19.1042 15.0002 20.6402 12.0002 20.6402Z"
+                          fill="#222B2F"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_3_255">
+                          <rect width="24" height="24" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <div class="dropdown-content-icon">
+                      <ul class="Nameiofo">
+                        <li class="name">Nattamoto Shakanani</li>
+                        <li class="accountnum">Account No. 123123</li>
+                        <li class="accountnum g12">nattamoto@gmail.com</li>
+                      </ul>
+                      <div class="line-icon"></div>
+                      <ul class="coverp0">
+                        <li class="name">
+                          <b-link class="p8" :to="{ path: '/ProfileSetting' }"
+                            >Profile & Setting</b-link
+                          >
+                        </li>
+                        <br />
+                        <li class="name">
+                          <b-link class="p8">Menu X</b-link>
+                        </li>
+                        <br />
+                        <li class="name">
+                          <b-link class="p8" @click="logout">Logout</b-link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
+      </div>
+    </div>
   </div>
 </template>
-<script lang="ts">
-import Vue from "vue";
+
+<script>
 import NavDrawer from "./NavDrawer.vue";
-export default Vue.extend({
-  components: {
-    NavDrawer,
-  },
+export default {
+  components: { NavDrawer },
   methods: {
     logout() {
       location.href = "/login";
@@ -305,25 +353,12 @@ export default Vue.extend({
       // });
     },
   },
-});
+};
 </script>
 <style lang="scss" scoped>
-@media (max-width: 768px) {
-  .MainHeader11189292022 {
-    display: none;
-  }
-}
-.bg-navbarHeader {
-  font-family: var(--bs-roboto-font-sans-serif);
-  background-color: #0a0d10 !important;
-}
-.MainHeader11189292022 {
-  .FDAp-24 {
-    padding: 8px 24px;
-  }
-  .h64 {
-    height: 64px;
-  }
+.site-main-header {
+  background-color: #0a0d10;
+  padding: 14px 24px;
   // ================================= Middle menu
   .main-NavMenu {
     .dropbtn {
@@ -342,10 +377,10 @@ export default Vue.extend({
       padding-bottom: 8px !important;
       padding-right: 13px;
     }
-
-    .dropdown-togglemenu::after {
-      content: url("@/assets/images/iconArrow/icon-arrow_down.png") !important;
-      margin-left: 6px;
+    .dropdown-togglemenu {
+      span {
+        margin-left: 3px;
+      }
     }
     .dropdown-content {
       margin-top: 4px;
@@ -381,10 +416,11 @@ export default Vue.extend({
     }
     ul {
       display: flex;
-      gap: 32px;
+      // gap: 32px;
       list-style: none;
       margin: 0;
       padding-left: 0;
+      justify-content: center;
     }
     li {
       transition-duration: 0.5s;
@@ -582,12 +618,12 @@ export default Vue.extend({
 
   // <!-- ******** BUTTON Login AND Add   Open Account ******** -->
   .icon-navbar_right {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0px;
-    gap: 16px;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    // padding: 0px;
+    // gap: 16px;
     /* Style Login */
     .FDA-BTnLogin {
       background-color: var(--gray-default-state);
@@ -693,10 +729,8 @@ export default Vue.extend({
     .header-dots {
       display: flex;
       flex-direction: row;
-      justify-content: flex-end;
+      // justify-content: flex-end;
       align-items: center;
-      padding: 0px;
-      margin: 0;
       gap: 16px;
       li {
         display: inline-block;
@@ -770,5 +804,64 @@ export default Vue.extend({
     }
   }
   // <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (max-width: 767px) {
+  .site-main-header {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) {
+  .main-NavMenu {
+    ul {
+      li {
+        margin: 0 5px;
+      }
+    }
+  }
+  .icon-navbar_right {
+    .header-dots {
+      justify-content: end;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+  }
+  .main-header-logo {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 1024px) {
+  .main-NavMenu {
+    ul {
+      li {
+        margin: 0 10px;
+      }
+    }
+  }
+  .icon-navbar_right {
+    .header-dots {
+      justify-content: end;
+      margin: 0;
+    }
+  }
+  .main-header-logo {
+    padding-bottom: 0px;
+  }
+}
+@media (min-width: 1366px) {
+  .main-NavMenu {
+    ul {
+      li {
+        margin: 0 25px;
+      }
+    }
+  }
 }
 </style>

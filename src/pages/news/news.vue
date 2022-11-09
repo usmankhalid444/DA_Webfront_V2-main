@@ -241,6 +241,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss" scoped>
 .mTB24 {
   margin-top: 24px !important;

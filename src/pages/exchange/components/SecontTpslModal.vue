@@ -65,8 +65,20 @@
 
           <div class="col-9">
             <div class="row tabs-container">
-              <div class="col-6 tab active">THB</div>
-              <div class="col-6 tab">%</div>
+              <div
+                class="col-6 tab"
+                @click="tp = 'thb'"
+                :class="tp === 'thb' ? 'active' : ''"
+              >
+                THB
+              </div>
+              <div
+                class="col-6 tab"
+                @click="tp = '%'"
+                :class="tp === '%' ? 'active' : ''"
+              >
+                %
+              </div>
             </div>
             <div class="row">
               <div class="col-12 input-row">
@@ -90,8 +102,20 @@
           </div>
           <div class="col-9">
             <div class="row tabs-container">
-              <div class="col-6 tab active">THB</div>
-              <div class="col-6 tab">%</div>
+              <div
+                class="col-6 tab"
+                @click="sl = 'thb'"
+                :class="sl === 'thb' ? 'active' : ''"
+              >
+                THB
+              </div>
+              <div
+                class="col-6 tab"
+                @click="sl = '%'"
+                :class="sl === '%' ? 'active' : ''"
+              >
+                %
+              </div>
             </div>
             <div class="row">
               <div class="col-12 input-row">
@@ -108,11 +132,41 @@
           <div class="col-3 w-title my-auto">Sell Amount</div>
           <div class="col-9">
             <div class="row sa-tabs">
-              <div class="col-2 text-center sa-tab-first">25%</div>
-              <div class="col-2 text-center sa-tab">50%</div>
-              <div class="col-2 text-center sa-tab">75%</div>
-              <div class="col-2 text-center sa-tab active">100%</div>
-              <div class="col-2 text-center sa-tab-last">ระบุ %</div>
+              <div
+                class="col-2 text-center sa-tab-first"
+                @click="sa = '25%'"
+                :class="sa === '25%' ? 'active' : ''"
+              >
+                25%
+              </div>
+              <div
+                class="col-2 text-center sa-tab"
+                @click="sa = '50%'"
+                :class="sa === '50%' ? 'active' : ''"
+              >
+                50%
+              </div>
+              <div
+                class="col-2 text-center sa-tab"
+                @click="sa = '75%'"
+                :class="sa === '75%' ? 'active' : ''"
+              >
+                75%
+              </div>
+              <div
+                class="col-2 text-center sa-tab"
+                @click="sa = '100%'"
+                :class="sa === '100%' ? 'active' : ''"
+              >
+                100%
+              </div>
+              <div
+                class="col-2 text-center sa-tab-last"
+                @click="sa = 'ระบุ%'"
+                :class="sa === 'ระบุ%' ? 'active' : ''"
+              >
+                ระบุ %
+              </div>
             </div>
           </div>
           <div class="col-3"></div>
@@ -133,6 +187,13 @@
 <script>
 export default {
   props: ["show_STPSL_order"],
+  data() {
+    return {
+      tp: "thb",
+      sl: "thb",
+      sa: "25%",
+    };
+  },
 };
 </script>
 <style lang="scss"></style>

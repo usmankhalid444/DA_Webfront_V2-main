@@ -33,19 +33,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="lot_a = '0%'"
+                      :class="lot_a === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_a = '25%'"
+                      :class="lot_a === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_a = '50%'"
+                      :class="lot_a === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_a = '75%'"
+                      :class="lot_a === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_a = '100%'"
+                      :class="lot_a === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -93,19 +108,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="lot_b = '0%'"
+                      :class="lot_b === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_b = '25%'"
+                      :class="lot_b === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_b = '50%'"
+                      :class="lot_b === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_b = '75%'"
+                      :class="lot_b === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="lot_b = '100%'"
+                      :class="lot_b === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -162,19 +192,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="mot_a = '0%'"
+                      :class="mot_a === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_a = '25%'"
+                      :class="mot_a === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_a = '50%'"
+                      :class="mot_a === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_a = '75%'"
+                      :class="mot_a === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_a = '100%'"
+                      :class="mot_a === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -218,19 +263,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="mot_b = '0%'"
+                      :class="mot_b === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_b = '25%'"
+                      :class="mot_b === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_b = '50%'"
+                      :class="mot_b === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_b = '75%'"
+                      :class="mot_b === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="mot_b = '100%'"
+                      :class="mot_b === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -283,19 +343,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="tst_a = '0%'"
+                      :class="tst_a === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_a = '25%'"
+                      :class="tst_a === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_a = '50%'"
+                      :class="tst_a === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_a = '75%'"
+                      :class="tst_a === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_a = '100%'"
+                      :class="tst_a === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -348,19 +423,34 @@
                 <!-- timeline start -->
                 <div class="timeline-bar">
                   <ul class="timeline">
-                    <li class="active">
+                    <li
+                      @click="tst_b = '0%'"
+                      :class="tst_b === '0%' ? 'active' : ''"
+                    >
                       <span>0%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_b = '25%'"
+                      :class="tst_b === '25%' ? 'active' : ''"
+                    >
                       <span>25%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_b = '50%'"
+                      :class="tst_b === '50%' ? 'active' : ''"
+                    >
                       <span>50%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_b = '75%'"
+                      :class="tst_b === '75%' ? 'active' : ''"
+                    >
                       <span>75%</span>
                     </li>
-                    <li>
+                    <li
+                      @click="tst_b = '100%'"
+                      :class="tst_b === '100%' ? 'active' : ''"
+                    >
                       <span>100%</span>
                     </li>
                   </ul>
@@ -676,11 +766,12 @@ export default {
   components: { SecondTpslModal, SecondSLModal },
   data() {
     return {
-      show_TPSLB_order: false,
-      show_TPSL_order: false,
-      show_STPSL_order: true,
-      show_SSL_order: true,
-      showStopLoss: false,
+      lot_a: "0%",
+      lot_b: "0%",
+      mot_a: "0%",
+      mot_b: "0%",
+      tst_a: "0%",
+      tst_b: "0%",
       ordertabs: ["Limit Order", "Market Order", "Trailing Stop"],
       selectedorder: "Limit Order",
     };
@@ -1125,9 +1216,11 @@ export default {
     font-size: 12px;
     padding: 4px 8px;
     border-radius: 2px;
+    cursor: pointer;
   }
   .tab.active {
     background-color: #2c3b44;
+    cursor: default;
   }
   .input-row {
     padding: 0;
@@ -1178,21 +1271,27 @@ export default {
       background-color: #222b2f;
       margin-left: 1px;
       padding: 8px;
+      cursor: pointer;
     }
-    .sa-tab.active {
+    .sa-tab.active,
+    .sa-tab-first.active,
+    .sa-tab-last.active {
       background-color: #38454d;
+      cursor: default;
     }
     .sa-tab-first {
       border-radius: 4px 0px 0px 4px;
       background-color: #222b2f;
       margin-left: 1px;
       padding: 8px;
+      cursor: pointer;
     }
     .sa-tab-last {
       border-radius: 0px 4px 4px 0px;
       background-color: #222b2f;
       margin-left: 1px;
       padding: 8px;
+      cursor: pointer;
     }
   }
   .top-row {
