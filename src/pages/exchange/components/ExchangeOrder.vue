@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="sells p-0">
-      <div class="row p-0 justify-content-center">
+      <div class="justify-content-center">
         <div class="col-md-12">
           <ul class="nav nav-ul">
             <li class="nav-item">
