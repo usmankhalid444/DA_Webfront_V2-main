@@ -160,7 +160,9 @@
                   </div>
                 </div>
               </li>
-              <li class="listmenu">
+              <!-- old deposit and withdraw -->
+
+              <!-- <li class="listmenu">
                 <div class="dropdown dropdown-togglemenu">
                   <button
                     class="dropbtn"
@@ -197,6 +199,50 @@
                     >
                     <b-link
                       :to="{ path: '/uc/withdraw' }"
+                      class="fontdropdownRight"
+                      >Withdraw</b-link
+                    >
+                  </div>
+                </div>
+              </li> -->
+              <!-- new deposit and withdraw -->
+              <li class="listmenu">
+                <div class="dropdown dropdown-togglemenu">
+                  <button
+                    class="dropbtn"
+                    :class="
+                      $route.name == 'DepositCashWallet' ||
+                      $route.name == 'DepositCoinWallet' ||
+                      $route.name == 'WithdrawCashWallet' ||
+                      $route.name == 'WithdrawCoinWallet'
+                        ? 'active'
+                        : ''
+                    "
+                  >
+                    Deposit/Withdraw
+                    <span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="dropdown-content">
+                    <b-link
+                      :to="{ path: '/deposit/cash' }"
+                      class="fontdropdownLeft"
+                      >Deposit</b-link
+                    >
+                    <b-link
+                      :to="{ path: '/deposit/coin' }"
                       class="fontdropdownRight"
                       >Withdraw</b-link
                     >
@@ -476,9 +522,7 @@ export default {
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-  .button-38:hover {
-    // background-color: rgb(249,250,251);
-  }
+
   .button-38:focus {
     outline: 2px solid transparent;
     outline-offset: 2px;

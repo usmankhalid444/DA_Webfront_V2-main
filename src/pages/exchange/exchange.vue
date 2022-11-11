@@ -663,9 +663,11 @@ export default {
   margin: 0;
   margin-top: 10px;
   margin-left: 7px;
+  margin-bottom: 10px;
   padding: 0;
   font-size: 16px;
   font-weight: 600;
+  color: white;
 }
 
 .buy-sell h3 {
@@ -1073,7 +1075,7 @@ export default {
     overflow: auto;
   }
   .bs-table-l {
-    height: 809px;
+    height: 770px;
     overflow: auto;
   }
   .buy-sell .chart {
@@ -1081,8 +1083,5 @@ export default {
   }
 }
 @media only screen and (min-width: 1536px) {
-  .buy-sell {
-    width: 80%;
-  }
 }
 </style>

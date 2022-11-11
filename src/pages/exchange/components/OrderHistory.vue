@@ -92,7 +92,7 @@
     </div>
     <div v-if="active_tab === 'Limit & Market Orders'" class="row">
       <div
-        class="col-md-12 table-responsive mt-3 p-0"
+        class="col-md-12 table-responsive p-2"
         style="height: 297px; overflow: auto"
       >
         <table class="table table-borderless text-start p-0">
@@ -165,7 +165,7 @@
     </div>
     <div v-if="active_tab === 'Trailing Stop'" class="row">
       <div
-        class="col-md-12 table-responsive mt-3 p-0"
+        class="col-md-12 table-responsive p-2"
         style="height: 297px; overflow: auto"
       >
         <table class="table table-borderless text-start p-0">

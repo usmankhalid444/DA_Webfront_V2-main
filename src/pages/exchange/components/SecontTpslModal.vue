@@ -178,7 +178,12 @@
               </li>
             </ul>
           </div>
-          <button class="stpsl-submit">Submit</button>
+          <button
+            @click="$bvModal.hide('limitorder-STPSL')"
+            class="stpsl-submit"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </b-modal>

@@ -177,7 +177,9 @@
               </li>
             </ul>
           </div>
-          <button class="ssl-submit">Submit</button>
+          <button @click="$bvModal.hide('limitorder-SSL')" class="ssl-submit">
+            Submit
+          </button>
         </div>
       </div>
     </b-modal>

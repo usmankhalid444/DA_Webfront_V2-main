@@ -144,10 +144,9 @@ export default {
 
 .tabs {
   width: 616px;
-  height: 560px;
+  height: 458px;
   background-color: #192126;
-  margin: 0 auto;
-  margin-top: 40px;
+  margin: 40px auto;
   border-radius: 8px;
   // box-shadow: 0 3px 5px 5px rgb(0, 0, 0, 0.05);
 }

@@ -37,7 +37,10 @@
       </div>
 
       <!-- Open Order -->
-      <div class="tab-pane open-order" v-if="selectedfooter === 'Open Orders'">
+      <div
+        class="tab-pane open-order"
+        v-if="selectedfooter === 'Open Orders (5)'"
+      >
         <ul class="nav mx-2" id="" role="tablist">
           <li class="nav-item">
             <button
@@ -373,7 +376,7 @@
       <div class="tab-pane open-order" v-if="selectedfooter === 'Portfolio'">
         <div class="row">
           <div
-            class="col-md-12 table-responsive mt-3 p-0"
+            class="col-md-12 table-responsive p-0"
             style="height: 297px; overflow: auto"
           >
             <table class="table table-borderless text-start p-0">
@@ -539,8 +542,8 @@ export default {
   components: { PortfolioDetailModal },
   data() {
     return {
-      footertabs: ["Open Orders", "Matched", "Portfolio"],
-      selectedfooter: "Open Orders",
+      footertabs: ["Open Orders (5)", "Matched", "Portfolio"],
+      selectedfooter: "Open Orders (5)",
       matchedTabs: ["Limit Orders (3)", "Market Order (2)", "Traling Stop (2)"],
       selectedMatchedTab: "Limit Orders (3)",
       openordertabs: ["Limit & Market Orders", "Trailing Stop"],
@@ -571,6 +574,8 @@ export default {
   border: none;
   padding-bottom: 14px;
   span {
+    position: relative;
+    top: -1px;
     margin-right: 5px;
   }
 }
@@ -583,6 +588,7 @@ export default {
 }
 
 .footer .open-order li {
+  border-radius: 4px;
   border: 1px solid #28363e;
 }
 
@@ -594,7 +600,7 @@ export default {
   width: 158px;
   color: #677f8e;
   font-style: normal;
-  margin: 0px;
+  margin: 1px;
   padding: 8px 0px;
 }
 
@@ -603,7 +609,6 @@ export default {
   background-color: #2c3b44;
   border-radius: 2px;
   font-size: 14px;
-  margin: 0px;
   width: 158px;
   padding: 8px 0px;
   font-style: normal;
@@ -818,6 +823,7 @@ export default {
   .bs-cancel-all-btn {
     float: right;
     margin-top: -20px;
+    margin-right: 40px;
   }
   .pills-tab {
     padding: 0 20px;
@@ -825,9 +831,7 @@ export default {
   .footer .pills-tab li button {
     margin-right: 15px;
   }
-  .lm-order-container {
-    width: 80%;
-  }
+
   // .tab-pane {
   //   padding: 0 1.5rem;
   // }
@@ -835,6 +839,11 @@ export default {
 @media only screen and (min-width: 1024px) {
   .lm-order-container {
     width: 100%;
+  }
+}
+@media (min-width: 1400px) {
+  .bs-cancel-all-btn {
+    margin-right: 90px;
   }
 }
 </style>

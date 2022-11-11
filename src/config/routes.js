@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/exchange",
-    component: () => import("../pages/exchange/exchange.vue"),
+    component: () => import("../pages/exchange/Exchange.vue"),
     name: "exchange",
   },
   {
@@ -223,6 +223,26 @@ const routes = [
       
     ],
   },
+
+  {
+    path: "/deposit/cash",
+    component: () => import("../pages/deposit-withdraw/deposit/Cash.vue"),
+        name: "DepositeCash",
+
+  },
+  {
+    path: "/deposit/coin",
+    component: () => import("../pages/deposit-withdraw/deposit/Coin.vue"),
+        name: "DepositeCoin",
+
+  },
+
+
+
+
+
+
+
   {
     path: "/wallet",
     component: () => import("../pages/wallet/deposit"),
