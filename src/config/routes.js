@@ -16,11 +16,11 @@ const routes = [
     component: () => import("../pages/uc/download"),
     name: "Download",
   },
-  // {
-  //   path: "/exchange",
-  //   component: () => import("../pages/exchange/Exchange"),
-  //   name: "exchange",
-  // },
+  {
+    path: "/exchange",
+    component: () => import("../pages/exchange/exchange"),
+    name: "exchange",
+  },
   {
     path: "/order-history",
     component: () => import("../pages/exchange/components/OrderHistory.vue"),
