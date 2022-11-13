@@ -30,10 +30,16 @@
                     </b-form-input>
                   </b-form-group>
                   <!-- PASSWORD -->
-                  <b-form-group class="login-psw">
+                  <b-form-group class="login-psw mb16">
                     <label class="text-title">Password</label>
                     <span class="fr-right">
-                      <a href="#" class="forgot-pass"> ลืมรหัสผ่าน </a>
+                      <a
+                        href="#"
+                        class="forgot-pass"
+                        @click="openModalForgetPass"
+                      >
+                        ลืมรหัสผ่าน
+                      </a>
                     </span>
                     <b-form-input
                       v-if="showPassword"
@@ -98,6 +104,150 @@
                       </span>
                     </span>
                   </b-form-group>
+
+                  <!-- PIN -->
+                  <b-form-group class="login-psw" v-if="savePin">
+                    <label class="text-title">PIN</label>
+                    <b-form-input
+                      v-if="showPin"
+                      type="text"
+                      class="input"
+                      id="text-password"
+                      v-model="pin"
+                    >
+                    </b-form-input>
+                    <b-form-input
+                      v-else
+                      type="password"
+                      class="input"
+                      v-model="pin"
+                    >
+                    </b-form-input>
+                    <!-- ICON -->
+                    <span class="fdaPass_close">
+                      <span class="button-icon" @click="toggleShowPin">
+                        <svg
+                          font-scale="1"
+                          v-if="showPin"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <mask
+                            id="mask0_3_154"
+                            style="mask-type: alpha"
+                            maskUnits="userSpaceOnUse"
+                            x="0"
+                            y="0"
+                            width="24"
+                            height="24"
+                          >
+                            <rect width="24" height="24" fill="#D9D9D9" />
+                          </mask>
+                          <g mask="url(#mask0_3_154)">
+                            <path
+                              d="M12.0031 15.85C13.2198 15.85 14.2491 15.425 15.0911 14.575C15.9325 13.725 16.3531 12.7 16.3531 11.5C16.3531 10.2833 15.9325 9.254 15.0911 8.412C14.2491 7.57067 13.2198 7.15 12.0031 7.15C10.8031 7.15 9.77813 7.57067 8.92813 8.412C8.07813 9.254 7.65313 10.2833 7.65313 11.5C7.65313 12.7 8.07813 13.725 8.92813 14.575C9.77813 15.425 10.8031 15.85 12.0031 15.85ZM12.0031 13.85C11.3531 13.85 10.7991 13.6207 10.3411 13.162C9.88246 12.704 9.65312 12.15 9.65312 11.5C9.65312 10.85 9.88246 10.2957 10.3411 9.837C10.7991 9.379 11.3531 9.15 12.0031 9.15C12.6531 9.15 13.2075 9.379 13.6661 9.837C14.1241 10.2957 14.3531 10.85 14.3531 11.5C14.3531 12.15 14.1241 12.704 13.6661 13.162C13.2075 13.6207 12.6531 13.85 12.0031 13.85ZM12.0031 19.25C9.51979 19.25 7.26979 18.5377 5.25313 17.113C3.23646 15.6877 1.76146 13.8167 0.828125 11.5C1.76146 9.18333 3.23646 7.31233 5.25313 5.887C7.26979 4.46233 9.51979 3.75 12.0031 3.75C14.4865 3.75 16.7365 4.46233 18.7531 5.887C20.7698 7.31233 22.2448 9.18333 23.1781 11.5C22.2448 13.8167 20.7698 15.6877 18.7531 17.113C16.7365 18.5377 14.4865 19.25 12.0031 19.25Z"
+                              fill="#677F8E"
+                            />
+                          </g>
+                        </svg>
+
+                        <svg
+                          font-scale="1"
+                          v-else
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 5.99922C15.79 5.99922 19.17 8.12922 20.82 11.4992C20.23 12.7192 19.4 13.7692 18.41 14.6192L19.82 16.0292C21.21 14.7992 22.31 13.2592 23 11.4992C21.27 7.10922 17 3.99922 12 3.99922C10.73 3.99922 9.51 4.19922 8.36 4.56922L10.01 6.21922C10.66 6.08922 11.32 5.99922 12 5.99922ZM10.93 7.13922L13 9.20922C13.57 9.45922 14.03 9.91922 14.28 10.4892L16.35 12.5592C16.43 12.2192 16.49 11.8592 16.49 11.4892C16.5 9.00922 14.48 6.99922 12 6.99922C11.63 6.99922 11.28 7.04922 10.93 7.13922ZM2.01 3.86922L4.69 6.54922C3.06 7.82922 1.77 9.52922 1 11.4992C2.73 15.8892 7 18.9992 12 18.9992C13.52 18.9992 14.98 18.7092 16.32 18.1792L19.74 21.5992L21.15 20.1892L3.42 2.44922L2.01 3.86922ZM9.51 11.3692L12.12 13.9792C12.08 13.9892 12.04 13.9992 12 13.9992C10.62 13.9992 9.5 12.8792 9.5 11.4992C9.5 11.4492 9.51 11.4192 9.51 11.3692V11.3692ZM6.11 7.96922L7.86 9.71922C7.63 10.2692 7.5 10.8692 7.5 11.4992C7.5 13.9792 9.52 15.9992 12 15.9992C12.63 15.9992 13.23 15.8692 13.77 15.6392L14.75 16.6192C13.87 16.8592 12.95 16.9992 12 16.9992C8.21 16.9992 4.83 14.8692 3.18 11.4992C3.88 10.0692 4.9 8.88922 6.11 7.96922Z"
+                            fill="#677F8E"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </b-form-group>
+
+                  <!-- Check box -->
+                  <div class="cover-chk">
+                    <input
+                      type="checkbox"
+                      id="cbx"
+                      class="inp-cbx"
+                      style="display: none"
+                      v-model="savePin"
+                    />
+                    <label for="cbx" class="cbx">
+                      <span class="inp-cbx">
+                        <svg width="12px" height="10px" viewBox="0 0 12 10">
+                          <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                        </svg>
+                      </span>
+                      <span>Save PIN</span>
+                    </label>
+                  </div>
+
+                  <!-- Modal -->
+                  <section class="modal-psw">
+                    <!-- <button type="button" @click="openModalForgetPass">Open modal</button> -->
+                    <div
+                      v-if="showModal == true"
+                      class="modal"
+                      id="myModal"
+                      :style="{ display: showModal == true ? 'block' : 'none' }"
+                    >
+                      <div class="modal-content modal-dialog">
+                        <div class="modal-header">
+                          <h5 class="modal-title">ลืมรหัสผ่าน</h5>
+                        </div>
+                        <div class="modal-body">
+                          <b-form class="fdaForm-psw">
+                            <b-form-group class="pad-16">
+                              <label class="text-title"
+                                >รหัสผู้ใช้งาน (Username)
+                              </label>
+                              <b-form-input type="text" id="name">
+                              </b-form-input>
+                            </b-form-group>
+
+                            <b-form-group class="pad-16">
+                              <label class="text-title1"
+                                >อีเมล (Email) เพื่อรับรหัสผ่านใหม่
+                              </label>
+                              <b-form-input
+                                type="text"
+                                id="name"
+                                placeholder="ระบุอีเมลที่ได้ลงทะเบียนไว้"
+                                class="place-hold"
+                              >
+                              </b-form-input>
+                            </b-form-group>
+
+                            <!-- button -->
+                            <div class="cover-button">
+                              <b-button class="buttons-C" href="#"
+                                >ยืนยัน</b-button
+                              >
+                              <b-button class="buttons-D" href="/login"
+                                >ยกเลิก</b-button
+                              >
+                            </div>
+
+                            <div class="contact">
+                              กรณีติดปัญหา กรุณาติดต่อ 02-252-2525
+                            </div>
+                          </b-form>
+                        </div>
+                        <!-- <div class="modal-footer"></div> -->
+                      </div>
+                    </div>
+                  </section>
+                  <!-- Modal -->
+
                   <b-button
                     class="font-family_th mt-32 fda_submit_btn-primary"
                     @click="handler"
@@ -152,6 +302,10 @@ export default Vue.extend({
           },
         ],
       },
+      pin: "",
+      showPin: false,
+      savePin: false,
+      showModal: false,
     };
   },
   created: function () {
@@ -215,6 +369,12 @@ export default Vue.extend({
     toggleShow() {
       this.showPassword = !this.showPassword;
     },
+    toggleShowPin() {
+      this.showPin = !this.showPin;
+    },
+    openModalForgetPass() {
+      this.showModal = true;
+    },
   },
 });
 </script>
@@ -262,15 +422,13 @@ export default Vue.extend({
     .login-psw {
       position: relative;
       .fdaPass_close {
+        width: 20px;
+        height: 20px;
         position: absolute;
         right: 10px;
-        top: 40.45%;
+        top: 47.45%;
         bottom: 0;
         margin: auto 0;
-        height: 0.01em;
-        display: flex;
-        max-height: 2em;
-        align-items: center;
       }
       .fdaPass_close svg {
         width: 20px;
@@ -337,6 +495,190 @@ export default Vue.extend({
       font-size: 14px;
       line-height: 24px;
       color: var(--sub-1) !important;
+    }
+  }
+
+  .cover-chk {
+    margin-left: 0px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  .cbx {
+    margin: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+  }
+  .inp-cbx {
+    background-color: rgba(34, 43, 47, 1) !important;
+    border-color: rgba(60, 81, 93, 1) !important;
+  }
+  .cbx span {
+    padding-top: 2px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: var(--bs-nst-font-sans-serif) !important;
+    padding-left: 10px !important;
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+    border-radius: 2px !important;
+  }
+  .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 0px;
+    transform: scale(1);
+    vertical-align: middle;
+    border: 1px solid #222b2f;
+    transition: all 0.2s ease;
+  }
+  .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #0a0d10;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+  }
+  .cbx span:first-child:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #222b2f;
+    display: block;
+    transform: scale(0);
+    opacity: 1;
+    border-radius: 2px;
+  }
+  .cbx span:last-child {
+    padding-left: 3px;
+  }
+  .cbx:hover span:first-child {
+    border-color: #222b2f;
+  }
+
+  .inp-cbx:checked + .cbx span:first-child {
+    background: #f38220 !important;
+    border-color: #f38220 !important;
+    animation: wave 0.4s ease;
+  }
+  .inp-cbx:checked + .cbx span:first-child svg {
+    stroke-dashoffset: 0;
+  }
+  .inp-cbx:checked + .cbx span:first-child:before {
+    transform: scale(3.5);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+
+  .modal-psw {
+    .modal {
+      z-index: 1;
+      background-color: #080b0c;
+      width: 100%;
+      height: 100%;
+    }
+    .modal-content {
+      background-color: rgba(20, 27, 31, 1) !important;
+      margin-top: 88px;
+      width: 482px;
+      .modal-header {
+        border-bottom: none !important;
+        height: 75px;
+        width: 120px;
+        margin: 8px 180px 8px 180px;
+
+        .modal-title {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 27px;
+          color: var(--primary);
+          text-align: center;
+          font-family: var(--bs-nst-font-sans-serif);
+        }
+      }
+      .modal-body {
+        height: 324px;
+        padding: 16px 68px 32px 68px;
+        .fdaForm-psw {
+          .pad-16 {
+            .text-title {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 24px;
+              color: var(--primary);
+              font-family: var(--bs-nst-font-sans-serif);
+            }
+            .text-title1 {
+              margin-top: 16px;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 24px;
+              color: var(--primary);
+              font-family: var(--bs-nst-font-sans-serif);
+            }
+            .place-hold {
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 24px;
+              font-family: var(--bs-nst-font-sans-serif);
+            }
+          }
+        }
+      }
+      .modal-footer {
+        border-top: none !important;
+        display: none;
+      }
+    }
+    //  button
+    .cover-button {
+      margin-top: 48px;
+      .buttons-C {
+        background-color: var(--orange-accent);
+        border-color: var(--orange-accent);
+        color: var(--Black) !important;
+        font-family: var(--bs-nst-font-sans-serif);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        width: 160px;
+        height: 36px;
+        margin-right: 12px;
+        margin-left: 6px;
+      }
+      .buttons-D {
+        background-color: var(--gray-active-state);
+        border-color: var(--gray-active-state);
+        font-family: var(--bs-nst-font-sans-serif);
+        color: var(--white) !important;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        width: 160px;
+        height: 36px;
+        margin-right: 6px;
+      }
+    }
+    .contact {
+      padding-left: 55px;
+      margin-top: 16px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: var(--bs-nst-font-sans-serif);
+      color: var(--sub-2);
     }
   }
 }

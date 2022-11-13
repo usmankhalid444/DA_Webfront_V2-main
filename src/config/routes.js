@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/exchange",
-    component: () => import("../pages/exchange/exchange"),
+    component: () => import("../pages/exchange/Exchange"),
     name: "exchange",
   },
   {
