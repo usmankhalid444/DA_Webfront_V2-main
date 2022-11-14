@@ -265,12 +265,14 @@ export default {};
       }
     }
   }
+}
+
+@media (min-width: 100px) {
   .right-info {
     display: none;
   }
 }
-
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
   }
