@@ -242,7 +242,7 @@
                       >Deposit</b-link
                     >
                     <b-link
-                      :to="{ path: '/deposit/cash' }"
+                      :to="{ path: '/deposit/coin' }"
                       class="fontdropdownRight"
                       >Withdraw</b-link
                     >
@@ -405,6 +405,7 @@ export default {
 .site-main-header {
   background-color: #0a0d10;
   padding: 14px 24px;
+  height: 64px;
   // ================================= Middle menu
   .main-NavMenu {
     .dropbtn {

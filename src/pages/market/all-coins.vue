@@ -96,7 +96,7 @@
       </div>
       <!-- cards end  -->
 
-      <P class="textGrey-heading marginTop32 marginBottom32 ms-2">All Coins</P>
+      <P class="textGrey-heading marginTop32 marginBottom16 ms-2">All Coins</P>
     </div>
     <Dynamic-Table
       :TableHeader="TableHeading"
@@ -303,6 +303,8 @@ export default {
 }
 .backgroundColor {
   background-color: #1c262b;
+    //   width: 434px!important;
+    // height: 184px!important;
 }
 .CardimageBitCoin {
   height: auto;

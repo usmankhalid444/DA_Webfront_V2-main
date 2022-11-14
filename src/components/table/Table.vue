@@ -913,7 +913,7 @@ export default {
   color: #f38220;
 }
 .padding-table {
-  padding: 15px 18px 0px 18px;
+  padding: 0px 18px 0px 18px;
 }
 .imageIcon-Star {
   height: auto;
