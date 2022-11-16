@@ -12,6 +12,7 @@
             >
               {{ tab }}
             </button>
+            <span class="hover-info"> Actual คือ จำนวนเหรียญที่มีในพอร์ต </span>
           </li>
           <li class="nav-item">
             <router-link to="/order-history">
@@ -68,14 +69,19 @@
         >
           <div class="row lm-order-container">
             <div
-              class="col-md-12 table-responsive mt-3 p-0"
+              class="col-md-12 table-responsive p-0"
               style="height: 297px; overflow: auto"
             >
               <table class="table table-borderless text-start p-0">
                 <thead>
                   <tr>
                     <th scope="col">
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        @change="selectAllOLM"
+                        v-model="selectAll"
+                        type="checkbox"
+                        class="form-check-input shadow"
+                      />
                     </th>
                     <th scope="col">B/S</th>
                     <th scope="col">Coin</th>
@@ -91,7 +97,11 @@
                 <tbody>
                   <tr>
                     <td>
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        type="checkbox"
+                        v-model="open_limit_market[0]"
+                        class="form-check-input shadow"
+                      />
                     </td>
                     <td class="green">B</td>
                     <td>Coin</td>
@@ -113,7 +123,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        v-model="open_limit_market[1]"
+                        type="checkbox"
+                        class="form-check-input shadow"
+                      />
                     </td>
                     <td class="red">S</td>
                     <td>Coin</td>
@@ -135,7 +149,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        v-model="open_limit_market[2]"
+                        type="checkbox"
+                        class="form-check-input shadow"
+                      />
                     </td>
                     <td class="green">B</td>
                     <td>Coin</td>
@@ -157,7 +175,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        v-model="open_limit_market[3]"
+                        type="checkbox"
+                        class="form-check-input shadow"
+                      />
                     </td>
                     <td class="red">S</td>
                     <td>Coin</td>
@@ -179,7 +201,11 @@
                   </tr>
                   <tr>
                     <td>
-                      <input type="checkbox" class="form-check-input shadow" />
+                      <input
+                        v-model="open_limit_market[4]"
+                        type="checkbox"
+                        class="form-check-input shadow"
+                      />
                     </td>
                     <td class="green">B</td>
                     <td>Coin</td>
@@ -202,6 +228,12 @@
                 </tbody>
               </table>
             </div>
+            <button
+              class="cancel-this-orders"
+              @click="$bvModal.show('cancel-all-modal')"
+            >
+              Cancel 4 Orders
+            </button>
           </div>
         </div>
         <!-- Trailing Stop below -->
@@ -209,7 +241,7 @@
           class="fade show tab-pane active"
           v-if="selectedopenorder === 'Trailing Stop'"
         >
-          <div class="row">
+          <div class="">
             <div
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
@@ -230,7 +262,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, index) in 4" :key="index">
+                  <tr v-for="(item, index) in 5" :key="index">
                     <td>
                       <input type="checkbox" class="form-check-input shadow" />
                     </td>
@@ -253,6 +285,12 @@
                 </tbody>
               </table>
             </div>
+            <button
+              class="cancel-this-orders"
+              @click="$bvModal.show('cancel-all-modal')"
+            >
+              Cancel 4 Orders
+            </button>
           </div>
         </div>
       </div>
@@ -441,7 +479,9 @@
         <div class="bs-cancel-all-modal">
           <p class="ca-modal-title">
             Cancel
-            <span @click="$bvModal.hide('cancel-all-modal')"
+            <span
+              style="cursor: pointer"
+              @click="$bvModal.hide('cancel-all-modal')"
               ><svg
                 width="14"
                 height="15"
@@ -533,6 +573,64 @@
         </div>
       </b-modal>
     </div>
+    <div class="bs-bb">
+      <span class="red"
+        ><svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.916626 9.66683V6.16683H2.66663V9.66683H0.916626ZM4.41663 9.66683V3.25016H6.16663V9.66683H4.41663ZM7.91663 9.66683V0.333496H9.66663V9.66683H7.91663Z"
+            fill="#677F8E"
+          />
+        </svg>
+        Unstable Connection</span
+      >
+      <span>BTC/THB</span>
+      <span>20,972</span>
+      <span class="red">(-4.46%)</span>
+      <span>ETH/THB</span>
+      <span>10,089</span>
+      <span class="red">(-6.46%)</span>
+      <span>SOL/THB</span>
+      <span>38.98</span>
+      <span class="green">(+4.46%)</span>
+      <div>
+        <span class="orange"
+          ><svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.50456 9.66781C1.18372 9.66781 0.909168 9.55367 0.680891 9.32539C0.452224 9.09672 0.337891 8.82197 0.337891 8.50114V6.75114H1.50456V8.50114H8.50456V6.75114H9.67122V8.50114C9.67122 8.82197 9.55709 9.09672 9.32881 9.32539C9.10014 9.55367 8.82539 9.66781 8.50456 9.66781H1.50456ZM5.00456 7.33447L2.08789 4.41781L2.90456 3.57197L4.42122 5.08864V0.334473H5.58789V5.08864L7.10456 3.57197L7.92122 4.41781L5.00456 7.33447Z"
+              fill="#677F8E"
+            />
+          </svg>
+          Download
+        </span>
+        <span class="orange"
+          ><svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3.13325 4.5335C3.26547 4.5335 3.37639 4.4887 3.46599 4.3991C3.55527 4.30981 3.59992 4.19905 3.59992 4.06683C3.59992 3.93461 3.55527 3.8237 3.46599 3.7341C3.37639 3.64481 3.26547 3.60016 3.13325 3.60016C3.00103 3.60016 2.89012 3.64481 2.80052 3.7341C2.71123 3.8237 2.66659 3.93461 2.66659 4.06683C2.66659 4.19905 2.71123 4.30981 2.80052 4.3991C2.89012 4.4887 3.00103 4.5335 3.13325 4.5335ZM4.99992 4.5335C5.13214 4.5335 5.24305 4.4887 5.33265 4.3991C5.42194 4.30981 5.46659 4.19905 5.46659 4.06683C5.46659 3.93461 5.42194 3.8237 5.33265 3.7341C5.24305 3.64481 5.13214 3.60016 4.99992 3.60016C4.8677 3.60016 4.75694 3.64481 4.66765 3.7341C4.57805 3.8237 4.53325 3.93461 4.53325 4.06683C4.53325 4.19905 4.57805 4.30981 4.66765 4.3991C4.75694 4.4887 4.8677 4.5335 4.99992 4.5335ZM6.86659 4.5335C6.99881 4.5335 7.10956 4.4887 7.19885 4.3991C7.28845 4.30981 7.33325 4.19905 7.33325 4.06683C7.33325 3.93461 7.28845 3.8237 7.19885 3.7341C7.10956 3.64481 6.99881 3.60016 6.86659 3.60016C6.73436 3.60016 6.62361 3.64481 6.53432 3.7341C6.44472 3.8237 6.39992 3.93461 6.39992 4.06683C6.39992 4.19905 6.44472 4.30981 6.53432 4.3991C6.62361 4.4887 6.73436 4.5335 6.86659 4.5335ZM0.333252 9.66683V1.26683C0.333252 1.01016 0.424719 0.790363 0.607652 0.607429C0.790274 0.424807 1.00992 0.333496 1.26659 0.333496H8.73325C8.98992 0.333496 9.20972 0.424807 9.39265 0.607429C9.57527 0.790363 9.66659 1.01016 9.66659 1.26683V6.86683C9.66659 7.1235 9.57527 7.3433 9.39265 7.52623C9.20972 7.70885 8.98992 7.80016 8.73325 7.80016H2.19992L0.333252 9.66683ZM1.26659 7.41516L1.81492 6.86683H8.73325V1.26683H1.26659V7.41516Z"
+              fill="#677F8E"
+            />
+          </svg>
+          Live Support
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -542,6 +640,8 @@ export default {
   components: { PortfolioDetailModal },
   data() {
     return {
+      selectAll: false,
+      open_limit_market: [false, false, false, false, false],
       footertabs: ["Open Orders (5)", "Matched", "Portfolio"],
       selectedfooter: "Open Orders (5)",
       matchedTabs: ["Limit Orders (3)", "Market Order (2)", "Traling Stop (2)"],
@@ -551,6 +651,16 @@ export default {
       historyTabs: [],
       selectedHistoryTabs: [],
     };
+  },
+  methods: {
+    selectAllOLM() {
+      if (this.selectAll) {
+        this.open_limit_market = [true, true, true, true, true];
+      } else if (!this.selectAll) {
+        this.open_limit_market = [false, false, false, false, false];
+      }
+      console.log(this.selectAll);
+    },
   },
 };
 </script>
@@ -699,6 +809,17 @@ export default {
     background-color: #38454db2;
   }
 }
+.cancel-this-orders {
+  background-color: #de2d40;
+  color: white;
+  border-radius: 4px;
+  width: 133px;
+  height: 36px;
+  margin: 15px 0;
+  &:hover {
+    background-color: #e04152;
+  }
+}
 .bs-bottom-section {
   border-top: 1px solid #28363e;
 }
@@ -810,12 +931,59 @@ export default {
   .bs-cancel-all-btn {
     margin-top: 20px;
   }
-  .footer .pills-tab li button {
-    margin-right: 6px;
+  .footer .pills-tab li {
+    position: relative;
+    &:hover .hover-info {
+      display: flex;
+    }
+    .hover-info {
+      position: absolute;
+      width: 240px;
+      height: 32px;
+      background-color: #d6dde1;
+      border-radius: 4px;
+      top: 40px;
+      left: -20px;
+      color: #0a0d10;
+      display: none;
+      justify-items: center;
+      align-items: center;
+      padding-left: 10px;
+    }
+    button {
+      margin-right: 6px;
+    }
   }
   .lm-order-container {
     width: 100%;
     margin: 0%;
+  }
+}
+.bs-bb {
+  background-color: #0a0d10;
+  padding: 8px 0;
+  padding-left: 10px;
+  margin: 0 -22px;
+  margin-top: 30px;
+  span {
+    margin: 0 10px;
+    svg {
+      margin-right: 10px;
+    }
+  }
+  span.red {
+    color: #de2d40;
+  }
+  span.green {
+    color: #40994f;
+  }
+  span.orange {
+    color: #f38220;
+    cursor: pointer;
+  }
+  div {
+    display: inline;
+    float: right;
   }
 }
 
@@ -828,6 +996,9 @@ export default {
   .pills-tab {
     padding: 0 20px;
   }
+  .bs-bb {
+    display: none;
+  }
   .footer .pills-tab li button {
     margin-right: 15px;
   }
@@ -837,6 +1008,10 @@ export default {
   // }
 }
 @media only screen and (min-width: 1024px) {
+  .bs-bb {
+    display: block;
+  }
+
   .lm-order-container {
     width: 100%;
   }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavDrawer></NavDrawer>
-    <div class="container-fluid site-main-header">
+    <header class="container-fluid site-main-header pmd">
       <div class="row">
         <div class="col-md-12 col-lg-1 my-auto main-header-logo">
           <span>
@@ -374,7 +374,7 @@
         </div>
         <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
       </div>
-    </div>
+    </header>
   </div>
 </template>
 
@@ -880,9 +880,16 @@ export default {
     padding-bottom: 20px;
   }
 }
-
+@media (min-width: 768px) {
+  .pmd {
+    padding-bottom: 140px;
+  }
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 1024px) {
+  .pmd {
+    padding-bottom: 0;
+  }
   .main-NavMenu {
     ul {
       li {

@@ -1,5 +1,6 @@
 <template>
   <Dynamic-Table
+  style="margin-top:34px"
     :TableHeader="TableHeading"
     :TableData="TableDatas"
     :Showfavorite="true"

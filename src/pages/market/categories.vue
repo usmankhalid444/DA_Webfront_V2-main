@@ -2,6 +2,7 @@
   <div class="wraper-main">
     <div class="categories-detail" v-show="!ShowBuySell">
       <Dynamic-Table
+      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :ShowCategories="true"
@@ -43,6 +44,7 @@
       </div>
 
       <Dynamic-Table
+      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :Showfavorite="true"
@@ -70,7 +72,7 @@ export default {
           headingMarketCap: "Market Cap",
           headingDescription: "Description",
           headingCategories: "Categories",
-          headingChart: "24h Chart",
+          headingChart: " ",
         },
       ],
       TableDatas: [

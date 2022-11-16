@@ -5,6 +5,7 @@
       id="limitorder-STPSL"
       :hide-footer="true"
       :hide-header="true"
+      centered
     >
       <div class="stop-loss-detail-modal px-2">
         <div class="col-12 my-2">
@@ -161,7 +162,7 @@
                 100%
               </div>
               <div
-                class="col-2 text-center sa-tab-last"
+                class="col-3 text-center sa-tab-last"
                 @click="sa = 'ระบุ%'"
                 :class="sa === 'ระบุ%' ? 'active' : ''"
               >
@@ -191,7 +192,6 @@
 </template>
 <script>
 export default {
-  props: ["show_STPSL_order"],
   data() {
     return {
       tp: "thb",

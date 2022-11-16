@@ -1,7 +1,8 @@
 <template>
   <div class="wraper-main">
-    <div class="categories-detail" v-show="!ShowBuySell">
+    <div class="categories-detail mt-5" v-show="!ShowBuySell">
       <Dynamic-Table
+      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :ShowThemes="true"
@@ -41,12 +42,15 @@
           </div>
         </div>
       </div>
-
+<div class="mt-3">
       <Dynamic-Table
+      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :Showfavorite="true"
       ></Dynamic-Table>
+</div>
+     
     </div>
   </div>
 </template>

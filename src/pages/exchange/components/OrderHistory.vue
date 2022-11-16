@@ -98,16 +98,206 @@
         <table class="table table-borderless text-start p-0">
           <thead>
             <tr>
-              <th scope="col">Date</th>
-              <th scope="col">B/S</th>
-              <th scope="col">Coin</th>
-              <th scope="col">Status</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Price</th>
-              <th scope="col">Fee + VAT</th>
-              <th scope="col">Total</th>
-              <th scope="col">Type</th>
-              <th scope="col">TP/SL Conditions</th>
+              <th scope="col">
+                Date
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                B/S
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Coin
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Status
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Amount
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Price
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Fee + VAT
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Total
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Type
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                TP/SL Conditions
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -171,16 +361,246 @@
         <table class="table table-borderless text-start p-0">
           <thead>
             <tr>
-              <th scope="col">Date</th>
-              <th scope="col">B/S</th>
-              <th scope="col">Coin</th>
-              <th scope="col">Status</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Price</th>
-              <th scope="col">Fee + VAT</th>
-              <th scope="col">Total</th>
-              <th scope="col">Type</th>
-              <th scope="col">TP/SL Conditions</th>
+              <th scope="col">
+                Date
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                B/S
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Coin
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Status
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Amount
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Price
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Fee + VAT
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Total
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Trailing Cond.
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Start Price (THB)
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                Expired Date
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
+              <th scope="col">
+                SL Conditon
+                <svg
+                  width="6"
+                  height="12"
+                  viewBox="0 0 6 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_4623_9379)">
+                    <path d="M0 8L3 11L6 8H0Z" fill="#677F8E" />
+                    <path d="M6 4L3 1L0 4L6 4Z" fill="#677F8E" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4623_9379">
+                      <rect width="6" height="12" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -193,44 +613,52 @@
               <td>9,038,938.56</td>
               <td>800.00</td>
               <td>50,000.98</td>
-              <td>Limit</td>
+              <td>+5,000.00</td>
+              <td>1,000,000.00</td>
+              <td>-</td>
               <td>-</td>
             </tr>
             <tr>
-              <td>28/09/22 <span>19:53</span></td>
-              <td class="red">S</td>
-              <td>BTC</td>
-              <td>Matched</td>
-              <td>4.00</td>
-              <td>5,038,938.56</td>
-              <td>800.00</td>
-              <td>50,000.98</td>
-              <td>Limit</td>
-              <td>TP: 1,000,000.00 (+20%) | SL: 789,000.00 (-20%)</td>
-            </tr>
-            <tr>
-              <td>29/09/22 <span>19:53</span></td>
+              <td>28/09/22 <span>20:53</span></td>
               <td class="green">B</td>
-              <td>BTC</td>
+              <td>ETH</td>
               <td>Matched</td>
-              <td>1.00</td>
-              <td>1,038,938.56</td>
+              <td>5.00</td>
+              <td>9,038,938.56</td>
               <td>800.00</td>
               <td>50,000.98</td>
-              <td>Limit</td>
+              <td>+5,000.00</td>
+              <td>1,000,000.00</td>
+              <td>-</td>
               <td>-</td>
             </tr>
             <tr>
-              <td>25/09/22 <span>19:53</span></td>
-              <td class="red">S</td>
+              <td>28/09/22 <span>20:53</span></td>
+              <td class="red">B</td>
               <td>BTC</td>
               <td>Matched</td>
-              <td>1.00</td>
-              <td>1,038,938.56</td>
+              <td>5.00</td>
+              <td>9,038,938.56</td>
               <td>800.00</td>
               <td>50,000.98</td>
-              <td>Limit</td>
-              <td>TP: 1,000,000.00 (+20%)</td>
+              <td>+5,000.00</td>
+              <td>1,000,000.00</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>28/09/22 <span>20:53</span></td>
+              <td class="green">B</td>
+              <td>ETH</td>
+              <td>Matched</td>
+              <td>5.00</td>
+              <td>9,038,938.56</td>
+              <td>800.00</td>
+              <td>50,000.98</td>
+              <td>+5,000.00</td>
+              <td>1,000,000.00</td>
+              <td>-</td>
+              <td>-</td>
             </tr>
           </tbody>
         </table>
@@ -417,6 +845,9 @@ export default {
       /* Text + Icon/Content - Sub#2, Icon */
 
       color: #677f8e;
+      svg {
+        // margin-left: 4px;
+      }
     }
     tr td span {
       color: #677f8e;

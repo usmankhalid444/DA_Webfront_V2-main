@@ -227,7 +227,7 @@
           </span>
         </div>
 
-        <div class="bs-table-s">
+        <div class="bs-table-s fav-table">
           <table class="table table-borderless">
             <thead>
               <tr class="sticky-top fixed">
@@ -543,7 +543,18 @@ export default {
   background: #222b2f;
   border-radius: 4px;
 }
-
+.fav-table th {
+  padding-left: 20px;
+}
+.fav-table td {
+  position: relative;
+  padding-left: 20px;
+  span {
+    position: absolute;
+    left: 0;
+    top: 5.5px;
+  }
+}
 .buy-sell .col-md-9 .col-md-4 select {
   margin-top: 17px;
   width: 120px;

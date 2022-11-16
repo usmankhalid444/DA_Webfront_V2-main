@@ -362,17 +362,32 @@ export default {
 };
 </script>
 <style scoped>
+.heading-AllCategories{
+  width: 30%;
+}
 .three-dropdown{
   margin-top: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 
 }
 .custom-charts {
   padding-left: 8px;
   padding-right: 2px;
 }
-.second-selectbox {
-  margin-left: 17px;
+.firt-selectbox  select{
+width: 124px !important;
+height:32px;
+border-radius:4px;
+padding:4px, 8px, 4px, 8px !important;
+gap:4px;
+}
+.second-selectbox select {
+width: 292px !important;
+height:32px;
+border-radius:4px;
+padding:4px, 8px, 4px, 8px !important;
+gap:4px;
+margin-left: 17px;
 }
 .borderColor {
   border-color: #28363e;
@@ -386,6 +401,7 @@ export default {
   cursor: pointer;
   margin-top: 32px;
   margin-bottom: 24px;
+  width:fit-content
 }
 .AllCategoriesCurrency:hover {
   color: #f38220;

@@ -490,9 +490,7 @@
           scope="col"
           class="textGreyDark-description"
           v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
-          style="
-    padding-left: 16px;
-"
+          style="padding-left: 16px;"
         >
           <div class="d-flex" style="margin-bottom: 15px">
             <div class="align-Icon-Heading">{{ item.headingDescription }}</div>
@@ -512,7 +510,7 @@
           <td v-if="ShowGainLoss">
             <div class="container">
               <div class="row">
-                <div class="col-2 p-0">
+                <div class="col-3 p-0">
                   <!-- <b-img class="imageIcon-star" :src="item.StarIcon" fluid alt="#">
             </b-img> -->
 
@@ -544,14 +542,13 @@
             <div class="container">
               <div class="row">
                 <div class="col-3 pe-0">
-                  <b-img
+                  <!-- <b-img
                     class="imageIcon-star"
                     :src="item.StarIcon"
                     fluid
                     alt="#"
                   >
-                  </b-img>
-
+                  </b-img> -->
                   <b-img
                     class="imageIcon-bitcoin"
                     :src="item.CoinImage"
@@ -581,7 +578,7 @@
             v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
             style="width: 30%"
           >
-            <div class="image-wrapper d-flex">
+            <div class="image-wrapper d-flex align-item-center">
               <b-img
                 id="img1Table"
                 class="imageBitCoinTable"
@@ -606,7 +603,7 @@
                 alt="#"
               >
               </b-img>
-              <span class="textGrey mb-0" style="margin-left: 17px;">{{ item.Categories }}</span>
+              <span class="textGrey mb-0" style="margin-left: 17px;line-height:2">{{ item.Categories }}</span>
             </div>
           </td>
           <!-- End Categories data with three image -->
@@ -725,7 +722,7 @@
           >
             <span class="textYellow" @click="handleDetail">Detail</span>
             <span class="textSeprator mx-2">|</span>
-            <span class="textYellow" @click="handleBuySell">BuySell</span>
+            <span class="textYellow" @click="handleBuySell">Buy/Sell</span>
           </td>
           <!-- End BuySell Button -->
           <!-- Detaiol Button -->
@@ -913,7 +910,9 @@ export default {
   color: #f38220;
 }
 .padding-table {
-  padding: 0px 18px 0px 18px;
+  // padding: 0px 18px 0px 18px;
+  padding: 0px 0px 0px 18px;
+  margin-right: 18px;
 }
 .imageIcon-Star {
   height: auto;
@@ -924,7 +923,7 @@ export default {
 .imageIcon-bitcoin {
   height: auto;
   max-width: 30%;
-  margin-left: 13px;
+  margin-left: 20px;
   margin-right: 18px;
   border-radius: 50%;
 }
@@ -985,7 +984,7 @@ export default {
   max-width: 24px;
   max-height: 24px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
   top: 0px;
   border-left: 3px solid black;
 }
@@ -994,7 +993,7 @@ export default {
   width: 100%;
   max-width: 20px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
   position: absolute;
   top: 0px;
 }
@@ -1056,13 +1055,25 @@ export default {
   // left: 12px;
   text-align: center;
 }
-.scroller {
+
+.scroller:hover{
   // width: 300px;
-  height: 200px;
+  height: 300px;
   overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;
 }
+
+// .scroller:hover{
+//   // width: 300px;
+//   height: 200px;
+//   overflow-y: scroll;
+//   // scrollbar-color: rebeccapurple green;
+//   // scrollbar-width: thin;
+// }
+
+
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;

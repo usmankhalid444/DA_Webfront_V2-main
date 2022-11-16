@@ -81,7 +81,6 @@
                       type="checkbox"
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
-                      @click="show_TPSL_order = true"
                     />
                     <span>Take Profit / Stop Loss</span></label
                   >
@@ -236,7 +235,6 @@
                       type="checkbox"
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
-                      @click="show_TPSL_order = true"
                     />
                     <span>Take Profit / Stop Loss</span></label
                   >
@@ -387,7 +385,6 @@
                       type="checkbox"
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
-                      @click="show_TPSL_order = true"
                     />
                     <span class="thai-font"
                       >ระบบทำงานทันทีที่ราคาปัจจุบัน</span
@@ -674,7 +671,7 @@
       </div>
     </b-modal>
     <!-- Second TP/SL modal -->
-    <SecondTpslModal :show_STPSL_order="show_STPSL_order" />
+    <SecondTpslModal />
     <!-- stop loss modal -->
     <b-modal id="limitorder-stop-loss" :hide-footer="true" :hide-header="true">
       <div class="row">
@@ -755,7 +752,7 @@
       </div>
     </b-modal>
     <!-- Second SL modal -->
-    <SecondSLModal :show_SSL_order="show_SSL_order" />
+    <SecondSLModal />
   </div>
 </template>
 
@@ -1089,6 +1086,8 @@ export default {
 .timeline-bar {
   // margin-bottom: 10px;
   padding: 25px 0;
+  margin: 0 -44px;
+  padding-left: 18px;
 
   .timeline {
     position: relative;

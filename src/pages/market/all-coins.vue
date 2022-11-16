@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <P class="textGrey-heading  marginTop32 ms-2 marginBottom16">Popular Theme</P>
       <!-- cards -->
-      <div class="container-fluid px-4">
+      <div class="container-fluid px-5">
         <div class="container-fluid">
           <VueSlickCarousel
             :arrows="true"
