@@ -131,7 +131,8 @@
                     </td>
                     <td class="table-text-white">
                       <p style="margin-top: 1rem">
-                        ชื่อที่ทำงาน xxxxx  อาชีพ xxxxx <br /> ตำแหน่งงาน xxxx   รายได้ xxxxxxx
+                        ชื่อที่ทำงาน xxxxx อาชีพ xxxxx <br />
+                        ตำแหน่งงาน xxxx รายได้ xxxxxxx
                       </p>
                     </td>
                     <td style="width: 7%">
@@ -144,7 +145,6 @@
                       </p>
                     </td>
                   </tr>
-
                 </tbody>
               </table>
             </div>
@@ -364,7 +364,7 @@
                         <img
                           src="../../assets/images/profile-setting/photo_camera.png"
                           alt=""
-                          style="cursor:pointer;"
+                          style="cursor: pointer"
                         />
                       </div>
                       <label class="table-text-yellow ms-2">ถ่ายรูป</label>
@@ -443,15 +443,52 @@
                           </p>
                         </div>
                         <div
+                          id="otp"
                           class="otp-inputs d-flex justify-content-center"
                           style="margin-bottom: 48px"
                         >
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
                         </div>
                         <div class="button-confirm">
                           <div
@@ -545,20 +582,25 @@
                             ถ่ายรูปเซลฟี่หน้าตรง
                           </p>
                         </div>
-                        <div class="attachment-wrap-skull d-flex justify-content-center py-5">
-                     
-                        <img
-                          src="../../assets/images/profile-setting/skullImage.png"
-                          alt=""
-                          style="cursor:pointer;"
-                        />
-                      
-                    </div>
-                    <div>
-                      <p class="image-note">หมายเหตุ</p>
-                      <p class="note-list"><span>1.</span> กรุณากด “อนุญาต’ เพื่อเปิดกล้อง</p>
-                      <p class="note-list"><span>2.</span> หากท่านยังไม่สามารถกดถ่ายรูปได้ กรุณาตรวจสอบการตั้งค่าได้ ที่นี่</p>
-                    </div>
+                        <div
+                          class="attachment-wrap-skull d-flex justify-content-center py-5"
+                        >
+                          <img
+                            src="../../assets/images/profile-setting/skullImage.png"
+                            alt=""
+                            style="cursor: pointer"
+                          />
+                        </div>
+                        <div>
+                          <p class="image-note">หมายเหตุ</p>
+                          <p class="note-list">
+                            <span>1.</span> กรุณากด “อนุญาต’ เพื่อเปิดกล้อง
+                          </p>
+                          <p class="note-list">
+                            <span>2.</span> หากท่านยังไม่สามารถกดถ่ายรูปได้
+                            กรุณาตรวจสอบการตั้งค่าได้ ที่นี่
+                          </p>
+                        </div>
                         <div class="button-camera-open">
                           <div
                             class="buttonConfirm d-grid gap-2 mb-4"
@@ -567,13 +609,12 @@
                             <button
                               type="button"
                               class="btn btn-primary btn-text-sarabun"
-                              
                             >
-                            <img
-                          src="../../assets/images/profile-setting/photo_camera_black.png"
-                          alt=""
-                          style="margin-right:10px;"
-                        />
+                              <img
+                                src="../../assets/images/profile-setting/photo_camera_black.png"
+                                alt=""
+                                style="margin-right: 10px"
+                              />
                               ถ่ายรูป
                             </button>
                           </div>
@@ -730,20 +771,56 @@
                             class="text-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
-                            
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
                           </p>
                         </div>
                         <div
+                          id="otp"
                           class="otp-inputs d-flex justify-content-center"
                           style="margin-bottom: 48px"
                         >
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
                         </div>
                         <div class="button-confirm">
                           <div
@@ -937,15 +1014,52 @@
                           </p>
                         </div>
                         <div
+                          id="otp"
                           class="otp-inputs d-flex justify-content-center"
                           style="margin-bottom: 48px"
                         >
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
                         </div>
                         <div class="button-confirm">
                           <div
@@ -1076,13 +1190,7 @@
                       <p class="text-dark-grey mt-2">จังหวัด</p>
                       <div class="name-input" style="width: 70%">
                         <select
-                          class="
-                            form-select form-select-sm
-                            w-auto
-                            text-light
-                            shadow-none
-                            borderColor
-                          "
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
                           aria-label=".form-select-sm example"
                           style="background-color: #222b2f"
                         >
@@ -1099,13 +1207,7 @@
                       <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
                       <div class="name-input" style="width: 70%">
                         <select
-                          class="
-                            form-select form-select-sm
-                            w-auto
-                            text-light
-                            shadow-none
-                            borderColor
-                          "
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
                           aria-label=".form-select-sm example"
                           style="background-color: #222b2f"
                         >
@@ -1122,13 +1224,7 @@
                       <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
                       <div class="name-input" style="width: 70%">
                         <select
-                          class="
-                            form-select form-select-sm
-                            w-auto
-                            text-light
-                            shadow-none
-                            borderColor
-                          "
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
                           aria-label=".form-select-sm example"
                           style="background-color: #222b2f"
                         >
@@ -1227,15 +1323,52 @@
                           </p>
                         </div>
                         <div
+                          id="otp"
                           class="otp-inputs d-flex justify-content-center"
                           style="margin-bottom: 48px"
                         >
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
-                          <input type="text" class="form-control otp-input" />
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
                         </div>
                         <div class="button-confirm">
                           <div
@@ -1295,7 +1428,7 @@ export default {
       showModalOTPError: false,
       showModalSurnameChange: false,
       showModalOTPSurname: false,
-      showModalOpenCamera:false,
+      showModalOpenCamera: false,
 
       showModalEditPhoneNumber: false,
       showModalOtpPhonenumber: false,
@@ -1306,9 +1439,9 @@ export default {
       showModalEditAddress: false,
       showModalOtpAddress: false,
 
-      showModalEditAddressIdCard:false,
+      showModalEditAddressIdCard: false,
 
-      showModalEditworkplace:false,
+      showModalEditworkplace: false,
     };
   },
   methods: {
@@ -1320,8 +1453,8 @@ export default {
       this.showModalOTPSurname = !this.showModalOTPSurname;
       this.showModalOTPSuccess = !this.showModalOTPSuccess;
     },
-    OpenCameraModel(){
-      this.showModalSurnameChange =!this.showModalSurnameChange;
+    OpenCameraModel() {
+      this.showModalSurnameChange = !this.showModalSurnameChange;
       this.showModalOpenCamera = !this.showModalOpenCamera;
     },
 
@@ -1350,6 +1483,41 @@ export default {
     ConfirmOtpAddress() {
       this.showModalOtpAddress = !this.showModalOtpAddress;
       this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
+    inputenter(id) {
+      const inputs = document.querySelectorAll("#otp > *[id]");
+
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("keydown", function (event) {
+          // console.log('event', event)
+          if (event.key === "Backspace") {
+            inputs[i].value = "";
+            if (i !== 0) inputs[i - 1].focus();
+          } else {
+            if (i === inputs.length - 1 && inputs[i].value !== "") {
+              return true;
+            } else if (event.keyCode > 47 && event.keyCode < 58) {
+              inputs[i].value = event.key;
+              if (i !== inputs.length - 1) inputs[i + 1].focus();
+
+              event.preventDefault();
+            } else if (event.keyCode > 64 && event.keyCode < 91) {
+              // inputs[i].value = '';
+              console.log("===beforeeeee", inputs[i].value);
+              //  if (i !== 0) inputs[i - 1].focus();
+              event.preventDefault();
+              console.log("====", String.fromCharCode(event.keyCode));
+              console.log("===ok", inputs[i].value);
+              return;
+
+              // inputs[i].value = String.fromCharCode(event.keyCode);
+
+              // if (i !== inputs.length - 1) inputs[i + 1].focus();
+              // event.preventDefault();
+            }
+          }
+        });
+      }
     },
   },
 };
@@ -1419,7 +1587,7 @@ export default {
 .border-bottom-table {
   border-bottom: 1px solid #28363e;
 }
-.button-camera-open{
+.button-camera-open {
   padding-top: 87px;
   padding-bottom: 80px;
   justify-content: center;
@@ -1431,26 +1599,26 @@ export default {
   /* padding: 48px 150px 48px 182px; */
   border-radius: 4px;
   justify-content: center;
-  border: 1px dashed #28363E;
+  border: 1px dashed #28363e;
 }
-.attachment-wrap-skull{
+.attachment-wrap-skull {
   background-color: #192126;
-  padding-top: 10px!important;
-  padding-bottom: 10px!important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
   border-radius: 4px;
   justify-content: center;
-  border: 1px dashed #28363E;
+  border: 1px dashed #28363e;
 }
-.image-note{
-  color: #D6DDE1;
+.image-note {
+  color: #d6dde1;
   font-size: 14px;
   font-weight: 400;
   font-family: "Sarabun" !important;
   padding-top: 43px;
   padding-bottom: 20px;
 }
-.note-list{
-  color: #9BACB6;
+.note-list {
+  color: #9bacb6;
   font-size: 14px;
   font-weight: 400;
   font-family: "Sarabun" !important;
@@ -1521,6 +1689,7 @@ export default {
   height: 56px !important;
   border-radius: 4px !important;
   margin-left: 16px !important;
+  text-align: center;
 }
 .button-confirm {
   justify-content: center;
@@ -1592,14 +1761,14 @@ export default {
   background: #3c515d;
   border-radius: 10px;
 }
-.paswordInput-width{
-  width: 240px!important;
+.paswordInput-width {
+  width: 240px !important;
 }
-.SurnameWidth{
-  width: 280px!important;
+.SurnameWidth {
+  width: 280px !important;
 }
-.SurnameWidthPasword{
-  width:331px!important
+.SurnameWidthPasword {
+  width: 331px !important;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
@@ -1642,4 +1811,16 @@ select {
   margin-left: 1rem;
 }
 /* modal select box end */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 </style>
