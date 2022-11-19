@@ -202,9 +202,9 @@
                     >
                       <div class="modal-content modal-dialog">
                         <div class="modal-header">
-                          <h5 class="modal-title">ลืมรหัสผ่าน</h5>
+                          <h5 class="modal-title thai-font">ลืมรหัสผ่าน</h5>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body thai-font">
                           <b-form class="fdaForm-psw">
                             <b-form-group class="pad-16">
                               <label class="text-title"
@@ -228,16 +228,16 @@
                             </b-form-group>
 
                             <!-- button -->
-                            <div class="cover-button">
-                              <b-button class="buttons-C" href="#"
-                                >ยืนยัน</b-button
-                              >
-                              <b-button class="buttons-D" href="/login"
+                            <div class="cover-button thai-font">
+                              <b-button class="buttons-C">ยืนยัน</b-button>
+                              <b-button
+                                class="buttons-D"
+                                @click="showModal = false"
                                 >ยกเลิก</b-button
                               >
                             </div>
 
-                            <div class="contact">
+                            <div class="contact thai-font">
                               กรณีติดปัญหา กรุณาติดต่อ 02-252-2525
                             </div>
                           </b-form>
@@ -255,7 +255,7 @@
                   >
                     เข้าสู่ระบบ
                   </b-button>
-                  <div class="text-center p-t-32">
+                  <div class="text-center p-t-32 thai-font">
                     <b-link class="textLink-ftLogin">เปิดบัญชี</b-link>
                     <span class="mlr-8 text_sub-ftLogin">หรือ</span>
                     <b-link class="textLink-ftLogin">ทดลองใช้งานฟรี</b-link>
@@ -408,7 +408,6 @@ export default Vue.extend({
     width: 344px;
     margin-top: 32px;
     .text-title {
-      font-family: var(--bs-roboto-font-sans-serif);
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -441,11 +440,11 @@ export default Vue.extend({
     }
 
     .fr-right {
+      font-family: "sarabun";
       float: right;
       .forgot-pass {
         position: relative;
         top: 0;
-        font-family: var(--bs-nst-font-sans-serif) !important;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -456,7 +455,6 @@ export default Vue.extend({
     }
 
     .font-family_th {
-      font-family: var(--bs-nst-font-sans-serif) !important;
     }
 
     .fda_submit_btn-primary.btn-primary {
@@ -466,6 +464,7 @@ export default Vue.extend({
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      font-family: "sarabun";
       padding: 0px 16px;
     }
 
@@ -481,7 +480,6 @@ export default Vue.extend({
     }
 
     .textLink-ftLogin {
-      font-family: var(--bs-nst-font-sans-serif) !important;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -489,7 +487,6 @@ export default Vue.extend({
       text-decoration: none;
     }
     .text_sub-ftLogin {
-      font-family: var(--bs-nst-font-sans-serif) !important;
       font-style: normal;
       font-weight: 400;
       font-size: 14px;
@@ -519,7 +516,6 @@ export default Vue.extend({
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    font-family: var(--bs-nst-font-sans-serif) !important;
     padding-left: 10px !important;
     display: inline-block;
     vertical-align: middle;
@@ -597,7 +593,7 @@ export default Vue.extend({
         border-bottom: none !important;
         height: 75px;
         width: 120px;
-        margin: 8px 180px 8px 180px;
+        margin: auto;
 
         .modal-title {
           font-weight: 600;
@@ -605,7 +601,6 @@ export default Vue.extend({
           line-height: 27px;
           color: var(--primary);
           text-align: center;
-          font-family: var(--bs-nst-font-sans-serif);
         }
       }
       .modal-body {
@@ -618,7 +613,6 @@ export default Vue.extend({
               font-size: 14px;
               line-height: 24px;
               color: var(--primary);
-              font-family: var(--bs-nst-font-sans-serif);
             }
             .text-title1 {
               margin-top: 16px;
@@ -626,13 +620,11 @@ export default Vue.extend({
               font-size: 14px;
               line-height: 24px;
               color: var(--primary);
-              font-family: var(--bs-nst-font-sans-serif);
             }
             .place-hold {
               font-weight: 400;
               font-size: 14px;
               line-height: 24px;
-              font-family: var(--bs-nst-font-sans-serif);
             }
           }
         }
@@ -649,7 +641,6 @@ export default Vue.extend({
         background-color: var(--orange-accent);
         border-color: var(--orange-accent);
         color: var(--Black) !important;
-        font-family: var(--bs-nst-font-sans-serif);
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
@@ -661,7 +652,6 @@ export default Vue.extend({
       .buttons-D {
         background-color: var(--gray-active-state);
         border-color: var(--gray-active-state);
-        font-family: var(--bs-nst-font-sans-serif);
         color: var(--white) !important;
         font-weight: 500;
         font-size: 14px;
@@ -677,7 +667,6 @@ export default Vue.extend({
       font-weight: 400;
       font-size: 14px;
       line-height: 24px;
-      font-family: var(--bs-nst-font-sans-serif);
       color: var(--sub-2);
     }
   }

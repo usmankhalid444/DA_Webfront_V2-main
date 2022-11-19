@@ -21,31 +21,49 @@
               <div class="col-5 col-md-4 my-auto thai-font">
                 เลือกช่องทางการฝาก
               </div>
-              <div class="col-7 col-md-8 select-container">
-                <select>
-                  <option>QR Code (Prompt Pay)</option>
-                  <option>Bank Transfer</option>
-                  <option>option3</option>
-                </select>
-                <span
-                  ><svg
-                    width="12"
-                    height="8"
-                    viewBox="0 0 12 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+              <div class="col-7 col-md-8">
+                <div
+                  class="select-container"
+                  tabindex="0"
+                  @click="open_dropdown = !open_dropdown"
+                  @blur="open_dropdown = false"
+                >
+                  <span class="text">{{ selected_option }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
+                    ><svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="options"
+                    :class="open_dropdown ? 'show' : 'hidden'"
                   >
-                    <path
-                      d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                      fill="#677F8E"
-                    />
-                  </svg>
-                </span>
+                    <ul>
+                      <li @click="selected_option = 'QR Code (Prompt Pay)'">
+                        QR Code (Prompt Pay)
+                      </li>
+                      <li @click="selected_option = 'Bank Transfer'">
+                        Bank Transfer
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="row mt-3">
               <div class="col-5 col-md-4 my-auto thai-font">
-                เลือกช่องทางการฝาก
+                จำนวนเงินที่ต้องการฝาก
               </div>
               <div class="col-7 col-md-8 input-container">
                 <input type="text" placeholder="0.00" />
@@ -94,7 +112,14 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      open_dropdown: false,
+      selected_option: "QR Code (Prompt Pay)",
+    };
+  },
+};
 </script>
 <style lang="scss">
 .deposite-cash-container {
@@ -125,15 +150,53 @@ export default {};
   }
   .center-section {
     .select-container {
-      select {
-        background-color: #222b2f;
-        color: #d6dde1;
-        border-radius: 4px;
-        height: 40px;
-        padding: 0 18px;
+      background-color: #222b2f;
+      color: #d6dde1;
+      border-radius: 4px;
+      height: 40px;
+      width: 240px;
+      margin: auto 0;
+      display: flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      .icon {
+        pointer-events: none;
+        position: absolute;
+        right: 20px;
       }
-      span {
-        margin-left: -25px;
+      .rotate-sc-icon {
+        transform: rotateX(180deg);
+      }
+      .text {
+        padding-left: 15px;
+      }
+      .options {
+        position: absolute;
+        bottom: -82px;
+        width: 100%;
+        background-color: #222b2f;
+        border-radius: 4px;
+        ul {
+          margin: 0;
+          padding: 0;
+          li {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            padding: 0 15px;
+            border-radius: 4px;
+            &:hover {
+              background-color: #2c3b44;
+            }
+          }
+        }
+      }
+      .hidden {
+        display: none;
+      }
+      .show {
+        display: block;
       }
     }
     .input-container {
@@ -182,7 +245,7 @@ export default {};
     }
     .last-btn {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 35px;
       button {
         color: #0a0d10;
         background-color: #f38220;
@@ -222,11 +285,11 @@ export default {};
     .center-section {
       padding: 0;
     }
-    .select-container {
-      select {
-        width: 190px;
-      }
-    }
+    // .select-container {
+    //   select {
+    //     width: 190px;
+    //   }
+    // }
     .input-container {
       input {
         width: 190px;
@@ -242,11 +305,11 @@ export default {};
     .center-section {
       padding: 0 1rem;
     }
-    .select-container {
-      select {
-        width: 240px;
-      }
-    }
+    // .select-container {
+    //   select {
+    //     width: 240px;
+    //   }
+    // }
     .input-container {
       input {
         width: 240px;

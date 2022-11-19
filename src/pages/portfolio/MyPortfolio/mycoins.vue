@@ -4,6 +4,7 @@
     <div class="row">
       <div class="col-5">
         <div id="chart" class="custom-charts">
+          <div class="coin-allocation">Coin Allocation</div>
           <apexchart
             type="donut"
             width="400"
@@ -146,6 +147,9 @@ export default {
         colors: ["#20A3FF", "#3FDE68", "#B554FF", "#F8C417", "grey"],
         chart: {
           type: "donut",
+        },
+        stroke: {
+          show: false,
         },
         responsive: [
           {
@@ -298,7 +302,19 @@ export default {
   height: 17px;
   width: 17px;
 }
-.Get-started{
+.Get-started {
   margin: 20px;
+}
+.custom-charts {
+  position: relative;
+}
+.coin-allocation {
+  position: absolute;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #677f8e;
+  top: 14px;
+  right: calc(1.45rem + 1px);
 }
 </style>

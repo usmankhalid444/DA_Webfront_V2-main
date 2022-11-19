@@ -2,10 +2,11 @@
   <div class="wraper">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-3 background-tabs">
-            <div class="setting-heading">
+        <!-- <div class="col-3 background-tabs"> -->
+        <div class="background-tabs">
+          <div class="setting-heading">
             <h1>การตั้งค่า</h1>
-        </div>
+          </div>
           <ul class="nav flex-column mx-auto">
             <li class="nav-item menu-item">
               <div class="menu-item">
@@ -24,7 +25,8 @@
                   class="colormiddle d-flex justify-content-between"
                   :to="{ path: '/ProfileSetting/BankAccountSuccessful' }"
                   :active="$route.name == 'BankAccountSuccessful'"
-                  ><span>บัญชีธนาคาร</span> <span class="green">สำเร็จ</span></b-link
+                  ><span>บัญชีธนาคาร</span>
+                  <span class="green">สำเร็จ</span></b-link
                 >
               </div>
             </li>
@@ -156,24 +158,22 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.background-tabs{
-    background-color: #192126;
-    padding-left: 0px;
-    padding-bottom: 15%;
+.background-tabs {
+  background-color: #192126;
+  padding-left: 0px;
+  padding-bottom: 15%;
+  width: 272px;
 }
-.setting-heading{
+.setting-heading {
   padding: 24px 0px 10px 24px;
 }
-.green{
-    color: var(--green-positive);;
+.green {
+  color: var(--green-positive);
 }
-.hr{
-    border-bottom: 1px solid #677F8E;
-    margin: 24px;
+.hr {
+  border-bottom: 1px solid #677f8e;
+  margin: 24px;
 }
-
-
-
 
 .mx-auto {
   display: flex;
@@ -189,8 +189,7 @@ export default Vue.extend({
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 19px !important;
-    font-family: 'sarabun'!important;
-
+  font-family: "sarabun" !important;
 }
 
 .mx-auto .colormiddle {
@@ -206,7 +205,7 @@ export default Vue.extend({
   border-left: 4px solid #f38220 !important;
   /* text-align: center; */
   color: var(--primary) !important;
-  background-color: #38454D;
+  background-color: #38454d;
   font-weight: 400 !important;
   font-size: 14px !important;
 }

@@ -15,7 +15,7 @@
             </b-link>
           </span>
         </div>
-        <div class="col-md-12 col-lg-10 my-auto">
+        <div class="col-md-12 col-lg-10 my-auto Nav1">
           <div class="main-NavMenu">
             <ul>
               <li class="listmenu">
@@ -852,6 +852,7 @@ export default {
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media (max-width: 767px) {
   .site-main-header {
     display: none;
@@ -870,14 +871,14 @@ export default {
   .icon-navbar_right {
     .header-dots {
       justify-content: end;
-      margin-top: 20px;
+      // margin-top: 20px;
       margin-bottom: 0;
     }
   }
   .main-header-logo {
     display: flex;
     justify-content: center;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) {
@@ -885,10 +886,39 @@ export default {
     padding-bottom: 140px;
   }
 }
+@media (min-width:768px) and (max-width:992px){
+.main-NavMenu{
+  margin-top:10px
+}
+.Nav1{
+    order:3
+}
+.icon-navbar_right{
+  order:2
+}
+.pmd{
+    padding-bottom: 110px;
+}
+}
+
+
+
+@media (min-width: 992px) {
+  .pmd {
+    padding-bottom:0;
+  }
+  .site-main-header .main-NavMenu .dropbtn{
+    padding: 0px 0px 0px 0px;
+  }
+}
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 1024px) {
-  .pmd {
+  .site-main-header .main-NavMenu .dropbtn{
+    padding: 0px 0px 18px 0px;
+  }
+ .pmd {
     padding-bottom: 0;
+    
   }
   .main-NavMenu {
     ul {
@@ -904,7 +934,7 @@ export default {
     }
   }
   .main-header-logo {
-    padding-bottom: 0px;
+    // padding-bottom: 0px;
   }
 }
 @media (min-width: 1366px) {

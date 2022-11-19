@@ -12,6 +12,11 @@ const routes = [
     name: "Login",
   },
   {
+    path: "/register",
+    component: () => import("../pages/uc/Register"),
+    name: "Register",
+  },
+  {
     path: "/download",
     component: () => import("../pages/uc/download"),
     name: "Download",

@@ -123,7 +123,7 @@
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :ShowAllCategoriesCurrency="true"
-      ></Dynamic-Table>
+        ></Dynamic-Table>
 
       <!-- End Table Treemap -->
     </div>
@@ -281,7 +281,7 @@ export default {
       ],
       TableDatas: [
         {
-          StarIcon: require("../../assets/images/favoriteTable/star.png"),
+          StarIcon:'',
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "WBTC",
           CoinName: "Bitcoin",
@@ -296,7 +296,7 @@ export default {
           MarketCapPercentage: "50.16%",
         },
         {
-          StarIcon: require("../../assets/images/favoriteTable/star.png"),
+           StarIcon:'',
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "ETH",
           CoinName: "Ethereum",
@@ -311,7 +311,7 @@ export default {
           MarketCapPercentage: "40.16%",
         },
         {
-          StarIcon: require("../../assets/images/favoriteTable/star.png"),
+           StarIcon:'',
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "USDT",
           CoinName: "Tether",
@@ -326,7 +326,7 @@ export default {
           MarketCapPercentage: "60.16%",
         },
         {
-          StarIcon: require("../../assets/images/favoriteTable/star.png"),
+           StarIcon:'',
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "USDC",
           CoinName: "USD Coin",
@@ -341,7 +341,7 @@ export default {
           MarketCapPercentage: "70.16%",
         },
         {
-          StarIcon: require("../../assets/images/favoriteTable/star.png"),
+           StarIcon:'',
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "BNB",
           CoinName: "BNB",

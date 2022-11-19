@@ -1,8 +1,16 @@
 <template>
   <div class="wraper">
-    <div class="container-fluid background-darkgrey">
+    <div
+      class="
+        container-fluid
+        coin-nav
+        justify-content-center
+        align-items-center
+        background-darkgrey
+      "
+    >
       <div class="container">
-        <div class="row">
+        <div class="row justify-content-center align-items-center">
           <div class="col">
             <div class="my-portfolio-header">
               <p class="font-18 light-grey">My Portfolio Value</p>
@@ -38,7 +46,16 @@
     </div>
     <div class="container">
       <section>
-        <b-container fluid class="pLR-24 bg-MarKetHeader d-flex justify-content-between border-bottom">
+        <b-container
+          fluid
+          class="
+            pLR-24
+            bg-MarKetHeader
+            d-flex
+            justify-content-between
+            border-bottom
+          "
+        >
           <div class="page-MarKetHeader">
             <b-navbar>
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -67,10 +84,12 @@
             </b-navbar>
           </div>
           <div class="checkbox d-flex align-items-center">
-                  <input type="checkbox" class="form-check-input shadow custom-checkbox" />
-                  <p class="ms-2 mb-0">ซ่อนเหรียญมูลค่าน้อย</p>
-                </div>
-                
+            <input
+              type="checkbox"
+              class="form-check-input shadow custom-checkbox"
+            />
+            <p class="ms-2 mb-0">ซ่อนเหรียญมูลค่าน้อย</p>
+          </div>
         </b-container>
         <router-view></router-view>
       </section>
@@ -124,15 +143,15 @@ export default Vue.extend({
   font-size: 18px;
   font-family: "Roboto Flex";
 }
-.custom-checkbox{
-    background: #222B2F;
-    border: 1px solid #3C515D;
-    border-radius: 2px;
-    height: 17px;
-    width: 17px;
+.custom-checkbox {
+  background: #222b2f;
+  border: 1px solid #3c515d;
+  border-radius: 2px;
+  height: 17px;
+  width: 17px;
 }
-.border-bottom{
-    border-bottom: 1px solid #28363E!important;
+.border-bottom {
+  border-bottom: 1px solid #28363e !important;
 }
 .pLR-24 {
   padding-left: 0px !important;
@@ -221,5 +240,8 @@ input::placeholder {
 .field:focus {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+}
+.coin-nav {
+  height: 80px;
 }
 </style>

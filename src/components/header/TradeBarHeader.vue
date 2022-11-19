@@ -454,4 +454,31 @@
     }
   }
 }
+
+
+</style>
+<style>
+@media (max-width: 1075px) {
+  .page-MarKetHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+  .page-MarKetHeader  form {
+    position: absolute;
+    top: 61px;
+    right: -4px;
+  }
+}
+@media (min-width:768px) and (max-width:855px){
+  .MarKetHeader11289292022 .mx-auto .colormiddle{
+    padding: 15px 0px !important;
+    height: 50px !important;
+    font-size: 13px !important;
+  }
+  .page-MarKetHeader form {
+    top: 53px;
+    right: -20px;
+}
+}
 </style>

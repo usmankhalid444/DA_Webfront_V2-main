@@ -14,7 +14,7 @@
 
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">
               {{ item.Coin }}
             </div>
@@ -24,7 +24,7 @@
 
         <!-- Heading B/S -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">
               {{ item.BS }}
             </div>
@@ -34,13 +34,24 @@
 
         <!-- Heading Actual -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">{{ item.Actual }}</div>
             <div class="question-circle" @click="sortTable(0)">
-             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-question-circle" viewBox="0 0 16 16">
-  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-  <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-</svg>
+              <!-- <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                fill="currentColor"
+                class="bi bi-question-circle"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                />
+                <path
+                  d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
+                />
+              </svg> -->
             </div>
           </div>
         </th>
@@ -48,34 +59,29 @@
 
         <!-- Heading AvrgCost -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">{{ item.AvrgCost }}</div>
           </div>
         </th>
         <!-- End Heading AvrgCost -->
 
-         
-
         <!-- Heading Total -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">{{ item.Total }}</div>
           </div>
         </th>
         <!-- End Heading Total -->
 
-         <!-- Heading ProfitLoss -->
+        <!-- Heading ProfitLoss -->
         <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-end">
             <div class="align-Icon-Heading">{{ item.ProfitLoss }}</div>
           </div>
         </th>
         <!-- End Heading ProfitLoss -->
-
-       
-        
       </thead>
-      <tbody>
+      <tbody class="mt-2">
         <tr
           class="textDarkgrey-Border"
           v-for="(item, index) in TableData"
@@ -87,72 +93,68 @@
           <td>
             <p class="Datetime-one">
               <span class="textGrey Coin-Symbol">
-              {{ item.Date }}
-            </span>
-            <span class="textGreyDark-table">
-              {{ item.Time }}
-            </span>
+                {{ item.Date }}
+              </span>
+              <span class="textGreyDark-table">
+                {{ item.Time }}
+              </span>
             </p>
 
             <p class="DateTime-two">
               <span class="textGrey Coin-Symbol">
-              {{ item.Date }}
-            </span>
-            <span class="textGreyDark-table">
-              {{ item.Time }}
-            </span>
+                {{ item.Date }}
+              </span>
+              <span class="textGreyDark-table">
+                {{ item.Time }}
+              </span>
             </p>
           </td>
           <!-- End Datetime -->
 
           <!-- CoinSymbol -->
-          <td  class="textGrey text-center">
+          <td class="textGrey text-end">
             <p>{{ item.CoinSymbol }}</p>
             <p>{{ item.CoinSymbol }}</p>
           </td>
           <!-- End CoinSymbol -->
 
           <!-- B/S -->
-          <td  class="textGrey text-center">
-            <p style="color:#40994f">{{ item.BGreen }}</p>
-            <p style="color:#DE2D40">{{ item.SRed }}</p>
+          <td class="textGrey text-end">
+            <p style="color: #40994f">{{ item.BGreen }}</p>
+            <p style="color: #de2d40">{{ item.SRed }}</p>
           </td>
           <!-- End B/S -->
 
           <!-- last ActualValue -->
-          <td  class="textGrey text-center">
+          <td class="textGrey text-end">
             <p>{{ item.ActualValue }}</p>
             <p>{{ item.ActualValue }}</p>
           </td>
           <!-- End ActualValue -->
 
           <!-- last AvrgCostValue -->
-          <td class="textGrey text-center">
+          <td class="textGrey text-end">
             <p>{{ item.AvrgCostValue }}</p>
             <p>{{ item.AvrgCostValue }}</p>
           </td>
           <!-- End AvrgCostValue -->
 
-          
-
           <!-- last TotalValue -->
-          <td  class="textGrey text-center">
+          <td class="textGrey text-end">
             <p>{{ item.TotalValue }}</p>
             <p>{{ item.TotalValue }}</p>
-
           </td>
           <!-- End TotalValue -->
 
           <!-- profitloss -->
-          <td>
-
-            <p class="profitloss-two mt-4" style="textAlign:end">
-              <span class="textGrey Coin-Symbol" style="color:#40994f">
-              {{ item.ProfitLossValue }}
-            </span>
-            <span class="textGreyDark-table" style="color:#40994f">
-              {{ item.ProfitLossPercentage }}
-            </span>
+          <td class="text-end align-bottom">
+            <p class="profitloss-two mt-4" style="textalign: end">
+              <span class="textGrey Coin-Symbol" style="color: #40994f">
+                {{ item.ProfitLossValue }}
+              </span>
+              <span class="textGreyDark-table" style="color: #40994f">
+                {{ item.ProfitLossPercentage }}
+              </span>
             </p>
           </td>
           <!-- end profitloss -->
@@ -193,7 +195,7 @@ export default {
   vertical-align: middle;
 }
 .textRed {
-  color: #DE2D40;
+  color: #de2d40;
   text-align: center;
   vertical-align: middle;
 }
@@ -237,10 +239,10 @@ export default {
 }
 
 .Coin-Symbol {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
 }
-.question-circle{
+.question-circle {
   position: relative;
   margin-top: -3px;
   left: 8px;

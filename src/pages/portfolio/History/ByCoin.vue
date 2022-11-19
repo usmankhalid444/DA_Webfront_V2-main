@@ -4,7 +4,13 @@
       <div class="d-flex justify-content-between">
         <div class="search-datePicker d-flex">
           <form
-            class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto mt-3"
+            class="
+              navbar-search navbar-search-dark
+              form-inline
+              mr-3
+              ml-lg-auto
+              mt-3
+            "
           >
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
@@ -56,7 +62,7 @@ export default {
       TableHeading: [
         {
           Date: "Date",
-          CoinSymbolHeading:"Coin",
+          CoinSymbolHeading: "Coin",
           BuyActualHeading: "Actual",
           BuyAvrgCostHeading: "Avg. Cost",
           BuyTotalHeading: "Total",
@@ -236,7 +242,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 219px;
+  width: 142px;
   height: 40px;
 }
 
@@ -265,7 +271,7 @@ input::placeholder {
   line-height: 24px;
   color: var(--primary);
   border: 0;
-  width: 219px;
+  max-width: 142px;
   height: 40px;
   padding: 8px 40px;
   background-color: #222b2f;
@@ -303,5 +309,8 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
+}
+.date-picker-container .mx-datepicker-range {
+  width: 177px;
 }
 </style>

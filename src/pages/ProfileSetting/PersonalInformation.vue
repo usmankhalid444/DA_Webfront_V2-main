@@ -26,7 +26,7 @@
           </div>
           <div class="row px-4 pt-4">
             <div class="col-10">
-              <table class="table">
+              <table class="table width-table">
                 <thead>
                   <th scope="col"></th>
                 </thead>
@@ -57,7 +57,6 @@
                       <p style="margin-top: 1rem">096-807-9333</p>
                     </td>
                     <td style="width: 7%">
-                        
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -105,6 +104,47 @@
                       </p>
                     </td>
                   </tr>
+
+                  <tr class="address border-bottom-table">
+                    <td class="table-text ps-0">
+                      <p style="margin-top: 1rem">ที่อยู่ตามบัตรประชาชน</p>
+                    </td>
+                    <td class="table-text-white">
+                      <p style="margin-top: 1rem">
+                        188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240
+                      </p>
+                    </td>
+                    <td style="width: 7%">
+                      <p
+                        class="table-text-yellow correct-button"
+                        style="margin-top: 1rem"
+                        @click="showModalEditAddressIdCard = true"
+                      >
+                        แก้ไข
+                      </p>
+                    </td>
+                  </tr>
+
+                  <tr class="address border-bottom-table">
+                    <td class="table-text ps-0">
+                      <p style="margin-top: 1rem">สถานที่ทำงาน</p>
+                    </td>
+                    <td class="table-text-white">
+                      <p style="margin-top: 1rem">
+                        ชื่อที่ทำงาน xxxxx  อาชีพ xxxxx <br /> ตำแหน่งงาน xxxx   รายได้ xxxxxxx
+                      </p>
+                    </td>
+                    <td style="width: 7%">
+                      <p
+                        class="table-text-yellow correct-button"
+                        style="margin-top: 1rem"
+                        @click="showModalEditworkplace = true"
+                      >
+                        แก้ไข
+                      </p>
+                    </td>
+                  </tr>
+
                 </tbody>
               </table>
             </div>
@@ -112,8 +152,6 @@
         </div>
       </div>
     </div>
-
-
 
     <!-- common success modal -->
     <div v-if="showModalOTPSuccess">
@@ -140,7 +178,10 @@
                           class="finisButton-SuccesOtp"
                           @click="showModalOTPSuccess = false"
                         >
-                          <button type="button" class="btn btn-cancel">
+                          <button
+                            type="button"
+                            class="btn btn-text-sarabun btn-cancel"
+                          >
                             เสร็จสิ้น
                           </button>
                         </div>
@@ -155,7 +196,49 @@
       </transition>
     </div>
     <!-- common success modal end -->
-
+    <!-- common erro modal -->
+    <div v-if="showModalOTPError">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog otp-error" role="document">
+              <div class="modal-content">
+                <div class="modal-body scroller-otp">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center">
+                        <div class="checkTick">
+                          <img
+                            class="image-cross-modal"
+                            src="../../assets/images/profile-setting/tick.png"
+                            alt=""
+                          />
+                        </div>
+                        <div class="success-message">
+                          <p class="text-grey">
+                            ไม่สามารถใช้เบอร์นี้ได้
+                            เนื่องจากเบอร์โทรศัพท์นี้ถูกใช้ในระบบแล้ว
+                          </p>
+                        </div>
+                        <div
+                          class="finisButton-SuccesOtp"
+                          @click="showModalOTPError = false"
+                        >
+                          <button type="button" class="btn btn-cancel">
+                            ย้อนกลับ
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- common error modal end -->
     <!-- modal Edit Name-Surname change -->
     <div v-if="showModalSurnameChange">
       <transition name="modal">
@@ -169,9 +252,9 @@
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
-                        <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title m-auto text-center">
                             เปลี่ยนแปลงชื่อ-นามสกุล
                           </h5>
                           <button
@@ -225,7 +308,7 @@
                         >
                         <input
                           type="text"
-                          class="form-control mb-3"
+                          class="form-control mb-3 SurnameWidth"
                           placeholder="ระบุชื่อ"
                         />
                       </div>
@@ -242,7 +325,7 @@
                         >
                         <input
                           type="text"
-                          class="form-control mb-4"
+                          class="form-control mb-4 SurnameWidth"
                           placeholder="ระบุนามสกุล"
                         />
                       </div>
@@ -259,7 +342,7 @@
                         >
                         <input
                           type="text"
-                          class="form-control"
+                          class="form-control SurnameWidthPasword"
                           placeholder="ระบุรหัสหลังบัตรประชาชน"
                         />
                       </div>
@@ -272,32 +355,33 @@
                       </p>
                       <div class="name-input">
                         <label for="inputPassword2" class="visually-hidden"
-                          >ระบุรหัสหลังบัตรประชาชน</label
+                          >ถ่ายรูปของท่าน</label
                         >
                       </div>
                     </div>
                     <div class="attachment-wrap d-flex py-5">
-                      <div>
+                      <div @click="OpenCameraModel">
                         <img
-                          src="../../assets/images/profile-setting/attachmentIcon.png"
+                          src="../../assets/images/profile-setting/photo_camera.png"
                           alt=""
+                          style="cursor:pointer;"
                         />
                       </div>
-                      <label class="table-text-yellow ms-2">เพิ่มเอกสาร</label>
+                      <label class="table-text-yellow ms-2">ถ่ายรูป</label>
                       <!-- <input class="form-controls" type="file" id="formFile"> -->
                     </div>
                     <!-- modal button bottom -->
                     <div class="button mt-5 mb-5 text-center">
                       <button
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-primary btn-text-sarabun"
                         @click="SurnametoggleOpenOtp"
                       >
                         บันทึก
                       </button>
                       <button
                         type="button"
-                        class="btn btn-cancel ms-3"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
                         @click="showModalSurnameChange = false"
                       >
                         ยกเลิก
@@ -376,7 +460,7 @@
                           >
                             <button
                               type="button"
-                              class="btn btn-primary"
+                              class="btn btn-primary btn-text-sarabun"
                               @click="ConfirmOtpSurname"
                             >
                               ยืนยัน
@@ -414,11 +498,7 @@
         </div>
       </transition>
     </div>
-    <!-- End modal Edit Name-Surname change -->
-
-
-    <!-- modal Edit Phone Number -->
-    <div v-if="showModalEditPhoneNumber">
+    <div v-if="showModalOpenCamera">
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-wrapper">
@@ -433,6 +513,99 @@
                       <div class="col-md-8 offset-md-3">
                         <div class="d-flex justify-content-around">
                           <h5 class="modal-title text-center">
+                            ถ่ายรูปเซลฟี่หน้าตรง
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalOpenCamera = false"
+                              style="color: #677f8e; font-size: 24px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="otp-number">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 37px"
+                          >
+                            ถ่ายรูปเซลฟี่หน้าตรง
+                          </p>
+                        </div>
+                        <div class="attachment-wrap-skull d-flex justify-content-center py-5">
+                     
+                        <img
+                          src="../../assets/images/profile-setting/skullImage.png"
+                          alt=""
+                          style="cursor:pointer;"
+                        />
+                      
+                    </div>
+                    <div>
+                      <p class="image-note">หมายเหตุ</p>
+                      <p class="note-list"><span>1.</span> กรุณากด “อนุญาต’ เพื่อเปิดกล้อง</p>
+                      <p class="note-list"><span>2.</span> หากท่านยังไม่สามารถกดถ่ายรูปได้ กรุณาตรวจสอบการตั้งค่าได้ ที่นี่</p>
+                    </div>
+                        <div class="button-camera-open">
+                          <div
+                            class="buttonConfirm d-grid gap-2 mb-4"
+                            style="width: 78%"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-text-sarabun"
+                              
+                            >
+                            <img
+                          src="../../assets/images/profile-setting/photo_camera_black.png"
+                          alt=""
+                          style="margin-right:10px;"
+                        />
+                              ถ่ายรูป
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- End modal Edit Name-Surname change -->
+
+    <!-- modal Edit Phone Number -->
+    <div v-if="showModalEditPhoneNumber">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title m-auto text-center">
                             เปลี่ยนแปลงเบอร์โทรศัพท์
                           </h5>
                           <button
@@ -482,7 +655,7 @@
                         >
                         <input
                           type="text"
-                          class="form-control mb-3"
+                          class="form-control paswordInput-width"
                           placeholder="ระบุเบอร์โทรศัพท์"
                         />
                       </div>
@@ -490,17 +663,16 @@
 
                     <!-- modal button bottom -->
                     <div class="button mt-5 mb-5 text-center">
-                         
                       <button
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-primary btn-text-sarabun"
                         @click="toggleOpenOtpEditPhone"
                       >
                         บันทึก
                       </button>
                       <button
                         type="button"
-                        class="btn btn-cancel ms-3"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
                         @click="showModalEditPhoneNumber = false"
                       >
                         ยกเลิก
@@ -558,6 +730,7 @@
                             class="text-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
+                            
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
                           </p>
                         </div>
@@ -577,10 +750,9 @@
                             class="buttonConfirm d-grid gap-2 mb-4"
                             style="width: 78%"
                           >
-                           
                             <button
                               type="button"
-                              class="btn btn-primary"
+                              class="btn btn-primary btn-text-sarabun"
                               @click="ConfirmOtpPhonenumber"
                             >
                               ยืนยัน
@@ -620,7 +792,6 @@
     </div>
     <!-- end modal Edit phone number -->
 
-
     <!-- modal Edit Email -->
     <div v-if="showModalEditEmail">
       <transition name="modal">
@@ -634,14 +805,14 @@
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
-                        <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title text-center m-auto">
                             เปลี่ยนแปลงอีเมล
                           </h5>
                           <button
                             type="button"
-                            class="close"
+                            class="close mr-2"
                             data-dismiss="modal"
                             aria-label="Close"
                           >
@@ -657,7 +828,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-padding">
                   <div class="container">
                     <div class="row">
                       <div class="col">
@@ -687,23 +858,24 @@
                         <input
                           type="text"
                           class="form-control mb-3"
+                          style="max-width: 240px"
                           placeholder="ระบุอีเมล"
                         />
                       </div>
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button mt-3 mb-5 text-center">
                       <button
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-primary btn-text-sarabun"
                         @click="toggleOpenOtpEditEmail"
                       >
                         บันทึก
                       </button>
                       <button
                         type="button"
-                        class="btn btn-cancel ms-3"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
                         @click="showModalEditEmail = false"
                       >
                         ยกเลิก
@@ -761,7 +933,7 @@
                             class="text-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
-                            ระบุ OTP ที่ไดัรับจาก mail krith2536@gmail.com
+                            ระบุ OTP ที่ไดัรับจาก Email (xxxxxx@gmail.com)
                           </p>
                         </div>
                         <div
@@ -780,10 +952,9 @@
                             class="buttonConfirm d-grid gap-2 mb-4"
                             style="width: 78%"
                           >
-                           
                             <button
                               type="button"
-                              class="btn btn-primary"
+                              class="btn btn-primary btn-text-sarabun"
                               @click="ConfirmOtpEmail"
                             >
                               ยืนยัน
@@ -823,7 +994,6 @@
     </div>
     <!-- End modal edit Email -->
 
-
     <!-- modal Edit Address -->
     <div v-if="showModalEditAddress">
       <transition name="modal">
@@ -837,14 +1007,14 @@
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
-                        <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title m-auto text-center">
                             เปลี่ยนแปลงที่อยู่
                           </h5>
                           <button
                             type="button"
-                            class="close"
+                            class="close mr-1"
                             data-dismiss="modal"
                             aria-label="Close"
                           >
@@ -860,7 +1030,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body scroller">
+                <div class="modal-body scroller modal-padding">
                   <div class="container">
                     <div class="row">
                       <div class="col">
@@ -872,17 +1042,18 @@
                             class="text-grey"
                             style="margin-left: 15px; margin-top: 1rem"
                           >
-                            188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่มn กรุงเทพ 10240  
+                            188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่มn กรุงเทพ
+                            10240
                           </p>
                         </div>
                       </div>
                     </div>
                     <!-- new address heading -->
-                    <p class="text-dark-grey mt-3">ที่อยู่ใหม่</p>
+                    <p class="text-dark-grey mt-4">ที่อยู่ใหม่</p>
                     <!-- House number/Soi -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">บ้านเลขที่/ซอย</p>
                       <div class="name-input" style="width: 70%">
@@ -891,7 +1062,7 @@
                         >
                         <input
                           type="text"
-                          class="form-control mb-3 address-input"
+                          class="form-control address-input"
                           placeholder="ระบุข้อมูล"
                         />
                       </div>
@@ -899,58 +1070,76 @@
 
                     <!-- Province select box -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">จังหวัด</p>
                       <div class="name-input" style="width: 70%">
-                            <select
-                                class="form-select form-select-sm w-auto text-light shadow-none borderColor"
-                                aria-label=".form-select-sm example"
-                                style="background-color: #222b2f"
-                                >
-                                <option selected>เลือกจังหวัด</option>
-                            </select>
+                        <select
+                          class="
+                            form-select form-select-sm
+                            w-auto
+                            text-light
+                            shadow-none
+                            borderColor
+                          "
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกจังหวัด</option>
+                        </select>
                       </div>
                     </div>
 
                     <!-- District select box -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
                       <div class="name-input" style="width: 70%">
-                            <select
-                                class="form-select form-select-sm w-auto text-light shadow-none borderColor"
-                                aria-label=".form-select-sm example"
-                                style="background-color: #222b2f"
-                                >
-                                <option selected>เลือกอำเภอ/ เขต</option>
-                            </select>
+                        <select
+                          class="
+                            form-select form-select-sm
+                            w-auto
+                            text-light
+                            shadow-none
+                            borderColor
+                          "
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกอำเภอ/ เขต</option>
+                        </select>
                       </div>
                     </div>
 
                     <!-- Sub-District select box -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
                       <div class="name-input" style="width: 70%">
-                            <select
-                                class="form-select form-select-sm w-auto text-light shadow-none borderColor"
-                                aria-label=".form-select-sm example"
-                                style="background-color: #222b2f"
-                                >
-                                <option selected>เลือกตำบล/ แขวง</option>
-                            </select>
+                        <select
+                          class="
+                            form-select form-select-sm
+                            w-auto
+                            text-light
+                            shadow-none
+                            borderColor
+                          "
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกตำบล/ แขวง</option>
+                        </select>
                       </div>
                     </div>
-                       <!-- zip code -->
+                    <!-- zip code -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">รหัสไปรษณีย์</p>
                       <div class="name-input" style="width: 70%">
@@ -965,20 +1154,18 @@
                       </div>
                     </div>
 
-                    
-
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button mt-3 mb-5 text-center">
                       <button
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-primary btn-text-sarabun"
                         @click="toggleOpenOtpEditAddress"
                       >
                         บันทึก
                       </button>
                       <button
                         type="button"
-                        class="btn btn-cancel ms-3"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
                         @click="showModalEditAddress = false"
                       >
                         ยกเลิก
@@ -1055,7 +1242,6 @@
                             class="buttonConfirm d-grid gap-2 mb-4"
                             style="width: 78%"
                           >
-                           
                             <button
                               type="button"
                               class="btn btn-primary"
@@ -1097,7 +1283,6 @@
       </transition>
     </div>
     <!-- End modal edit Address -->
-
   </div>
 </template>
 
@@ -1106,22 +1291,24 @@ export default {
   name: "PersonalInformation",
   data: function () {
     return {
-            showModalOTPSuccess: false,
+      showModalOTPSuccess: false,
+      showModalOTPError: false,
+      showModalSurnameChange: false,
+      showModalOTPSurname: false,
+      showModalOpenCamera:false,
 
-            showModalSurnameChange:false,
-            showModalOTPSurname:false,
+      showModalEditPhoneNumber: false,
+      showModalOtpPhonenumber: false,
 
-            showModalEditPhoneNumber:false,
-            showModalOtpPhonenumber:false,
+      showModalEditEmail: false,
+      showModalOtpEmail: false,
 
+      showModalEditAddress: false,
+      showModalOtpAddress: false,
 
-            showModalEditEmail:false,
-            showModalOtpEmail:false,
+      showModalEditAddressIdCard:false,
 
-
-            showModalEditAddress:false,
-            showModalOtpAddress:false,
-
+      showModalEditworkplace:false,
     };
   },
   methods: {
@@ -1129,40 +1316,41 @@ export default {
       this.showModalSurnameChange = !this.showModalSurnameChange;
       this.showModalOTPSurname = !this.showModalOTPSurname;
     },
-    ConfirmOtpSurname(){
+    ConfirmOtpSurname() {
       this.showModalOTPSurname = !this.showModalOTPSurname;
       this.showModalOTPSuccess = !this.showModalOTPSuccess;
-      },
+    },
+    OpenCameraModel(){
+      this.showModalSurnameChange =!this.showModalSurnameChange;
+      this.showModalOpenCamera = !this.showModalOpenCamera;
+    },
 
+    toggleOpenOtpEditPhone() {
+      this.showModalEditPhoneNumber = !this.showModalEditPhoneNumber;
+      this.showModalOtpPhonenumber = !this.showModalOtpPhonenumber;
+    },
+    ConfirmOtpPhonenumber() {
+      this.showModalOtpPhonenumber = !this.showModalOtpPhonenumber;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
 
-      toggleOpenOtpEditPhone(){
-        this.showModalEditPhoneNumber = !this.showModalEditPhoneNumber;
-        this.showModalOtpPhonenumber = !this.showModalOtpPhonenumber
-      },
-      ConfirmOtpPhonenumber(){
-        this.showModalOtpPhonenumber =!this.showModalOtpPhonenumber;
-        this.showModalOTPSuccess = !this.showModalOTPSuccess;
-      },
+    toggleOpenOtpEditEmail() {
+      this.showModalEditEmail = !this.showModalEditEmail;
+      this.showModalOtpEmail = !this.showModalOtpEmail;
+    },
+    ConfirmOtpEmail() {
+      this.showModalOtpEmail = !this.showModalOtpEmail;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
 
-
-      toggleOpenOtpEditEmail(){
-        this.showModalEditEmail = !this.showModalEditEmail;
-        this.showModalOtpEmail = !this.showModalOtpEmail;
-      },
-      ConfirmOtpEmail(){
-        this.showModalOtpEmail = !this.showModalOtpEmail;
-        this.showModalOTPSuccess = !this.showModalOTPSuccess;        
-      },
-
-
-      toggleOpenOtpEditAddress(){
-        this.showModalEditAddress = !this.showModalEditAddress;
-        this.showModalOtpAddress = !this.showModalOtpAddress;
-      },
-      ConfirmOtpAddress(){
-        this.showModalOtpAddress = !this.showModalOtpAddress;
-        this.showModalOTPSuccess = !this.showModalOTPSuccess;        
-     }
+    toggleOpenOtpEditAddress() {
+      this.showModalEditAddress = !this.showModalEditAddress;
+      this.showModalOtpAddress = !this.showModalOtpAddress;
+    },
+    ConfirmOtpAddress() {
+      this.showModalOtpAddress = !this.showModalOtpAddress;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
   },
 };
 </script>
@@ -1181,6 +1369,8 @@ export default {
 .box-personal-info {
   padding: 12px 28px 12px 28px;
   border-radius: 3px;
+  /* remove width if not responsive */
+  width: 359px;
 }
 .text-box {
   color: #9bacb6;
@@ -1189,9 +1379,20 @@ export default {
   font-family: "Sarabun" !important;
   cursor: pointer;
 }
+.btn-text-sarabun {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
 .text-box:hover {
   color: #ffff;
 }
+.width-table {
+  width: 764px;
+}
+
 .table-text {
   color: #9bacb6;
   font-size: 14px;
@@ -1218,13 +1419,42 @@ export default {
 .border-bottom-table {
   border-bottom: 1px solid #28363e;
 }
+.button-camera-open{
+  padding-top: 87px;
+  padding-bottom: 80px;
+  justify-content: center;
+  display: flex;
+  /* margin-left: 30px; */
+}
 .attachment-wrap {
-  background-color: #28363e;
+  background-color: #192126;
   /* padding: 48px 150px 48px 182px; */
   border-radius: 4px;
   justify-content: center;
+  border: 1px dashed #28363E;
 }
-
+.attachment-wrap-skull{
+  background-color: #192126;
+  padding-top: 10px!important;
+  padding-bottom: 10px!important;
+  border-radius: 4px;
+  justify-content: center;
+  border: 1px dashed #28363E;
+}
+.image-note{
+  color: #D6DDE1;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Sarabun" !important;
+  padding-top: 43px;
+  padding-bottom: 20px;
+}
+.note-list{
+  color: #9BACB6;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Sarabun" !important;
+}
 /* modal */
 .text-grey {
   color: #d6dde1;
@@ -1258,14 +1488,16 @@ export default {
   display: table;
   transition: opacity 0.3s ease;
 }
-
+.modal-content {
+  width: 100% !important;
+}
 .modal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 .modal-dialog {
-  background-color: #141b1f;
-  max-width: 40%;
+  background-color: #141b1f !important;
+  max-width: 480px !important;
   border-radius: 8px;
 }
 
@@ -1299,10 +1531,21 @@ export default {
 
 /* modal otp finish succes */
 .otp-success {
-  max-width: 30% !important;
+  max-width: 409px !important;
+}
+.otp-error {
+  max-width: 409px !important;
 }
 .image-tick-modal {
   background-color: #277c44;
+  border-radius: 50%;
+  height: auto;
+  width: 100%;
+  max-width: 16%;
+  padding: 11px;
+}
+.image-cross-modal {
+  background-color: linear-gradient(360deg, #de2d40 0%, #ee5d6d 100%);
   border-radius: 50%;
   height: auto;
   width: 100%;
@@ -1349,15 +1592,23 @@ export default {
   background: #3c515d;
   border-radius: 10px;
 }
-
+.paswordInput-width{
+  width: 240px!important;
+}
+.SurnameWidth{
+  width: 280px!important;
+}
+.SurnameWidthPasword{
+  width:331px!important
+}
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #192126;
 }
 
 /* modal select box address */
-.address-input{
-    width: 239px !important;
+.address-input {
+  width: 239px !important;
 }
 select > option:checked,
 select > option:hover {
@@ -1372,9 +1623,9 @@ select {
   /* padding: 5px; */
   border-radius: 4px;
   height: 40px;
-  width: 240px!important;
+  width: 240px !important;
   color: #ffffff;
-   /* padding: 8px 12px; */
+  /* padding: 8px 12px; */
   /* padding-right: 30px; */
   font-size: 14px;
   position: relative;
@@ -1386,6 +1637,9 @@ select {
     url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='14' height='14' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>")
     no-repeat;
   background-position: right 7px top 50%;
+}
+.modal-padding {
+  margin-left: 1rem;
 }
 /* modal select box end */
 </style>

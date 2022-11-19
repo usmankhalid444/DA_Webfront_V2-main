@@ -383,8 +383,10 @@
             </span>
           </div>
         </div>
-        <div class="row cd-guage-chart">
-          <highcharts class="highcharts" :options="guageOptions"></highcharts>
+        <div class="d-flex justify-content-center cd-guage-chart">
+          <div>
+            <highcharts class="highcharts" :options="guageOptions"></highcharts>
+          </div>
           <!-- <div class="options">
             <span class="strong-sell">Strong Sell</span>
             <span class="sell">Sell</span>
@@ -680,11 +682,13 @@ export default {
   float: right;
 
   button {
-    padding: 10px 14px;
+    padding: 8px 16px 8px 16px;
     color: #677f8e;
     border: 1px solid #677f8e;
     font-size: 14px;
-    margin: 0 10px;
+    margin: 0 8px;
+    height: 40px;
+    border-radius: 4px;
     svg {
       color: #677f8e;
       fill: currentColor;
@@ -774,7 +778,7 @@ export default {
   }
   .cd-guage-chart {
     position: relative;
-    margin-left: -135px;
+    margin-left: -115px;
     margin-top: 10px;
     margin-bottom: 30px;
     position: relative;

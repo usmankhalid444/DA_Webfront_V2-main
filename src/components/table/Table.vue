@@ -542,13 +542,13 @@
             <div class="container">
               <div class="row">
                 <div class="col-3 pe-0">
-                  <!-- <b-img
+                  <b-img v-if="item.StarIcon"
                     class="imageIcon-star"
                     :src="item.StarIcon"
                     fluid
                     alt="#"
                   >
-                  </b-img> -->
+                  </b-img>
                   <b-img
                     class="imageIcon-bitcoin"
                     :src="item.CoinImage"
@@ -581,7 +581,7 @@
             <div class="image-wrapper d-flex align-item-center">
               <b-img
                 id="img1Table"
-                class="imageBitCoinTable"
+                class="imageCoinTable"
                 :src="require('../../assets/images/favoriteTable/bitcoin.png')"
                 fluid
                 alt="#"
