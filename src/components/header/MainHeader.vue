@@ -886,39 +886,36 @@ export default {
     padding-bottom: 140px;
   }
 }
-@media (min-width:768px) and (max-width:992px){
-.main-NavMenu{
-  margin-top:10px
-}
-.Nav1{
-    order:3
-}
-.icon-navbar_right{
-  order:2
-}
-.pmd{
+@media (min-width: 768px) and (max-width: 992px) {
+  .main-NavMenu {
+    margin-top: 10px;
+  }
+  .Nav1 {
+    order: 3;
+  }
+  .icon-navbar_right {
+    order: 2;
+  }
+  .pmd {
     padding-bottom: 110px;
+  }
 }
-}
-
-
 
 @media (min-width: 992px) {
   .pmd {
-    padding-bottom:0;
+    padding-bottom: 0;
   }
-  .site-main-header .main-NavMenu .dropbtn{
+  .site-main-header .main-NavMenu .dropbtn {
     padding: 0px 0px 0px 0px;
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 1024px) {
-  .site-main-header .main-NavMenu .dropbtn{
+  .site-main-header .main-NavMenu .dropbtn {
     padding: 0px 0px 18px 0px;
   }
- .pmd {
+  .pmd {
     padding-bottom: 0;
-    
   }
   .main-NavMenu {
     ul {

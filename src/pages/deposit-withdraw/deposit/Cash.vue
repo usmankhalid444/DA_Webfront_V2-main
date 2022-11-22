@@ -92,7 +92,12 @@
             <span>ยอมรับเงื่อนไขทั้งหมด</span>
           </label>
           <div class="last-btn">
-            <button class="thai-font">ยืนยันการฝากเงิน</button>
+            <button
+              @click="$bvModal.show('deposit-cash-modal')"
+              class="thai-font"
+            >
+              ยืนยันการฝากเงิน
+            </button>
           </div>
         </div>
         <!-- bottom section end -->
@@ -109,10 +114,13 @@
         <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
       </ul>
     </div>
+    <DepositCashModal />
   </div>
 </template>
 <script>
+import DepositCashModal from "./components/DepositCashModal";
 export default {
+  components: { DepositCashModal },
   data() {
     return {
       open_dropdown: false,
