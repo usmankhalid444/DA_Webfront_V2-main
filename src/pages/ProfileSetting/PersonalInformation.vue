@@ -139,7 +139,7 @@
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
-                        @click="showModalEditworkplace = true"
+                        @click="showModalEditWorkplace = true"
                       >
                         แก้ไข
                       </p>
@@ -276,7 +276,7 @@
                   </div>
                 </div>
                 <div class="modal-body scroller">
-                  <div class="container">
+                  <div class="container" style="padding-left: 24px;">
                     <div class="row">
                       <div class="col">
                         <div class="current-name d-flex borderBottom-in-modal">
@@ -668,7 +668,7 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                  <div class="container">
+                  <div class="container" style="padding-left: 24px;">
                     <div class="row">
                       <div class="col">
                         <div class="current-name d-flex borderBottom-in-modal">
@@ -771,7 +771,7 @@
                             class="text-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
-                            ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
+                             ระบุ OTP ที่ไดัรับจาก Email (xxxxxx@gmail.com)
                           </p>
                         </div>
                         <div
@@ -906,7 +906,7 @@
                   </div>
                 </div>
                 <div class="modal-body modal-padding">
-                  <div class="container">
+                  <div class="container" style="padding-left: 24px;">
                     <div class="row">
                       <div class="col">
                         <div class="current-name d-flex borderBottom-in-modal">
@@ -1010,7 +1010,7 @@
                             class="text-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
-                            ระบุ OTP ที่ไดัรับจาก Email (xxxxxx@gmail.com)
+                            ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
                           </p>
                         </div>
                         <div
@@ -1145,7 +1145,7 @@
                   </div>
                 </div>
                 <div class="modal-body scroller modal-padding">
-                  <div class="container">
+                  <div class="container" style="padding-left: 24px;">
                     <div class="row">
                       <div class="col">
                         <div class="current-name d-flex borderBottom-in-modal">
@@ -1416,6 +1416,827 @@
       </transition>
     </div>
     <!-- End modal edit Address -->
+
+
+    <!-- modal Edit Address id card -->
+    <div v-if="showModalEditAddressIdCard">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title m-auto text-center">
+                            เปลี่ยนแปลงที่อยู่ตามบัตรประชาชน
+                          </h5>
+                          <button
+                            type="button"
+                            class="close mr-1"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalEditAddressIdCard = false"
+                              style="color: #677f8e; font-size: 24px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller modal-padding">
+                  <div class="container" style="padding-left: 24px;">
+                    <div class="row">
+                      <div class="col">
+                        <div class="current-name d-flex borderBottom-in-modal">
+                          <p class="text-dark-grey" style="margin-top: 1rem">
+                            ที่อยู่เดิม
+                          </p>
+                          <p
+                            class="text-grey"
+                            style="margin-left: 15px; margin-top: 1rem"
+                          >
+                            188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240  
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- id card  address heading -->
+                    <p class="text-dark-grey mt-4">ที่อยู่ใหม่</p>
+                     <!-- number and group two input -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">เลขที่</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <div class="left-right-input d-flex">
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        <p class="text-dark-grey mt-2 two-inputs-labelMargin">หมู่</p>
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">หมู่บ้าน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- alley input -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ซอย</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- road input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ถนน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- subdistrict select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกตำบล/ แขวง</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                    <!-- district select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกอำเภอ/ เขต</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Province select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">จังหวัด</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกจังหวัด</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- zipcode input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">รหัสไปรษณีย์</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- modal button bottom -->
+                    <div class="button mt-3 mb-5 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-text-sarabun"
+                        @click="toggleOpenOtpEditAddressIdCard"
+                      >
+                        บันทึก
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
+                        @click="showModalEditAddressIdCard = false"
+                      >
+                        ยกเลิก
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div v-if="showModalOtpAddressIdCard">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="col-md-8 offset-md-3">
+                        <div class="d-flex justify-content-around">
+                          <h5 class="modal-title text-center">
+                            ยืนยันการเปลี่ยนแปลงข้อมูล
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalOtpAddress = false"
+                              style="color: #677f8e; font-size: 24px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller-otp">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="otp-number">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
+                          </p>
+                        </div>
+                        <div
+                          id="otp"
+                          class="otp-inputs d-flex justify-content-center"
+                          style="margin-bottom: 48px"
+                        >
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                        </div>
+                        <div class="button-confirm">
+                          <div
+                            class="buttonConfirm d-grid gap-2 mb-4"
+                            style="width: 78%"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              @click="ConfirmOtpAddressIdCard"
+                            >
+                              ยืนยัน
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            หากไม่ได้รับ OTP
+                          </p>
+                          <p
+                            class="text-yellow text-center ms-2"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            กดส่งอีกครั้ง
+                          </p>
+                        </div>
+
+                        <div class="bottom-detail">
+                          <p class="text-center" style="color: #677f8e">
+                            กรณีไม่สามารถยืนยัน OTP ได้ โทร. XX-XXX-XXXX
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- End modal edit Address id card -->
+
+    <!-- modal Edit workplace -->
+    <div v-if="showModalEditWorkplace">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="">
+                        <div class="d-flex justify-content-between">
+                          <h5 class="modal-title m-auto text-center">
+                            เปลี่ยนแปลงสถานที่ทำงาน
+                          </h5>
+                          <button
+                            type="button"
+                            class="close mr-1"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalEditWorkplace = false"
+                              style="color: #677f8e; font-size: 24px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller modal-padding">
+                  <div class="container" style="padding-left: 24px;">
+                    <div class="row">
+                      <div class="col">
+                        <div class="current-name d-flex ">
+                          <p class="text-dark-grey" style="margin-top: 1rem">
+                            อาชีพและ <br /> รายได้เดิม
+                          </p>
+                          <p
+                            class="text-grey"
+                            style="margin-left: 45px; margin-top: 1rem"
+                          >
+                            ชื่อที่ทำงาน xxxxx  อาชีพ xxxxx <br />ตำแหน่งงาน xxxx   รายได้ xxxxxxx
+                          </p>
+                        </div>
+
+                        <div class="current-name d-flex borderBottom-in-modal">
+                          <p class="text-dark-grey" style="margin-top: 1rem">
+                            ที่ตั้งที่ทำงานเดิม
+                          </p>
+                          <p
+                            class="text-grey"
+                            style="margin-left: 15px; margin-top: 1rem"
+                          >
+                            188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240  
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- new workplace heading -->
+                    <p class="text-dark-grey mt-4">อาขีพและรายได้</p>
+                    <!-- work name -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ชื่อที่ทำงาน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                     <!-- occupation -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">อาขีพ</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                     <!-- job position -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ตำแหน่งงาน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                     <!-- income -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2 pb-3 borderBottom-in-modal"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">รายได้</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- new workplace heading -->
+                    <p class="text-dark-grey mt-4">ที่ตั้งที่ทำงานใหม่</p>
+                    <!-- number and group two input -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">เลขที่</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <div class="left-right-input d-flex">
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        <p class="text-dark-grey mt-2 two-inputs-labelMargin">หมู่</p>
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- village workplace -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">หมู่บ้าน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- alley input workplace-->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ซอย</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- road input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ถนน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- subdistrict select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกตำบล/ แขวง</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                    <!-- district select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกอำเภอ/ เขต</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Province select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">จังหวัด</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกจังหวัด</option>
+                        </select>
+                      </div>
+                    </div>
+                    <!-- zipcode input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">รหัสไปรษณีย์</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- modal button bottom -->
+                    <div class="button mt-3 mb-5 text-center">
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-text-sarabun"
+                        @click="toggleOpenOtpEditWorkplace"
+                      >
+                        บันทึก
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-cancel btn-text-sarabun ms-3"
+                        @click="showModalEditWorkplace = false"
+                      >
+                        ยกเลิก
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div v-if="showModalOtpWorkplace">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="col-md-8 offset-md-3">
+                        <div class="d-flex justify-content-around">
+                          <h5 class="modal-title text-center">
+                            ยืนยันการเปลี่ยนแปลงข้อมูล
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalOtpWorkplace = false"
+                              style="color: #677f8e; font-size: 24px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller-otp">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="otp-number">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
+                          </p>
+                        </div>
+                        <div
+                          id="otp"
+                          class="otp-inputs d-flex justify-content-center"
+                          style="margin-bottom: 48px"
+                        >
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                        </div>
+                        <div class="button-confirm">
+                          <div
+                            class="buttonConfirm d-grid gap-2 mb-4"
+                            style="width: 78%"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-primary"
+                              @click="ConfirmOtpWorkplace"
+                            >
+                              ยืนยัน
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            หากไม่ได้รับ OTP
+                          </p>
+                          <p
+                            class="text-yellow text-center ms-2"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            กดส่งอีกครั้ง
+                          </p>
+                        </div>
+
+                        <div class="bottom-detail">
+                          <p class="text-center" style="color: #677f8e">
+                            กรณีไม่สามารถยืนยัน OTP ได้ โทร. XX-XXX-XXXX
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- End modal workplace -->
   </div>
 </template>
 
@@ -1440,8 +2261,12 @@ export default {
       showModalOtpAddress: false,
 
       showModalEditAddressIdCard: false,
+      showModalOtpAddressIdCard:false,
 
-      showModalEditworkplace: false,
+      showModalEditWorkplace: false,
+      showModalOtpWorkplace:false,
+      
+      
     };
   },
   methods: {
@@ -1482,6 +2307,24 @@ export default {
     },
     ConfirmOtpAddress() {
       this.showModalOtpAddress = !this.showModalOtpAddress;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
+
+    toggleOpenOtpEditAddressIdCard(){
+      this.showModalEditAddressIdCard = !this.showModalEditAddressIdCard;
+      this.showModalOtpAddressIdCard  = !this.showModalOtpAddressIdCard
+    },
+     ConfirmOtpAddressIdCard() {
+      this.showModalOtpAddressIdCard = !this.showModalOtpAddressIdCard;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
+
+    toggleOpenOtpEditWorkplace(){
+      this.showModalEditWorkplace = !this.showModalEditWorkplace;
+      this.showModalOtpWorkplace  = !this.showModalOtpWorkplace
+    },
+     ConfirmOtpWorkplace() {
+      this.showModalOtpWorkplace = !this.showModalOtpWorkplace;
       this.showModalOTPSuccess = !this.showModalOTPSuccess;
     },
     inputenter(id) {
@@ -1558,7 +2401,7 @@ export default {
   color: #ffff;
 }
 .width-table {
-  width: 764px;
+  /* width: 764px; */
 }
 
 .table-text {
@@ -1779,6 +2622,14 @@ export default {
 .address-input {
   width: 239px !important;
 }
+.two-ipnuts{
+  width: 102px !important;
+
+}
+.two-inputs-labelMargin{
+  margin-left: 6px;
+    margin-right: 9px;
+}
 select > option:checked,
 select > option:hover {
   /* box-shadow: 0 0 10px 100px #dc6900 inset; */
@@ -1802,9 +2653,8 @@ select {
   -webkit-appearance: none;
   appearance: none;
   border: 1px solid #28363e !important;
-  background: #677f8e
-    url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='14' height='14' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>")
-    no-repeat;
+  background: #677f8e url("../../../src/assets/images/profile-setting/dropdownChevron.png") ;
+  background-repeat: no-repeat;
   background-position: right 7px top 50%;
 }
 .modal-padding {
@@ -1822,5 +2672,25 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+
+@media only screen and (max-device-width: 768px){
+  .table-text {
+  font-size: 10px;
+}
+.table-text-white {
+  font-size: 10px;
+}
+
+.table-text-yellow {
+  font-size: 10px;
+}
+.box-personal-info{
+  width: 290px!important;
+}
+.text-box{
+  font-size: 12px!important;
+}
 }
 </style>

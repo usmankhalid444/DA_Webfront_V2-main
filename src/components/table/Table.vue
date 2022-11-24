@@ -127,7 +127,7 @@
         </th>
         <!-- End Hedaing Categories -->
         <!-- Heading Chart -->
-        <th scope="col" class="align-Icon-Heading" v-if="Showfavorite">
+        <th scope="col" v-if="Showfavorite">
           <div class="align-Icon-Heading" style="margin-bottom: 15px">
             {{ item.headingChart }}
           </div>
@@ -139,7 +139,7 @@
           class="textGreyDark"
           v-if="Showfavorite || ShowTreeMap || ShowGainLoss"
         >
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingLastPrice }}</div>
             <div @click="headCategories = !headCategories">
               <div class="chevronUp" @click="sortTables(0)">
@@ -181,7 +181,7 @@
           class="textGreyDark"
           v-if="ShowCategories || ShowThemes || ShowTreeMap"
         >
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingMarketCap }}</div>
             <div @click="headMarketCapDown = !headMarketCapDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -222,14 +222,10 @@
           scope="col"
           class="textGreyDark"
           v-if="
-            Showfavorite ||
-            ShowCategories ||
-            ShowThemes ||
-            ShowTreeMap ||
-            ShowGainLoss
+            Showfavorite || ShowCategories || ShowThemes || ShowTreeMap || ShowGainLoss
           "
         >
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingHourChange }}</div>
             <div @click="headHourChangeDown = !headHourChangeDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -277,9 +273,8 @@
             ShowAllCategoriesCurrency ||
             ShowGainLoss
           "
-          
         >
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingVolume }}</div>
             <div @click="headVolumeDown = !headVolumeDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -316,12 +311,8 @@
         </th>
         <!-- End Heading Volume -->
         <!-- Heading HourChange for nested table ShowAllCategoriesCurrency with three dropdown  -->
-        <th
-          scope="col"
-          class="textGreyDark"
-          v-if="ShowAllCategoriesCurrency"
-        >
-          <div class="d-flex justify-content-center">
+        <th scope="col" class="textGreyDark" v-if="ShowAllCategoriesCurrency">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingHourChange }}</div>
             <div @click="headHourChangeDown = !headHourChangeDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -358,12 +349,8 @@
         </th>
         <!-- End Heading HourChange -->
         <!-- Heading marketcap on end as on favorite tab -->
-        <th
-          scope="col"
-          class="textGreyDark"
-          v-if="Showfavorite || ShowGainLoss"
-        >
-          <div class="d-flex justify-content-center">
+        <th scope="col" class="textGreyDark" v-if="Showfavorite || ShowGainLoss">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingMarketCap }}</div>
             <div @click="headMarketCapFavDown = !headMarketCapFavDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -400,12 +387,8 @@
         </th>
         <!-- End Heading marketcap on end as on favorite tab -->
         <!-- Heading marketcap on end as on nested tab ShowAllCategoriesCurrency -->
-        <th
-          scope="col"
-          class="textGreyDark"
-          v-if="ShowAllCategoriesCurrency"
-        >
-          <div class="d-flex justify-content-center">
+        <th scope="col" class="textGreyDark" v-if="ShowAllCategoriesCurrency">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingMarketCapM }}</div>
             <div @click="headMarketCapFavDown = !headMarketCapFavDown">
               <div class="chevronUp" @click="sortTable(0)">
@@ -447,7 +430,7 @@
           class="textGreyDark"
           v-if="ShowTreeMap || ShowAllCategoriesCurrency"
         >
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">
               {{ item.headingMarketCapPercentage }}
             </div>
@@ -490,9 +473,9 @@
           scope="col"
           class="textGreyDark-description"
           v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
-          style="padding-left: 16px;"
+          style="padding-left: 16px"
         >
-          <div class="d-flex" style="margin-bottom: 15px">
+          <div class="d-flex justify-content-left" style="margin-bottom: 15px">
             <div class="align-Icon-Heading">{{ item.headingDescription }}</div>
           </div>
         </th>
@@ -500,131 +483,123 @@
       </thead>
       <tbody>
         <tr
-          class="textDarkgrey-Border "
+          class="textDarkgrey-Border px-0 mx-2"
           v-for="(item, index) in TableData"
           :key="index"
         >
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- coin data without start in gainloss -->
-          <td v-if="ShowGainLoss">
-            <div class="container">
-              <div class="row">
-                <div class="col-3 p-0">
-                  <!-- <b-img class="imageIcon-star" :src="item.StarIcon" fluid alt="#">
+          <td v-if="ShowGainLoss" class=" ">
+            <div class="row">
+              <div class="col-1 px-1">
+                <!-- <b-img class="imageIcon-star" :src="item.StarIcon" fluid alt="#">
             </b-img> -->
 
-                  <b-img
-                    class="imageIcon-bitcoin"
-                    :src="item.CoinImage"
-                    fluid
-                    alt="#"
-                  >
-                  </b-img>
-                </div>
-                <div class="col-3 p-0">
-                  <span class="textGrey Coin-Symbol">
-                    {{ item.Coinsybmol }}
-                  </span>
-                  <span class="textGreyDark-table"> / THB </span>
-                </div>
-                <div class="col p-0 ">
-                  <span class="textGreyDark-table ms-2">
-                    {{ item.CoinName }}
-                  </span>
-                </div>
+                <b-img class="imageIcon-bitcoin" :src="item.CoinImage" fluid alt="#">
+                </b-img>
+              </div>
+              <div class="col-sm-4">
+                <span class="textGrey Coin-Symbol"> {{ item.Coinsybmol }} </span>
+                <span class="textGreyDark-table"> / THB </span>
+              </div>
+              <div class="col p-0">
+                <span class="textGreyDark-table ms-2">
+                  {{ item.CoinName }}
+                </span>
               </div>
             </div>
           </td>
           <!-- End coin data without star in gainloss -->
           <!-- coin data with star in showfavorite and all coins -->
-          <td v-if="Showfavorite || ShowTreeMap">
-            <div class="container">
-              <div class="row">
-                <div class="col-3 pe-0">
-                  <b-img v-if="item.StarIcon"
-                    class="imageIcon-star"
+
+          <!-- End coin data without star in gainloss -->
+          <!-- coin data with star in showfavorite and all coins -->
+          <td v-if="Showfavorite || ShowTreeMap" class=" ">
+            <div class="row px-0">
+              <div class="col-12 col-sm-12 col-md-4 col-lg-2 px-0">
+                <div class="d-flex flex-row px-0">
+                  <b-img
+                    width="20"
+                    v-if="item.StarIcon"
+                    class="imdageIcon-star"
                     :src="item.StarIcon"
                     fluid
                     alt="#"
                   >
                   </b-img>
                   <b-img
-                    class="imageIcon-bitcoin"
+                    width="20"
+                    class="imageIcon-bitcoin mx-2"
                     :src="item.CoinImage"
                     fluid
                     alt="#"
                   >
                   </b-img>
                 </div>
-                <div class="col-3 p-0">
-                  <span class="textGrey Coin-Symbol">
-                    {{ item.Coinsybmol }}
-                  </span>
-                  <span class="textGreyDark-table"> / THB </span>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-0">
+                <div class="d-flex flex-row">
+                  <span class="textGrey Coin-Symbol"> {{ item.Coinsybmol }} </span>
+                  <span class="textGreyDark-table ps-1"> / THB </span>
                 </div>
-                <div class="col p-0">
-                  <span class="textGreyDark-table ms-2">
-                    {{ item.CoinName }}
-                  </span>
-                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
+                <span class="textGreyDark-table">
+                  {{ item.CoinName }}
+                </span>
               </div>
             </div>
           </td>
           <!-- End coin data with star in showfavorite and all coins -->
           <!-- Categories data with three image -->
           <td
-            class="textGrey"
+            class="texdtGrey"
             v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
-            style="width: 30%"
           >
-            <div class="image-wrapper d-flex align-item-center">
-              <b-img
-                id="img1Table"
-                class="imageCoinTable"
-                :src="require('../../assets/images/favoriteTable/bitcoin.png')"
-                fluid
-                alt="#"
-              >
-              </b-img>
-              <b-img
-                id="img2Table"
-                class="imageCoinTable"
-                :src="require('../../assets/images/favoriteTable/BNB.png')"
-                fluid
-                alt="#"
-              >
-              </b-img>
-              <b-img
-                id="img3Table"
-                class="imageCoinTable"
-                :src="require('../../assets/images/favoriteTable/Ethereum.png')"
-                fluid
-                alt="#"
-              >
-              </b-img>
-              <span class="textGrey mb-0" style="margin-left: 17px;line-height:2">{{ item.Categories }}</span>
+            <div class="row">
+              <div class="col-12 col-md-3 col-lg-2 px-1">
+                <div class="image-wrapper d-flex">
+                  <b-img
+                    id="img1Table"
+                    class="imageCoinTable"
+                    :src="require('../../assets/images/favoriteTable/bitcoin.png')"
+                    fluid
+                    alt="#"
+                  >
+                  </b-img>
+                  <b-img
+                    id="img2Table"
+                    class="imageCoinTable"
+                    :src="require('../../assets/images/favoriteTable/BNB.png')"
+                    fluid
+                    alt="#"
+                  >
+                  </b-img>
+                  <b-img
+                    id="img3Table"
+                    class="imageCoinTable"
+                    :src="require('../../assets/images/favoriteTable/Ethereum.png')"
+                    fluid
+                    alt="#"
+                  >
+                  </b-img>
+                </div>
+              </div>
+              <div class="col mx-1">
+                <span class="textGrey Coin-Symbol">{{ item.Categories }}</span>
+              </div>
             </div>
           </td>
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
-          <td
-            class="textGrey Graphalign"
-            v-if="Showfavorite"
-            style="width: 12%"
-          >
-            <div>
-              <canvas
-                v-bind:id="'favoriteGraph' + index"
-                width="102"
-                height="30"
-              ></canvas>
-            </div>
+          <td class="textGrey px-0" v-if="Showfavorite">
+            <canvas v-bind:id="'favoriteGraph' + index" width="102" height="30"></canvas>
           </td>
           <!-- End Chart PLoting in table -->
           <!-- last price data -->
           <td
-            class="textGrey text-center tableData-white"
+            class="textGrey justify-content-left px-2 tableData-white"
             v-if="Showfavorite || ShowTreeMap || ShowGainLoss"
           >
             {{ item.lastPrice }}
@@ -632,7 +607,7 @@
           <!-- End last price data -->
           <!-- marketCap data -->
           <td
-            class="textGrey align-marketcap-data tableData-white"
+            class="textGrey justify-content-left px-2 tableData-white"
             v-if="ShowCategories || ShowThemes || ShowTreeMap"
             style="width: 8%"
           >
@@ -641,14 +616,9 @@
           <!--End marketCap data -->
           <!-- hour change data -->
           <td
-            class="textGreen"
-            style="padding-left: 30px !important; width: 10%"
+            class="textGreen px-2"
             v-if="
-              Showfavorite ||
-              ShowCategories ||
-              ShowThemes ||
-              ShowTreeMap ||
-              ShowGainLoss
+              Showfavorite || ShowCategories || ShowThemes || ShowTreeMap || ShowGainLoss
             "
           >
             {{ item.hourChange }}
@@ -656,7 +626,7 @@
           <!--End hour change data -->
           <!-- Volume data -->
           <td
-            class="textGrey text-center tableData-white"
+            class="textGrey text-left px-2 tableData-white"
             v-if="
               Showfavorite ||
               ShowCategories ||
@@ -670,33 +640,26 @@
           </td>
           <!-- End Volume data -->
           <!-- hour change data -->
-          <td
-            class="textGreen"
-            style="padding-left: 30px !important; width: 10%"
-            v-if="ShowAllCategoriesCurrency"
-          >
+          <td class="textGreen px-2" v-if="ShowAllCategoriesCurrency">
             {{ item.hourChange }}
           </td>
           <!--End hour change data -->
           <!-- marketCap data at end in show favorite tab -->
-          <td
-            class="textGrey align-marketcap-data tableData-white"
-            v-if="Showfavorite || ShowGainLoss"
-          >
+          <td class="textGrey px-2 tableData-white" v-if="Showfavorite || ShowGainLoss">
             {{ item.marketCap }}
           </td>
           <!-- End marketCap data at end in show favorite tab -->
           <!-- Description data -->
-          <td class="textGreyDark thaiLang" v-if="ShowCategories || ShowThemes" style="padding-left: 25px;">
+          <td class="textGreyDark thaiLang px-2" v-if="ShowCategories || ShowThemes">
             {{ item.Description }}
           </td>
           <!--End Description data -->
-          
+
           <!-- marketCapM in nested ShowAllCategoriesCurrency data -->
           <td
             class="textGrey align-marketcap-data"
             v-if="ShowAllCategoriesCurrency"
-            style="width: 10%;"
+            style="width: 10%"
           >
             {{ item.marketCapM }}
           </td>
@@ -705,18 +668,19 @@
           <td
             class="textGrey align-marketcap-data tableData-white"
             v-if="ShowTreeMap || ShowAllCategoriesCurrency"
-            style="width: 10%;"
+            style="width: 10%"
           >
             {{ item.MarketCapPercentage }}
           </td>
           <!-- End MarketCapPercentage data -->
           <!--Description ShowAllCategoriesCurrency data  -->
-          <td class="textGreyDark thaiLang" v-if="ShowAllCategoriesCurrency"  style="padding-left: 25px;">
+          <td class="textGreyDark thaiLang px-2" v-if="ShowAllCategoriesCurrency">
             {{ item.Description }}
           </td>
           <!--End Description ShowAllCategoriesCurrency data  -->
           <!-- buysell button -->
           <td
+            class="px-0"
             v-if="Showfavorite || ShowTreeMap || ShowGainLoss"
             style="text-align: end; vertical-align: middle"
           >
@@ -727,6 +691,7 @@
           <!-- End BuySell Button -->
           <!-- Detaiol Button -->
           <td
+            class="px-0"
             v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
             style="text-align: end; vertical-align: middle"
           >
@@ -896,15 +861,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.thaiLang{
-  font-family: "Sarabun"!important;
-	    line-height: 24px;
+table thead th {
+  // border: 1px solid red;
 }
-.tableData-white{
-  font-family: 'Roboto Flex';
-	    font-weight: 400;
-	    font-size: 16px;
-	    line-height: 19px;
+table tbody td {
+  // border: 1px solid red;
+}
+.thaiLang {
+  font-family: "Sarabun" !important;
+  line-height: 24px;
+}
+.image-wrapper {
+}
+.tableData-white {
+  font-family: "Roboto Flex";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 }
 .yellow {
   color: #f38220;
@@ -916,15 +889,16 @@ export default {
 }
 .imageIcon-Star {
   height: auto;
-  max-width: 100%;
-  padding-left: 6px;
+  // max-width: 100%;
+  // padding-left: 6px;
   border-radius: 50%;
 }
 .imageIcon-bitcoin {
   height: auto;
-  max-width: 30%;
-  margin-left: 20px;
-  margin-right: 18px;
+  max-width: 24px;
+  // margin-left: 20px;
+  margin-right: 5px;
+
   border-radius: 50%;
 }
 .imageIcon-bitcoin-gainloss {
@@ -936,7 +910,7 @@ export default {
 }
 .textGreen {
   color: #40994f;
-  text-align: center;
+
   vertical-align: middle;
   font-size: 16px;
 }
@@ -979,11 +953,17 @@ export default {
   margin-top: 3px;
 }
 .imageCoinTable {
-  height: auto;
-  width: 100%;
-  max-width: 24px;
-  max-height: 24px;
+  // height: auto;
+  // width: 100%;
+  // max-width: 27px;
+  // max-height: 24px;
   border-radius: 50%;
+
+  height: 20px;
+  width: 27px;
+  max-width: 40px;
+  max-height: 40px;
+
   // margin-bottom: 15px;
   top: 0px;
   border-left: 3px solid black;
@@ -1007,20 +987,19 @@ export default {
   z-index: 20;
   // right: 2%;
   right: 6px;
-
 }
 #img3Table {
   position: relative;
   z-index: 30;
   // right: 4%;
   right: 13px;
-
 }
 .Header-Name {
   // padding-left: 27px;
   padding-left: 40px;
 }
 .align-Icon-Heading {
+  width: max-content;
   position: relative;
   bottom: 2px;
   font-size: 12px;
@@ -1046,6 +1025,9 @@ export default {
   right: 40px;
 }
 .Coin-Symbol {
+  align-items: center;
+  text-align: center;
+  margin-left: 5px;
   font-size: 16px;
   font-weight: 600;
 }
@@ -1056,10 +1038,10 @@ export default {
   text-align: center;
 }
 
-.scroller:hover{
+.scroller:hover {
   // width: 300px;
-  height: 300px;
-  overflow-y: scroll;
+  //height: 300px;
+  // overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;
 }
@@ -1071,8 +1053,6 @@ export default {
 //   // scrollbar-color: rebeccapurple green;
 //   // scrollbar-width: thin;
 // }
-
-
 
 /* width */
 ::-webkit-scrollbar {

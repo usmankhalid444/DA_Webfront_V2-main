@@ -776,7 +776,7 @@ export default {
   line-height: 24px;
 }
 .width-table {
-  /* width: 764px; */
+  width: 764px;
 }
 
 .table-text {
@@ -959,19 +959,5 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
-}
-
-
-@media only screen and (max-device-width: 768px){
-  .table-text {
-  font-size: 10px;
-}
-.table-text-white {
-  font-size: 10px;
-}
-
-.table-text-yellow {
-  font-size: 10px;
-}
 }
 </style>

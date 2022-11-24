@@ -1,10 +1,13 @@
 <template>
-  <Dynamic-Table
-  style="margin-top:34px"
-    :TableHeader="TableHeading"
-    :TableData="TableDatas"
-    :Showfavorite="true"
-  ></Dynamic-Table>
+  <div class="wraper-main">
+    <div class="mt-3">
+      <Dynamic-Table
+        :TableHeader="TableHeading"
+        :TableData="TableDatas"
+        :Showfavorite="true"
+      ></Dynamic-Table>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,7 +22,7 @@ export default {
     return {
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           headingLastPrice: "Last Price",
           headingHourChange: "24h Change",
           headingVolume: "Volume",

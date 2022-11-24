@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <!-- <div class="col-3 background-tabs"> -->
-        <div class="background-tabs">
+        <div class="col-lg-2 col-md-3 background-tabs">
           <div class="setting-heading">
             <h1>การตั้งค่า</h1>
           </div>
@@ -162,7 +162,7 @@ export default Vue.extend({
   background-color: #192126;
   padding-left: 0px;
   padding-bottom: 15%;
-  width: 272px;
+  /* width: 272px; */
 }
 .setting-heading {
   padding: 24px 0px 10px 24px;
@@ -218,5 +218,14 @@ export default Vue.extend({
   font-size: 14px !important;
   /* font-family: Sarabun; */
   /* background-color: #38454D; */
+}
+
+@media only screen and (max-device-width: 768px){
+  .menu-item {
+  font-size: 12px !important;
+}
+.background-tabs{
+  padding-bottom: 35%;
+}
 }
 </style>

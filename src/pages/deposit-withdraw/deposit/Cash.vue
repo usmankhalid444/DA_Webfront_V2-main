@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="deposite-cash-container">
+    <div
+      class="deposite-cash-container"
+      :class="currentSettings === 'qr' ? 'qr-h' : 'bc-h'"
+    >
       <div class="container-fluid">
         <!-- top section start -->
         <div class="row dcc-head">
@@ -50,10 +53,21 @@
                     :class="open_dropdown ? 'show' : 'hidden'"
                   >
                     <ul>
-                      <li @click="selected_option = 'QR Code (Prompt Pay)'">
+                      <li
+                        @click="
+                          (selected_option = 'QR Code (Prompt Pay)'),
+                            $bvModal.show('deposit-qr-modal'),
+                            (currentSettings = 'qr')
+                        "
+                      >
                         QR Code (Prompt Pay)
                       </li>
-                      <li @click="selected_option = 'Bank Transfer'">
+                      <li
+                        @click="
+                          (selected_option = 'Bank Transfer'),
+                            (currentSettings = 'bank_transfer')
+                        "
+                      >
                         Bank Transfer
                       </li>
                     </ul>
@@ -61,7 +75,7 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3" v-if="currentSettings === 'qr'">
               <div class="col-5 col-md-4 my-auto thai-font">
                 จำนวนเงินที่ต้องการฝาก
               </div>
@@ -70,7 +84,15 @@
                 <span>THB</span>
               </div>
             </div>
-            <div class="row mt-4">
+            <div class="row mt-4" v-if="currentSettings === 'bank_transfer'">
+              <div class="col-5 col-md-4">ชื่อบัญชี</div>
+              <div class="col-7 col-md-8 lr">
+                บริษัท ฟินันเซีย ดิจิทัล แอสเซท จำกัด <span>คัดลอก</span>
+              </div>
+              <div class="col-5 col-md-4 mt-3">ธนาคาร</div>
+              <div class="col-7 col-md-8 mt-3">ธนาคารกรุงเทพ - BBL</div>
+            </div>
+            <div class="row mt-4" v-if="currentSettings === 'qr'">
               <div class="col-12 info thai-font">
                 <p>ยอมรับเงื่อนไขการฝากเงิน</p>
                 <ul>
@@ -82,18 +104,53 @@
                 </ul>
               </div>
             </div>
+            <div v-if="currentSettings === 'bank_transfer'">
+              <div class="bcb"></div>
+              <div class="row">
+                <div class="col-12 bc-info thai-font">
+                  <p>ยอมรับเงื่อนไขการฝากเงิน</p>
+                  <ul class="">
+                    <li>
+                      โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2
+                      บัญชี)
+                    </li>
+                    <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-12 bc-info thai-font">
+                  <p>วิธีโอนเงิน</p>
+                  <ul class="number">
+                    <li>
+                      ไปยัง Mobile Banking หรือ
+                      โอนเงินผ่านธนาคารด้วยบัญชีที่ท่านให้ไว้กับบริษัทเท่านั้น
+                      (สูงสุด 2 บัญชี)
+                    </li>
+                    <li>เข้าสู่เมนู “จ่ายบิล” จาก Mobile Banking ของท่าน</li>
+                    <li>ค้นหา “ฟินันเซีย ดิจิทัล แอสเซท”</li>
+                    <li>กรอกรหัสอ้างอิง 1 (Ref.1) ด้วย xxxxxx</li>
+                    <li>กรอกรหัสอ้างอิง 2 (Ref.2) ด้วย xxxxxx</li>
+                    <li>ระบุจำนวนเงิน</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- center section start -->
         <!-- bottom section start -->
-        <div class="mx-3 pt-4 bottom-section thai-font">
+        <div
+          class="mx-3 pt-4 bottom-section thai-font"
+          v-if="currentSettings === 'qr'"
+        >
           <label>
             <input class="form-check-input" type="checkbox" />
             <span>ยอมรับเงื่อนไขทั้งหมด</span>
           </label>
           <div class="last-btn">
             <button
-              @click="$bvModal.show('deposit-cash-modal')"
+              @click="$bvModal.show('deposit-qr-modal')"
               class="thai-font"
             >
               ยืนยันการฝากเงิน
@@ -125,6 +182,7 @@ export default {
     return {
       open_dropdown: false,
       selected_option: "QR Code (Prompt Pay)",
+      currentSettings: "qr",
     };
   },
 };
@@ -232,6 +290,33 @@ export default {
         list-style: disc;
       }
     }
+    .lr {
+      font-size: 16px;
+      span {
+        font-size: 14px;
+        color: #f38220;
+        margin-left: 8px;
+      }
+    }
+    .bcb {
+      margin: 0 -27px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      border-top: 1px solid #28363e;
+    }
+    .bc-info {
+      ul {
+        list-style: disc;
+        padding: 0 24px;
+        li {
+          color: #9bacb6;
+          width: 70%;
+        }
+      }
+      ul.number {
+        list-style: decimal;
+      }
+    }
   }
 
   .bottom-section {
@@ -308,7 +393,6 @@ export default {
 @media (min-width: 640px) {
   .deposite-cash-container {
     width: 616px;
-    height: 458px;
     padding-bottom: 0;
     .center-section {
       padding: 0 1rem;
@@ -323,6 +407,12 @@ export default {
         width: 240px;
       }
     }
+  }
+  .qr-h {
+    height: 458px;
+  }
+  .bc-h {
+    height: 580px;
   }
 }
 @media (min-width: 100px) {

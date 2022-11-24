@@ -202,12 +202,12 @@
                     >
                       <div class="modal-content modal-dialog">
                         <div class="modal-header">
-                          <h5 class="modal-title thai-font">ลืมรหัสผ่าน</h5>
+                          <h5 class="modal-title font-sarabun">ลืมรหัสผ่าน</h5>
                         </div>
                         <div class="modal-body thai-font">
                           <b-form class="fdaForm-psw">
                             <b-form-group class="pad-16">
-                              <label class="text-title"
+                              <label class="text-title font-sarabun"
                                 >รหัสผู้ใช้งาน (Username)
                               </label>
                               <b-form-input type="text" id="name">
@@ -215,7 +215,7 @@
                             </b-form-group>
 
                             <b-form-group class="pad-16">
-                              <label class="text-title1"
+                              <label class="text-title1 font-sarabun"
                                 >อีเมล (Email) เพื่อรับรหัสผ่านใหม่
                               </label>
                               <b-form-input
@@ -228,16 +228,18 @@
                             </b-form-group>
 
                             <!-- button -->
-                            <div class="cover-button thai-font">
-                              <b-button class="buttons-C">ยืนยัน</b-button>
+                            <div class="cover-button d-flex">
+                              <b-button class="buttons-C font-sarabun" href="#"
+                                >ยืนยัน</b-button
+                              >
                               <b-button
-                                class="buttons-D"
-                                @click="showModal = false"
+                                class="buttons-D font-sarabun"
+                                href="/login"
                                 >ยกเลิก</b-button
                               >
                             </div>
 
-                            <div class="contact thai-font">
+                            <div class="contact font-sarabun">
                               กรณีติดปัญหา กรุณาติดต่อ 02-252-2525
                             </div>
                           </b-form>
@@ -247,7 +249,398 @@
                     </div>
                   </section>
                   <!-- Modal -->
+                  <!-- Register Modal -->
 
+                  <section class="modal-psw">
+                    <!-- <button type="button" @click="openModalForgetPass">Open modal</button> -->
+                    <div
+                      v-if="showRegisterModal"
+                      class="modal"
+                      id="myModal"
+                      :style="{
+                        display: showRegisterModal == true ? 'block' : 'none',
+                      }"
+                    >
+                      <div class="modal-content modal-register modal-dialog">
+                        <div
+                          class="modal-header"
+                          style="border-bottom: 1px solid #28363e !important"
+                        >
+                          <h5 class="modal-title font-sarabun text-center">
+                            ลงทะเบียน ทดลองใช้งานฟรี
+                          </h5>
+                        </div>
+                        <div class="modal-body register">
+                          <b-form class="fdaForm-psw">
+                            <div
+                              class="pad-16"
+                              v-if="eventNameField"
+                              :style="{
+                                display:
+                                  eventNameField == true ? 'block' : 'none',
+                              }"
+                            >
+                              <p class="text-dark-grey mt-2 mb-2">
+                                {ชื่อกิจกรรม - ถ้าระบบมี}
+                              </p>
+                              <div
+                                class="
+                                  wraper-input
+                                  mb-2
+                                  d-flex
+                                  justify-content-between
+                                "
+                              >
+                                <div class="name-input">
+                                  <select
+                                    class="
+                                      form-select form-select form-control
+                                      text-light
+                                      shadow-none
+                                    "
+                                    aria-label=".form-select-sm example"
+                                    style="
+                                      background-color: #222b2f;
+                                      max-width: 256px;
+                                      border-color: #222b2f;
+                                    "
+                                  >
+                                    <option selected>เลือกกิจกรรม</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="pad-16">
+                              <p class="text-dark-grey mt-2 mb-2">
+                                Title (คำนำหน้าชื่อ)
+                              </p>
+                              <div
+                                class="
+                                  wraper-input
+                                  mb-2
+                                  d-flex
+                                  justify-content-between
+                                "
+                              >
+                                <div class="name-input">
+                                  <select
+                                    class="
+                                      form-select form-select
+                                      text-light
+                                      shadow-none
+                                    "
+                                    aria-label=".form-select-sm example"
+                                    style="
+                                      background-color: #222b2f;
+                                      width: 160px;
+                                      border-color: #222b2f;
+                                    "
+                                  >
+                                    <option selected>เลือกจังหวัด</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="d-flex pad-16">
+                              <b-form-group class="pad-8">
+                                <label class="text-title font-sarabun"
+                                  >First Name (ชื่อภาษาอังกฤษ)
+                                </label>
+                                <b-form-input
+                                  type="text"
+                                  id="firstName"
+                                  style="max-width: 256px"
+                                  placeholder="Pre Text"
+                                >
+                                </b-form-input>
+                              </b-form-group>
+                              <!-- </div> -->
+                              <!-- <div class="col-6"> -->
+                              <b-form-group class="pad-8">
+                                <label class="text-title font-sarabun"
+                                  >Last Name (นามสกุลภาษาอังกฤษ)
+                                </label>
+                                <b-form-input
+                                  style="max-width: 256px"
+                                  type="text"
+                                  id="firstName"
+                                  placeholder="Pre Text"
+                                >
+                                </b-form-input>
+                              </b-form-group>
+                            </div>
+
+                            <b-form-group class="pad-16">
+                              <div class="pad-8">
+                                <label
+                                  style="margin-top: 0px"
+                                  class="text-title1 font-sarabun"
+                                  >Mobile Number
+                                </label>
+                                <b-form-input
+                                  type="text"
+                                  id="name"
+                                  placeholder="เช่น 080-XXX-XXXX"
+                                  class="place-hold"
+                                  style="max-width: 256px"
+                                >
+                                </b-form-input>
+                              </div>
+                            </b-form-group>
+                            <b-form-group class="pad-16">
+                              <div class="pad-8">
+                                <label
+                                  style="margin-top: 0px"
+                                  class="text-title1 font-sarabun"
+                                  >Email
+                                </label>
+                                <b-form-input
+                                  type="text"
+                                  id="name"
+                                  placeholder="เช่น 080-XXX-XXXX"
+                                  class="place-hold"
+                                  style="max-width: 256px"
+                                >
+                                </b-form-input>
+                              </div>
+                            </b-form-group>
+                            <!-- button -->
+                            <div class="cover-button cover-button-register">
+                              <b-button
+                                class="buttons-C font-sarabun"
+                                @click="showOtpModal"
+                                >ยืนยัน</b-button
+                              >
+                              <b-button
+                                class="buttons-D font-sarabun"
+                                @click="showRegisterModal = false"
+                                >ยกเลิก</b-button
+                              >
+                            </div>
+
+                            <div class="contact font-sarabun text-center">
+                              กรณีติดปัญหา กรุณาติดต่อ 02-252-2525
+                            </div>
+                          </b-form>
+                        </div>
+                        <!-- <div class="modal-footer"></div> -->
+                      </div>
+                    </div>
+                  </section>
+
+                  <!-- Register Modal -->
+                  <!-- OTP Modal -->
+                  <div v-if="showOtp">
+                    <transition name="modal">
+                      <div class="modal-mask">
+                        <div class="modal-wrapper">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <div class="container">
+                                  <div
+                                    class="row"
+                                    style="padding-top: 5%; padding-bottom: 5%"
+                                  >
+                                    <div class="col-md-8 offset-md-3">
+                                      <div
+                                        class="d-flex justify-content-between"
+                                      >
+                                        <h5 class="modal-title text-center">
+                                          Two-Factor Authentication
+                                        </h5>
+                                        <button
+                                          type="button"
+                                          class="close"
+                                          data-dismiss="modal"
+                                          aria-label="Close"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            @click="showOtp = false"
+                                            style="
+                                              color: #677f8e;
+                                              font-size: 24px;
+                                            "
+                                            >&times;</span
+                                          >
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-body scroller-otp">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col">
+                                      <div class="otp-number">
+                                        <p
+                                          class="text-grey text-center"
+                                          style="
+                                            margin-top: 1rem;
+                                            margin-bottom: 20px;
+                                          "
+                                        >
+                                          ระบุ OTP ที่ไดัรับจาก SMS
+                                          (068-123-1444)
+                                        </p>
+                                      </div>
+                                      <div
+                                        class="
+                                          otp-inputs
+                                          d-flex
+                                          justify-content-center
+                                        "
+                                        style="margin-bottom: 48px"
+                                      >
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                          style="margin-left: 0px !important"
+                                        />
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                        />
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                        />
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                        />
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                        />
+                                        <input
+                                          type="text"
+                                          class="form-control otp-input"
+                                        />
+                                      </div>
+                                      <div
+                                        class="d-flex justify-content-center"
+                                      >
+                                        <div
+                                          class="
+                                            buttonConfirm
+                                            d-grid
+                                            gap-2
+                                            mb-4
+                                          "
+                                          style="width: 78%"
+                                        >
+                                          <button
+                                            type="button"
+                                            class="
+                                              btn btn-primary btn-text-sarabun
+                                            "
+                                            @click="confirmOtpEmail"
+                                          >
+                                            ยืนยัน
+                                          </button>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="d-flex justify-content-center"
+                                      >
+                                        <p
+                                          class="text-grey text-center"
+                                          style="
+                                            margin-top: 1rem;
+                                            margin-bottom: 20px;
+                                          "
+                                        >
+                                          หากไม่ได้รับ OTP
+                                        </p>
+
+                                        <p
+                                          class="text-center"
+                                          style="
+                                            margin-top: 1rem;
+                                            margin-bottom: 20px;
+                                            margin-left: 0.5rem;
+                                            color: #f38220 !important;
+                                          "
+                                        >
+                                          กดส่งอีกครั้ง
+                                        </p>
+                                      </div>
+
+                                      <div class="bottom-detail">
+                                        <p
+                                          class="text-center"
+                                          style="color: #677f8e"
+                                        >
+                                          กรณีไม่สามารถยืนยัน OTP ได ้โทร.
+                                          063-393-4664
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition>
+                  </div>
+                  <!-- OTP Modal -->
+                  <!-- Success Modal -->
+                  <div v-if="showModalOTPSuccess">
+                    <transition name="modal">
+                      <div class="modal-mask">
+                        <div class="modal-wrapper">
+                          <div class="modal-dialog otp-success" role="document">
+                            <div class="modal-content">
+                              <div class="modal-body scroller-otp">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col text-center">
+                                      <div class="checkTick">
+                                        <img
+                                          class="image-tick-modal"
+                                          src="../../assets/images/profile-setting/tick.png"
+                                          alt=""
+                                        />
+                                      </div>
+                                      <div class="success-message m-auto">
+                                        <p class="success-heading">
+                                          สมัคร Free Trial เรียบร้อย
+                                        </p>
+                                        <p class="success-message-otp">
+                                          กรุณาตรวจสอบอีเมลของท่านเพื่อดำเนินการ
+                                          ขั้นตอนต่อไป
+                                        </p>
+                                      </div>
+                                      <div
+                                        class="finisButton-SuccesOtp"
+                                        @click="showModalOTPSuccess = false"
+                                      >
+                                        <button
+                                          type="button"
+                                          class="
+                                            btn btn-text-sarabun
+                                            success-btn
+                                          "
+                                        >
+                                          กลับหน้าเข้าสู่ระบบ
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </transition>
+                  </div>
+                  <!-- Success Modal -->
                   <b-button
                     class="font-family_th mt-32 fda_submit_btn-primary"
                     @click="handler"
@@ -255,10 +648,18 @@
                   >
                     เข้าสู่ระบบ
                   </b-button>
-                  <div class="text-center p-t-32 thai-font">
-                    <b-link class="textLink-ftLogin">เปิดบัญชี</b-link>
+                  <div class="text-center p-t-32">
+                    <b-link
+                      class="textLink-ftLogin"
+                      @click="showRegisterModal = true"
+                      >เปิดบัญชี</b-link
+                    >
                     <span class="mlr-8 text_sub-ftLogin">หรือ</span>
-                    <b-link class="textLink-ftLogin">ทดลองใช้งานฟรี</b-link>
+                    <b-link
+                      class="textLink-ftLogin"
+                      @click="openModalRegisterSpecialLink"
+                      >ทดลองใช้งานฟรี</b-link
+                    >
                   </div>
                 </b-form>
               </div>
@@ -306,6 +707,11 @@ export default Vue.extend({
       showPin: false,
       savePin: false,
       showModal: false,
+      showRegisterModal: false,
+      eventNameField: false,
+      showOtp: false,
+      showModalOTPSuccess: false,
+      selected: null,
     };
   },
   created: function () {
@@ -374,6 +780,20 @@ export default Vue.extend({
     },
     openModalForgetPass() {
       this.showModal = true;
+    },
+
+    openModalRegisterSpecialLink() {
+      this.showRegisterModal = !this.showRegisterModal;
+      this.eventNameField = !this.eventNameField;
+    },
+    showOtpModal() {
+      this.showRegisterModal = !this.showRegisterModal;
+      this.showOtp = !this.showOtp;
+    },
+
+    confirmOtpEmail() {
+      this.showOtp = !this.showOtp;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
     },
   },
 });
@@ -497,8 +917,8 @@ export default Vue.extend({
 
   .cover-chk {
     margin-left: 0px;
-    margin-bottom: 24px;
-    margin-top: 24px;
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
 
   .cbx {
@@ -585,15 +1005,20 @@ export default Vue.extend({
       width: 100%;
       height: 100%;
     }
+    .modal-register {
+      max-width: 560px !important;
+      width: 560px !important;
+    }
     .modal-content {
       background-color: rgba(20, 27, 31, 1) !important;
       margin-top: 88px;
       width: 482px;
       .modal-header {
         border-bottom: none !important;
+        justify-content: center;
         height: 75px;
-        width: 120px;
-        margin: auto;
+        width: 90%;
+        margin: 8px auto;
 
         .modal-title {
           font-weight: 600;
@@ -603,11 +1028,22 @@ export default Vue.extend({
           text-align: center;
         }
       }
+      .register {
+        display: flex;
+        justify-content: center;
+        padding: 8px !important;
+        width: 560px !important ;
+        height: auto !important;
+      }
       .modal-body {
         height: 324px;
         padding: 16px 68px 32px 68px;
         .fdaForm-psw {
+          padding: 0;
           .pad-16 {
+            .pad-8 {
+              padding: 0px 8px 8px 0px;
+            }
             .text-title {
               font-weight: 400;
               font-size: 14px;
@@ -620,6 +1056,9 @@ export default Vue.extend({
               font-size: 14px;
               line-height: 24px;
               color: var(--primary);
+            }
+            .font-sarabun {
+              font-family: "Sarabun" !important;
             }
             .place-hold {
               font-weight: 400;
@@ -635,6 +1074,15 @@ export default Vue.extend({
       }
     }
     //  button
+
+    .cover-button-register {
+      justify-content: center;
+      display: flex;
+      margin: 24px 0 0 0 !important;
+
+      padding: 24px;
+      border-top: 1px solid #28363e !important;
+    }
     .cover-button {
       margin-top: 48px;
       .buttons-C {
@@ -669,6 +1117,101 @@ export default Vue.extend({
       line-height: 24px;
       color: var(--sub-2);
     }
+  }
+  .font-sarabun {
+    font-family: "Sarabun" !important;
+  }
+  .p-8 {
+    padding: 8px !important;
+  }
+  .borderBottom-in-modal {
+    border-bottom: 1px solid #28363e;
+  }
+  .modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: table;
+    transition: opacity 0.3s ease;
+  }
+  .modal-content {
+    width: 100% !important;
+  }
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .modal-dialog {
+    background-color: #141b1f !important;
+    max-width: 480px !important;
+    border-radius: 8px;
+  }
+  .otp-input {
+    width: 44px !important;
+    height: 56px !important;
+    border-radius: 4px !important;
+    margin-left: 16px !important;
+  }
+  .otp-success {
+    max-width: 409px !important;
+  }
+  .otp-error {
+    max-width: 409px !important;
+  }
+  .image-tick-modal {
+    background-color: #277c44;
+    border-radius: 50%;
+    height: auto;
+    width: 100%;
+    max-width: 16%;
+    padding: 11px;
+  }
+  .image-cross-modal {
+    background-color: linear-gradient(360deg, #de2d40 0%, #ee5d6d 100%);
+    border-radius: 50%;
+    height: auto;
+    width: 100%;
+    max-width: 16%;
+    padding: 11px;
+  }
+  .checkTick {
+    padding-top: 100px;
+  }
+  .success-message {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  .finisButton-SuccesOtp {
+    padding-bottom: 100px;
+  }
+  .success-heading {
+    font-family: "Noto Sans Thai";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #d6dde1 !important;
+    margin-bottom: 0px;
+  }
+  .success-message-otp {
+    margin: 0 auto;
+    max-width: 70%;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #9bacb6;
+  }
+  .success-btn {
+    background: #38454d;
+    border-radius: 4px;
   }
 }
 </style>

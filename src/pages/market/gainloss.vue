@@ -68,7 +68,7 @@ export default {
       activeTab: 1,
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           headingLastPrice: "Last Price",
           headingHourChange: "24h Change",
           headingVolume: "Volume",
@@ -228,6 +228,14 @@ export default {
 }
 .Tab-wrapper {
   margin-top: 25px;
+  ul {
+    li {
+      a {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
 }
 .border-raduis-left {
   border-top-left-radius: 4px;
@@ -246,8 +254,9 @@ export default {
 .tabInactive {
   background-color: #222b2f;
   text-decoration: none;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   margin: 1px;
+  width: 100px;
   cursor: pointer;
 }
 .tabInactive:hover {

@@ -268,7 +268,7 @@ export default {
       },
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           headingLastPrice: "Last Price",
           headingHourChange: "24h Change",
           headingVolume: "Volume (M)",

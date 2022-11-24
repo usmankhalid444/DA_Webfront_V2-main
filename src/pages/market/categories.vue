@@ -1,28 +1,27 @@
 <template>
   <div class="wraper-main">
-    <div class="categories-detail" v-show="!ShowBuySell">
+    <div class="categories-detail mt-3" v-show="!ShowBuySell">
       <Dynamic-Table
-      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :ShowCategories="true"
         v-on:child-method="updateParent"
       ></Dynamic-Table>
     </div>
-    <div class="buy-sell-detail" v-show="ShowBuySell">
+    <div class="buy-sell-detail mt-3" v-show="ShowBuySell">
       <div class="container-fluid">
         <div class="row">
-          <div class="col">
+          <div class="col-9 col-md-8 col-lg-10">
             <h2 class="heading-coin">Decentralized Exchange (DEX)</h2>
             <p class="discription-coin thaiLang">
               การอัพเกรดครั้งยิ่งใหญ่ของเหรียญที่มีความยิ่งใหญ่อันดับสองของโลก
               Cryptocurrency ที่จะเปลี่ยนจากการทำงาน PoW เป็น PoS
-              ซึ่งจะส่งผลกระทบทางบวกกับเหรียญบางชนิด
-              โดยอีเว้นท์นี้มีชื่อเรียกว่า “ The Merge “
+              ซึ่งจะส่งผลกระทบทางบวกกับเหรียญบางชนิด โดยอีเว้นท์นี้มีชื่อเรียกว่า “ The
+              Merge “
             </p>
           </div>
           <!-- <div class="vr"></div> -->
-          <div class="col mt-3 vertical-line">
+          <div class="col-3 col-md-4 col-lg-2 mt-3 vertical-line px-0">
             <div class="wrpaer-values">
               <div class="change">
                 <p class="heading">%Change</p>
@@ -44,7 +43,6 @@
       </div>
 
       <Dynamic-Table
-      style="margin-top:34px"
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :Showfavorite="true"
@@ -65,7 +63,7 @@ export default {
     return {
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           headingLastPrice: "Last Price",
           headingHourChange: "24h Change",
           headingVolume: "Volume",
@@ -124,8 +122,7 @@ export default {
           hourChange: "+4.78%",
           volume: "400,000M",
           marketCap: "468,987M",
-          Description:
-            "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
+          Description: "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
           Categories: "Governance Token /DeFi",
         },
         {
@@ -137,8 +134,7 @@ export default {
           hourChange: "+5.78%",
           volume: "500,000M",
           marketCap: "568,987M",
-          Description:
-            "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
+          Description: "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
           Categories: "Governance Token /DeFi",
         },
       ],
@@ -168,22 +164,22 @@ export default {
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
-.thaiLang{
-  font-family: "Sarabun"!important;
-	    line-height: 24px;
+.thaiLang {
+  font-family: "Sarabun" !important;
+  line-height: 24px;
 }
 .discription-coin {
   color: #677f8e;
   font-size: 14px;
   font-weight: 400;
   margin-left: 0.5rem;
-  
 }
 .heading {
   color: #677f8e;
   font-size: 14px;
   font-weight: 400;
   // margin-right: 3rem;
+  min-width: 100px;
 }
 .green-value {
   color: #3fde68;

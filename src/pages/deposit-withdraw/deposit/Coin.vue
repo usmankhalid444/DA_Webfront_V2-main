@@ -54,7 +54,15 @@
                   @click="open_dropdown = !open_dropdown"
                   @blur="open_dropdown = false"
                 >
-                  <span class="text">{{ selected_option }}</span>
+                  <span class="text"
+                    >{{ selected_option }}
+                    <span v-if="selected_option === 'Ronin'" class="red"
+                      >Suspend</span
+                    >
+                    <span v-if="selected_option === 'Network A'" class="yellow"
+                      >Congest</span
+                    >
+                  </span>
                   <span
                     class="icon"
                     :class="open_dropdown ? 'rotate-sc-icon' : ''"
@@ -76,11 +84,14 @@
                     :class="open_dropdown ? 'show' : 'hidden'"
                   >
                     <ul>
-                      <li @click="selected_option = 'เลือก Network'">
-                        เลือก Network
+                      <li @click="selected_option = 'Ethereum (ERC20)'">
+                        Ethereum (ERC20)
                       </li>
-                      <li @click="selected_option = 'Bank Transfer'">
-                        Bank Transfer
+                      <li @click="selected_option = 'Ronin'">
+                        Ronin <span class="t-red">Suspend</span>
+                      </li>
+                      <li @click="selected_option = 'Network A'">
+                        Network A <span class="t-yellow">Congest</span>
                       </li>
                     </ul>
                   </div>
@@ -89,7 +100,10 @@
             </div>
             <div class="row mt-4 info">
               <div class="col-12 col-md-4"></div>
-              <div class="col-12 col-md-8 thai-font mb-3">
+              <div
+                class="col-12 col-md-8 thai-font mb-3"
+                @click="$bvModal.show('deposit-coin-tutorial')"
+              >
                 กรุณาเลือก Network ของผู้รับ Address ให้ตรงกับ Network
                 ของเหรียญที่คุณเลือก มิเช่นนั้นทรัพย์สินของคุณอาจสูญหายได้
               </div>
@@ -100,7 +114,12 @@
         <!-- bottom section start -->
         <div class="bottom-section thai-font">
           <div class="last-btn">
-            <button class="thai-font">ยืนยันการฝากเหรียญ</button>
+            <button
+              @click="$bvModal.show('deposit-coin-qr-modal')"
+              class="thai-font"
+            >
+              ยืนยันการฝากเหรียญ
+            </button>
           </div>
         </div>
         <!-- bottom section end -->
@@ -117,15 +136,23 @@
         <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
       </ul>
     </div>
+    <DepositCoinQrModal />
+    <DepositCoinTutorialModal />
   </div>
 </template>
 <script>
+import DepositCoinQrModal from "./components/DepositCoinQrModal.vue";
+import DepositCoinTutorialModal from "./components/DepositCoinTutorialModal.vue";
 export default {
+  components: { DepositCoinQrModal, DepositCoinTutorialModal },
   data() {
     return {
       open_dropdown: false,
       selected_option: "เลือก Network",
     };
+  },
+  created() {
+    this.$bvModal.show("deposit-coin-tutorial");
   },
 };
 </script>
@@ -178,10 +205,20 @@ export default {
       }
       .text {
         padding-left: 15px;
+        span {
+          position: absolute;
+          right: 45px;
+        }
+        span.red {
+          color: #de2d40;
+        }
+        span.yellow {
+          color: #f8c417;
+        }
       }
       .options {
         position: absolute;
-        bottom: -82px;
+        top: 45px;
         width: 100%;
         background-color: #222b2f;
         border-radius: 4px;
@@ -196,6 +233,16 @@ export default {
             border-radius: 4px;
             &:hover {
               background-color: #2c3b44;
+            }
+            span.t-red {
+              color: #de2d40;
+              position: absolute;
+              right: 20px;
+            }
+            span.t-yellow {
+              color: #f8c417;
+              position: absolute;
+              right: 20px;
             }
           }
         }
@@ -236,6 +283,7 @@ export default {
     }
     .info {
       color: #de2d40;
+      cursor: pointer;
       p {
         margin: 0;
       }
@@ -260,7 +308,7 @@ export default {
     }
     .last-btn {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 12px;
       button {
         color: #0a0d10;
         background-color: #f38220;

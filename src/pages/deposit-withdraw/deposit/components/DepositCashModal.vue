@@ -2,7 +2,7 @@
   <div>
     <b-modal
       class="qr-modal"
-      id="deposit-cash-modal"
+      id="deposit-qr-modal"
       :hide-footer="true"
       :hide-header="true"
     >
@@ -54,7 +54,8 @@ export default {
 };
 </script>
 <style lang="scss">
-#deposit-cash-modal___BV_modal_content_ {
+#deposit-qr-modal___BV_modal_content_ {
+  font-family: var(--bs-roboto-font-sans-serif);
   background-color: #141b1f;
   width: 480px;
   margin: auto;

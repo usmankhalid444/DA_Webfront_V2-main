@@ -119,7 +119,7 @@ export default {
       },
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           Unrealized: "Unrealized (Est.)",
           Actual: "Actual",
           AvrgCost: "Avg. Cost",

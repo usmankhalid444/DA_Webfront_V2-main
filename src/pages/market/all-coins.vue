@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container-fluid">
-      <P class="textGrey-heading  marginTop32 ms-2 marginBottom16">Popular Theme</P>
+      <P class="textGrey-heading marginTop32 ms-2 marginBottom16">Popular Theme</P>
       <!-- cards -->
       <div class="container-fluid px-5">
         <div class="container-fluid">
@@ -17,38 +17,38 @@
           >
             <div class="carder" v-for="(card, index) in cards" :key="index">
               <!-- {{ card }} -->
-              <div class="card shadow backgroundColor marginRight">
+              <div class="card shadow backgroundColor mx-1">
                 <div class="card-body mt-2">
                   <div class="d-flex justify-content-between">
                     <!-- card images coin -->
                     <div class="wraper">
                       <div class="card-coins mb-1 image-wrapper d-flex">
                         <b-img
-                        id="Cardimg1"
-                        class="CardimageBitCoin"
-                        :src="card.image1"
-                        fluid
-                        alt="#"
-                      >
-                      </b-img>
+                          id="Cardimg1"
+                          class="CardimageBitCoin"
+                          :src="card.image1"
+                          fluid
+                          alt="#"
+                        >
+                        </b-img>
 
-                      <b-img
-                        id="Cardimg2"
-                        class="CardimageCoin2"
-                        :src="card.image2"
-                        fluid
-                        alt="#"
-                      >
-                      </b-img>
+                        <b-img
+                          id="Cardimg2"
+                          class="CardimageCoin2"
+                          :src="card.image2"
+                          fluid
+                          alt="#"
+                        >
+                        </b-img>
 
-                      <b-img
-                        id="Cardimg3"
-                        class="CardimageCoin3"
-                        :src="card.image3"
-                        fluid
-                        alt="#"
-                      >
-                      </b-img>
+                        <b-img
+                          id="Cardimg3"
+                          class="CardimageCoin3"
+                          :src="card.image3"
+                          fluid
+                          alt="#"
+                        >
+                        </b-img>
                       </div>
                       <p class="textGrey-heading mb-0 font-roboto">{{ card.CoinName }}</p>
                     </div>
@@ -57,14 +57,14 @@
 
                     <div class="mt-2">
                       <p class="textGreyDark font-roboto mb-0">{{ card.Mcap }}</p>
-                      <p class=" mb-0 card-percentage font-roboto red-value">
+                      <p class="mb-0 card-percentage font-roboto red-value">
                         {{ card.perentage }}
                       </p>
                     </div>
                   </div>
                   <!-- <p class="textGrey-heading mb-0">{{ card.CoinName }}</p> -->
 
-                  <p class=" detail-warper font-sarabun">
+                  <p class="detail-warper font-sarabun">
                     {{ card.detail }}
                   </p>
                 </div>
@@ -75,20 +75,14 @@
 
               <div class="custom-arrow">
                 {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               </div>
             </template>
             <template #nextArrow="arrowOption">
               <!-- custom next-button -->
               <div class="custom-arrow">
                 {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
               </div>
             </template>
           </VueSlickCarousel>
@@ -123,7 +117,7 @@ export default {
     return {
       TableHeading: [
         {
-          headingCoin: "Coin :",
+          headingCoin: "Coin ",
           headingLastPrice: "Last Price",
           headingHourChange: "24h Change",
           headingVolume: "Volume",
@@ -243,34 +237,29 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-
-.marginTop32{
-  
-    margin-top: 32px;
-
+.marginTop32 {
+  margin-top: 32px;
 }
-.marginBottom32{
-  
-    margin-bottom: 32px;
-
+.marginBottom32 {
+  margin-bottom: 32px;
 }
-.marginBottom16{
+.marginBottom16 {
   margin-bottom: 16px;
 }
-.marginRight{
-  margin-right: 16px!important;
+.marginRight {
+  margin-right: 16px !important;
 }
-.font-sarabun{
-  font-family: "Sarabun"!important;
+.font-sarabun {
+  font-family: "Sarabun" !important;
 }
-.font-roboto{
-  font-family: var(--bs-roboto-font-sans-serif)!important;
+.font-roboto {
+  font-family: var(--bs-roboto-font-sans-serif) !important;
 }
-.card{
-  border-radius: 8px!important;
+.card {
+  border-radius: 8px !important;
 }
 .card-percentage {
-  color:#DE2D40 ;
+  color: #de2d40;
   font-size: 18px;
   font-weight: 600;
   text-align: right;
@@ -303,8 +292,8 @@ export default {
 }
 .backgroundColor {
   background-color: #1c262b;
-    //   width: 434px!important;
-    // height: 184px!important;
+  //   width: 434px!important;
+  // height: 184px!important;
 }
 .CardimageBitCoin {
   height: auto;
@@ -361,7 +350,7 @@ export default {
   left: 4%;
 }
 .slick-prev {
-  left: -40px !important;
+  //left: -40px !important;
 }
 .slick-next {
   // left: -40px!important;
@@ -380,11 +369,11 @@ export default {
   display: none;
 }
 .carousel-control-prev-icon {
-    background-image: url(../../../src/assets/images/iconArrow/icon-arrow-left.png);
-    width: 100%;
+  background-image: url(../../../src/assets/images/iconArrow/icon-arrow-left.png);
+  width: 100%;
 }
 .carousel-control-next-icon {
-    background-image: url(../../../src/assets/images/iconArrow/icon-arrow-right.png);
-    width: 100%;
+  background-image: url(../../../src/assets/images/iconArrow/icon-arrow-right.png);
+  width: 100%;
 }
 </style>
