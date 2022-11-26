@@ -134,48 +134,48 @@ const routes = [
     path: "/uc",
     component: () => import("../pages/uc/member-center"),
     children: [
-      // {
-      //   path: "deposit",
-      //   component: () => import("../pages/wallet/deposit"),
-      //   children: [
-      //     {
-      //       path: "",
-      //       component: () => import("../components/deposit/DepositCash"),
-      //       name: "DepositCashWallet",
-      //     },
-      //     {
-      //       path: "cash",
-      //       component: () => import("../components/deposit/DepositCash"),
-      //       name: "DepositCashWallet",
-      //     },
-      //     {
-      //       path: "coin",
-      //       component: () => import("../components/deposit/DepositCoin"),
-      //       name: "DepositCoinWallet",
-      //     },
-      //   ],
-      // },
-      // {
-      //   path: "withdraw",
-      //   component: () => import("../pages/wallet/withdraw"),
-      //   children: [
-      //     {
-      //       path: "",
-      //       component: () => import("../components/withdraw/WithdrawCash"),
-      //       name: "WithdrawCashWallet",
-      //     },
-      //     {
-      //       path: "cash",
-      //       component: () => import("../components/withdraw/WithdrawCash"),
-      //       name: "WithdrawCashWallet",
-      //     },
-      //     {
-      //       path: "coin",
-      //       component: () => import("../components/withdraw/WithdrawCoin"),
-      //       name: "WithdrawCoinWallet",
-      //     },
-      //   ],
-      // },
+      {
+        path: "deposit",
+        component: () => import("../pages/wallet/deposit"),
+        children: [
+          {
+            path: "",
+            component: () => import("../components/deposit/DepositCash"),
+            name: "DepositCashWallet",
+          },
+          {
+            path: "cash",
+            component: () => import("../components/deposit/DepositCash"),
+            name: "DepositCashWallet",
+          },
+          {
+            path: "coin",
+            component: () => import("../components/deposit/DepositCoin"),
+            name: "DepositCoinWallet",
+          },
+        ],
+      },
+      {
+        path: "withdraw",
+        component: () => import("../pages/wallet/withdraw"),
+        children: [
+          {
+            path: "",
+            component: () => import("../components/withdraw/WithdrawCash"),
+            name: "WithdrawCashWallet",
+          },
+          {
+            path: "cash",
+            component: () => import("../components/withdraw/WithdrawCash"),
+            name: "WithdrawCashWallet",
+          },
+          {
+            path: "coin",
+            component: () => import("../components/withdraw/WithdrawCoin"),
+            name: "WithdrawCoinWallet",
+          },
+        ],
+      },
       {
         path: "auto-mode",
         component: () => import("../pages/portfolio/auto-mode"),
@@ -254,23 +254,23 @@ const routes = [
 
 
 
-  // {
-  //   path: "/wallet",
-  //   component: () => import("../pages/wallet/deposit"),
+  {
+    path: "/wallet",
+    component: () => import("../pages/wallet/deposit"),
 
-  //   children: [
-  //     {
-  //       path: "DepositCash",
-  //       component: () => import("../components/deposit/DepositCash"),
-  //       name: "DepositCashWallet",
-  //     },
-  //     {
-  //       path: "DepositCoin",
-  //       component: () => import("../components/deposit/DepositCoin"),
-  //       name: "DepositCoinWallet",
-  //     },
-  //   ],
-  // },
+    children: [
+      {
+        path: "DepositCash",
+        component: () => import("../components/deposit/DepositCash"),
+        name: "DepositCashWallet",
+      },
+      {
+        path: "DepositCoin",
+        component: () => import("../components/deposit/DepositCoin"),
+        name: "DepositCoinWallet",
+      },
+    ],
+  },
   {
     path: "/ProfileSetting",
     component: () => import("../pages/ProfileSetting/ProfileSetting"),

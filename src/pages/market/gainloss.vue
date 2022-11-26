@@ -130,6 +130,7 @@ export default {
       ],
       series: [
         {
+          show: false,
           name: "Cash Flow",
           data: [
             "130%",
@@ -158,6 +159,37 @@ export default {
       chartOptions: {
         legend: {
           show: false,
+        },
+        yaxis: {
+          axisBorder: { show: false },
+          labels: { show: false },
+        },
+        xaxis: {
+          // categories: [
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "ETH",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          //   "BTC",
+          // ],
+          axisTicks: { show: false },
+          axisBorder: { show: true, offsetY: -124 },
+          labels: { show: false },
         },
         chart: {
           type: "bar",

@@ -170,7 +170,51 @@
                   </div>
                 </div>
               </li>
+              <!-- old deposit and withdraw -->
 
+              <!-- <li class="listmenu">
+                <div class="dropdown dropdown-togglemenu">
+                  <button
+                    class="dropbtn"
+                    :class="
+                      $route.name == 'DepositCashWallet' ||
+                      $route.name == 'DepositCoinWallet' ||
+                      $route.name == 'WithdrawCashWallet' ||
+                      $route.name == 'WithdrawCoinWallet'
+                        ? 'active'
+                        : ''
+                    "
+                  >
+                    Deposit/Withdraw
+                    <span
+                      ><svg
+                        width="10"
+                        height="7"
+                        viewBox="0 0 10 7"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="dropdown-content">
+                    <b-link
+                      :to="{ path: '/uc/deposit' }"
+                      class="fontdropdownLeft"
+                      >Deposit</b-link
+                    >
+                    <b-link
+                      :to="{ path: '/uc/withdraw' }"
+                      class="fontdropdownRight"
+                      >Withdraw</b-link
+                    >
+                  </div>
+                </div>
+              </li> -->
               <!-- new deposit and withdraw -->
               <li class="listmenu">
                 <div class="dropdown dropdown-togglemenu">
