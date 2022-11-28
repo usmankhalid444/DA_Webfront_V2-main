@@ -247,6 +247,18 @@ const routes = [
         name: "DepositeCoin",
 
   },
+  {
+    path: "/withdraw/cash",
+    component: () => import("../pages/deposit-withdraw/withdraw/Cash.vue"),
+        name: "WithdrawCash",
+
+  },
+  {
+    path: "/withdraw/coin",
+    component: () => import("../pages/deposit-withdraw/withdraw/Coin.vue"),
+        name: "WithdrawCoin",
+
+  },
 
 
 

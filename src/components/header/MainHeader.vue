@@ -252,7 +252,7 @@
                       >Deposit</b-link
                     >
                     <b-link
-                      :to="{ path: '/deposit/coin' }"
+                      :to="{ path: '/withdraw/cash' }"
                       class="fontdropdownRight"
                       >Withdraw</b-link
                     >
