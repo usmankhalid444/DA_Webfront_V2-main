@@ -9,10 +9,10 @@
           <div class="row dcc-head">
             <div class="col-12">
               <router-link to="/withdraw/cash"
-                ><button class="active">Deposit Cash</button></router-link
+                ><button class="active">Withdraw Cash</button></router-link
               >
               <router-link to="/withdraw/coin"
-                ><button class="not-active">Deposit Coin</button></router-link
+                ><button class="not-active">Withdraw Coin</button></router-link
               >
             </div>
           </div>
@@ -22,19 +22,32 @@
             <div class="col-12">
                 <div class="row" v-if="currentSettings === 'qr'">
                 <div class="col-5 col-md-4 my-auto thai-font">
-                   จำนวนเงินที่ต้องการฝาก
+                  จำนวนเงินที่ต้องการถอน
                 </div>
                 <div class="col-7 col-md-8 input-container">
-                  <input type="text" placeholder="0.00" />
+                  <input type="text" placeholder="0" />
                   <span>THB</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-7 col-md-8 offset-md-4 input-container">
+                  <p class="input_label">จำนวนเงินที่ถอนได้&nbsp; 20,000.00 THB  &nbsp;&nbsp;ถอนทั้งหมด</p>
                 </div>
               </div>
               <div class="row mt-3">
                 <div class="col-5 col-md-4 my-auto thai-font">
-                    เลือกช่องทางการฝาก
+                  บัญชีธนาคารที่รับเงิน
                 </div>
                 <div class="col-7 col-md-8">
-                  <div
+                  <div class="d-info">
+                      <span>นายวาเลน ทองคำ</span>
+                      <div>
+                        <span>ธนาคารกสิกรไทย &nbsp;&nbsp;&nbsp;|</span>
+                        <span>111-1-1111-1 </span>
+                        <span> เปลี่ยน</span>
+                      </div>
+                  </div>
+                  <!-- <div
                     class="select-container"
                     tabindex="0"
                     @click="open_dropdown = !open_dropdown"
@@ -81,28 +94,48 @@
                         </li>
                       </ul>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
-              <div class="row mt-4" v-if="currentSettings === 'bank_transfer'">
+              <!-- <div class="row mt-4" v-if="currentSettings === 'bank_transfer'">
                 <div class="col-5 col-md-4">ชื่อบัญชี</div>
                 <div class="col-7 col-md-8 lr">
                   บริษัท ฟินันเซีย ดิจิทัล แอสเซท จำกัด <span>คัดลอก</span>
                 </div>
                 <div class="col-5 col-md-4 mt-3">ธนาคาร</div>
                 <div class="col-7 col-md-8 mt-3">ธนาคารกรุงเทพ - BBL</div>
-              </div>
+              </div> -->
               <div class="row mt-4" v-if="currentSettings === 'qr'">
                 <div class="col-12 info thai-font">
-                  <p>ยอมรับเงื่อนไขการฝากเงิน</p>
-                  <ul>
+                  <p>สรุปรายการถอน</p>
+                  <div class="row mt-3">
+                 <div class="col-5 col-md-4 my-auto thai-font del-font">
+                  จำนวนเงินที่ต้องการถอน
+                </div>
+                <div class="col-7 col-md-8">
+                  1,000,000.00 THB
+                 </div>
+                 <div class="col-5 col-md-4 my-auto thai-font del-font">
+                  ค่าธรรมเนียมการถอน
+                </div>
+                <div class="col-7 col-md-8">
+                  20.00 THB
+                 </div>
+                 <div class="col-5 col-md-4 my-auto thai-font del-font">
+                  จำนวนเงินที่ได้รับ
+                </div>
+                <div class="col-7 col-md-8">
+                  999,980.00 THB
+                 </div>
+                  <!-- <ul>
                     <li>
                       โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
                     </li>
                     <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
                     <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
-                  </ul>
+                  </ul> -->
                 </div>
+              </div>
               </div>
               <div v-if="currentSettings === 'bank_transfer'">
                 <div class="bcb"></div>
@@ -137,19 +170,24 @@
           <!-- center section start -->
           <!-- bottom section start -->
           <div
-            class="mx-3 pt-4 bottom-section thai-font"
+            class="mx-3 pt-1 bottom-section thai-font mt-3 b-ins"
             v-if="currentSettings === 'qr'"
           >
-            <label>
+             <p>หมายเหตุ</p>
+              <ul>
+                <li>จะได้รับเงินภายใน 1 นาที  ถึง 24 ชั่วโมง </li>
+                <li>ถอนเงินได้สูงสุดไม่เกินวันละ 2,000,000 บาท</li>
+              </ul>
+            <!-- <label>
               <input class="form-check-input" type="checkbox" />
               <span>ยอมรับเงื่อนไขทั้งหมด</span>
-            </label>
+            </label> -->
             <div class="last-btn">
               <button
-                @click="$bvModal.show('deposit-qr-modal')"
+                @click="openOTPModel()"
                 class="thai-font"
               >
-              ยืนยันการฝากเงิน
+              ยืนยันการถอนเงิน
               </button>
             </div>
           </div>
@@ -167,17 +205,29 @@
           <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
         </ul>
       </div>
+
+      <otp-model v-if="showWithdrawOTPModal"></otp-model>
     </div>
   </template>
   <script>
+  import OtpModel from '@/components/Modal/OtpModel.vue'
   export default {
+    components:{
+    OtpModel
+    },
     data() {
       return {
         open_dropdown: false,
         selected_option: "QR Code (Prompt Pay)",
         currentSettings: "qr",
+        showWithdrawOTPModal:false,
       };
     },
+    methods:{
+      openOTPModel(){
+        this.showWithdrawOTPModal=true
+      }
+    }
   };
   </script>
   <style lang="scss">
@@ -419,4 +469,57 @@
     }
   }
   </style>
+<style scoped>
+.deposite-cash-container{
+  min-height: 540px !important;
+}
+.input-container .input_label
+{
+    margin: 0px;
+    line-height: 24px;
+    color: #677F8E;
+    font-size: 12px;
+}
+.d-info
+{
+    max-width: 285px;
+    height: 59px;
+    background: #222B2F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #9BACB6;
+    padding: 0px 10px;
+    font-size: 14px;
+}
+.d-info>div
+{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.d-info > div span:nth-child(3)
+{
+    color: #F38220;
+    margin-top: -15px;
+    display: block;
+}
+.del-font{
+    color: #677F8E;
+    line-height: 24px;
+    font-size: 14px;
+}
+.b-ins p {
+   color: #677F8E;
+   margin: 0px;
+   line-height: 24px;
+}
+.b-ins ul{
+  color: #677F8E;
+  font-size: 14px;
+  line-height: 24px;
+  list-style: inherit;
+}
+
+</style>
   

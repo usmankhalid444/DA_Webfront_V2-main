@@ -33,14 +33,17 @@
                       <span class="btc-text">BTC /</span>
                     </span>
                     <input
+                      v-model="coinSearchText"
                       @focus="showSearchBox = true"
                       @focusout="showSearchBox = false"
                       class="ml-4 coins-search-input text-uppercase"
+                      :class="`${coinSearchText.length == 0 ? 'ml-4' : 'ml-1'}`"
                       type="text"
                       placeholder="THB"
                       maxlength="4"
                     />
                   </div>
+
                   <div v-if="showSearchBox" class="searching-box">
                     <p class="thai-font search-box-title">ค้นหาล่าสุด</p>
                     <div class="grid">
@@ -120,9 +123,7 @@
                   </div>
                 </div>
               </div>
-              <div
-                class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores"
-              >
+              <div class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores">
                 <span class="live-amount-title">896,485.67</span>
                 <span class="live-amount-value">(-4.26%)</span>
                 <span class="title">24h High:</span>
@@ -159,7 +160,7 @@
                 </svg>
               </span>
             </div>
-
+            <!-- buy / sell live scores table start -->
             <div class="bs-table-l">
               <table class="table table-borderless">
                 <thead>
@@ -170,24 +171,41 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(item, index) in 15" :key="'b' + index">
-                    <td class="red">896,485.67</td>
-                    <td>0.000345</td>
-                    <td>1,823.67</td>
+                  <tr
+                    v-for="(item, index) in sell_live_scores"
+                    :key="'b' + index"
+                  >
+                    <td
+                      class="red"
+                      @click="selected_sell_score = item.price_thb"
+                    >
+                      {{ item.price_thb }}
+                    </td>
+                    <td>{{ item.vol_btc }}</td>
+                    <td>{{ item.total_thb }}</td>
                   </tr>
                   <tr>
                     <td class="red-big">896,485.67</td>
                     <td></td>
                     <td></td>
                   </tr>
-                  <tr v-for="(item, index) in 20" :key="'c' + index">
-                    <td class="green">896,485.67</td>
-                    <td>0.000345</td>
-                    <td>1,823.67</td>
+                  <tr
+                    v-for="(item, index) in buy_live_scores"
+                    :key="'c' + index"
+                  >
+                    <td
+                      @click="selected_buy_score = item.price_thb"
+                      class="green"
+                    >
+                      {{ item.price_thb }}
+                    </td>
+                    <td>{{ item.vol_btc }}</td>
+                    <td>{{ item.total_thb }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <!-- buy / sell live scores table end -->
           </div>
 
           <div class="col-12 col-lg-6 col-xl-8 p-0">
@@ -196,7 +214,10 @@
             </div>
             <!-- End Chart Area -->
 
-            <ExchangeOrder />
+            <ExchangeOrder
+              :selected_sell_score="selected_sell_score"
+              :selected_buy_score="selected_buy_score"
+            />
           </div>
         </div>
       </div>
@@ -316,8 +337,45 @@ export default {
   },
   data() {
     return {
+      coinSearchText: "",
       defaultPath: "btc_usdt",
       showSearchBox: false,
+      selected_sell_score: 0,
+      selected_buy_score: 0,
+      sell_live_scores: [
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+      ],
+      buy_live_scores: [
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+      ],
     };
   },
 };
@@ -375,6 +433,7 @@ export default {
         margin-top: -4px;
       }
       .sb-pre-coin {
+        font-weight: 600;
         font-size: 16px;
         color: #d6dde1;
         margin-left: 10px;
@@ -642,6 +701,8 @@ export default {
 
 .buy-sell table .red {
   color: #de2d40;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .buy-sell table .red-big {
@@ -652,6 +713,8 @@ export default {
 
 .buy-sell table .green {
   color: #40994f;
+  cursor: pointer;
+  display: inline-block;
 }
 
 .buy-sell .col-md-3 select {

@@ -7,16 +7,17 @@ export const GraphData = {
       {
         lineTension: 0,
         data: [10, 30, 50, 100, 5, 25, 40, 5],
-        backgroundColor: "rgba(71, 183,132,.5)",
         borderColor: "#47b784",
         borderWidth: 1,
-        fill: false,
+        fill: true,
+        fillColor: "red",
       },
     ],
   },
   options: {
     responsive: false,
     lineTension: 1,
+    fill: false,
     legend: {
       display: false,
     },

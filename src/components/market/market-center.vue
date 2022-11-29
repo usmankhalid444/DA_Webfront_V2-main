@@ -82,9 +82,7 @@
               </b-navbar-nav>
             </b-collapse>
           </b-navbar>
-          <form
-            class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto"
-          >
+          <form class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto">
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
                 <div class="icons-container">
@@ -131,8 +129,8 @@ export default Vue.extend({
     background-color: var(--ui-layer-0p5);
   }
   .pLR-24 {
-    padding-left: 24px !important;
-    padding-right: 24px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
   }
   .page-MarKetHeader {
     font-family: var(--bs-roboto-font-sans-serif);
@@ -148,11 +146,9 @@ export default Vue.extend({
   }
   .colormiddle {
     text-decoration: none;
-    color: #677f8E !important;
-    font-weight: 400!important;
+    color: #677f8e !important;
+    font-weight: 400 !important;
     font-family: var(--bs-roboto-font-sans-serif);
-
-
   }
   .menu-item {
     margin-right: 32px !important;
@@ -161,7 +157,7 @@ export default Vue.extend({
     font-size: 16px !important;
     line-height: 19px !important;
   }
-  
+
   .mx-auto .colormiddle {
     padding: 19px 0px;
     text-align: center;

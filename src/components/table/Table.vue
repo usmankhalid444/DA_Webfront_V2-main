@@ -4,8 +4,11 @@
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark" v-if="Showfavorite || ShowTreeMap">
-          <div class="d-flex">
-            <div class="Header-Name align-Icon-Heading">
+          <div class="d-flex px-0">
+            <div
+              class="align-Icon-Heading"
+              :class="`${Showfavorite ? 'Header-Name' : ''}`"
+            >
               {{ item.headingCoin }}
             </div>
             <div @click="headCoinDown = !headCoinDown">
@@ -45,10 +48,8 @@
 
         <!-- Heading CoinGain/Loss -->
         <th scope="col" class="textGreyDark" v-if="ShowGainLoss">
-          <div class="d-flex">
-            <div class="align-Icon-Heading">
-              {{ item.headingCoin }}
-            </div>
+          <div class="d-flex px-0">
+            <div class="px-0 align-Icon-Heading">{{ item.headingCoin }}</div>
             <div @click="headGainLossDown = !headGainLossDown">
               <div class="chevronUp" @click="sortTable(0)">
                 <svg
@@ -90,7 +91,7 @@
           class="textGreyDark"
           v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
         >
-          <div class="d-flex">
+          <div class="d-flex px-0">
             <div class="align-Icon-Heading">{{ item.headingCategories }}</div>
             <div @click="headCategories = !headCategories">
               <div class="chevronUp" @click="sortTable(0)">
@@ -490,20 +491,17 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- coin data without start in gainloss -->
-          <td v-if="ShowGainLoss" class=" ">
-            <div class="row">
-              <div class="col-1 px-1">
-                <!-- <b-img class="imageIcon-star" :src="item.StarIcon" fluid alt="#">
-            </b-img> -->
-
+          <td v-if="ShowGainLoss" class="px-0">
+            <div class="d-flex flex-wrap px-0">
+              <div class="icon-image">
                 <b-img class="imageIcon-bitcoin" :src="item.CoinImage" fluid alt="#">
                 </b-img>
               </div>
-              <div class="col-sm-4">
-                <span class="textGrey Coin-Symbol"> {{ item.Coinsybmol }} </span>
+              <div class="coin-symbol-container">
+                <span class="coin-symbol"> {{ item.Coinsybmol }} </span>
                 <span class="textGreyDark-table"> / THB </span>
               </div>
-              <div class="col p-0">
+              <div class="">
                 <span class="textGreyDark-table ms-2">
                   {{ item.CoinName }}
                 </span>
@@ -515,14 +513,14 @@
 
           <!-- End coin data without star in gainloss -->
           <!-- coin data with star in showfavorite and all coins -->
-          <td v-if="Showfavorite || ShowTreeMap" class=" ">
-            <div class="row px-0">
-              <div class="col-12 col-sm-12 col-md-4 col-lg-2 px-0">
-                <div class="d-flex flex-row px-0">
+          <td v-if="Showfavorite || ShowTreeMap" class="px-0">
+            <div class="d-flex flex-wrap px-0">
+              <div class="">
+                <div :class="`${item.StarIcon ? 'icon-image-with-star' : 'icon-image'}`">
                   <b-img
                     width="20"
                     v-if="item.StarIcon"
-                    class="imdageIcon-star"
+                    class="imageIcon-star"
                     :src="item.StarIcon"
                     fluid
                     alt="#"
@@ -530,7 +528,7 @@
                   </b-img>
                   <b-img
                     width="20"
-                    class="imageIcon-bitcoin mx-2"
+                    class="imageIcon-bitcoin"
                     :src="item.CoinImage"
                     fluid
                     alt="#"
@@ -538,14 +536,12 @@
                   </b-img>
                 </div>
               </div>
-              <div class="col-12 col-sm-12 col-md-6 col-lg-4 px-0">
-                <div class="d-flex flex-row">
-                  <span class="textGrey Coin-Symbol"> {{ item.Coinsybmol }} </span>
-                  <span class="textGreyDark-table ps-1"> / THB </span>
-                </div>
+              <div class="coin-symbol-container">
+                <span class="coin-symbol"> {{ item.Coinsybmol }} </span>
+                <span class="textGreyDark-table"> / THB </span>
               </div>
-              <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-0">
-                <span class="textGreyDark-table">
+              <div class="">
+                <span class="textGreyDark-table ms-2">
                   {{ item.CoinName }}
                 </span>
               </div>
@@ -554,39 +550,38 @@
           <!-- End coin data with star in showfavorite and all coins -->
           <!-- Categories data with three image -->
           <td
-            class="texdtGrey"
+            class="texdtGrey px-0"
             v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
           >
-            <div class="row">
-              <div class="col-12 col-md-3 col-lg-2 px-1">
-                <div class="image-wrapper d-flex">
-                  <b-img
-                    id="img1Table"
-                    class="imageCoinTable"
-                    :src="require('../../assets/images/favoriteTable/bitcoin.png')"
-                    fluid
-                    alt="#"
-                  >
-                  </b-img>
-                  <b-img
-                    id="img2Table"
-                    class="imageCoinTable"
-                    :src="require('../../assets/images/favoriteTable/BNB.png')"
-                    fluid
-                    alt="#"
-                  >
-                  </b-img>
-                  <b-img
-                    id="img3Table"
-                    class="imageCoinTable"
-                    :src="require('../../assets/images/favoriteTable/Ethereum.png')"
-                    fluid
-                    alt="#"
-                  >
-                  </b-img>
-                </div>
+            <div class="d-flex flex-wrap px-0">
+              <div class="image-wrapper d-flex">
+                <b-img
+                  id="img1Table"
+                  class="imageCoinTable"
+                  :src="require('../../assets/images/favoriteTable/bitcoin.png')"
+                  fluid
+                  alt="#"
+                >
+                </b-img>
+                <b-img
+                  id="img2Table"
+                  class="imageCoinTable"
+                  :src="require('../../assets/images/favoriteTable/BNB.png')"
+                  fluid
+                  alt="#"
+                >
+                </b-img>
+                <b-img
+                  id="img3Table"
+                  class="imageCoinTable"
+                  :src="require('../../assets/images/favoriteTable/Ethereum.png')"
+                  fluid
+                  alt="#"
+                >
+                </b-img>
               </div>
-              <div class="col mx-1">
+
+              <div class="">
                 <span class="textGrey Coin-Symbol">{{ item.Categories }}</span>
               </div>
             </div>
@@ -594,7 +589,7 @@
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
           <td class="textGrey px-0" v-if="Showfavorite">
-            <canvas v-bind:id="'favoriteGraph' + index" width="102" height="30"></canvas>
+            <canvas v-bind:id="'favoriteGraph' + index" width="150" height="30"></canvas>
           </td>
           <!-- End Chart PLoting in table -->
           <!-- last price data -->
@@ -747,6 +742,16 @@ export default {
         //   console.log("===length",this.TableData?.length)
         //   console.log("=== i",i)
         const ctx = document.getElementById(`favoriteGraph${i}`);
+
+        var ss = document.getElementById(`favoriteGraph${i}`).getContext("2d");
+
+        /*** Gradient ***/
+        var gradient = ss.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(250,174,50,1)");
+        gradient.addColorStop(1, "rgba(250,174,50,0)");
+
+        this.favoriteGraph.data.datasets[0].fillColor = gradient;
+
         new Chart(ctx, this.favoriteGraph);
       }
     }
@@ -867,12 +872,50 @@ table thead th {
 table tbody td {
   // border: 1px solid red;
 }
+.icon-image {
+  width: 40px;
+}
+.icon-image-with-star {
+  width: 60px;
+  .imageIcon-star {
+    width: 15px;
+    margin-right: 10px;
+  }
+  .imageIcon-bitcoin {
+    width: 30px;
+  }
+}
+.coin-symbol-container {
+  display: flex;
+  width: 100px;
+  padding: 0;
+  .coin-symbol {
+    align-items: center;
+    text-align: center;
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #d6dde1;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .coin-text {
+    color: #677f8e;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: "Sarabun";
+    font-weight: 400;
+    margin-left: 5px;
+  }
+}
+
 .thaiLang {
   font-family: "Sarabun" !important;
   line-height: 24px;
 }
 .image-wrapper {
 }
+
 .tableData-white {
   font-family: "Roboto Flex";
   font-weight: 400;
@@ -953,18 +996,9 @@ table tbody td {
   margin-top: 3px;
 }
 .imageCoinTable {
-  // height: auto;
-  // width: 100%;
-  // max-width: 27px;
-  // max-height: 24px;
+  width: 23px;
   border-radius: 50%;
-
   height: 20px;
-  width: 27px;
-  max-width: 40px;
-  max-height: 40px;
-
-  // margin-bottom: 15px;
   top: 0px;
   border-left: 3px solid black;
 }
@@ -996,7 +1030,7 @@ table tbody td {
 }
 .Header-Name {
   // padding-left: 27px;
-  padding-left: 40px;
+  padding-left: 20px;
 }
 .align-Icon-Heading {
   width: max-content;

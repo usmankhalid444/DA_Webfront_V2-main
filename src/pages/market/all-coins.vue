@@ -3,91 +3,90 @@
     <div class="container-fluid">
       <P class="textGrey-heading marginTop32 ms-2 marginBottom16">Popular Theme</P>
       <!-- cards -->
-      <div class="container-fluid px-5">
-        <div class="container-fluid">
-          <VueSlickCarousel
-            :arrows="true"
-            :dots="false"
-            :infinite="true"
-            :initialSlide="2"
-            :speed="500"
-            :slidesToShow="3"
-            :slidesToScroll="1"
-            :swipeToSlide="true"
-          >
-            <div class="carder" v-for="(card, index) in cards" :key="index">
-              <!-- {{ card }} -->
-              <div class="card shadow backgroundColor mx-1">
-                <div class="card-body mt-2">
-                  <div class="d-flex justify-content-between">
-                    <!-- card images coin -->
-                    <div class="wraper">
-                      <div class="card-coins mb-1 image-wrapper d-flex">
-                        <b-img
-                          id="Cardimg1"
-                          class="CardimageBitCoin"
-                          :src="card.image1"
-                          fluid
-                          alt="#"
-                        >
-                        </b-img>
 
-                        <b-img
-                          id="Cardimg2"
-                          class="CardimageCoin2"
-                          :src="card.image2"
-                          fluid
-                          alt="#"
-                        >
-                        </b-img>
+      <VueSlickCarousel
+        class="carousel-cards"
+        :arrows="true"
+        :dots="false"
+        :infinite="true"
+        :initialSlide="2"
+        :speed="500"
+        :slidesToShow="3"
+        :slidesToScroll="1"
+        :swipeToSlide="true"
+      >
+        <div v-for="(card, index) in cards" :key="index">
+          <!-- {{ card }} -->
+          <div class="card shadow backgroundColor mx-1">
+            <div class="card-body mt-2">
+              <div class="d-flex justify-content-between">
+                <!-- card images coin -->
+                <div class="wraper">
+                  <div class="card-coins mb-1 image-wrapper d-flex">
+                    <b-img
+                      id="Cardimg1"
+                      class="CardimageBitCoin"
+                      :src="card.image1"
+                      fluid
+                      alt="#"
+                    >
+                    </b-img>
 
-                        <b-img
-                          id="Cardimg3"
-                          class="CardimageCoin3"
-                          :src="card.image3"
-                          fluid
-                          alt="#"
-                        >
-                        </b-img>
-                      </div>
-                      <p class="textGrey-heading mb-0 font-roboto">{{ card.CoinName }}</p>
-                    </div>
+                    <b-img
+                      id="Cardimg2"
+                      class="CardimageCoin2"
+                      :src="card.image2"
+                      fluid
+                      alt="#"
+                    >
+                    </b-img>
 
-                    <!-- End card images coin -->
-
-                    <div class="mt-2">
-                      <p class="textGreyDark font-roboto mb-0">{{ card.Mcap }}</p>
-                      <p class="mb-0 card-percentage font-roboto red-value">
-                        {{ card.perentage }}
-                      </p>
-                    </div>
+                    <b-img
+                      id="Cardimg3"
+                      class="CardimageCoin3"
+                      :src="card.image3"
+                      fluid
+                      alt="#"
+                    >
+                    </b-img>
                   </div>
-                  <!-- <p class="textGrey-heading mb-0">{{ card.CoinName }}</p> -->
+                  <p class="textGrey-heading mb-0 font-roboto">{{ card.CoinName }}</p>
+                </div>
 
-                  <p class="detail-warper font-sarabun">
-                    {{ card.detail }}
+                <!-- End card images coin -->
+
+                <div class="mt-2">
+                  <p class="textGreyDark font-roboto mb-0">{{ card.Mcap }}</p>
+                  <p class="mb-0 card-percentage font-roboto red-value">
+                    {{ card.perentage }}
                   </p>
                 </div>
               </div>
-            </div>
-            <template #prevArrow="arrowOption">
-              <!-- custom prev-button -->
+              <!-- <p class="textGrey-heading mb-0">{{ card.CoinName }}</p> -->
 
-              <div class="custom-arrow">
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              </div>
-            </template>
-            <template #nextArrow="arrowOption">
-              <!-- custom next-button -->
-              <div class="custom-arrow">
-                {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              </div>
-            </template>
-          </VueSlickCarousel>
+              <p class="detail-warper font-sarabun">
+                {{ card.detail }}
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
+        <template #prevArrow="arrowOption">
+          <!-- custom prev-button -->
+
+          <div class="custom-arrow">
+            {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </div>
+        </template>
+        <template #nextArrow="arrowOption">
+          <!-- custom next-button -->
+          <div class="custom-arrow">
+            {{ arrowOption.currentSlide }}/{{ arrowOption.slideCount }}
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </div>
+        </template>
+      </VueSlickCarousel>
+
       <!-- cards end  -->
 
       <P class="textGrey-heading marginTop32 marginBottom16 ms-2">All Coins</P>
@@ -237,6 +236,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.carousel-cards {
+  margin: 0 30px;
+}
 .marginTop32 {
   margin-top: 32px;
 }

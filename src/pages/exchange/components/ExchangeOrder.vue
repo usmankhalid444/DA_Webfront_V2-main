@@ -27,8 +27,13 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนเงินที่ต้องการซื้อ" />
-                  <span>0 THB</span>
+                  <input
+                    @change="calculated_buying_btc"
+                    type="text"
+                    v-model="buy_amount"
+                  />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -67,13 +72,15 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" v-model="selected_buy_score" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="BTC ราคาต่อ" />
-                  <span>0 BTC</span>
+                  <input type="text" v-model="buying_btc" readonly="readonly" />
+                  <span class="currency">BTC</span>
+                  <span class="text">BTC ราคาต่อ</span>
                 </div>
                 <div class="form-group form-check">
                   <label>
@@ -101,8 +108,9 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนที่ต้องการขาย" />
-                  <span>0 THB</span>
+                  <input type="text" v-model="selling_btc" />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -141,13 +149,15 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ " />
-                  <span>BTC</span>
+                  <input type="text" v-model="selected_sell_score" />
+                  <span class="currency">BTC</span>
+                  <span class="text">ราคาต่อ</span>
                 </div>
 
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวน BTC ที่ขาย" />
-                  <span>BTC</span>
+                  <input type="text" v-model="buying_btc" readonly="readonly" />
+                  <span class="currency">BTC</span>
+                  <span class="text">จำนวน BTC ที่ขาย</span>
                 </div>
                 <div class="form-group form-check">
                   <label>
@@ -185,8 +195,9 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนเงินที่ต้องการซื้อ" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -225,8 +236,9 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group form-check">
@@ -255,8 +267,9 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนที่ต้องการขาย" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -295,8 +308,9 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group form-check">
@@ -335,8 +349,9 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนเงินที่ต้องการซื้อ" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -375,8 +390,9 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group form-check">
@@ -392,12 +408,14 @@
                   >
                 </div>
                 <div class="form-group mb-5 bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span></span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group">
                   <button
@@ -414,8 +432,9 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="จำนวนที่ต้องการขาย" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -454,8 +473,9 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC " />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group form-check">
@@ -475,12 +495,14 @@
                 </div>
 
                 <div class="form-group mb-5 bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span> 0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group bs-lp-input">
-                  <input type="text" placeholder="ราคาต่อ BTC" />
-                  <span>0 THB</span>
+                  <input type="text" />
+                  <span class="currency">THB</span>
+                  <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group">
                   <button
@@ -761,8 +783,13 @@ import SecondTpslModal from "./SecontTpslModal.vue";
 import SecondSLModal from "./SecondSLModal.vue";
 export default {
   components: { SecondTpslModal, SecondSLModal },
+  props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
+      buy_amount: 0,
+      selling_amount: 0,
+      buying_btc: 0,
+      selling_btc: 0,
       lot_a: "0%",
       lot_b: "0%",
       mot_a: "0%",
@@ -772,6 +799,12 @@ export default {
       ordertabs: ["Limit Order", "Market Order", "Trailing Stop"],
       selectedorder: "Limit Order",
     };
+  },
+  methods: {
+    calculated_buying_btc() {
+      this.buying_btc = this.buy_amount / this.selected_buy_score;
+      console.log(this.buying_btc);
+    },
   },
 };
 </script>
@@ -966,12 +999,23 @@ export default {
 }
 .bs-lp-input {
   position: relative;
-  span {
+  input {
+    // text-align: right;
+  }
+  span.currency {
     position: absolute;
     right: 10px;
-    top: 50%;
+    top: 55%;
     transform: translateY(-90%);
     color: #9bacb6;
+    pointer-events: none;
+  }
+  span.text {
+    position: absolute;
+    left: 10px;
+    color: #9bacb6;
+    top: 55%;
+    transform: translateY(-90%);
     pointer-events: none;
   }
 }
@@ -981,7 +1025,8 @@ export default {
 }
 .sells input {
   width: 100%;
-  padding: 8px;
+  padding: 8px 45px;
+  text-align: right;
   border: none;
   margin-bottom: 15px;
   height: 40px;
@@ -989,7 +1034,8 @@ export default {
   font-size: 14px;
   background: #222b2f;
   border-radius: 4px;
-  color: white;
+  color: #9bacb6;
+
   font-family: "sarabun";
   &::placeholder {
     color: #9bacb6;

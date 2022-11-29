@@ -1,16 +1,16 @@
 <template>
-  <div class="container-fluid">
+  <div class="wraper-main">
     <div class="wrapper-treeMap" v-if="!ShowAllCategories">
-      <div class="heading-AllCategories">
+      <div class="heading-AllCategories px-3">
         <P
-          class="textGrey-heading AllCategoriesCurrency ms-2"
+          class="textGrey-heading AllCategoriesCurrency"
           @click="ShowAllCategories = !ShowAllCategories"
           >All Categories / Currency</P
         >
       </div>
       <!-- SelectBox start -->
 
-      <div class="justify-content-start d-flex flex-row  ms-2">
+      <div class="justify-content-start d-flex flex-row px-3">
         <div class="firt-selectbox">
           <select
             class="form-select form-select-sm w-auto text-light shadow-none borderColor"
@@ -63,7 +63,7 @@
     <!-- heatmap After click on all categories coin -->
     <div class="wrapper-HaetaMap" v-if="ShowAllCategories">
       <!-- SelectBox start -->
-      <div class="justify-content-start d-flex flex-row  ms-2 three-dropdown">
+      <div class="justify-content-start d-flex flex-row px-3 three-dropdown">
         <div class="me-3 show-Categorie-Selectbox">
           <select
             class="form-select form-select-sm w-auto text-light shadow-none borderColor"
@@ -103,15 +103,15 @@
         </div>
       </div>
       <!-- End SelectBox -->
-      <div class="heading-AllCategories">
-        <P class="textGrey-heading  ms-2">All Categories</P>
+      <div class="heading-AllCategories px-3">
+        <P class="textGrey-heading">All Categories</P>
       </div>
 
       <!-- Tree map -->
       <div id="chart" class="custom-charts">
         <apexchart
           type="treemap"
-          height="350"
+          height="310"
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -123,7 +123,7 @@
         :TableHeader="TableHeading"
         :TableData="TableDatas"
         :ShowAllCategoriesCurrency="true"
-        ></Dynamic-Table>
+      ></Dynamic-Table>
 
       <!-- End Table Treemap -->
     </div>
@@ -212,6 +212,30 @@ export default {
         },
       ],
       chartOptions: {
+        xaxis: {
+          type: "numeric",
+          lines: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+
+          labels: {
+            show: false,
+          },
+        },
+        yaxis: [
+          {
+            y: 10,
+            offsetX: 10,
+            offsetY: 10,
+            padding: {
+              left: 10,
+              right: 10,
+            },
+          },
+        ],
         legend: {
           show: false,
         },
@@ -281,7 +305,7 @@ export default {
       ],
       TableDatas: [
         {
-          StarIcon:'',
+          StarIcon: "",
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "WBTC",
           CoinName: "Bitcoin",
@@ -296,7 +320,7 @@ export default {
           MarketCapPercentage: "50.16%",
         },
         {
-           StarIcon:'',
+          StarIcon: "",
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "ETH",
           CoinName: "Ethereum",
@@ -311,7 +335,7 @@ export default {
           MarketCapPercentage: "40.16%",
         },
         {
-           StarIcon:'',
+          StarIcon: "",
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "USDT",
           CoinName: "Tether",
@@ -326,7 +350,7 @@ export default {
           MarketCapPercentage: "60.16%",
         },
         {
-           StarIcon:'',
+          StarIcon: "",
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "USDC",
           CoinName: "USD Coin",
@@ -341,7 +365,7 @@ export default {
           MarketCapPercentage: "70.16%",
         },
         {
-           StarIcon:'',
+          StarIcon: "",
           CoinImage: require("../../assets/images/favoriteTable/bitcoin.png"),
           Coinsybmol: "BNB",
           CoinName: "BNB",
@@ -362,32 +386,31 @@ export default {
 };
 </script>
 <style scoped>
-.heading-AllCategories{
+.heading-AllCategories {
   width: 30%;
 }
-.three-dropdown{
+.three-dropdown {
   margin-top: 32px;
   margin-bottom: 24px;
-
 }
 .custom-charts {
-  padding-left: 8px;
-  padding-right: 2px;
+  padding-right: 18px;
+  padding-left: 18px;
 }
-.firt-selectbox  select{
-width: 124px !important;
-height:32px;
-border-radius:4px;
-padding:4px, 8px, 4px, 8px !important;
-gap:4px;
+.firt-selectbox select {
+  width: 124px !important;
+  height: 32px;
+  border-radius: 4px;
+  padding: 4px, 8px, 4px, 8px !important;
+  gap: 4px;
 }
 .second-selectbox select {
-width: 292px !important;
-height:32px;
-border-radius:4px;
-padding:4px, 8px, 4px, 8px !important;
-gap:4px;
-margin-left: 17px;
+  width: 292px !important;
+  height: 32px;
+  border-radius: 4px;
+  padding: 4px, 8px, 4px, 8px !important;
+  gap: 4px;
+  margin-left: 17px;
 }
 .borderColor {
   border-color: #28363e;
@@ -401,7 +424,7 @@ margin-left: 17px;
   cursor: pointer;
   margin-top: 32px;
   margin-bottom: 24px;
-  width:fit-content
+  width: fit-content;
 }
 .AllCategoriesCurrency:hover {
   color: #f38220;

@@ -2,8 +2,8 @@
   <div>
     <NavDrawer></NavDrawer>
     <header class="container-fluid site-main-header pmd">
-      <div class="row">
-        <div class="col-md-12 col-lg-1 my-auto main-header-logo">
+      <div class="row px-0">
+        <div class="col-md-12 col-lg-2 px-0 my-auto main-header-logo">
           <span>
             <b-link :to="{ path: '/' }">
               <b-img
@@ -15,15 +15,12 @@
             </b-link>
           </span>
         </div>
-        <div class="col-md-12 col-lg-10 my-auto Nav1">
+        <div class="col-md-11 col-lg-8 px-0 my-auto Navs1">
           <div class="main-NavMenu">
             <ul>
               <li class="listmenu">
                 <div class="dropdown dropdown-togglemenu">
-                  <button
-                    class="dropbtn"
-                    :class="$route.name == 'Home' ? 'active' : ''"
-                  >
+                  <button class="dropbtn" :class="$route.name == 'Home' ? 'active' : ''">
                     Home
                     <span
                       ><svg
@@ -142,9 +139,7 @@
                     </span>
                   </button>
                   <div class="dropdown-content">
-                    <b-link
-                      :to="{ path: '/uc/my-portfolio' }"
-                      class="fontdropdownLeft"
+                    <b-link :to="{ path: '/uc/my-portfolio' }" class="fontdropdownLeft"
                       >My Portfolio
                     </b-link>
                     <!-- <b-link
@@ -157,9 +152,7 @@
                         class="fontdropdownmiddle"
                         >Order History</b-link
                       > -->
-                    <b-link
-                      :to="{ path: '/uc/history' }"
-                      class="fontdropdownmiddle"
+                    <b-link :to="{ path: '/uc/history' }" class="fontdropdownmiddle"
                       >History</b-link
                     >
                     <!-- <b-link
@@ -246,14 +239,10 @@
                     </span>
                   </button>
                   <div class="dropdown-content">
-                    <b-link
-                      :to="{ path: '/deposit/cash' }"
-                      class="fontdropdownLeft"
+                    <b-link :to="{ path: '/deposit/cash' }" class="fontdropdownLeft"
                       >Deposit</b-link
                     >
-                    <b-link
-                      :to="{ path: '/withdraw/cash' }"
-                      class="fontdropdownRight"
+                    <b-link :to="{ path: '/withdraw/cash' }" class="fontdropdownRight"
                       >Withdraw</b-link
                     >
                   </div>
@@ -265,9 +254,7 @@
                     :to="{ path: '/news' }"
                     class="hovername"
                     :class="
-                      $route.name == 'News' || $route.name == 'NewsDetail'
-                        ? 'active'
-                        : ''
+                      $route.name == 'News' || $route.name == 'NewsDetail' ? 'active' : ''
                     "
                     >News</b-link
                   >
@@ -287,24 +274,16 @@
           </div>
         </div>
         <!-- ******** BUTTON Login AND Add   Open Account ******** -->
-        <div
-          class="col-3 border icon-navbar_right"
-          v-if="$route.name == 'Login'"
-        >
-          <b-button
-            class="FDA-BTnLogin"
-            role="button"
-            @click="$router.push('/login')"
+        <!-- <div class="col border icon-navbar_right" v-if="$route.name == 'Login'">
+          <b-button class="FDA-BTnLogin" role="button" @click="$router.push('/login')"
             >Login</b-button
           >
-          <b-button class="FDA-BTnOpenAcc" role="button">
-            Open Account
-          </b-button>
-        </div>
+          <b-button class="FDA-BTnOpenAcc" role="button"> Open Account </b-button>
+        </div> -->
         <!-- ******** BUTTON Login AND Add   Open Account ******** -->
         <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
         <div
-          class="col-md-12 col-lg-1 icon-navbar_right my-auto"
+          class="col-md-1 col-lg-2 px-0 icon-navbar_right my-auto"
           v-if="$route.name != 'Login'"
         >
           <ul class="header-dots">
@@ -412,6 +391,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.listmenu > div {
+  min-width: max-content !important;
+}
 .site-main-header {
   background-color: #0a0d10;
   padding: 14px 24px;
@@ -423,6 +405,7 @@ export default {
       color: #d6dde1;
       font-size: 16px;
       border: none;
+
       text-align: left !important;
       position: relative;
       padding: 0px 0px 17px 0px;
@@ -432,7 +415,7 @@ export default {
       display: inline-block;
       padding-left: 0px;
       padding-bottom: 8px !important;
-      padding-right: 13px;
+      //padding-right: 13px;
     }
     .dropdown-togglemenu {
       span {
@@ -481,7 +464,8 @@ export default {
     }
     li {
       transition-duration: 0.5s;
-      height: 24px;
+      height: 25px;
+      // border: 1px solid red;
     }
     li a {
       color: #d6dde1 !important;
@@ -869,12 +853,19 @@ export default {
   }
 }
 
+@media (max-width: 790px) {
+  .icon-navbar_right {
+    .header-dots {
+      gap: 3px !important;
+    }
+  }
+}
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) {
   .main-NavMenu {
     ul {
       li {
-        margin: 0 5px;
+        margin: 0 4px;
       }
     }
   }
@@ -887,7 +878,7 @@ export default {
   }
   .main-header-logo {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     // padding-bottom: 20px;
   }
 }
@@ -948,7 +939,7 @@ export default {
   .main-NavMenu {
     ul {
       li {
-        margin: 0 25px;
+        //margin: 0 25px;
       }
     }
   }

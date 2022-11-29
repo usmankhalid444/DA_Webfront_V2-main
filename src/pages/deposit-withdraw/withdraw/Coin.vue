@@ -6,10 +6,10 @@
           <div class="row dcc-head">
             <div class="col-12">
               <router-link to="/withdraw/cash"
-                ><button class="not-active">Deposit Cash</button></router-link
+                ><button class="not-active">Withdraw Cash</button></router-link
               >
               <router-link to="/withdraw/coin"
-                ><button class="active">Deposit Coin</button></router-link
+                ><button class="active">Withdraw Coin</button></router-link
               >
             </div>
           </div>
