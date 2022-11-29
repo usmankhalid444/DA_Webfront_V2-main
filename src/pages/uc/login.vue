@@ -202,7 +202,12 @@
                     >
                       <div class="modal-content modal-dialog">
                         <div class="modal-header">
-                          <h5 class="modal-title font-sarabun">ลืมรหัสผ่าน</h5>
+                          <h5
+                            class="modal-title"
+                            style="font-family: Noto Sans Thai"
+                          >
+                            ลืมรหัสผ่าน
+                          </h5>
                         </div>
                         <div class="modal-body thai-font">
                           <b-form class="fdaForm-psw">
@@ -284,20 +289,11 @@
                                 {ชื่อกิจกรรม - ถ้าระบบมี}
                               </p>
                               <div
-                                class="
-                                  wraper-input
-                                  mb-2
-                                  d-flex
-                                  justify-content-between
-                                "
+                                class="wraper-input mb-2 d-flex justify-content-between"
                               >
                                 <div class="name-input">
                                   <select
-                                    class="
-                                      form-select form-select form-control
-                                      text-light
-                                      shadow-none
-                                    "
+                                    class="form-select form-select form-control text-light shadow-none"
                                     aria-label=".form-select-sm example"
                                     style="
                                       background-color: #222b2f;
@@ -315,20 +311,11 @@
                                 Title (คำนำหน้าชื่อ)
                               </p>
                               <div
-                                class="
-                                  wraper-input
-                                  mb-2
-                                  d-flex
-                                  justify-content-between
-                                "
+                                class="wraper-input mb-2 d-flex justify-content-between"
                               >
                                 <div class="name-input">
                                   <select
-                                    class="
-                                      form-select form-select
-                                      text-light
-                                      shadow-none
-                                    "
+                                    class="form-select form-select text-light shadow-none"
                                     aria-label=".form-select-sm example"
                                     style="
                                       background-color: #222b2f;
@@ -487,11 +474,7 @@
                                         </p>
                                       </div>
                                       <div
-                                        class="
-                                          otp-inputs
-                                          d-flex
-                                          justify-content-center
-                                        "
+                                        class="otp-inputs d-flex justify-content-center"
                                         style="margin-bottom: 48px"
                                       >
                                         <input
@@ -524,19 +507,12 @@
                                         class="d-flex justify-content-center"
                                       >
                                         <div
-                                          class="
-                                            buttonConfirm
-                                            d-grid
-                                            gap-2
-                                            mb-4
-                                          "
+                                          class="buttonConfirm d-grid gap-2 mb-4"
                                           style="width: 78%"
                                         >
                                           <button
                                             type="button"
-                                            class="
-                                              btn btn-primary btn-text-sarabun
-                                            "
+                                            class="btn btn-primary btn-text-sarabun"
                                             @click="confirmOtpEmail"
                                           >
                                             ยืนยัน
@@ -622,10 +598,7 @@
                                       >
                                         <button
                                           type="button"
-                                          class="
-                                            btn btn-text-sarabun
-                                            success-btn
-                                          "
+                                          class="btn btn-text-sarabun success-btn"
                                         >
                                           กลับหน้าเข้าสู่ระบบ
                                         </button>
@@ -648,7 +621,7 @@
                   >
                     เข้าสู่ระบบ
                   </b-button>
-                  <div class="text-center p-t-32">
+                  <div class="text-center p-t-32 thai-font">
                     <b-link
                       class="textLink-ftLogin"
                       @click="showRegisterModal = true"

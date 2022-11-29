@@ -27,11 +27,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input
-                    @change="calculated_buying_btc"
-                    type="text"
-                    v-model="buy_amount"
-                  />
+                  <input type="number" v-model="buying_amount" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
@@ -72,13 +68,17 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" v-model="selected_buy_score" />
+                  <input type="number" v-model="selected_buy_score" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
 
                 <div class="form-group bs-lp-input">
-                  <input type="text" v-model="buying_btc" readonly="readonly" />
+                  <input
+                    type="text"
+                    :value="buying_amount / selected_buy_score"
+                    readonly="readonly"
+                  />
                   <span class="currency">BTC</span>
                   <span class="text">BTC ราคาต่อ</span>
                 </div>
@@ -108,7 +108,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" v-model="selling_btc" />
+                  <input type="number" v-model="selling_amount" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
@@ -149,13 +149,17 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" v-model="selected_sell_score" />
+                  <input type="number" v-model="selected_sell_score" />
                   <span class="currency">BTC</span>
                   <span class="text">ราคาต่อ</span>
                 </div>
 
                 <div class="form-group bs-lp-input">
-                  <input type="text" v-model="buying_btc" readonly="readonly" />
+                  <input
+                    type="text"
+                    :value="selling_amount / selected_sell_score"
+                    readonly="readonly"
+                  />
                   <span class="currency">BTC</span>
                   <span class="text">จำนวน BTC ที่ขาย</span>
                 </div>
@@ -195,7 +199,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" v-model="market_buying_value" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
@@ -236,7 +240,11 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input
+                    type="text"
+                    :value="market_buying_value / market_buying_price"
+                    readonly
+                  />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -267,7 +275,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" v-model="market_selling_value" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
@@ -308,7 +316,10 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input
+                    type="text"
+                    :value="market_selling_value / market_selling_price"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -349,7 +360,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
@@ -390,7 +401,7 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -408,12 +419,12 @@
                   >
                 </div>
                 <div class="form-group mb-5 bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -432,7 +443,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
@@ -473,7 +484,7 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -495,12 +506,12 @@
                 </div>
 
                 <div class="form-group mb-5 bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
                 <div class="form-group bs-lp-input">
-                  <input type="text" />
+                  <input type="number" />
                   <span class="currency">THB</span>
                   <span class="text">ราคาต่อ BTC</span>
                 </div>
@@ -786,10 +797,14 @@ export default {
   props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
-      buy_amount: 0,
-      selling_amount: 0,
-      buying_btc: 0,
-      selling_btc: 0,
+      buying_amount: null,
+      selling_amount: null,
+      buying_btc: null,
+      selling_btc: null,
+      market_buying_price: 896458.67,
+      market_selling_price: 896458.67,
+      market_buying_value: null,
+      market_selling_value: null,
       lot_a: "0%",
       lot_b: "0%",
       mot_a: "0%",
@@ -799,12 +814,6 @@ export default {
       ordertabs: ["Limit Order", "Market Order", "Trailing Stop"],
       selectedorder: "Limit Order",
     };
-  },
-  methods: {
-    calculated_buying_btc() {
-      this.buying_btc = this.buy_amount / this.selected_buy_score;
-      console.log(this.buying_btc);
-    },
   },
 };
 </script>
@@ -999,8 +1008,9 @@ export default {
 }
 .bs-lp-input {
   position: relative;
-  input {
-    // text-align: right;
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    display: none;
   }
   span.currency {
     position: absolute;

@@ -123,7 +123,9 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores">
+              <div
+                class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores"
+              >
                 <span class="live-amount-title">896,485.67</span>
                 <span class="live-amount-value">(-4.26%)</span>
                 <span class="title">24h High:</span>
@@ -340,39 +342,39 @@ export default {
       coinSearchText: "",
       defaultPath: "btc_usdt",
       showSearchBox: false,
-      selected_sell_score: 0,
-      selected_buy_score: 0,
+      selected_sell_score: null,
+      selected_buy_score: null,
       sell_live_scores: [
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 796585.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 193485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 596485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 796485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 296485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 396485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
       ],
       buy_live_scores: [
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 696485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 596485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 996485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 396485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 296485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
+        { price_thb: 196485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
         { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
       ],
