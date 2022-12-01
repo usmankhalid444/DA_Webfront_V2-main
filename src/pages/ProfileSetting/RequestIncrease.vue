@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <div class="Heading">
-            <h1>ขอเพิ่มวงเงินซื้อขาย</h1>
+            <h1 class="page-heading">ขอเพิ่มวงเงินซื้อขาย</h1>
           </div>
         </div>
       </div>
@@ -323,7 +323,7 @@
                           />
                         </div>
                         <div class="success-message">
-                          <p class="text-grey">ระบบได้รับข้อมูลของคุณแล้ว</p>
+                          <p class="text-grey" style="font-size:18px;font-weight:600;">ระบบได้รับข้อมูลของคุณแล้ว</p>
                         </div>
                         <div
                           class="finisButton-SuccesOtp"
@@ -331,7 +331,8 @@
                         >
                           <button
                             type="button"
-                            class="btn btn-text-sarabun btn-cancel"
+                            class="btn btn-text-sarabun btn-cancel buttonSuccess"
+                            style="width: 39%;"
                           >
                             เสร็จสิ้น
                           </button>
@@ -362,12 +363,14 @@ export default {
 };
 </script>
 <style scoped>
-.Heading {
-  color: #d6dde1;
-  font-size: 24px;
-  font-weight: 600;
+.page-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
-  line-height: 24px;
+  color: #d6dde1;
+}
+.Heading {
   padding: 24px 0px 21px 24px;
   margin-bottom: 53px;
 }
@@ -433,6 +436,10 @@ export default {
   border-color: #f38220 !important;
   background-image: url("../../../src/assets/images/profile-setting/checkedbox.png");
 }
+.form-control{
+  color: #f38220!important;
+  outline: none;
+}
 .attachment-wrap {
   background-color: #192126;
   margin-top: 16px;
@@ -482,6 +489,11 @@ select {
 /*  select box end */
 
 /* modal succes */
+.buttonSuccess{
+  font-size: 16px!important;
+  font-weight: 700!important;
+  font-family: "Noto Sans Thai"!important;
+}
 .otp-input {
   width: 44px !important;
   height: 56px !important;
@@ -502,6 +514,7 @@ select {
 }
 .modal-content {
   width: 100% !important;
+  background-color: #141b1f!important;
 }
 .modal-wrapper {
   display: table-cell;

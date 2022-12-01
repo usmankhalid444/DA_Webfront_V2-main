@@ -11,8 +11,8 @@
               <router-link to="/withdraw/cash"
                 ><button class="active">Withdraw Cash</button></router-link
               >
-              <router-link to="/withdraw/coin"
-                ><button class="not-active">Withdraw Coin</button></router-link
+              <a href="javascript:;"
+                ><button class="not-active">Withdraw Coin</button></a
               >
             </div>
           </div>
@@ -20,7 +20,7 @@
           <!-- center section start -->
           <div class="row mt-3 center-section">
             <div class="col-12">
-                <div class="row" v-if="currentSettings === 'qr'">
+                <div class="row" >
                 <div class="col-5 col-md-4 my-auto thai-font">
                   จำนวนเงินที่ต้องการถอน
                 </div>
@@ -47,65 +47,11 @@
                         <span> เปลี่ยน</span>
                       </div>
                   </div>
-                  <!-- <div
-                    class="select-container"
-                    tabindex="0"
-                    @click="open_dropdown = !open_dropdown"
-                    @blur="open_dropdown = false"
-                  >
-                    <span class="text">{{ selected_option }}</span>
-                    <span
-                      class="icon"
-                      :class="open_dropdown ? 'rotate-sc-icon' : ''"
-                      ><svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                          fill="#677F8E"
-                        />
-                      </svg>
-                    </span>
-                    <div
-                      class="options"
-                      :class="open_dropdown ? 'show' : 'hidden'"
-                    >
-                      <ul>
-                        <li
-                          @click="
-                            (selected_option = 'QR Code (Prompt Pay)'),
-                              $bvModal.show('deposit-qr-modal'),
-                              (currentSettings = 'qr')
-                          "
-                        >
-                          QR Code (Prompt Pay)
-                        </li>
-                        <li
-                          @click="
-                            (selected_option = 'Bank Transfer'),
-                              (currentSettings = 'bank_transfer')
-                          "
-                        >
-                          Bank Transfer
-                        </li>
-                      </ul>
-                    </div>
-                  </div> -->
+              
                 </div>
               </div>
-              <!-- <div class="row mt-4" v-if="currentSettings === 'bank_transfer'">
-                <div class="col-5 col-md-4">ชื่อบัญชี</div>
-                <div class="col-7 col-md-8 lr">
-                  บริษัท ฟินันเซีย ดิจิทัล แอสเซท จำกัด <span>คัดลอก</span>
-                </div>
-                <div class="col-5 col-md-4 mt-3">ธนาคาร</div>
-                <div class="col-7 col-md-8 mt-3">ธนาคารกรุงเทพ - BBL</div>
-              </div> -->
-              <div class="row mt-4" v-if="currentSettings === 'qr'">
+            
+              <div class="row mt-4" >
                 <div class="col-12 info thai-font">
                   <p>สรุปรายการถอน</p>
                   <div class="row mt-3">
@@ -127,43 +73,11 @@
                 <div class="col-7 col-md-8">
                   999,980.00 THB
                  </div>
-                  <!-- <ul>
-                    <li>
-                      โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
-                    </li>
-                    <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
-                    <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
-                  </ul> -->
+                
                 </div>
               </div>
               </div>
-              <div v-if="currentSettings === 'bank_transfer'">
-                <div class="bcb"></div>
-                <div class="row">
-                  <div class="col-12 bc-info thai-font">
-                    <p>ยอมรับเงื่อนไขการฝากเงิน</p>
-                    <ul class="">
-                      <li>
-                        โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2
-                        บัญชี)
-                      </li>
-                      <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row mt-2">
-                  <div class="col-12 bc-info thai-font">
-                    <p>ยอมรับเงื่อนไขการฝากเงิน</p>
-                    <ul class="number">
-                      <li>
-                        โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
-                      </li>
-                      <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
-                      <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
           
@@ -171,20 +85,17 @@
           <!-- bottom section start -->
           <div
             class="mx-3 pt-1 bottom-section thai-font mt-3 b-ins"
-            v-if="currentSettings === 'qr'"
+           
           >
              <p>หมายเหตุ</p>
               <ul>
                 <li>จะได้รับเงินภายใน 1 นาที  ถึง 24 ชั่วโมง </li>
                 <li>ถอนเงินได้สูงสุดไม่เกินวันละ 2,000,000 บาท</li>
               </ul>
-            <!-- <label>
-              <input class="form-check-input" type="checkbox" />
-              <span>ยอมรับเงื่อนไขทั้งหมด</span>
-            </label> -->
+          
             <div class="last-btn">
               <button
-                @click="openOTPModel()"
+              @click="$bvModal.show('otp-success-modal')"
                 class="thai-font"
               >
               ยืนยันการถอนเงิน
@@ -206,7 +117,7 @@
         </ul>
       </div>
 
-      <otp-model v-if="showWithdrawOTPModal"></otp-model>
+      <otp-model :otp="true"></otp-model>
     </div>
   </template>
   <script>
@@ -217,17 +128,10 @@
     },
     data() {
       return {
-        open_dropdown: false,
-        selected_option: "QR Code (Prompt Pay)",
-        currentSettings: "qr",
-        showWithdrawOTPModal:false,
+      
       };
     },
-    methods:{
-      openOTPModel(){
-        this.showWithdrawOTPModal=true
-      }
-    }
+  
   };
   </script>
   <style lang="scss">

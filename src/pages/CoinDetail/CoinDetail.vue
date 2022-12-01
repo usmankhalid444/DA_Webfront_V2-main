@@ -25,13 +25,16 @@
                 src="../../assets/images/coin_32/btc.png"
                 alt="coin-image"
               />
-              <span class="btc-text">BTC /</span>
+              <span v-if="searchText.length == 0" class="btc-text">BTC /</span>
             </span>
+
             <input
               @focus="showSearchBox = true"
               @focusout="showSearchBox = false"
               class="ml-4 coins-search-input text-uppercase"
+              :class="`${searchText.length == 0 ? ' ' : 'paddingLeft'}`"
               type="text"
+              v-model="searchText"
               placeholder="THB"
               maxlength="4"
             />
@@ -159,39 +162,36 @@
       </div>
     </div>
     <!-- top bar section end -->
-    <div class="row coin-detail-main-content mt-3">
-      <div class="col-12 col-md-6 col-lg-7 col-xl-9">
+    <div class="row coin-detail-main-content mt-3 px-2">
+      <div class="col-12 col-md-6 col-lg-7 col-xl-8">
         <div class="cd-main-chart mt-2">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni facere
-          repellendus aliquid, tenetur impedit at soluta? Ratione maxime beatae
-          qui quod odio fugit vero alias quasi animi labore. Saepe, doloremque!
-          Recusandae voluptas voluptatum distinctio accusantium odio est itaque.
-          Saepe perspiciatis fugiat facilis magni quod, quibusdam similique
-          magnam animi aliquam nam neque placeat hic commodi quia sapiente
-          libero. Natus, fugiat fugit! Ducimus ratione error tenetur modi animi
-          id explicabo consectetur dignissimos iure sint, neque, nostrum eius,
-          qui inventore officia reprehenderit illum libero excepturi doloremque
-          magni aperiam reiciendis! Reiciendis qui suscipit porro? Vero a nobis
-          sequi quidem accusantium. Incidunt explicabo sint debitis laborum.
-          Adipisci harum quo sed repellat, eius eum molestiae aliquam sit hic
-          recusandae quia enim iste maiores officia. Explicabo, voluptatem.
-          Dolore laborum, saepe quo consectetur sequi eaque cum inventore
-          praesentium rem sunt atque soluta iure, recusandae harum dolorem quod
-          beatae nobis adipisci suscipit enim molestiae. Iusto sequi nobis culpa
-          numquam? Unde porro quos, nulla doloremque distinctio accusantium ab
-          dolor error natus quo reiciendis. Libero corrupti ullam dolor
-          similique reprehenderit. Reiciendis dolorum fugiat quo inventore
-          aspernatur a, qui ea. Amet, eius. Doloribus, perferendis alias,
-          incidunt id tempora eligendi magni voluptas fuga obcaecati est ducimus
-          vel et, ipsum iure laudantium cum nemo quia culpa. Quam deserunt ipsum
-          cumque ad error, repellat eligendi. Ducimus aut perspiciatis quae
-          vitae ratione optio illum doloribus vero aperiam necessitatibus enim
-          at error suscipit cupiditate nam earum delectus, aliquam quibusdam
-          voluptatum officia quaerat iure est non consequuntur! Nulla?
+          repellendus aliquid, tenetur impedit at soluta? Ratione maxime beatae qui quod
+          odio fugit vero alias quasi animi labore. Saepe, doloremque! Recusandae voluptas
+          voluptatum distinctio accusantium odio est itaque. Saepe perspiciatis fugiat
+          facilis magni quod, quibusdam similique magnam animi aliquam nam neque placeat
+          hic commodi quia sapiente libero. Natus, fugiat fugit! Ducimus ratione error
+          tenetur modi animi id explicabo consectetur dignissimos iure sint, neque,
+          nostrum eius, qui inventore officia reprehenderit illum libero excepturi
+          doloremque magni aperiam reiciendis! Reiciendis qui suscipit porro? Vero a nobis
+          sequi quidem accusantium. Incidunt explicabo sint debitis laborum. Adipisci
+          harum quo sed repellat, eius eum molestiae aliquam sit hic recusandae quia enim
+          iste maiores officia. Explicabo, voluptatem. Dolore laborum, saepe quo
+          consectetur sequi eaque cum inventore praesentium rem sunt atque soluta iure,
+          recusandae harum dolorem quod beatae nobis adipisci suscipit enim molestiae.
+          Iusto sequi nobis culpa numquam? Unde porro quos, nulla doloremque distinctio
+          accusantium ab dolor error natus quo reiciendis. Libero corrupti ullam dolor
+          similique reprehenderit. Reiciendis dolorum fugiat quo inventore aspernatur a,
+          qui ea. Amet, eius. Doloribus, perferendis alias, incidunt id tempora eligendi
+          magni voluptas fuga obcaecati est ducimus vel et, ipsum iure laudantium cum nemo
+          quia culpa. Quam deserunt ipsum cumque ad error, repellat eligendi. Ducimus aut
+          perspiciatis quae vitae ratione optio illum doloribus vero aperiam
+          necessitatibus enim at error suscipit cupiditate nam earum delectus, aliquam
+          quibusdam voluptatum officia quaerat iure est non consequuntur! Nulla?
         </div>
         <div class="container below-chart-content">
           <div class="row mt-3 mb-3">
-            <div class="col-12">
+            <div class="col-12 px-0">
               <p class="heading">Bitcoin (BTC)</p>
               <div class="offer-buttons">
                 <button class="green">ซื้อ</button>
@@ -200,30 +200,27 @@
             </div>
           </div>
           <div class="row th-instructions mt-3">
-            <div class="col-12">
+            <div class="col-12 px-0">
               <p>
-                Bitcoin (BTC) คือ สกุลเงินดิจิทัลที่ถูกสร้างขึ้น
-                เพื่อเป็นช่องทางในการ แลกเปลี่ยนแบบ Peer-to-Peer ผ่านระบบ
-                Blockchain ที่เป็น เทคโนโลยีที่ใช้สำหรับ
-                การตรวจสอบธุรกรรมที่เกิดขึ้นบน Bitcoin ทำให้มีความโปร่งใส
-                และมีหัวใจหลักที่ การกระจายศูนย์ (Decentralized)
-                ไม่ถูกควบคุมหรือผ่านตัวกลางเช่น รัฐบาล และธนาคาร
-                ซึ่งธุรกรรมที่เกิด ขึ้นผ่าน Blockchain
-                จะง่ายต่อการตรวจสอบและยากต่อการย้อนกลับ ดัดแปลง หรือทำลาย
+                Bitcoin (BTC) คือ สกุลเงินดิจิทัลที่ถูกสร้างขึ้น เพื่อเป็นช่องทางในการ
+                แลกเปลี่ยนแบบ Peer-to-Peer ผ่านระบบ Blockchain ที่เป็น
+                เทคโนโลยีที่ใช้สำหรับ การตรวจสอบธุรกรรมที่เกิดขึ้นบน Bitcoin
+                ทำให้มีความโปร่งใส และมีหัวใจหลักที่ การกระจายศูนย์ (Decentralized)
+                ไม่ถูกควบคุมหรือผ่านตัวกลางเช่น รัฐบาล และธนาคาร ซึ่งธุรกรรมที่เกิด
+                ขึ้นผ่าน Blockchain จะง่ายต่อการตรวจสอบและยากต่อการย้อนกลับ ดัดแปลง
+                หรือทำลาย
               </p>
             </div>
           </div>
           <div class="row th-instructions mt-3">
-            <div class="col-6">
+            <div class="col-6 px-0">
               <p class="title">ข้อเด่น</p>
               <ul>
                 <li>
-                  Bitcoin เป็นสกุลเงินดิจิทัลอันดับ 1 ในตลาด Cryptocurrency
-                  ปัจจุบัน
+                  Bitcoin เป็นสกุลเงินดิจิทัลอันดับ 1 ในตลาด Cryptocurrency ปัจจุบัน
                 </li>
                 <li>
-                  Bitcoin
-                  เป็นเงินดิจิทัลเพียงชนิดเดียวที่มีความกระจายศูนย์ที่แท้จริง
+                  Bitcoin เป็นเงินดิจิทัลเพียงชนิดเดียวที่มีความกระจายศูนย์ที่แท้จริง
                 </li>
                 <li>
                   Bitcoin มีการลดอัตราการสร้างทุก 4 ปีซึ่งจะทำให้เกิดความขาดแคลน
@@ -232,21 +229,18 @@
                 <li>Bitcoin ยังไม่เคยประสบปัญหาความล้มเหลวของเครือข่าย</li>
               </ul>
             </div>
-            <div class="col-6">
+            <div class="col-6 px-0">
               <p class="title">ข้อด้อย</p>
               <ul>
                 <li>ความล่าช้าในการทำธุรกรรม</li>
-                <li>
-                  ค่าธรรมเนียมในการโอนเงินค่อนข้างสูงเมื่อเทียบกับ Blockchain
-                  อื่น
-                </li>
+                <li>ค่าธรรมเนียมในการโอนเงินค่อนข้างสูงเมื่อเทียบกับ Blockchain อื่น</li>
                 <li>มีค่าใช้จ่าย และพลังงานสูงในการดำเนินการเครือข่าย</li>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-5 col-xl-3 cd-rite-side">
+      <div class="col-12 col-md-6 col-lg-5 col-xl-4 cd-rite-side">
         <p class="p-0 m-0 heading">Past Performance</p>
         <div class="row mt-2">
           <div class="col-5"></div>
@@ -271,6 +265,7 @@
         <p class="p-0 mb-2 mt-3 heading">
           Market Status
           <svg
+            id="market-status"
             width="17"
             height="17"
             viewBox="0 0 17 17"
@@ -282,6 +277,9 @@
               fill="#677F8E"
             />
           </svg>
+          <b-tooltip target="market-status" variant="light"
+            >ข้อมูลเหรียญโดยอ้างอิงจากเว็บไซต์ Coinmarketcap
+          </b-tooltip>
         </p>
         <div class="row mt-2">
           <div class="col-5 performance-title">Rank by Market Cap</div>
@@ -383,7 +381,14 @@
             </span>
           </div>
         </div>
-        <div class="d-flex justify-content-center cd-guage-chart">
+        <div class="chart-section">
+          <div class="d-flex flex-wrap labels">
+            <div class="label strong-sell">Strong Sell</div>
+            <div class="label sell">Sell</div>
+            <div class="label neutral">Neutral</div>
+            <div class="label buy">Buy</div>
+            <div class="label strong-buy">Strong Buy</div>
+          </div>
           <div>
             <highcharts class="highcharts" :options="guageOptions"></highcharts>
           </div>
@@ -396,16 +401,16 @@
           </div> -->
         </div>
         <div class="row ts-info mb-5">
-          <div class="col-5 title">Strong Trend</div>
-          <div class="col-7 info-positive">+</div>
-          <div class="col-5 title">Trend Ribbon</div>
-          <div class="col-7 info-neutral">Neutral</div>
-          <div class="col-5 title">MACD</div>
-          <div class="col-7 info-positive">+</div>
-          <div class="col-5 title">RSI</div>
-          <div class="col-7 info-overbought">Overbought</div>
-          <div class="col-5 title">EMA (5,20)</div>
-          <div class="col-7 info-positive">+</div>
+          <div class="col-6 title">Strong Trend</div>
+          <div class="col-6 info-positive">+</div>
+          <div class="col-6 title">Trend Ribbon</div>
+          <div class="col-6 info-neutral">Neutral</div>
+          <div class="col-6 title">MACD</div>
+          <div class="col-6 info-positive">+</div>
+          <div class="col-6 title">RSI</div>
+          <div class="col-6 info-overbought">Overbought</div>
+          <div class="col-6 title">EMA (5,20)</div>
+          <div class="col-6 info-positive">+</div>
         </div>
       </div>
     </div>
@@ -417,6 +422,7 @@ export default {
     return {
       trendSignal: "15m",
       showSearchBox: false,
+      searchText: "",
       guageAttrs: {
         background: "red",
         p1: 100,
@@ -439,17 +445,17 @@ export default {
           plotBorderWidth: 0,
           plotShadow: false,
           backgroundColor: "transparent",
-          height: 200,
+          height: 240,
         },
         responsive: {
           rules: [
             {
-              condition: {
-                maxWidth: 415,
-              },
+              // condition: {
+              //   maxWidth: 415,
+              // },
               chartOptions: {
                 chart: {
-                  height: 130,
+                  height: 240,
                 },
               },
             },
@@ -554,12 +560,61 @@ export default {
           },
         ],
       };
+      console.log(this.$refs.chard);
       return options;
     },
   },
 };
 </script>
 <style lang="scss" scoped>
+.highcharts {
+  //border: 1px solid red;
+}
+.paddingLeft {
+  padding-left: 40px !important;
+}
+.chart-section {
+  position: relative;
+  margin-top: 20px;
+
+  .labels {
+    top: -21px;
+    right: 0;
+    left: 0;
+    position: absolute;
+    justify-content: center;
+    .label {
+      text-align: center;
+    }
+    .strong-sell {
+      width: 60px;
+      color: #eb4751;
+      margin-top: 90px;
+    }
+    .sell {
+      width: 50px;
+      color: #da868b;
+      margin-right: 5px;
+      margin-top: 30px;
+    }
+    .neutral {
+      color: #677f8e;
+      width: 100px;
+      margin-top: 5px;
+    }
+    .buy {
+      color: #a4dbb6;
+      width: 50px;
+      margin-left: 5px;
+      margin-top: 30px;
+    }
+    .strong-buy {
+      color: #44a765;
+      width: 60px;
+      margin-top: 90px;
+    }
+  }
+}
 .search-container {
   position: relative;
   width: 100%;
@@ -665,6 +720,7 @@ export default {
     margin-right: 16px;
   }
   .title {
+    display: inline-block;
     color: #9bacb6;
     font-size: 14px;
     margin-right: 8px;
@@ -729,7 +785,7 @@ export default {
   .trading-signal {
     text-align: center;
     border: 1px solid var(--ui-layer-2);
-    width: 75%;
+    width: 95%;
     border-radius: 4px;
     font-size: 12px;
     color: var(--sub-2);
@@ -809,8 +865,9 @@ export default {
   }
 }
 .ts-info {
+  z-index: 999;
   margin-top: -120px;
-  width: 80%;
+  width: 95%;
   font-size: 14px;
   margin-left: 2px;
   .title {

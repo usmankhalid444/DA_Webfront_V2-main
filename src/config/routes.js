@@ -131,6 +131,30 @@ const routes = [
     
   },
   {
+     path :"/pre-test",
+     component:()=>import("../pages/pre-test/PreTest.vue"),
+     name:'PreTest',
+    
+  },
+   {
+     path :"/pre-test/pass",
+     component:()=>import("../pages/pre-test/PreTestPass.vue"),
+     name:'PreTestPass',
+    
+  },
+  {
+     path :"/pre-test/fail",
+     component:()=>import("../pages/pre-test/PreTestFail.vue"),
+     name:'PreTestFail',
+    
+  },
+  {
+     path :"/knowledge-test",
+     component:()=>import("../pages/pre-test/KnowledgeTest.vue"),
+     name:'KnowledgeTest',
+    
+  },
+  {
     path: "/uc",
     component: () => import("../pages/uc/member-center"),
     children: [
@@ -254,8 +278,8 @@ const routes = [
 
   },
   {
-    path: "/withdraw/coin",
-    component: () => import("../pages/deposit-withdraw/withdraw/Coin.vue"),
+    path: "/withdraw/main_account",
+    component: () => import("../pages/deposit-withdraw/withdraw/MainAccount.vue"),
         name: "WithdrawCoin",
 
   },
@@ -301,6 +325,11 @@ const routes = [
         path: "PinPassword",
         component: () => import("../pages/ProfileSetting/PinPassword"),
         name: "PinPassword",
+      },
+      {
+        path: "TouchFaceID",
+        component: () => import("../pages/ProfileSetting/TouchFaceID"),
+        name: "TouchFaceID",
       },
       {
         path: "RequestIncrease",

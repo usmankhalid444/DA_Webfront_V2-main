@@ -1,18 +1,20 @@
 <template>
     <div>
   <!-- cash withdraw modal -->
-
-  <modal>
-      </modal>
-      <transition
+  <b-modal
+      class="otp-success-modal"
+      id="otp-success-modal"
+      ref="otp-success-modal"
+      :hide-footer="true"
+      :hide-header="true"
+      centered
+    >
       
-        name="modal"
-      >
-        <div class="modal-mask">
           <div class="modal-wrapper">
             <div class="modal-container">
               <div class="modalHeading">
                 <label>ยืนยันการถอนเงิน</label>
+                <span @click="$bvModal.hide('otp-success-modal')">&times;</span>
               </div>
 
               <!-- further heading -->
@@ -39,10 +41,7 @@
               <div class="flexCoinWithdraw">
                 <button
                   class="btn1"
-                  @click="
-                    showWithdrawOTPModal = false;
-                    showWithdrawDoneAlert = true;
-                  "
+                  @click="showWithdrawOTPModal()"
                 >
                 ยืนยัน
                 </button>
@@ -54,30 +53,53 @@
                 <label style="color: #f38220">กดส่งอีกครั้ง</label>
               </div>
               <label class="l-info">กรณีไม่สามารถยืนยัน OTP ได้ โทร. 063-393-4664</label>
-              <!-- <div v-if="copyAlert" class="copyAlert">
-                <div class="tickImg">
-                  <img src="@/assets/images/wallet/tick.png" />
-                </div>
-
-                <label>Copy Address สำเร็จแล้ว</label>
-              </div> -->
+            
             </div>
           </div>
-        </div>
-      </transition>
+      
       <!-- cash withdraw done modal -->
+  </b-modal>
+   <otp-success-model v-if="this.otp"></otp-success-model>
+   <account-model  v-else></account-model>
     </div>
    
 </template>
 <script>
+import OtpSuccessModel from './OtpSuccessModel.vue';
+import AccountModel from './AccountModel.vue'
 export default {
+  name:'model',
+  props:['otp'],
+  components:{
+    OtpSuccessModel,
+    AccountModel
+  },
     data(){
                 return{
-            // showWithdrawOTPModal:true
+           
     }
+    },
+    methods:{
+      showWithdrawOTPModal(){
+        console.log(this.otp)
+        if(this.otp){
+          this.$bvModal.show('otp-verify-modal')
+        }else{
+          this.$bvModal.show('main-verify-modal')
+        }
+        this.$refs['otp-success-modal'].hide()
+       
+      }
     } 
 }
 </script>
+<style>
+#otp-success-modal___BV_modal_content_{
+  background: transparent !important;
+    border: none;
+    padding: 0px;
+}
+</style>
 <style scoped>
 .modal-mask {
     position: fixed;
@@ -91,8 +113,8 @@ export default {
     transition: opacity 0.3s ease;
 }
 .modal-wrapper {
-    display: table-cell;
-    vertical-align: middle;
+    /* display: table-cell;
+    vertical-align: middle; */
 }
 .modal-container {
     max-width: 424px;
@@ -114,7 +136,18 @@ export default {
     align-items: center;
     justify-content: center;
     height: 75px;
+    position: relative;
     line-height: 75px;
+}
+.modalHeading> span
+{
+  
+  position: absolute;
+    right: 0px;
+    font-size: 30px;
+    color: rgb(155, 172, 182);
+    cursor: pointer;
+
 }
 .modalHeading label
 {

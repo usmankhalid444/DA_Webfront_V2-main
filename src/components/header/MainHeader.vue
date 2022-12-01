@@ -20,7 +20,10 @@
             <ul>
               <li class="listmenu">
                 <div class="dropdown dropdown-togglemenu">
-                  <button class="dropbtn" :class="$route.name == 'Home' ? 'active' : ''">
+                  <button
+                    class="dropbtn"
+                    :class="$route.name == 'Home' ? 'active' : ''"
+                  >
                     Home
                     <span
                       ><svg
@@ -71,7 +74,7 @@
                     :to="{ path: '/scan' }"
                     class="hovername"
                     :class="$route.name == 'ScannerList' ? 'active' : ''"
-                    >scan</b-link
+                    >Scan</b-link
                   >
                 </div>
               </li>
@@ -139,7 +142,9 @@
                     </span>
                   </button>
                   <div class="dropdown-content">
-                    <b-link :to="{ path: '/uc/my-portfolio' }" class="fontdropdownLeft"
+                    <b-link
+                      :to="{ path: '/uc/my-portfolio' }"
+                      class="fontdropdownLeft"
                       >My Portfolio
                     </b-link>
                     <!-- <b-link
@@ -152,7 +157,9 @@
                         class="fontdropdownmiddle"
                         >Order History</b-link
                       > -->
-                    <b-link :to="{ path: '/uc/history' }" class="fontdropdownmiddle"
+                    <b-link
+                      :to="{ path: '/uc/history' }"
+                      class="fontdropdownmiddle"
                       >History</b-link
                     >
                     <!-- <b-link
@@ -239,10 +246,14 @@
                     </span>
                   </button>
                   <div class="dropdown-content">
-                    <b-link :to="{ path: '/deposit/cash' }" class="fontdropdownLeft"
+                    <b-link
+                      :to="{ path: '/deposit/cash' }"
+                      class="fontdropdownLeft"
                       >Deposit</b-link
                     >
-                    <b-link :to="{ path: '/withdraw/cash' }" class="fontdropdownRight"
+                    <b-link
+                      :to="{ path: '/withdraw/cash' }"
+                      class="fontdropdownRight"
                       >Withdraw</b-link
                     >
                   </div>
@@ -254,7 +265,9 @@
                     :to="{ path: '/news' }"
                     class="hovername"
                     :class="
-                      $route.name == 'News' || $route.name == 'NewsDetail' ? 'active' : ''
+                      $route.name == 'News' || $route.name == 'NewsDetail'
+                        ? 'active'
+                        : ''
                     "
                     >News</b-link
                   >
@@ -343,6 +356,18 @@
                         <li class="name">
                           <b-link class="p8" :to="{ path: '/ProfileSetting' }"
                             >Profile & Setting</b-link
+                          >
+                        </li>
+                        <br />
+                        <li class="name">
+                          <b-link class="p8" :to="{ path: '/pre-test' }"
+                            >Pre Test</b-link
+                          >
+                        </li>
+                        <br />
+                        <li class="name">
+                          <b-link class="p8" :to="{ path: '/knowledge-test' }"
+                            >knowledge Test</b-link
                           >
                         </li>
                         <br />
@@ -579,8 +604,9 @@ export default {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     width: 183px;
-    height: 196px;
+    min-height: 196px;
     right: 0px;
+    margin-right: -10px;
     border-radius: 4px;
     top: 60px;
   }
@@ -860,7 +886,14 @@ export default {
     }
   }
 }
+@media (max-width: 990px) {
+  .main-header-logo {
+    justify-content: center !important;
+    // padding-bottom: 20px;
+  }
+}
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media (min-width: 768px) {
   .main-NavMenu {
     ul {
@@ -876,13 +909,6 @@ export default {
       margin-bottom: 0;
     }
   }
-  .main-header-logo {
-    display: flex;
-    justify-content: left;
-    // padding-bottom: 20px;
-  }
-}
-@media (min-width: 768px) {
   .pmd {
     padding-bottom: 140px;
   }
@@ -931,9 +957,6 @@ export default {
       margin: 0;
     }
   }
-  .main-header-logo {
-    // padding-bottom: 0px;
-  }
 }
 @media (min-width: 1366px) {
   .main-NavMenu {
@@ -943,5 +966,10 @@ export default {
       }
     }
   }
+}
+.main-header-logo {
+  display: flex;
+  justify-content: left;
+  // padding-bottom: 20px;
 }
 </style>

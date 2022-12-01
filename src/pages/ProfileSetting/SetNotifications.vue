@@ -3,8 +3,8 @@
     <div class="container px-7">
       <div class="row">
         <div class="col">
-          <div class="Heading pt-6">
-            <h4>ตั้งค่าการแจ้งเตือน</h4>
+          <div class="Heading">
+            <h4 class="page-heading">ตั้งค่าการแจ้งเตือน</h4>
           </div>
         </div>
         <div class="row px-4">
@@ -64,15 +64,16 @@ p{
     margin-bottom: 0;
 }
 .Heading {
-  color: #d6dde1;
-  font-size: 24px;
-  font-weight: 500;
-  font-family: "Noto Sans Thai" !important;
-  line-height: 24px;
-  padding: 24px 0px 0px 12px;
+  padding: 24px 0px 21px 24px;
 }
 
-
+.page-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  font-family: "Noto Sans Thai" !important;
+  color: #d6dde1;
+}
 
 .table-text-white {
   color: #fff;

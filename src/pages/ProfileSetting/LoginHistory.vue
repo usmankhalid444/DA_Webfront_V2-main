@@ -3,8 +3,8 @@
     <div class="container px-7">
       <div class="row">
         <div class="col">
-          <div class="Heading pt-6">
-            <h4>ประวัติการเข้าสู่ระบบ</h4>
+          <div class="Heading">
+            <h4 class="page-heading">ประวัติการเข้าสู่ระบบ</h4>
           </div>
         </div>
         <div class="row px-4">
@@ -49,13 +49,15 @@ export default {};
 .bg-box {
   background-color: #1c262b;
 }
-.Heading {
-  color: #d6dde1;
-  font-size: 24px;
-  font-weight: 500;
+.page-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
-  line-height: 24px;
-  padding: 24px 0px 0px 12px;
+  color: #d6dde1;
+}
+.Heading {
+  padding: 24px 0px 21px 24px;
 }
 .box-personal-info {
   padding: 12px 28px 12px 28px;

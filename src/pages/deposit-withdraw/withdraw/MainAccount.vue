@@ -6,10 +6,10 @@
           <div class="row dcc-head">
             <div class="col-12">
               <router-link to="/withdraw/cash"
-                ><button class="not-active">Withdraw Cash</button></router-link
+                ><button class="active">Withdraw Cash</button></router-link
               >
-              <router-link to="/withdraw/coin"
-                ><button class="active">Withdraw Coin</button></router-link
+              <a href="javascript:;"
+                ><button class="not-active">Withdraw Coin</button></a
               >
             </div>
           </div>
@@ -17,104 +17,49 @@
           <!-- center section start -->
           <div class="row center-section">
             <div class="col-12">
-              <div class="row mt-3">
-                <div class="col-5 col-md-4 my-auto thai-font">
-                    เลือกเหรียญที่ต้องการฝาก
-                </div>
-                <div class="col-7 col-md-8 input-container">
-                  <input type="text" placeholder="0.00" value="AXS" />
-                  <span
-                    ><svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.9167 9.66667H10.2583L10.025 9.44167C10.8417 8.49167 11.3333 7.25833 11.3333 5.91667C11.3333 2.925 8.90833 0.5 5.91667 0.5C2.925 0.5 0.5 2.925 0.5 5.91667C0.5 8.90833 2.925 11.3333 5.91667 11.3333C7.25833 11.3333 8.49167 10.8417 9.44167 10.025L9.66667 10.2583V10.9167L13.8333 15.075L15.075 13.8333L10.9167 9.66667ZM5.91667 9.66667C3.84167 9.66667 2.16667 7.99167 2.16667 5.91667C2.16667 3.84167 3.84167 2.16667 5.91667 2.16667C7.99167 2.16667 9.66667 3.84167 9.66667 5.91667C9.66667 7.99167 7.99167 9.66667 5.91667 9.66667Z"
-                        fill="#677F8E"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-5 col-md-4 my-auto thai-font">Network</div>
-                <div class="col-7 col-md-8">
-                  <div
-                    class="select-container"
-                    tabindex="0"
-                    @click="open_dropdown = !open_dropdown"
-                    @blur="open_dropdown = false"
-                  >
-                    <span class="text"
-                      >{{ selected_option }}
-                      <span v-if="selected_option === 'Ronin'" class="red"
-                        >Suspend</span
-                      >
-                      <span v-if="selected_option === 'Network A'" class="yellow"
-                        >Congest</span
-                      >
-                    </span>
-                    <span
-                      class="icon"
-                      :class="open_dropdown ? 'rotate-sc-icon' : ''"
-                      ><svg
-                        width="12"
-                        height="8"
-                        viewBox="0 0 12 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                          fill="#677F8E"
-                        />
-                      </svg>
-                    </span>
-                    <div
-                      class="options"
-                      :class="open_dropdown ? 'show' : 'hidden'"
-                    >
-                      <ul>
-                        <li @click="selected_option = 'Ethereum (ERC20)'">
-                          Ethereum (ERC20)
-                        </li>
-                        <li @click="selected_option = 'Ronin'">
-                          Ronin <span class="t-red">Suspend</span>
-                        </li>
-                        <li @click="selected_option = 'Network A'">
-                          Network A <span class="t-yellow">Congest</span>
-                        </li>
-                      </ul>
-                    </div>
+              <p class="heading">กรุณาเลือกบัญชีหลักที่ท่านต้องการรับเงิน</p>
+              <div class="d-flex">
+                <input type="radio">
+                 <div  class="d-info">
+                  <span>บัญชีธนาคารที่รับเงิน</span>
+                  <div>
+                      <span>นายวาเลน ทองคำ</span>
+                      <span>ธนาคารกสิกรไทย &nbsp;&nbsp;&nbsp;&nbsp;  |&nbsp; 111-1-1111-1</span>
                   </div>
-                </div>
+                        <span class="link">บัญชีหลัก</span>
+                 </div>
               </div>
-              <div class="row mt-4 info">
-                <div class="col-12 col-md-4"></div>
-                <div
-                  class="col-12 col-md-8 thai-font mb-3"
-                  @click="$bvModal.show('deposit-coin-tutorial')"
-                >
-                กรุณาเลือก Network ของผู้รับ Address ให้ตรงกับ Network ของเหรียญที่คุณเลือก มิเช่นนั้นทรัพย์สินของคุณอาจสูญหายได้
-                </div>
+              <div class="d-flex sec">
+                <input type="radio">
+                 <div  class="d-info">
+                  <span>บัญชีธนาคารที่รับเงิน</span>
+                  <div>
+                      <span>นายวาเลน ทองคำ</span>
+                      <span>ธนาคารไทยพาณิชย์&nbsp;&nbsp;&nbsp;|&nbsp; 222-2-2222-2</span>
+                  </div>
+                  <span  class="link"></span>
+                 </div>
               </div>
-            </div>
-          </div>
-          <!-- center section start -->
-          <!-- bottom section start -->
-          <div class="bottom-section thai-font">
+              <ul class="iner-list">
+                <li>เมื่อมีการถอนเงินบริษัทจะโอนเงินเข้าบัญชีหลักที่ท่านเลือก</li>
+              </ul>
+          
+              <div class="bottom-section thai-font">
             <div class="last-btn">
               <button
-                @click="$bvModal.show('deposit-coin-qr-modal')"
+              @click="$bvModal.show('otp-success-modal')"
                 class="thai-font"
               >
-              ยืนยันการฝากเหรียญ
+              บันทึก
               </button>
             </div>
           </div>
+            </div> 
+          </div>
+          <!-- center section start -->
+          <!-- bottom section start -->
+         
+        
           <!-- bottom section end -->
         </div>
       </div>
@@ -129,25 +74,32 @@
           <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
         </ul>
       </div>
+
+      <otp-model :otp="false"></otp-model>
     </div>
   </template>
   <script>
+
+   import OtpModel from '@/components/Modal/OtpModel.vue'
   export default {
+   
+    components:{
+    OtpModel
+    },
     data() {
       return {
-        open_dropdown: false,
-        selected_option: "เลือก Network",
+       
       };
     },
-    created() {
-      this.$bvModal.show("deposit-coin-tutorial");
-    },
+    methods:{
+    }
   };
   </script>
   <style lang="scss">
   .deposite-coin-container {
     background-color: #192126;
     border-radius: 8px;
+    min-height: 445px;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
@@ -367,4 +319,79 @@
     }
   }
   </style>
+  <style scoped>
+  .sec{
+    margin-top:16px
+  }
+  .heading{
+    margin-top:32px;
+    margin-bottom:20px
+  }
+  .d-info
+{
+    background: #28363E;
+    border-radius: 4px;
+    height: 69px;
+    display: flex;
+    justify-content: space-between;
+    color: #9BACB6;
+    padding:13px 10px 12px;
+    font-size: 14px;
+    flex-grow: 1;
+    margin-left: 7px;
+}
+.d-info>div
+{
+   width: 235px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    position: relative;
+    color: #9BACB6;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+input[type="radio"]:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: 26px;
+  right: 2px;
+  position: relative;
+  background-color: #222b2f;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 3px solid #38454d;
+}
+
+input[type="radio"]:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  position: relative;
+  background-color: #d6dde1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 3px solid #f38220;
+}
+.link{
+  width:60px;
+  color: #F38220;
+  margin-top: 9px;
+}
+.iner-list{
+  margin: 32px 0px;
+    list-style: inherit;
+    padding: 0px;
+    list-style-position: inside;
+}
+.last-btn button{
+   height: 44px !important;
+    width: 100% !important;
+    line-height: 44px;
+}
+</style>
   

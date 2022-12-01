@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <div class="Heading">
-            <h1>PIN / Password</h1>
+            <h1 class="page-heading">PIN / Password</h1>
           </div>
           <div class="row px-4 pt-4">
             <div class="col-10">
@@ -17,7 +17,7 @@
                     <td class="table-text ps-0">
                       <p style="margin-top: 1rem">เปลี่ยน PIN</p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -31,7 +31,7 @@
                     <td class="table-text ps-0">
                       <p style="margin-top: 1rem">เปลี่ยน Password</p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -68,7 +68,7 @@
                           />
                         </div>
                         <div class="success-message">
-                          <p class="text-grey">ระบบได้รับข้อมูลของคุณแล้ว</p>
+                          <p class="text-grey" style="font-size:18px;font-weight:600;">ระบบได้รับข้อมูลของคุณแล้ว</p>
                         </div>
                         <div
                           class="finisButton-SuccesOtp"
@@ -76,7 +76,8 @@
                         >
                           <button
                             type="button"
-                            class="btn btn-text-sarabun btn-cancel"
+                            class="btn btn-text-sarabun btn-cancel buttonSuccess"
+                            style="width: 39%;"
                           >
                             เสร็จสิ้น
                           </button>
@@ -144,7 +145,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -164,7 +165,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditPin = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -173,12 +174,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body scroller">
+                <div class="modal-body ">
                   <div class="container" style="padding-left: 24px;">
                     <!-- Original pin input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">PIN เดิม</p>
                       <div class="name-input" style="width: 70%">
@@ -196,7 +197,7 @@
                     <!-- new pin input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">PIN ใหม่</p>
                       <div class="name-input" style="width: 70%">
@@ -215,7 +216,7 @@
                     <!-- confirm new pin input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">ยืนยัน PIN ใหม่</p>
                       <div class="name-input" style="width: 70%">
@@ -261,15 +262,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -281,7 +282,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpPin = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -296,7 +297,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -404,7 +405,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -424,7 +425,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditPassword = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -438,7 +439,7 @@
                     <!-- old password input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">รหัสผ่านเดิม</p>
                       <div class="name-input" style="width: 70%">
@@ -456,7 +457,7 @@
                     <!-- new password input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">รหัสผ่านใหม่</p>
                       <div class="name-input" style="width: 70%">
@@ -475,7 +476,7 @@
                     <!-- confirm new password input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top: 24px"
+                      style="width: 100%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">ยืนยันรหัสผ่านใหม่</p>
                       <div class="name-input" style="width: 70%">
@@ -542,15 +543,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -562,7 +563,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpPassword = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -577,7 +578,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -759,12 +760,14 @@ export default {
 .bg-box {
   background-color: #1c262b;
 }
-.Heading {
-  color: #d6dde1;
-  font-size: 24px;
-  font-weight: 600;
+.page-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
-  line-height: 24px;
+  color: #d6dde1;
+}
+.Heading {
   padding: 24px 0px 21px 24px;
 }
 
@@ -806,6 +809,22 @@ export default {
   border-bottom: 1px solid #28363e;
 }
 /* modal */
+.buttonSuccess{
+  font-size: 16px!important;
+  font-weight: 700!important;
+  font-family: "Noto Sans Thai"!important;
+}
+.form-control{
+  color: #f38220!important;
+  outline: none;
+}
+.modal-title{
+  color: #D6DDE1;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Noto Sans Thai" !important;
+  line-height: 28px;
+}
 .text-grey {
   color: #d6dde1;
   font-size: 14px;
@@ -817,6 +836,10 @@ export default {
   font-size: 14px;
   font-weight: 400;
   font-family: "Sarabun" !important;
+}
+.correct-button{
+  float: right;
+  clear: both;
 }
 .text-dark-grey {
   color: #9bacb6;
@@ -840,6 +863,8 @@ export default {
 }
 .modal-content {
   width: 100% !important;
+  background-color: #141b1f!important;
+
 }
 .modal-wrapper {
   display: table-cell;
@@ -860,10 +885,11 @@ export default {
 }
 ul {
   list-style: none;
+  color: #9BACB6!important;
 }
 ul li::before {
   content: "\2022";
-  color: "#9BACB6";
+  color: #9BACB6 !important;
   font-weight: bold;
   display: inline-block; 
   width: 1em;

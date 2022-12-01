@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col">
           <div class="Heading">
-            <h1>ข้อมูลส่วนตัว</h1>
+            <h1 class="page-heading">ข้อมูลส่วนตัว</h1>
           </div>
           <div class="row px-3">
             <div class="col-5">
@@ -38,7 +38,7 @@
                     <td class="table-text-white">
                       <p style="margin-top: 1rem">กฤษณ์ สำเริงราชย์</p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -56,7 +56,7 @@
                     <td class="table-text-white">
                       <p style="margin-top: 1rem">096-807-9333</p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -74,7 +74,7 @@
                     <td class="table-text-white">
                       <p style="margin-top: 1rem">krith2536@gmail.com</p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -94,7 +94,7 @@
                         188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240
                       </p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -114,7 +114,7 @@
                         188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240
                       </p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%;  padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
                         style="margin-top: 1rem"
@@ -125,7 +125,7 @@
                     </td>
                   </tr>
 
-                  <tr class="address border-bottom-table">
+                  <tr class="address border-bottom-end">
                     <td class="table-text ps-0">
                       <p style="margin-top: 1rem">สถานที่ทำงาน</p>
                     </td>
@@ -135,10 +135,10 @@
                         ตำแหน่งงาน xxxx รายได้ xxxxxxx
                       </p>
                     </td>
-                    <td style="width: 7%">
+                    <td style="width: 7%; padding-right:0px">
                       <p
                         class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        style="margin-top: 1rem "
                         @click="showModalEditWorkplace = true"
                       >
                         แก้ไข
@@ -172,7 +172,7 @@
                           />
                         </div>
                         <div class="success-message">
-                          <p class="text-grey">ระบบได้รับข้อมูลของคุณแล้ว</p>
+                          <p class="text-grey" style="font-size:18px;font-weight:600;">ระบบได้รับข้อมูลของคุณแล้ว</p>
                         </div>
                         <div
                           class="finisButton-SuccesOtp"
@@ -180,7 +180,8 @@
                         >
                           <button
                             type="button"
-                            class="btn btn-text-sarabun btn-cancel"
+                            class="btn btn-text-sarabun btn-cancel buttonSuccess"
+                            style="width: 39%;"
                           >
                             เสร็จสิ้น
                           </button>
@@ -246,7 +247,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -266,7 +267,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalSurnameChange = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -285,7 +286,7 @@
                           </p>
                           <p
                             class="text-dark-grey"
-                            style="margin-left: 15px; margin-top: 1rem"
+                            style="margin-left: 15px; margin-top: 1rem; margin-bottom:28px"
                           >
                             ณัฐฐา มั่นใจ
                           </p>
@@ -401,15 +402,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto  text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -421,7 +422,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOTPSurname = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -436,7 +437,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -541,15 +542,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto text-center">
                             ถ่ายรูปเซลฟี่หน้าตรง
                           </h5>
                           <button
@@ -561,7 +562,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOpenCamera = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -593,10 +594,10 @@
                         </div>
                         <div>
                           <p class="image-note">หมายเหตุ</p>
-                          <p class="note-list">
+                          <p class="note-list" style="margin-left: 7px;">
                             <span>1.</span> กรุณากด “อนุญาต’ เพื่อเปิดกล้อง
                           </p>
-                          <p class="note-list">
+                          <p class="note-list" style="margin-left: 7px;">
                             <span>2.</span> หากท่านยังไม่สามารถกดถ่ายรูปได้
                             กรุณาตรวจสอบการตั้งค่าได้ ที่นี่
                           </p>
@@ -638,7 +639,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -658,7 +659,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditPhoneNumber = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -690,7 +691,7 @@
                       style="width: 90%; margin-top: 24px"
                     >
                       <p class="text-dark-grey mt-2">เบอร์โทรศัพท์ใหม่</p>
-                      <div class="name-input" style="width: 70%">
+                      <div class="name-input" style="width: 66%">
                         <label for="inputPassword2" class="visually-hidden"
                           >ระบุเบอร์โทรศัพท์</label
                         >
@@ -733,15 +734,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto  text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -753,7 +754,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpPhonenumber = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -768,7 +769,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                              ระบุ OTP ที่ไดัรับจาก Email (xxxxxx@gmail.com)
@@ -876,7 +877,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -896,7 +897,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditEmail = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -972,15 +973,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -992,7 +993,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpEmail = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -1007,7 +1008,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -1115,7 +1116,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -1135,7 +1136,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditAddress = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -1162,14 +1163,40 @@
                         </div>
                       </div>
                     </div>
-                    <!-- new address heading -->
+                    <!-- id card  address heading -->
                     <p class="text-dark-grey mt-4">ที่อยู่ใหม่</p>
-                    <!-- House number/Soi -->
+                     <!-- number and group two input -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
+                      class="wraper-input d-flex justify-content-between mt-2"
                       style="width: 90%"
                     >
-                      <p class="text-dark-grey mt-2">บ้านเลขที่/ซอย</p>
+                      <p class="text-dark-grey mt-2">เลขที่</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <div class="left-right-input d-flex">
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        <p class="text-dark-grey mt-2 two-inputs-labelMargin">หมู่</p>
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label>
+                        <input
+                          type="text"
+                          class="form-control two-ipnuts"
+                          placeholder="ระบุข้อมูล"
+                        />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">หมู่บ้าน</p>
                       <div class="name-input" style="width: 70%">
                         <label for="inputPassword2" class="visually-hidden"
                           >ระบุข้อมูล</label
@@ -1179,6 +1206,75 @@
                           class="form-control address-input"
                           placeholder="ระบุข้อมูล"
                         />
+                      </div>
+                    </div>
+
+                    <!-- alley input -->
+                    <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ซอย</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- road input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ถนน</p>
+                      <div class="name-input" style="width: 70%">
+                        <label for="inputPassword2" class="visually-hidden"
+                          >ระบุข้อมูล</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control address-input"
+                          placeholder="ระบุข้อมูล"
+                        />
+                      </div>
+                    </div>
+                    <!-- subdistrict select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกตำบล/ แขวง</option>
+                        </select>
+                      </div>
+                    </div>
+
+
+                    <!-- district select box -->
+                    <div
+                      class="wraper-input mt-2 d-flex justify-content-between"
+                      style="width: 90%"
+                    >
+                      <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
+                      <div class="name-input" style="width: 70%">
+                        <select
+                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+                          aria-label=".form-select-sm example"
+                          style="background-color: #222b2f"
+                        >
+                          <option selected>เลือกอำเภอ/ เขต</option>
+                        </select>
                       </div>
                     </div>
 
@@ -1198,43 +1294,9 @@
                         </select>
                       </div>
                     </div>
-
-                    <!-- District select box -->
-                    <div
-                      class="wraper-input mt-2 d-flex justify-content-between"
-                      style="width: 90%"
-                    >
-                      <p class="text-dark-grey mt-2">อำเภอ/ เขต</p>
-                      <div class="name-input" style="width: 70%">
-                        <select
-                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
-                          aria-label=".form-select-sm example"
-                          style="background-color: #222b2f"
-                        >
-                          <option selected>เลือกอำเภอ/ เขต</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <!-- Sub-District select box -->
-                    <div
-                      class="wraper-input mt-2 d-flex justify-content-between"
-                      style="width: 90%"
-                    >
-                      <p class="text-dark-grey mt-2">ตำบล/ แขวง</p>
-                      <div class="name-input" style="width: 70%">
-                        <select
-                          class="form-select form-select-sm w-auto text-light shadow-none borderColor"
-                          aria-label=".form-select-sm example"
-                          style="background-color: #222b2f"
-                        >
-                          <option selected>เลือกตำบล/ แขวง</option>
-                        </select>
-                      </div>
-                    </div>
-                    <!-- zip code -->
-                    <div
-                      class="wraper-input mt-2 d-flex justify-content-between"
+                    <!-- zipcode input -->
+                     <div
+                      class="wraper-input d-flex justify-content-between mt-2"
                       style="width: 90%"
                     >
                       <p class="text-dark-grey mt-2">รหัสไปรษณีย์</p>
@@ -1244,11 +1306,12 @@
                         >
                         <input
                           type="text"
-                          class="form-control mb-3 address-input"
+                          class="form-control address-input"
                           placeholder="ระบุข้อมูล"
                         />
                       </div>
                     </div>
+                    
 
                     <!-- modal button bottom -->
                     <div class="button mt-3 mb-5 text-center">
@@ -1281,15 +1344,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto  text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -1301,7 +1364,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpAddress = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -1316,7 +1379,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -1415,6 +1478,7 @@
         </div>
       </transition>
     </div>
+    
     <!-- End modal edit Address -->
 
 
@@ -1425,7 +1489,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -1445,7 +1509,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditAddressIdCard = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -1651,15 +1715,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto  text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -1671,7 +1735,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpAddress = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -1686,7 +1750,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -1794,7 +1858,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
@@ -1814,7 +1878,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalEditWorkplace = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -2102,15 +2166,15 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header"  style="border-bottom: none;">
                   <div class="container">
                     <div
                       class="row"
                       style="padding-top: 5%; padding-bottom: 5%"
                     >
-                      <div class="col-md-8 offset-md-3">
+                      <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title text-center">
+                          <h5 class="modal-title m-auto  text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -2122,7 +2186,7 @@
                             <span
                               aria-hidden="true"
                               @click="showModalOtpWorkplace = false"
-                              style="color: #677f8e; font-size: 24px"
+                              style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
                           </button>
@@ -2137,7 +2201,7 @@
                       <div class="col">
                         <div class="otp-number">
                           <p
-                            class="text-grey text-center"
+                            class="text-dark-grey text-center"
                             style="margin-top: 1rem; margin-bottom: 20px"
                           >
                             ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
@@ -2369,12 +2433,14 @@ export default {
 .bg-box {
   background-color: #1c262b;
 }
-.Heading {
-  color: #d6dde1;
-  font-size: 24px;
-  font-weight: 500;
+.page-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
-  line-height: 24px;
+  color: #d6dde1;
+}
+.Heading {
   padding: 24px 0px 21px 24px;
 }
 .box-personal-info {
@@ -2418,7 +2484,10 @@ export default {
   font-family: "Sarabun" !important;
   cursor: pointer;
 }
-
+.form-control{
+  color: #f38220!important;
+  outline: none;
+}
 .table-text-yellow {
   color: #f38220;
   font-size: 14px;
@@ -2426,9 +2495,16 @@ export default {
   font-family: "Sarabun" !important;
   cursor: pointer;
 }
+.correct-button{
+  text-decoration: underline;
+  float: right;
+}
 
 .border-bottom-table {
   border-bottom: 1px solid #28363e;
+}
+.border-bottom-end{
+   border-bottom: 1px solid #141B1F;
 }
 .button-camera-open {
   padding-top: 87px;
@@ -2467,6 +2543,18 @@ export default {
   font-family: "Sarabun" !important;
 }
 /* modal */
+.buttonSuccess{
+  font-size: 16px!important;
+  font-weight: 700!important;
+  font-family: "Noto Sans Thai"!important;
+}
+.modal-title{
+  color: #D6DDE1;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Noto Sans Thai" !important;
+  line-height: 28px;
+}
 .text-grey {
   color: #d6dde1;
   font-size: 14px;
@@ -2501,6 +2589,7 @@ export default {
 }
 .modal-content {
   width: 100% !important;
+  background-color: #141b1f!important;
 }
 .modal-wrapper {
   display: table-cell;
@@ -2694,3 +2783,4 @@ input[type="number"] {
 }
 }
 </style>
+

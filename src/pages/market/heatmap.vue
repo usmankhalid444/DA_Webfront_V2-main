@@ -1,7 +1,7 @@
 <template>
   <div class="wraper-main">
     <div class="wrapper-treeMap" v-if="!ShowAllCategories">
-      <div class="heading-AllCategories px-3">
+      <div class="heading-AllCategoaries px-3">
         <P
           class="textGrey-heading AllCategoriesCurrency"
           @click="ShowAllCategories = !ShowAllCategories"
@@ -298,7 +298,7 @@ export default {
           headingVolume: "Volume (M)",
           headingMarketCap: "Market Cap",
           headingMarketCapM: "Market Cap (M)",
-          headingMarketCapPercentage: "%Market Cap",
+          headingMarketCapPercentage: "% Market Cap",
           headingDescription: "Description",
           headingCategories: "Categories",
         },
@@ -424,7 +424,6 @@ export default {
   cursor: pointer;
   margin-top: 32px;
   margin-bottom: 24px;
-  width: fit-content;
 }
 .AllCategoriesCurrency:hover {
   color: #f38220;

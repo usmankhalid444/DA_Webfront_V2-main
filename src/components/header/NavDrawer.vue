@@ -797,5 +797,4 @@ export default Vue.extend({
   }
   // ================================================== End notification
 }
-
 </style>

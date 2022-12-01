@@ -5,7 +5,7 @@
         <!-- <div class="col-3 background-tabs"> -->
         <div class="col-lg-2 col-md-3 background-tabs">
           <div class="setting-heading">
-            <h1>การตั้งค่า</h1>
+            <h1 class="tab-heading">การตั้งค่า</h1>
           </div>
           <ul class="nav flex-column mx-auto">
             <li class="nav-item menu-item">
@@ -37,6 +37,17 @@
                   :to="{ path: '/ProfileSetting/PinPassword' }"
                   :active="$route.name == 'PinPassword'"
                   >PIN / Password</b-link
+                >
+              </div>
+              <!-- <div class="hr"></div> -->
+            </li>
+            <li class="nav-item menu-item">
+              <div class="menu-item">
+                <b-link
+                  class="colormiddle"
+                  :to="{ path: '/ProfileSetting/TouchFaceID' }"
+                  :active="$route.name == 'TouchFaceID'"
+                  >Touch ID / Face ID</b-link
                 >
               </div>
               <div class="hr"></div>
@@ -167,6 +178,12 @@ export default Vue.extend({
 .setting-heading {
   padding: 24px 0px 10px 24px;
 }
+.tab-heading{
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  line-height: 36px !important;
+  font-family: "Noto Sans Thai" !important;
+}
 .green {
   color: var(--green-positive);
 }
@@ -187,8 +204,8 @@ export default Vue.extend({
   /* margin-right: 32px !important; */
   position: relative !important;
   font-weight: 400 !important;
-  font-size: 16px !important;
-  line-height: 19px !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
   font-family: "sarabun" !important;
 }
 
@@ -211,11 +228,11 @@ export default Vue.extend({
 }
 .mx-auto .colormiddle:hover {
   /* border-left-color: #f38220 !important; */
-  border-left: 4px solid #f38220 !important;
+  /* border-left: 4px solid #f38220 !important; */
   text-align: center;
   color: var(--primary) !important;
-  font-weight: 400 !important;
-  font-size: 14px !important;
+  /* font-weight: 400 !important;
+  font-size: 14px !important; */
   /* font-family: Sarabun; */
   /* background-color: #38454D; */
 }

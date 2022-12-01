@@ -82,16 +82,18 @@
               </b-navbar-nav>
             </b-collapse>
           </b-navbar>
-          <form class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto">
-            <div class="mb-0 form-group FDASearch">
-              <fieldset class="field-container">
-                <div class="icons-container">
-                  <div class="icon-search"></div>
-                </div>
-                <input type="text" placeholder="Search Coin" class="field" />
-              </fieldset>
-            </div>
-          </form>
+          <div class="form-div">
+            <form class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto">
+              <div class="mb-0 form-group FDASearch">
+                <fieldset class="field-container">
+                  <div class="icons-container">
+                    <div class="icon-search"></div>
+                  </div>
+                  <input type="text" placeholder="Search Coin" class="field" />
+                </fieldset>
+              </div>
+            </form>
+          </div>
         </div>
       </b-container>
       <router-view></router-view>
@@ -123,6 +125,21 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@media (min-width: 768px) and (max-width: 855px) {
+  .form-div {
+    display: flex;
+    width: 100%;
+    align-items: right;
+    justify-content: right;
+  }
+  form {
+    position: relative;
+    top: 0 !important;
+    margin-bottom: 5px;
+    margin-right: 9px;
+    align-items: flex-end;
+  }
+}
 //
 .MarKetHeader11289292022 {
   .bg-MarKetHeader {
@@ -177,7 +194,8 @@ export default Vue.extend({
   .FDASearch {
   }
   .field-container {
-    position: relative;
+    // position: relative;
+    border: 1px solid red;
     padding: 0;
     margin: 0;
     border: 0;
