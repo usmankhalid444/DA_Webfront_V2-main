@@ -16,9 +16,9 @@ const routes = [
     name: "Login",
   },
   {
-    path: "/register",
-    component: () => import("../pages/uc/Register"),
-    name: "Register",
+    path: "/login/success",
+    component: () => import("../pages/uc/Success"),
+    name: "Success",
   },
   {
     path: "/download",

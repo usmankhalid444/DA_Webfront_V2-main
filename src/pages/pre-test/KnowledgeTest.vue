@@ -121,7 +121,7 @@ export default {
           height: 20px;
           border-radius: 20px;
           top: -4px;
-          right: 8px;
+          right: 4px;
           position: relative;
           background-color: #222b2f;
           content: "";

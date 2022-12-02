@@ -205,7 +205,10 @@
                             ลืมรหัสผ่าน
                           </h5>
                         </div>
-                        <div class="modal-body thai-font">
+                        <div
+                          class="modal-body thai-font"
+                          style="padding-top: 5px !important"
+                        >
                           <b-form class="fdaForm-psw">
                             <b-form-group class="pad-16">
                               <label class="text-title font-sarabun"
@@ -229,7 +232,7 @@
                             </b-form-group>
 
                             <!-- button -->
-                            <div class="cover-button d-flex">
+                            <div class="cover-button">
                               <b-button class="buttons-C font-sarabun" href="#"
                                 >ยืนยัน</b-button
                               >
@@ -240,7 +243,7 @@
                               >
                             </div>
 
-                            <div class="contact font-sarabun">
+                            <div class="contact font-sarabun text-center">
                               กรณีติดปัญหา กรุณาติดต่อ 02-252-2525
                             </div>
                           </b-form>
@@ -267,7 +270,7 @@
                           class="modal-header"
                           style="border-bottom: 1px solid #28363e !important"
                         >
-                          <h5 class="modal-title font-sarabun text-center">
+                          <h5 class="modal-title rm-title">
                             ลงทะเบียน ทดลองใช้งานฟรี
                           </h5>
                         </div>
@@ -281,10 +284,10 @@
                                   eventNameField == true ? 'block' : 'none',
                               }"
                             >
-                              <p class="text-dark-grey mt-2 mb-2">
+                              <p class="text-dark-grey mt-2 mb-2 thai-font">
                                 {ชื่อกิจกรรม - ถ้าระบบมี}
                               </p>
-                              <div class="wraper-input mb-2">
+                              <div class="wraper-input mb-2 thai-font">
                                 <select>
                                   <option>เลือกกิจกรรม</option>
                                   <option>เลือกกิจกรรม</option>
@@ -307,11 +310,11 @@
                               </div>
                             </div>
                             <div class="pad-16">
-                              <p class="text-dark-grey mt-2 mb-2">
+                              <p class="text-dark-grey mt-2 mb-2 thai-font">
                                 Title (คำนำหน้าชื่อ)
                               </p>
                               <div
-                                class="wraper-input mb-2"
+                                class="wraper-input mb-2 thai-font"
                                 style="width: 160px"
                               >
                                 <select>
@@ -343,6 +346,7 @@
                                 <b-form-input
                                   type="text"
                                   id="firstName"
+                                  class="thai-font"
                                   style="max-width: 256px"
                                   placeholder="Pre Text"
                                 >
@@ -358,6 +362,7 @@
                                   style="max-width: 256px"
                                   type="text"
                                   id="firstName"
+                                  class="thai-font"
                                   placeholder="Pre Text"
                                 >
                                 </b-form-input>
@@ -375,7 +380,7 @@
                                   type="text"
                                   id="name"
                                   placeholder="เช่น 080-XXX-XXXX"
-                                  class="place-hold"
+                                  class="place-hold thai-font"
                                   style="max-width: 256px"
                                 >
                                 </b-form-input>
@@ -391,7 +396,7 @@
                                 <b-form-input
                                   type="text"
                                   id="name"
-                                  class="place-hold"
+                                  class="place-hold thai-font"
                                   style="max-width: 256px"
                                 >
                                 </b-form-input>
@@ -428,8 +433,14 @@
                       <div class="modal-mask">
                         <div class="modal-wrapper">
                           <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
+                            <div
+                              class="modal-content"
+                              style="margin-top: -308px !important"
+                            >
+                              <div
+                                class="modal-header"
+                                style="border: none !important"
+                              >
                                 <div class="container">
                                   <div class="row">
                                     <div class="tf-heading mt-3 mb-2">
@@ -464,7 +475,7 @@
                                 <div class="container">
                                   <div class="row">
                                     <div class="col">
-                                      <div class="otp-number">
+                                      <div class="otp-number mt-1">
                                         <p
                                           class="text-grey text-center"
                                           style="
@@ -481,46 +492,60 @@
                                         style="margin-bottom: 48px"
                                       >
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
                                           class="form-control otp-input"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           style="margin-left: 0px !important"
                                         />
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           class="form-control otp-input"
                                         />
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           class="form-control otp-input"
                                         />
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           class="form-control otp-input"
                                         />
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           class="form-control otp-input"
                                         />
                                         <input
-                                          type="text"
+                                          type="number"
+                                          maxlength="1"
+                                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                           class="form-control otp-input"
                                         />
                                       </div>
                                       <div
                                         class="d-flex justify-content-center"
                                       >
-                                        <div
-                                          class="buttonConfirm d-grid gap-2 mb-4"
-                                          style="width: 78%"
-                                        >
-                                          <button
-                                            type="button"
-                                            class="btn btn-primary btn-text-sarabun"
-                                            @click="confirmOtpEmail"
+                                        <router-link to="/login/success">
+                                          <div
+                                            class="buttonConfirm d-grid gap-2 mb-4"
+                                            style="width: 344px"
                                           >
-                                            ยืนยัน
-                                          </button>
-                                        </div>
+                                            <button
+                                              type="button"
+                                              class="btn btn-primary btn-text-sarabun"
+                                              @click="confirmOtpEmail"
+                                            >
+                                              ยืนยัน
+                                            </button>
+                                          </div>
+                                        </router-link>
                                       </div>
                                       <div
                                         class="d-flex justify-content-center"
@@ -568,62 +593,12 @@
                     </transition>
                   </div>
                   <!-- OTP Modal -->
-                  <!-- Success Modal -->
-                  <div v-if="showModalOTPSuccess">
-                    <transition name="modal">
-                      <div class="modal-mask">
-                        <div class="modal-wrapper">
-                          <div class="modal-dialog otp-success" role="document">
-                            <div class="modal-content">
-                              <div class="modal-body scroller-otp">
-                                <div class="container">
-                                  <div class="row">
-                                    <div class="col text-center">
-                                      <div class="checkTick">
-                                        <img
-                                          class="image-tick-modal"
-                                          src="../../assets/images/profile-setting/tick.png"
-                                          alt=""
-                                        />
-                                      </div>
-                                      <div class="success-message m-auto">
-                                        <p class="success-heading">
-                                          สมัคร Free Trial เรียบร้อย
-                                        </p>
-                                        <p class="success-message-otp">
-                                          กรุณาตรวจสอบอีเมลของท่านเพื่อดำเนินการ
-                                          ขั้นตอนต่อไป
-                                        </p>
-                                      </div>
-                                      <div
-                                        class="finisButton-SuccesOtp"
-                                        @click="showModalOTPSuccess = false"
-                                      >
-                                        <button
-                                          type="button"
-                                          class="btn btn-text-sarabun success-btn"
-                                        >
-                                          กลับหน้าเข้าสู่ระบบ
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </transition>
-                  </div>
-                  <!-- Success Modal -->
-                  <b-button
+                  <button
                     class="font-family_th mt-32 fda_submit_btn-primary"
                     @click="handler"
-                    variant="primary"
                   >
                     เข้าสู่ระบบ
-                  </b-button>
+                  </button>
                   <div class="text-center p-t-32 thai-font">
                     <b-link
                       class="textLink-ftLogin"
@@ -686,7 +661,6 @@ export default Vue.extend({
       showRegisterModal: false,
       eventNameField: false,
       showOtp: false,
-      showModalOTPSuccess: false,
       selected: null,
     };
   },
@@ -769,7 +743,6 @@ export default Vue.extend({
 
     confirmOtpEmail() {
       this.showOtp = !this.showOtp;
-      this.showModalOTPSuccess = !this.showModalOTPSuccess;
     },
   },
 });
@@ -859,15 +832,19 @@ export default Vue.extend({
       }
     }
 
-    .fda_submit_btn-primary.btn-primary {
-      width: 344px !important;
-      height: 36px !important;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+    .fda_submit_btn-primary {
+      width: 344px;
+      height: 36px;
       font-family: "sarabun";
-      padding: 0px 16px;
+      display: block;
+      margin: auto;
+      background-color: #f38220;
+      border-radius: 4px;
+      color: #0a0d10;
+      font-weight: 500;
+      &:hover {
+        background-color: #f28e38;
+      }
     }
 
     .mt-32 {
@@ -1056,7 +1033,11 @@ export default Vue.extend({
       }
     }
     //  button
-
+    .rm-title {
+      font-family: "Noto Sans Thai";
+      font-weight: 500;
+      font-size: 24px !important;
+    }
     .cover-button-register {
       justify-content: center;
       display: flex;
@@ -1067,6 +1048,8 @@ export default Vue.extend({
     }
     .cover-button {
       margin-top: 48px;
+      text-align: center;
+
       .buttons-C {
         background-color: var(--orange-accent);
         border-color: var(--orange-accent);
@@ -1078,6 +1061,7 @@ export default Vue.extend({
         height: 36px;
         margin-right: 12px;
         margin-left: 6px;
+        border-radius: 4px !important;
       }
       .buttons-D {
         background-color: var(--gray-active-state);
@@ -1089,6 +1073,7 @@ export default Vue.extend({
         width: 120px;
         height: 36px;
         margin-right: 6px;
+        border-radius: 4px !important;
       }
     }
     .contact {
@@ -1138,6 +1123,12 @@ export default Vue.extend({
     height: 56px !important;
     border-radius: 4px !important;
     margin-left: 16px !important;
+    text-align: center;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   .otp-success {
     max-width: 409px !important;
@@ -1161,41 +1152,11 @@ export default Vue.extend({
     max-width: 16%;
     padding: 11px;
   }
-  .checkTick {
-    padding-top: 100px;
-  }
-  .success-message {
-    padding-top: 24px;
-    padding-bottom: 32px;
-  }
+
   .finisButton-SuccesOtp {
     padding-bottom: 100px;
   }
-  .success-heading {
-    font-family: "Noto Sans Thai";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: center;
-    color: #d6dde1 !important;
-    margin-bottom: 0px;
-  }
-  .success-message-otp {
-    margin: 0 auto;
-    max-width: 70%;
-    font-family: "Sarabun";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    text-align: center;
-    color: #9bacb6;
-  }
-  .success-btn {
-    background: #38454d;
-    border-radius: 4px;
-  }
+
   .wraper-input {
     position: relative;
     width: 256px;
