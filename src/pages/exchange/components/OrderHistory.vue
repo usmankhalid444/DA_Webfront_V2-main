@@ -827,10 +827,10 @@ export default {
       border-radius: 4px;
       border: 1px solid #28363e;
     }
-    button:hover {
-      color: #d6dde1;
-      border: 1px solid #d6dde1;
-    }
+    // button:hover {
+    //   color: #d6dde1;
+    //   border: 1px solid #d6dde1;
+    // }
   }
   table {
     width: 100%;

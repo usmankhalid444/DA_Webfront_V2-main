@@ -4,8 +4,12 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: () => import("../pages/home/Home.vue"), name: "Home" },
-  
+  {
+    path: "/",
+    component: () => import("../pages/home/Home.vue"),
+    name: "Home",
+  },
+
   {
     path: "/login",
     component: () => import("../pages/uc/login"),
@@ -31,8 +35,7 @@ const routes = [
     component: () => import("../pages/exchange/components/OrderHistory.vue"),
     name: "order-history",
   },
-  
-  
+
   {
     path: "/news",
     component: () => import("../pages/news/news"),
@@ -125,34 +128,29 @@ const routes = [
     ],
   },
   {
-     path :"/scan",
-     component:()=>import("../pages/scanner/scanner.vue"),
-     name:'ScannerList',
-    
+    path: "/scan",
+    component: () => import("../pages/scanner/scanner.vue"),
+    name: "ScannerList",
   },
   {
-     path :"/pre-test",
-     component:()=>import("../pages/pre-test/PreTest.vue"),
-     name:'PreTest',
-    
-  },
-   {
-     path :"/pre-test/pass",
-     component:()=>import("../pages/pre-test/PreTestPass.vue"),
-     name:'PreTestPass',
-    
+    path: "/pre-test",
+    component: () => import("../pages/pre-test/PreTest.vue"),
+    name: "PreTest",
   },
   {
-     path :"/pre-test/fail",
-     component:()=>import("../pages/pre-test/PreTestFail.vue"),
-     name:'PreTestFail',
-    
+    path: "/pre-test/pass",
+    component: () => import("../pages/pre-test/PreTestPass.vue"),
+    name: "PreTestPass",
   },
   {
-     path :"/knowledge-test",
-     component:()=>import("../pages/pre-test/KnowledgeTest.vue"),
-     name:'KnowledgeTest',
-    
+    path: "/pre-test/fail",
+    component: () => import("../pages/pre-test/PreTestFail.vue"),
+    name: "PreTestFail",
+  },
+  {
+    path: "/knowledge-test",
+    component: () => import("../pages/pre-test/KnowledgeTest.vue"),
+    name: "KnowledgeTest",
   },
   {
     path: "/uc",
@@ -255,40 +253,35 @@ const routes = [
         component: () => import("../pages/portfolio/deposit-withdraw-report"),
         name: "DepositWithdrawReport",
       },
-      
     ],
   },
 
   {
     path: "/deposit/cash",
     component: () => import("../pages/deposit-withdraw/deposit/Cash.vue"),
-        name: "DepositeCash",
-
+    name: "DepositeCash",
   },
   {
     path: "/deposit/coin",
     component: () => import("../pages/deposit-withdraw/deposit/Coin.vue"),
-        name: "DepositeCoin",
-
+    name: "DepositeCoin",
   },
   {
     path: "/withdraw/cash",
     component: () => import("../pages/deposit-withdraw/withdraw/Cash.vue"),
-        name: "WithdrawCash",
-
+    name: "WithdrawCash",
+  },
+  {
+    path: "/withdraw/coin",
+    component: () => import("../pages/deposit-withdraw/withdraw/Coin.vue"),
+    name: "WithdrawCoin",
   },
   {
     path: "/withdraw/main_account",
-    component: () => import("../pages/deposit-withdraw/withdraw/MainAccount.vue"),
-        name: "WithdrawCoin",
-
+    component: () =>
+      import("../pages/deposit-withdraw/withdraw/MainAccount.vue"),
+    name: "WithdrawCoin",
   },
-
-
-
-
-
-
 
   {
     path: "/wallet",
@@ -318,7 +311,8 @@ const routes = [
       },
       {
         path: "BankAccountSuccessful",
-        component: () => import("../pages/ProfileSetting/BankAccountSuccessful"),
+        component: () =>
+          import("../pages/ProfileSetting/BankAccountSuccessful"),
         name: "BankAccountSuccessful",
       },
       {

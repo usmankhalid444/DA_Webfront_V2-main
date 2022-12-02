@@ -1,4 +1,12 @@
 /********** Template CSS **********/
+
+/* table thead th {
+   border: 1px solid red;
+}
+table tbody td {
+    border: 1px solid red;
+} */
+ 
 :root {
     /* UI Color */
     --ui-base: #0A0D10;

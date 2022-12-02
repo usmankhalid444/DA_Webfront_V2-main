@@ -167,7 +167,7 @@
               <table class="table table-borderless">
                 <thead>
                   <tr>
-                    <th>Price (THB)</th>
+                    <th style="width:50%">Price (THB)</th>
                     <th>Vol (BTC)</th>
                     <th>Total (THB)</th>
                   </tr>
@@ -184,7 +184,7 @@
                       {{ item.price_thb }}
                     </td>
                     <td>{{ item.vol_btc }}</td>
-                    <td>{{ item.total_thb }}</td>
+                    <td class="text-center">{{ item.total_thb }}</td>
                   </tr>
                   <tr>
                     <td class="red-big">896,485.67</td>
@@ -202,7 +202,7 @@
                       {{ item.price_thb }}
                     </td>
                     <td>{{ item.vol_btc }}</td>
-                    <td>{{ item.total_thb }}</td>
+                    <td class="text-center">{{ item.total_thb }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -212,7 +212,8 @@
 
           <div class="col-12 col-lg-6 col-xl-8 p-0">
             <div class="chart p-0">
-              <h1 class="text-white">Chart Here</h1>
+              <!-- <h1 class="text-white">Chart Here</h1> -->
+              <iframe src="https://bitenium.com/StockChartXRTC/chart.aspx" width="715" height="440"  title="Iframe Example"></iframe>
             </div>
             <!-- End Chart Area -->
 
@@ -254,7 +255,7 @@
           <table class="table table-borderless">
             <thead>
               <tr class="sticky-top fixed">
-                <th>Coin</th>
+                <th style="width:50%">Coin</th>
                 <th>Price (THB)</th>
                 <th>
                   %Chg
@@ -309,16 +310,16 @@
           <table class="table table-borderless p-0">
             <thead>
               <tr class="sticky-top">
-                <th>Time</th>
+                <th style="width:45%">Time</th>
                 <th>Price (THB)</th>
-                <th>Volume (BTC)</th>
+                <th >Volume (BTC)</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in 18" :key="'a' + index">
                 <td>14:59:20</td>
                 <td>586,908.00</td>
-                <td>0.00083</td>
+                <td class="text-center">0.00083</td>
               </tr>
             </tbody>
           </table>
@@ -769,7 +770,7 @@ export default {
   span {
     display: inline-block;
     margin-left: 5px;
-    margin-top: 3px;
+    // margin-top: 3px;
   }
 }
 

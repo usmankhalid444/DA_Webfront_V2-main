@@ -2,7 +2,7 @@
   <div style="marign-left: 60px">
     <div style="marign-left: 60px" class="WithdrawCoinFirst">
       <label>ผู้ใช้งานต้องลงทะเบียน Wallet ก่อน</label>
-      <label>จึงจะสามารถถอนเหรียญไปยัง Address ปลายทางได้</label>
+      <label>จึงจะสามารถถอนเหรียญไปยัง Address ปลายทางได้ aaaaaa</label>
 
       <div class="flexCoinWithdrawDone">
         <button

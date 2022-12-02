@@ -866,12 +866,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-table thead th {
-  // border: 1px solid red;
-}
-table tbody td {
-  // border: 1px solid red;
-}
 .icon-image {
   width: 40px;
 }

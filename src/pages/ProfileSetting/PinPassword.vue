@@ -683,7 +683,7 @@
 
 <script>
 export default {
-  name: "PersonalInformation",
+  name: "PinPassword",
   data: function () {
     return {
       showModalOTPSuccess: false,

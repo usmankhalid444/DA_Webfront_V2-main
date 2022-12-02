@@ -24,8 +24,9 @@
             class="fade show active tab-pane"
             v-show="selectedorder === 'Limit Order'"
           >
+          <div style="padding-bottom: 20px;">
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-6" style="padding-right: 16px">
                 <div class="form-group bs-lp-input">
                   <input type="number" v-model="buying_amount" />
                   <span class="currency">THB</span>
@@ -106,7 +107,7 @@
                   <p class="text-end p-0 m-0">Fee 0.20%</p>
                 </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" style="padding-left: 16px">
                 <div class="form-group bs-lp-input">
                   <input type="number" v-model="selling_amount" />
                   <span class="currency">THB</span>
@@ -188,6 +189,7 @@
                   <p class="text-end p-0 m-0">Fee 0.20%</p>
                 </div>
               </div>
+            </div>
             </div>
           </div>
 
@@ -535,9 +537,9 @@
 
     <!-- TP/SL Order-Confirmation modal -->
     <b-modal id="limitorder-TPSLB" :hide-footer="true" :hide-header="true">
-      <div class="row">
+      <div class="row mb-3 mt-2">
         <div class="col-12 modal-th">
-          <h5>Order Confirmation</h5>
+          <h5 >Order Confirmation</h5>
           <span
             class="modal-close-button"
             @click="$bvModal.hide('limitorder-TPSLB')"
@@ -604,14 +606,14 @@
           </div>
           <br />
           <div class="row buttons-row">
-            <div class="col-6">
+            <div class="col-6" style="padding-right: 8px">
               <button type="button" class="btn yellow-btn text-center">
                 ยืนยัน
               </button>
             </div>
-            <div class="col-6">
+            <div class="col-6" style="padding-left: 8px">
               <button
-                type="button"
+                type="button" 
                 class="btn grey-btn text-center"
                 @click="show_TPSLB_order = false"
               >
@@ -827,8 +829,8 @@ export default {
   background-color: #141b1f !important;
   border-radius: 8px;
   font-style: normal;
-  padding: 16px 16px !important;
-  margin-bottom: 15px;
+  padding: 16px 16px 20px 16px !important;
+  // margin-bottom: 15px;
 }
 .header {
   width: 360px;
@@ -908,14 +910,15 @@ export default {
 
 .modal-body .sell-badge {
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 12px;
   padding: 4px 8px;
   background: #eb475129;
   color: #eb4751;
   border-radius: 2px;
   line-height: 18px;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .modal-body label {
@@ -955,7 +958,7 @@ export default {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  width: 156px;
+  width: 100%;
   height: 40px;
 }
 
@@ -969,7 +972,7 @@ export default {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  width: 156px;
+  width: 100%;
   height: 40px;
 }
 
@@ -997,8 +1000,13 @@ export default {
   align-items: center;
   color: #677f8e;
   border: none;
-  padding: 14px 0px 10px 0px;
-  margin-left: 24px;
+  padding: 20px 0px 10px 0px;
+  margin-left: 40px;
+}
+
+.buy-sell .sells li button:hover{
+  color: #d6dde1;
+  cursor: pointer;
 }
 
 .buy-sell .sells li .active {
@@ -1031,7 +1039,7 @@ export default {
 }
 .sells .tab-content {
   margin-top: 20px;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 .sells input {
   width: 100%;
@@ -1079,7 +1087,7 @@ export default {
   font-family: "sarabun";
   font-weight: 500;
   margin-top: 16px;
-  margin-bottom: 16px;
+  // margin-bottom: 16px;
   &:hover {
     background-color: #f28e38;
   }
@@ -1302,7 +1310,7 @@ export default {
     border-radius: 4px;
     font-size: 16px;
     font-weight: 600;
-    margin: 0 auto;
+    margin: 16px auto;
     width: 255px;
     height: 40px;
   }

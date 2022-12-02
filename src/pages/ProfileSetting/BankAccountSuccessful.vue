@@ -24,7 +24,11 @@
           </div>
           <div class="col-5">
             <p class="table-text-yellow correct-button float-end">
-              <b-icon @click="$refs.deletDialog.show()" class="iconsTrash" icon="trash"></b-icon>
+              <b-icon
+                @click="$refs.deletDialog.show()"
+                class="iconsTrash"
+                icon="trash"
+              ></b-icon>
             </p>
           </div>
         </div>
@@ -52,13 +56,13 @@ export default {
   },
   components: {
     deleteDialog,
-    bankAccountDialog
+    bankAccountDialog,
   },
 };
 </script>
 
 <style scoped>
-.page-heading{
+.page-heading {
   font-weight: 600 !important;
   font-size: 24px !important;
   line-height: 36px !important;
@@ -68,22 +72,30 @@ export default {
 .primaryBtn {
   background: #f38220;
   border: none;
+  font-family: 'Sarabun';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 24px;
+color: #0A0D10;
 }
 .divider {
   background-color: #28363e;
   height: 2px;
   display: block;
-  width: 95%;
+  width: 80%;
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 65px;
 }
 .lightBlackBox {
   background: #192126;
   border-radius: 4px;
   padding: 24px 34px;
+  width: 90%;
+  margin-left: 22px;
 }
 .iconsTrash {
-  font-size: 18px;
+  font-size: 16px;
 }
 .bg-box {
   background-color: #1c262b;

@@ -57,14 +57,14 @@
           <div class="col-9 my-1 ts-value">0.00973 BTC (10,000 THB)</div>
         </div>
         <div class="row">
-          <div class="col-3 form-group form-check">
+          <div class="col-3 form-group form-check" style="padding-left: 2.5em;">
             <label class="stpsl-cb">
               <input type="checkbox" class="form-check-input" />
               <span class="w-title">Take Profit</span>
             </label>
           </div>
 
-          <div class="col-9">
+          <div class="col-9" style="padding: 0 12px 0 36px">
             <div class="row tabs-container">
               <div
                 class="col-6 tab"
@@ -95,13 +95,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-3 form-group form-check">
+          <div class="col-3 form-group form-check" style="padding-left: 2.5em;">
             <label class="stpsl-cb">
               <input type="checkbox" class="form-check-input" />
               <span class="w-title">Stop Loss</span>
             </label>
           </div>
-          <div class="col-9">
+          <div class="col-9" style="padding: 0 12px 0 36px">
             <div class="row tabs-container">
               <div
                 class="col-6 tab"
@@ -131,7 +131,7 @@
         </div>
         <div class="row">
           <div class="col-3 w-title my-auto">Sell Amount</div>
-          <div class="col-9">
+          <div class="col-9" style="padding-left: 36px;">
             <div class="row sa-tabs">
               <div
                 class="col-2 text-center sa-tab-first"
@@ -171,7 +171,7 @@
             </div>
           </div>
           <div class="col-3"></div>
-          <div class="col-9">
+          <div class="col-9" style="padding-left: 36px;">
             <ul class="thai-font sl-ul">
               <li>
                 ขายจำนวน 100% เมื่อราคาเป็นไปตามเงื่อนไข <br />

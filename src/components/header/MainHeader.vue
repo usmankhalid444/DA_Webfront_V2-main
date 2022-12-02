@@ -202,14 +202,10 @@
                     </span>
                   </button>
                   <div class="dropdown-content">
-                    <b-link
-                      :to="{ path: '/uc/deposit' }"
-                      class="fontdropdownLeft"
+                    <b-link :to="{ path: '/uc/deposit' }" class="fontdropdownLeft"
                       >Deposit</b-link
                     >
-                    <b-link
-                      :to="{ path: '/uc/withdraw' }"
-                      class="fontdropdownRight"
+                    <b-link :to="{ path: '/uc/withdraw' }" class="fontdropdownRight"
                       >Withdraw</b-link
                     >
                   </div>

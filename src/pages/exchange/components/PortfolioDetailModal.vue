@@ -26,7 +26,7 @@
             </span>
           </div>
         </div>
-        <div class="row mt-2">
+        <div class="row mt-3 mb-4">
           <div class="col-6">
             <p class="pair">BTC <span>/THB</span></p>
             <p class="live-scores">1,399,111.01 (+2.5%)</p>
@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        <div class="row body-container mt-2">
+        <div class="row body-container" style="margin-top: 4px">
           <div class="col-5">
             <p class="c-title">Avg. Cost</p>
             <p class="c-title">Actual</p>
@@ -54,7 +54,7 @@
             <p class="c-value">0.0098</p>
           </div>
         </div>
-        <div class="row body-container">
+        <div class="row body-container" style="margin-top: 4px">
           <div class="col-5">
             <p class="c-title">Market Value</p>
             <p class="c-title">Total Cost</p>
@@ -87,6 +87,7 @@ export default {};
 <style lang="scss">
 .portfolio-detail-modal {
   padding: 0 10px;
+  padding-top: 8px;
   .close-btn {
     float: right;
     cursor: pointer;
@@ -155,6 +156,7 @@ export default {};
     margin-top: 2px;
     background-color: #192126;
     padding: 10px 0;
+    margin: 0;
   }
 }
 </style>

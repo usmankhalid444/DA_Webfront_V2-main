@@ -25,7 +25,7 @@
                           >
                             <span
                               aria-hidden="true"
-                              @click="hide()"
+                              @click="showModal=false"
                               style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
@@ -47,21 +47,21 @@
                     </div>
                     <div class="row">
                       <div class="col-3 pb-2">
-                        <p class="text-dark-grey ">เลือกธนาคาร</p>
+                        <p class="text-dark-grey mt-2">เลือกธนาคาร</p>
                       </div>
-                      <div class="col-9 pb-2">
+                      <div class="col-9 pb-2 mb-3">
                          <select
                           class="form-select form-select-sm w-auto text-light shadow-none borderColor"
                           aria-label=".form-select-sm example"
-                          style="background-color: #222b2f"
+                          style="background-color: #222b2f; color:#D6DDE1"
                         >
                           <option selected>เลือกจังหวัด</option>
                         </select>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-3">
                       <div class="col-3 pb-2">
-                        <p class="text-dark-grey ">ชื่อสาขา</p>
+                        <p class="text-dark-grey mt-2 ">ชื่อสาขา</p>
                       </div>
                       <div class="col-9 pb-2">
                         <input
@@ -71,9 +71,9 @@
                         />
                       </div>
                     </div>
-                     <div class="row">
+                     <div class="row mb-3">
                       <div class="col-3 pb-2">
-                        <p class="text-dark-grey ">เลขที่บัญชี</p>
+                        <p class="text-dark-grey mt-2 ">เลขที่บัญชี</p>
                       </div>
                       <div class="col-9 pb-2">
                         <input
@@ -126,6 +126,192 @@
         </div>
       </transition>
     </div>
+    <!-- common success modal -->
+    <div v-if="showModalOTPSuccess">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog otp-success" role="document">
+              <div class="modal-content">
+                <div class="modal-body scroller-otp">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col text-center">
+                        <div class="checkTick">
+                          <img
+                            class="image-tick-modal"
+                            src="../../assets/images/profile-setting/tick.png"
+                            alt=""
+                          />
+                        </div>
+                        <div class="success-message">
+                          <p class="text-grey" style="font-size:18px;font-weight:600;">ระบบได้รับข้อมูลของคุณแล้ว</p>
+                        </div>
+                        <div
+                          class="finisButton-SuccesOtp"
+                          @click="showModalOTPSuccess = false"
+                        >
+                          <button
+                            type="button"
+                            class="btn btn-text-sarabun btn-cancel buttonSuccess"
+                            style="width: 39%;"
+                          >
+                            เสร็จสิ้น
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- common success modal end -->
+    <!-- otp common -->
+    <div v-if="showModalOTP">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header"  style="border-bottom: none;">
+                  <div class="container">
+                    <div
+                      class="row"
+                      style="padding-top: 5%; padding-bottom: 5%"
+                    >
+                      <div class="">
+                        <div class="d-flex justify-content-around">
+                          <h5 class="modal-title m-auto  text-center">
+                            ยืนยันการเปลี่ยนแปลงข้อมูล
+                          </h5>
+                          <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            <span
+                              aria-hidden="true"
+                              @click="showModalOTP = false"
+                              style="color: #677f8e; font-size: 30px"
+                              >&times;</span
+                            >
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-body scroller-otp">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <div class="otp-number">
+                          <p
+                            class="text-dark-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            ระบุ OTP ที่ไดัรับจาก SMS (068-123-1444)
+                          </p>
+                        </div>
+                        <div
+                          id="otp"
+                          class="otp-inputs d-flex justify-content-center"
+                          style="margin-bottom: 48px"
+                        >
+                          <input
+                            type="number"
+                            id="input1"
+                            v-on:keyup="inputenter(1)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input2"
+                            v-on:keyup="inputenter(2)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input3"
+                            v-on:keyup="inputenter(3)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input4"
+                            v-on:keyup="inputenter(4)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input5"
+                            v-on:keyup="inputenter(5)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                          <input
+                            type="text"
+                            id="input6"
+                            v-on:keyup="inputenter(6)"
+                            maxlength="1"
+                            class="form-control otp-input"
+                          />
+                        </div>
+                        <div class="button-confirm">
+                          <div
+                            class="buttonConfirm d-grid gap-2 mb-4"
+                            style="width: 78%"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-primary btn-text-sarabun"
+                              @click="ConfirmOtp"
+                            >
+                              ยืนยัน
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                          <p
+                            class="text-grey text-center"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            หากไม่ได้รับ OTP
+                          </p>
+                          <p
+                            class="text-yellow text-center ms-2"
+                            style="margin-top: 1rem; margin-bottom: 20px"
+                          >
+                            กดส่งอีกครั้ง
+                          </p>
+                        </div>
+
+                        <div class="bottom-detail">
+                          <p class="text-center" style="color: #677f8e">
+                            กรณีไม่สามารถยืนยัน OTP ได้ โทร. XX-XXX-XXXX
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <!-- otp end -->
   </div>
 </template>
 
@@ -134,6 +320,8 @@ export default {
   data() {
     return {
       showModal: false,
+      showModalOTP:false,
+      showModalOTPSuccess:false,
     };
   },
   methods: {
@@ -142,10 +330,50 @@ export default {
     },
     hide() {
       this.showModal = false;
+      this.showModalOTP =true;
     },
     OpenCameraModel() {
       this.showModalSurnameChange = !this.showModalSurnameChange;
       this.showModalOpenCamera = !this.showModalOpenCamera;
+    },
+    ConfirmOtp() {
+      this.showModalOTP = !this.showModalOTP;
+      this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
+    inputenter(id) {
+      const inputs = document.querySelectorAll("#otp > *[id]");
+
+      for (let i = 0; i < inputs.length; i++) {
+        inputs[i].addEventListener("keydown", function (event) {
+          // console.log('event', event)
+          if (event.key === "Backspace") {
+            inputs[i].value = "";
+            if (i !== 0) inputs[i - 1].focus();
+          } else {
+            if (i === inputs.length - 1 && inputs[i].value !== "") {
+              return true;
+            } else if (event.keyCode > 47 && event.keyCode < 58) {
+              inputs[i].value = event.key;
+              if (i !== inputs.length - 1) inputs[i + 1].focus();
+
+              event.preventDefault();
+            } else if (event.keyCode > 64 && event.keyCode < 91) {
+              // inputs[i].value = '';
+              console.log("===beforeeeee", inputs[i].value);
+              //  if (i !== 0) inputs[i - 1].focus();
+              event.preventDefault();
+              console.log("====", String.fromCharCode(event.keyCode));
+              console.log("===ok", inputs[i].value);
+              return;
+
+              // inputs[i].value = String.fromCharCode(event.keyCode);
+
+              // if (i !== inputs.length - 1) inputs[i + 1].focus();
+              // event.preventDefault();
+            }
+          }
+        });
+      }
     },
   },
 };
@@ -339,6 +567,10 @@ export default {
   display: flex;
   margin-left: 30px;
 }
+.form-control{
+  color: #f38220!important;
+  outline: none;
+}
 /* otp modal end */
 
 /* modal otp finish succes */
@@ -417,7 +649,13 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #192126;
 }
-
+.modal-title{
+  color: #D6DDE1;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Noto Sans Thai" !important;
+  line-height: 28px;
+}
 /* modal select box address */
 .address-input {
   width: 239px !important;

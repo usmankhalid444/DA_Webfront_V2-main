@@ -42,7 +42,7 @@
         class="tab-pane open-order"
         v-if="selectedfooter === 'Open Orders (5)'"
       >
-        <ul class="nav mx-2" id="" role="tablist">
+        <ul class="nav mr-2" id="" role="tablist">
           <li class="nav-item">
             <button
               type="button"
@@ -72,7 +72,7 @@
               class="col-md-12 table-responsive p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0">
+              <table class="table table-borderless text-start p-0 trailingTable">
                 <thead>
                   <tr>
                     <th scope="col">
@@ -246,7 +246,7 @@
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0">
+              <table class="table table-borderless text-start p-0 ">
                 <thead>
                   <tr>
                     <th scope="col">
@@ -296,7 +296,7 @@
       </div>
       <!-- mached tab start -->
       <div class="tab-pane open-order" v-if="selectedfooter === 'Matched'">
-        <ul class="nav mx-2" id="" role="tablist">
+        <ul class="nav mr-2" id="" role="tablist">
           <li class="nav-item">
             <button
               type="button"
@@ -315,7 +315,7 @@
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0">
+              <table  class="table table-borderless text-start p-0 matchTable">
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
@@ -417,12 +417,25 @@
             class="col-md-12 table-responsive p-0"
             style="height: 297px; overflow: auto"
           >
-            <table class="table table-borderless text-start p-0">
+            <table class="table table-borderless text-start p-0 portfolioTable">
               <thead>
                 <tr>
                   <th scope="col">Coin</th>
                   <th scope="col">Value</th>
-                  <th scope="col">Avg. Cost</th>
+                  <th scope="col">Avg. Cost  <span >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
+                  fill="#677F8E"
+                />
+              </svg>
+            </span></th>
                   <th scope="col">Last Price</th>
                   <th scope="col">Total</th>
                   <th scope="col">Unrealized (Est.)</th>
@@ -646,7 +659,7 @@ export default {
       selectedfooter: "Open Orders (5)",
       matchedTabs: ["Limit Orders (3)", "Market Order (2)", "Traling Stop (2)"],
       selectedMatchedTab: "Limit Orders (3)",
-      openordertabs: ["Limit & Market Orders", "Trailing Stop"],
+      openordertabs: ["Limit  Orders (6)", "Trailing Stop (3)"],
       selectedopenorder: "Limit & Market Orders",
       historyTabs: [],
       selectedHistoryTabs: [],
@@ -665,6 +678,21 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+// custome
+.matchTable{
+  margin-left: 8px;
+}
+.trailingTable{
+  margin-left: -6px;
+}
+.portfolioTable tr th svg{
+  height: 12px;
+  width: 12px;
+  margin-top: -2px;
+}
+
+  
+
 /* Footer */
 
 .footer {
@@ -695,6 +723,11 @@ export default {
   color: #d6dde1;
   width: auto;
   font-style: normal;
+}
+
+.footer .pills-tab li button:hover{
+  color: #d6dde1;
+  cursor: pointer;
 }
 
 .footer .open-order li {
@@ -994,7 +1027,7 @@ export default {
     margin-right: 40px;
   }
   .pills-tab {
-    padding: 0 20px;
+    padding: 0 12px;
   }
   .bs-bb {
     display: none;

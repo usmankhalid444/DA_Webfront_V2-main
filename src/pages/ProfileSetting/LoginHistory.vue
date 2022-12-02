@@ -11,11 +11,11 @@
           <div class="col-10">
             <table class="table width-table">
               <thead>
-                <th scope="col">Date</th>
-                <th scope="col">Device</th>
-                <th scope="col">Location</th>
-                <th scope="col">IP Address</th>
-                <th scope="col">Status</th>
+                <th scope="col" style="font-weight:400">Date</th>
+                <th scope="col" style="font-weight:400">Device</th>
+                <th scope="col" style="font-weight:400">Location</th>
+                <th scope="col" style="font-weight:400">IP Address</th>
+                <th scope="col" style="font-weight:400">Status</th>
               </thead>
               <tbody>
                 <tr v-for="(item , index) in 2" :key="index" class="name-surname border-bottom-table">
@@ -57,7 +57,7 @@ export default {};
   color: #d6dde1;
 }
 .Heading {
-  padding: 24px 0px 21px 24px;
+  padding: 24px 0px 21px 12px;
 }
 .box-personal-info {
   padding: 12px 28px 12px 28px;
@@ -89,7 +89,7 @@ export default {};
   border-bottom: 1px solid #28363e;
   color: #677f8e;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 400!important;
   padding-bottom: 6px;
 }
 

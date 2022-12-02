@@ -7,9 +7,15 @@
             class="form-select form-select-sm w-auto text-light shadow-none borderColor"
             aria-label=".form-select-sm example"
             style="background-color: #222b2f"
+            v-model="scannnerValue"
           >
-            <option selected>Top Gain/Loss</option>
-            <option value="1">option 2</option>
+            <option value="1" selected>Most Active</option>
+            <option value="2">Top Gain/Loss</option>
+            <option value="3">Volume Outperform</option>
+            <option value="4">New High/ Low</option>
+            <option value="5">Pull the Bull</option>
+            <option value="6">HH_RSI</option>
+            <option value="7">HH_MACD Cross</option>
           </select>
         </div>
         <svg
@@ -30,36 +36,50 @@
             d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
           ></path>
         </svg>
-        <div class="third-selectbox">
+       
+        <div class="third-selectbox" v-if="(scannnerValue==4)">
           <select
             class="form-select form-select-sm w-auto text-light shadow-none borderColor"
             aria-label=".form-select-sm example"
             style="background-color: #222b2f"
+            v-model="top"
           >
-            <option selected>Top Gain</option>
-            <option value="1">option 2</option>
+            <option value="0" selected>New High</option>
+            <option value="1">New Low</option>
           </select>
         </div>
-        <div class="radio_btn">
+        
+        <div class="third-selectbox" v-if="(scannnerValue==2)">
+          <select
+            class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+            aria-label=".form-select-sm example"
+            style="background-color: #222b2f"
+            v-model="top"
+          >
+            <option value="0" selected>Top Gain</option>
+            <option value="1">Top Loss</option>
+          </select>
+        </div>
+        <div class="radio_btn" v-if="(scannnerValue==3)">
           <input type="radio" id="min" name="time" />
           <label for="min" class="m-0">Min</label>
         </div>
-        <div class="radio_btn">
+        <div class="radio_btn" v-if="(scannnerValue==3)">
           <input type="radio" id="hour" name="time" />
           <label for="hour" class="m-0">Hour</label>
         </div>
-        <div class="radio_btn">
+        <div class="radio_btn" v-if="(scannnerValue==3)">
           <input type="radio" id="day" name="time" />
           <label for="day" class="m-0">Day</label>
         </div>
-        <div class="radio_btn">
+        <div class="radio_btn" v-if="(scannnerValue==3)">
           <input type="number" class="from-control" />
-
           <label class="m-0">Day Ago</label>
         </div>
+    
       </div>
     </div>
-    <div class="container">
+    <div class="container"  v-if="(top==0&&(scannnerValue==2||scannnerValue==4))">
       <!-- Tree map -->
       <div id="chart" class="custom-charts">
         <apexchart
@@ -71,7 +91,23 @@
       </div>
       <!-- Tree map end -->
     </div>
-    <Dynamic-Table
+    <div class="container"  v-if="(top==1&&(scannnerValue==2||scannnerValue==4))">
+      <!-- Tree map -->
+      <div id="chart" class="custom-charts">
+        <apexchart
+          type="bar"
+          height="350"
+          :options="chartOptions"
+          :series="seriesLoss"
+        ></apexchart>
+      </div>
+      <!-- Tree map end -->
+    </div>
+    
+   
+    <volume-table v-if="(scannnerValue==3)"></volume-table>
+    <highTableVue v-else-if="(scannnerValue==4)"></highTableVue>
+    <Dynamic-Table v-else
       :TableHeader="TableHeading"
       :TableData="TableDatas"
       :Showfavorite="true"
@@ -81,15 +117,21 @@
 
 <script>
 import Table from "../../components/table/Table.vue";
+import VolumeTable from "@/components/scanner/VolumeTable.vue";
+import highTableVue from "@/components/scanner/highTable.vue";
 import VueApexCharts from "vue-apexcharts";
 export default {
   name: "scan",
   components: {
     "Dynamic-Table": Table,
     apexchart: VueApexCharts,
+    VolumeTable,
+    highTableVue,
   },
   data() {
     return {
+      scannnerValue:'1',
+      top:"0",
       TableHeading: [
         {
           headingCoin: "Coin :",
@@ -176,6 +218,33 @@ export default {
             "28%",
             "25%",
             "18%",
+          ],
+        },
+      ],
+      seriesLoss: [
+        {
+          name: "Cash Flow",
+          data: [
+            "-138%",
+            "-130%",
+            "-120%",
+            "-110%",
+            "-95%",
+            "-80%",
+            "-75%",
+            "-70%",
+            "-60%",
+            "-55%",
+            "-53%",
+            "-50%",
+            "-48%",
+            "-45%",
+            "-40%",
+            "-33%",
+            "-30%",
+            "-28%",
+            "-25%",
+            "-18%",
           ],
         },
       ],
@@ -300,7 +369,7 @@ input[type="radio"]:after {
   height: 20px;
   border-radius: 20px;
   top: -4px;
-  right: 8px;
+  right: 4px;
   position: relative;
   background-color: #222b2f;
   content: "";

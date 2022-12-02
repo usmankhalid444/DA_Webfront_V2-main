@@ -33,13 +33,9 @@
                   <b-form-group class="login-psw mb16">
                     <label class="text-title">Password</label>
                     <span class="fr-right">
-                      <a
-                        href="#"
-                        class="forgot-pass"
-                        @click="openModalForgetPass"
-                      >
+                      <span class="forgot-pass" @click="openModalForgetPass">
                         ลืมรหัสผ่าน
-                      </a>
+                      </span>
                     </span>
                     <b-form-input
                       v-if="showPassword"
@@ -288,22 +284,26 @@
                               <p class="text-dark-grey mt-2 mb-2">
                                 {ชื่อกิจกรรม - ถ้าระบบมี}
                               </p>
-                              <div
-                                class="wraper-input mb-2 d-flex justify-content-between"
-                              >
-                                <div class="name-input">
-                                  <select
-                                    class="form-select form-select form-control text-light shadow-none"
-                                    aria-label=".form-select-sm example"
-                                    style="
-                                      background-color: #222b2f;
-                                      max-width: 256px;
-                                      border-color: #222b2f;
-                                    "
+                              <div class="wraper-input mb-2">
+                                <select>
+                                  <option>เลือกกิจกรรม</option>
+                                  <option>เลือกกิจกรรม</option>
+                                  <option>เลือกกิจกรรม</option>
+                                </select>
+                                <span
+                                  ><svg
+                                    width="12"
+                                    height="8"
+                                    viewBox="0 0 12 8"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
                                   >
-                                    <option selected>เลือกกิจกรรม</option>
-                                  </select>
-                                </div>
+                                    <path
+                                      d="M1.41 0.589844L6 5.16984L10.59 0.589844L12 1.99984L6 7.99984L0 1.99984L1.41 0.589844Z"
+                                      fill="#677F8E"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
                             </div>
                             <div class="pad-16">
@@ -311,21 +311,28 @@
                                 Title (คำนำหน้าชื่อ)
                               </p>
                               <div
-                                class="wraper-input mb-2 d-flex justify-content-between"
+                                class="wraper-input mb-2"
+                                style="width: 160px"
                               >
-                                <div class="name-input">
-                                  <select
-                                    class="form-select form-select text-light shadow-none"
-                                    aria-label=".form-select-sm example"
-                                    style="
-                                      background-color: #222b2f;
-                                      width: 160px;
-                                      border-color: #222b2f;
-                                    "
+                                <select>
+                                  <option>เลือกคำนำหน้า</option>
+                                  <option>เลือกคำนำหน้า</option>
+                                  <option>เลือกคำนำหน้า</option>
+                                </select>
+                                <span
+                                  ><svg
+                                    width="12"
+                                    height="8"
+                                    viewBox="0 0 12 8"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
                                   >
-                                    <option selected>เลือกจังหวัด</option>
-                                  </select>
-                                </div>
+                                    <path
+                                      d="M1.41 0.589844L6 5.16984L10.59 0.589844L12 1.99984L6 7.99984L0 1.99984L1.41 0.589844Z"
+                                      fill="#677F8E"
+                                    />
+                                  </svg>
+                                </span>
                               </div>
                             </div>
                             <div class="d-flex pad-16">
@@ -384,7 +391,6 @@
                                 <b-form-input
                                   type="text"
                                   id="name"
-                                  placeholder="เช่น 080-XXX-XXXX"
                                   class="place-hold"
                                   style="max-width: 256px"
                                 >
@@ -425,34 +431,31 @@
                             <div class="modal-content">
                               <div class="modal-header">
                                 <div class="container">
-                                  <div
-                                    class="row"
-                                    style="padding-top: 5%; padding-bottom: 5%"
-                                  >
-                                    <div class="col-md-8 offset-md-3">
-                                      <div
-                                        class="d-flex justify-content-between"
-                                      >
-                                        <h5 class="modal-title text-center">
-                                          Two-Factor Authentication
-                                        </h5>
-                                        <button
-                                          type="button"
-                                          class="close"
-                                          data-dismiss="modal"
-                                          aria-label="Close"
+                                  <div class="row">
+                                    <div class="tf-heading mt-3 mb-2">
+                                      <h2>Two-Factor Authentication</h2>
+
+                                      <span
+                                        aria-hidden="true"
+                                        @click="showOtp = false"
+                                        style="
+                                          color: #677f8e;
+                                          font-size: 24px;
+                                          cursor: pointer;
+                                        "
+                                        ><svg
+                                          width="14"
+                                          height="15"
+                                          viewBox="0 0 14 15"
+                                          fill="none"
+                                          xmlns="http://www.w3.org/2000/svg"
                                         >
-                                          <span
-                                            aria-hidden="true"
-                                            @click="showOtp = false"
-                                            style="
-                                              color: #677f8e;
-                                              font-size: 24px;
-                                            "
-                                            >&times;</span
-                                          >
-                                        </button>
-                                      </div>
+                                          <path
+                                            d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+                                            fill="#677F8E"
+                                          />
+                                        </svg>
+                                      </span>
                                     </div>
                                   </div>
                                 </div>
@@ -774,6 +777,14 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .fda0112982022-login {
+  input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
   .logo-wrap {
     display: grid;
     place-items: center;
@@ -838,6 +849,7 @@ export default Vue.extend({
       .forgot-pass {
         position: relative;
         top: 0;
+        cursor: pointer;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
@@ -845,9 +857,6 @@ export default Vue.extend({
         color: var(--orange-accent) !important;
         text-decoration: none;
       }
-    }
-
-    .font-family_th {
     }
 
     .fda_submit_btn-primary.btn-primary {
@@ -1065,7 +1074,7 @@ export default Vue.extend({
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-        width: 160px;
+        width: 120px;
         height: 36px;
         margin-right: 12px;
         margin-left: 6px;
@@ -1077,18 +1086,18 @@ export default Vue.extend({
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-        width: 160px;
+        width: 120px;
         height: 36px;
         margin-right: 6px;
       }
     }
     .contact {
-      padding-left: 55px;
       margin-top: 16px;
       font-weight: 400;
       font-size: 14px;
       line-height: 24px;
       color: var(--sub-2);
+      padding-bottom: 20px;
     }
   }
   .font-sarabun {
@@ -1113,6 +1122,7 @@ export default Vue.extend({
   }
   .modal-content {
     width: 100% !important;
+    background-color: #141b1f;
   }
   .modal-wrapper {
     display: table-cell;
@@ -1185,6 +1195,43 @@ export default Vue.extend({
   .success-btn {
     background: #38454d;
     border-radius: 4px;
+  }
+  .wraper-input {
+    position: relative;
+    width: 256px;
+    height: 40px;
+    background: #222b2f;
+    border-radius: 4px;
+    span {
+      position: absolute;
+      right: 17px;
+      top: 9px;
+    }
+    select {
+      width: 100%;
+      height: 100%;
+      color: #d6dde1;
+      padding: 0 15px;
+    }
+  }
+  ::-webkit-input-placeholder {
+    color: #566a76;
+  }
+  .tf-heading {
+    position: relative;
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #d6dde1;
+      text-align: center;
+      font-family: "Noto Sans Thai";
+      padding-top: 9px;
+    }
+    span {
+      position: absolute;
+      right: 30px;
+      top: 0;
+    }
   }
 }
 </style>
