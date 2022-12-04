@@ -6,42 +6,34 @@
       :hide-footer="true"
       :hide-header="true"
     >
-      <div class="qr-success-modal">
-        <div>
-          <span class="close-btn" @click="$bvModal.hide('qr-success-modal')"
-            ><svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
-                fill="#677F8E"
-              />
-            </svg>
-          </span>
-        </div>
-        <div class="tick-img">
-          <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
-        </div>
-        <div class="m-center">
-          <p class="c-title">บันทึก QR Code สำเร็จ</p>
-          <p class="c-value">นำ QR Code</p>
-          <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
-          <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
-        </div>
-        <button v-if="showStatusButton" @click="onCloseSuccessModel(1)" class="f-btn">
-          เสร็จสิ้น
+      <div class="d-flex justify-content-center">
+        <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
+      </div>
+      <div class="m-center">
+        <p class="c-title">บันทึก QR Code สำเร็จ</p>
+        <p class="c-value">นำ QR Code</p>
+        <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
+        <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
+      </div>
+      <div class="d-flex mt-3 justify-content-center">
+        <button
+          v-if="showStatusButton"
+          @click="onCloseSuccessModel(1)"
+          class="btn-yellow"
+        >
+          ตรวจสอบสถานะการถอน
         </button>
-        <button @click="onCloseSuccessModel(2)" class="f-btn">เสร็จสิ้น</button>
+      </div>
+      <div class="d-flex mt-3 justify-content-center">
+        <button @click="onCloseSuccessModel(2)" class="btn-blue">เสร็จสิ้น</button>
       </div>
     </b-modal>
   </div>
 </template>
 <script>
+import CoinStatusModel from "./CoinStatusModel.vue";
 export default {
+  components: { CoinStatusModel },
   props: {
     showStatusButton: { type: Boolean, default: false },
   },
@@ -60,7 +52,7 @@ export default {
 <style lang="scss">
 #qr-success-modal___BV_modal_content_ {
   background-color: #141b1f;
-  min-height: 480px;
+  min-height: 430px;
   font-family: "Noto Sans Thai";
   #qr-success-modal___BV_modal_body_ {
     .close-btn {
@@ -68,11 +60,6 @@ export default {
       position: absolute;
       top: 20px;
       right: 30px;
-    }
-    .tick-img {
-      display: flex;
-      justify-content: center;
-      margin-top: 55px;
     }
     .m-center {
       text-align: center;
@@ -90,17 +77,26 @@ export default {
         color: #677f8e;
       }
     }
-    .f-btn {
-      width: 163px;
-      height: 44px;
-      display: block;
-      margin: auto;
+    .btn-blue {
+      color: #fff;
+      background-color: #38454d;
       border-radius: 4px;
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      margin-top: 40px;
-      background-color: #222b2f;
+      height: 36px;
+      min-width: 132px;
+      &:hover {
+        background-color: #283238 !important;
+      }
+    }
+    .btn-yellow {
+      color: #0a0d10;
+      background-color: #f38220;
+      border-radius: 4px;
+      height: 36px;
+      min-width: 132px;
+      &:hover {
+        color: #0a0d10;
+        background-color: #f28e38 !important;
+      }
     }
   }
 }

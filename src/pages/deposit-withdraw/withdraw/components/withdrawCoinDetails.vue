@@ -77,7 +77,7 @@
     ></OtpModel>
     <QrSuccessModal
       showStatusButton
-      @onShowStatus="$bvModal.hide('qr-status-modal')"
+      @onShowStatus="$bvModal.show('qr-status-modal')"
       @onCloseSuccessModel="$bvModal.hide('qr-success-modal')"
     ></QrSuccessModal>
     <CoinStatusModel></CoinStatusModel>

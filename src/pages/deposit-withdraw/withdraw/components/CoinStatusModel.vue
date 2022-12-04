@@ -7,32 +7,49 @@
       :hide-header="true"
     >
       <div class="qr-status-modal">
-        <div>
-          <span class="close-btn" @click="$bvModal.hide('qr-status-modal')"
-            ><svg
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
-                fill="#677F8E"
-              />
-            </svg>
-          </span>
+        <div class="d-flex justify-content-center">
+          <span class="top-heading px-2 mt-3">ถอนเหรียญ</span>
         </div>
-        <div class="tick-img">
-          <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
+        <div class="d-flex justify-content-center">
+          <span class="h6 px-2"> 0.034 BTC</span>
         </div>
-        <div class="m-center">
-          <p class="c-title">บันทึก QR Code สำเร็จ</p>
-          <p class="c-value">นำ QR Code</p>
-          <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
-          <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
+
+        <div class="d-flex justify-content-center mt-3">
+          <span class="px-2" style="color: #e04152"> x ถอนไม่สำเร็จ</span>
         </div>
-        <button @click="onCloseStatusModel()" class="f-btn">เสร็จสิ้น</button>
+
+        <div class="row mt-5">
+          <div class="col-4 thai-font del-font">Confirmation</div>
+          <div class="col-8 thai-font">1/13</div>
+        </div>
+        <div class="row">
+          <div class="col-4 thai-font del-font">Network</div>
+          <div class="col-8 thai-font">BTC</div>
+        </div>
+        <div class="row">
+          <div class="col-4 thai-font del-font">Memo</div>
+          <div class="col-8 thai-font">4955849</div>
+        </div>
+        <div class="row">
+          <div class="col-4 thai-font del-font">Network Fee</div>
+          <div class="col-8 thai-font">0.0001 BTC (~500 THB)</div>
+        </div>
+        <div class="row">
+          <div class="col-4 thai-font del-font">หมายเลขธุรกรรม</div>
+          <div class="col-7">
+            <span class="thai-font">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+          </div>
+          <div class="col-1">
+            <img src="@/assets/images/wallet/copyIcon.png" alt="copy" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 thai-font del-font">วันที่</div>
+          <div class="col-8 thai-font">25/05/22 00:00:00</div>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button @click="onCloseStatusModel()" class="btn-yellow">เสร็จสิ้น</button>
+        </div>
       </div>
     </b-modal>
   </div>
@@ -48,6 +65,31 @@ export default {
 };
 </script>
 <style lang="scss">
+.del-font {
+  color: #677f8e;
+  line-height: 24px;
+  font-size: 14px;
+}
+.top-heading {
+  font-family: "Noto Sans Thai";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+}
+.btn-yellow {
+  color: #0a0d10;
+  background-color: #f38220;
+  border-radius: 4px;
+  height: 36px;
+  min-width: 132px;
+  &:hover {
+    color: #0a0d10;
+    background-color: #f28e38 !important;
+  }
+}
 #qr-status-modal___BV_modal_content_ {
   background-color: #141b1f;
   min-height: 480px;

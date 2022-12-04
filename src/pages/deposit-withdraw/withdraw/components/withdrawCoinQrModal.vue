@@ -67,25 +67,19 @@
               </svg>
             </span>
           </div>
-          <button
-            class="f-btn"
-            @click="
-              $bvModal.hide('deposit-coin-qr-modal'),
-                $bvModal.show('qr-success-modal')
-            "
-          >
+          <button class="f-btn" @click="$bvModal.hide('deposit-coin-qr-modal')">
             บันทึกรูป
           </button>
         </div>
       </div>
     </b-modal>
-    <QrSuccessModal />
+    <!-- <QrSuccessModal /> -->
   </div>
 </template>
 <script>
-import QrSuccessModal from "./QrSuccessModal.vue";
+//import QrSuccessModal from "./QrSuccessModal.vue";
 export default {
-  components: { QrSuccessModal },
+  //components: { QrSuccessModal },
 };
 </script>
 <style lang="scss">
