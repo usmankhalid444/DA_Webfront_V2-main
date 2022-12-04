@@ -1,5 +1,6 @@
 <template>
   <!-- Footer -->
+  <div>
   <div class="container-fluid footer bs-bottom-section">
     <div class="row">
       <div class="col-md-12 p-0">
@@ -586,8 +587,9 @@
         </div>
       </b-modal>
     </div>
-    <div class="bs-bb">
-      <span class="red"
+  </div>
+   <div class="bs-bb">
+      <span class="red conection"
         ><svg
           width="10"
           height="10"
@@ -605,9 +607,11 @@
       <span>BTC/THB</span>
       <span>20,972</span>
       <span class="red">(-4.46%)</span>
+      <span class="gray">|</span>
       <span>ETH/THB</span>
       <span>10,089</span>
       <span class="red">(-6.46%)</span>
+       <span class="gray">|</span>
       <span>SOL/THB</span>
       <span>38.98</span>
       <span class="green">(+4.46%)</span>
@@ -627,7 +631,7 @@
           </svg>
           Download
         </span>
-        <span class="orange"
+        <span style="padding-right: 12px" class="orange"
           ><svg
             width="10"
             height="10"
@@ -644,7 +648,7 @@
         </span>
       </div>
     </div>
-  </div>
+</div>
 </template>
 
 <script>
@@ -990,22 +994,32 @@ export default {
   .lm-order-container {
     width: 100%;
     margin: 0%;
+    padding-bottom: 50px;
   }
 }
 .bs-bb {
+  position: fixed;
+    bottom: 0;
+    width: 101%;
   background-color: #0a0d10;
   padding: 8px 0;
-  padding-left: 10px;
+  padding-left: 24px;
   margin: 0 -22px;
   margin-top: 30px;
+  .conection{
+    margin-right: 16px;
+  }
   span {
-    margin: 0 10px;
+    margin-right: 8px;
     svg {
       margin-right: 10px;
     }
   }
   span.red {
     color: #de2d40;
+  }
+  span.gray{
+    color: #28363E;
   }
   span.green {
     color: #40994f;

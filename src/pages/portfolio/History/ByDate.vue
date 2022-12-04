@@ -252,5 +252,6 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
+  border: 1px solid #28363E;
 }
 </style>

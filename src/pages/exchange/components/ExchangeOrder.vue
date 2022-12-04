@@ -4,8 +4,9 @@
       <div class="justify-content-center">
         <div class="col-md-12">
           <ul class="nav nav-ul">
-            <li class="nav-item">
+            <li style="margin-left:40px" class="nav-item">
               <button
+              style="margin-right:24px"
                 type="button"
                 v-for="(tab, index) in ordertabs"
                 :key="index"
@@ -28,9 +29,13 @@
             <div class="row">
               <div class="col-md-6" style="padding-right: 16px">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="buying_amount" />
+                  <input type="number" v-model="buying_amount" style="margin-bottom: "/>
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
+                </div>
+                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>ยอดเงินที่ซื้อได้</p>
+                  <p>20,000 THB</p>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -90,7 +95,7 @@
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
                     />
-                    <span>Take Profit / Stop Loss</span></label
+                    <p>Take Profit / Stop Loss</p></label
                   >
                 </div>
 
@@ -112,6 +117,10 @@
                   <input type="number" v-model="selling_amount" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
+                </div>
+                  <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>มูลค่า BTC ที่มี</p>
+                  <p>986,937.90 THB</p>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -174,7 +183,7 @@
                       data-target="#limit-stop"
                       v-b-modal.limitorder-stop-loss
                     />
-                    <span>Stop Loss</span></label
+                    <p>Stop Loss</p></label
                   >
                 </div>
                 <div class="form-group">
@@ -258,7 +267,7 @@
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
                     />
-                    <span>Take Profit / Stop Loss</span></label
+                    <p>Take Profit / Stop Loss</p></label
                   >
                 </div>
 
@@ -336,7 +345,7 @@
                       data-target="#limit-stop"
                       v-b-modal.limitorder-stop-loss
                     />
-                    <span>Stop Loss</span></label
+                    <p>Stop Loss</p></label
                   >
                 </div>
                 <div class="form-group">
@@ -415,8 +424,8 @@
                       class="form-check-input"
                       v-b-modal.limitorder-TPSL
                     />
-                    <span class="thai-font"
-                      >ระบบทำงานทันทีที่ราคาปัจจุบัน</span
+                    <p class="thai-font"
+                      >ระบบทำงานทันทีที่ราคาปัจจุบัน</p
                     ></label
                   >
                 </div>
@@ -501,8 +510,8 @@
                       data-target="#limit-stop"
                       v-b-modal.limitorder-stop-loss
                     />
-                    <span class="thai-font"
-                      >ระบบทำงานทันทีที่ราคาปัจจุบัน</span
+                    <p class="thai-font"
+                      >ระบบทำงานทันทีที่ราคาปัจจุบัน</p
                     ></label
                   >
                 </div>
@@ -773,6 +782,14 @@
             >
           </div>
 
+           <div class="form-group form-check mt-3">
+            <label class="checkbox-input">
+              <span>PIN</span>
+              <input type="checkbox" class="form-check-input" />
+              </label
+            >
+          </div>
+
           <button
             @click="
               $bvModal.hide('limitorder-stop-loss');
@@ -1001,7 +1018,7 @@ export default {
   color: #677f8e;
   border: none;
   padding: 20px 0px 10px 0px;
-  margin-left: 40px;
+  // margin-left: 24px;
 }
 
 .buy-sell .sells li button:hover{
@@ -1036,6 +1053,16 @@ export default {
     transform: translateY(-90%);
     pointer-events: none;
   }
+}
+.input-group-bottom-text{
+  font-size: 14px;
+  font-weight: 400;
+  color: #677F8E;
+  margin-top: -8px;
+  margin-bottom: 8px;
+p{
+  margin-bottom: 0 !important;
+}
 }
 .sells .tab-content {
   margin-top: 20px;
@@ -1119,12 +1146,13 @@ export default {
   line-height: 14px;
 }
 
-.sells label {
+.sells label p{
   color: #d6dde1;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  margin: 0;
+  margin-top: 5px;
+    margin-left: 3px
   input {
     margin-top: -0.5px;
   }
@@ -1176,14 +1204,14 @@ export default {
 
   .timeline li:before {
     content: "";
-    width: 10px;
-    height: 10px;
-    border: 2px solid #566a76;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #566a76;
     border-radius: 50%;
     display: block;
     text-align: center;
     line-height: 50px;
-    margin: -1px auto 10px auto;
+    margin: 0px auto 10px auto;
     background: #1c262b;
     color: #000;
     transition: all ease-in-out 0.3s;
@@ -1222,10 +1250,10 @@ export default {
     background: #f38220;
     color: #203864;
     border-color: #203864;
-    height: 15px;
-    width: 15px;
-    margin-top: -2px;
-    margin-left: 2px;
+    height: 11px;
+    width: 11px;
+    margin-top: -1px;
+    margin-left: 1px;
   }
 }
 .stop-loss-detail-modal {
@@ -1292,12 +1320,16 @@ export default {
       width: 100%;
       border-radius: 4px;
       background-color: #222b2f;
-      padding: 8px;
+      padding: 10px 8px;
       color: white;
     }
     input::placeholder {
       color: #566a76;
     }
+   input:focus{
+    outline: none !important;
+    // border: ;
+   }
   }
   .sl-ul {
     margin: 10px 0;

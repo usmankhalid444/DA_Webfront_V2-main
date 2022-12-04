@@ -1,6 +1,8 @@
 <template>
   <div class="wraper">
     <div class="container">
+          <p class="history-heading">History</p>
+
       <section>
         <b-container fluid class="pLR-24 bg-MarKetHeader d-flex justify-content-between border-bottom">
           <div class="page-MarKetHeader">
@@ -55,32 +57,32 @@
         <div class="row pt-3 pb-3">
           <div class="col">
             <div class="my-portfolio-header">
-              <p class="font-18 light-grey mb-1">Total Profit and Loss</p>
-              <h4>25/08/22-25/09/22</h4>
+              <p class="font-14 light-grey mb-1">Total Profit and Loss</p>
+              <h4 class="font-18">25/08/22-25/09/22</h4>
             </div>
           </div>
           <div class="col">
             <div class="coin-header">
-              <p class="font-18 light-grey mb-1">Buy (THB)</p>
-              <h4>1,200,000.00</h4>
+              <p class="font-14 light-grey mb-1">Buy (THB)</p>
+              <h4 class="font-18">1,200,000.00</h4>
             </div>
           </div>
           <div class="col">
             <div class="cash-header">
-              <p class="font-18 light-grey mb-1">Sell (THB)</p>
-              <h4>1,200,000.00</h4>
+              <p class="font-14 light-grey mb-1">Sell (THB)</p>
+              <h4 class="font-18">1,200,000.00</h4>
             </div>
           </div>
           <div class="col">
             <div class="unRealized-header">
-              <p class="font-18 light-grey mb-1">Total (THB)</p>
-              <h4>3,200,000.00</h4>
+              <p class="font-14 light-grey mb-1">Total (THB)</p>
+              <h4 class="font-18">3,200,000.00</h4>
             </div>
           </div>
           <div class="col">
             <div class="Realized-header">
-              <p class="font-18 light-grey mb-1">Profit/Loss (THB))</p>
-              <h4 class="greent-text">+8,000.00</h4>
+              <p class="font-14 light-grey mb-1">Profit/Loss (THB))</p>
+              <h4 class="greent-text font-18">+8,000.00</h4>
             </div>
           </div>
         </div>
@@ -126,14 +128,18 @@ export default Vue.extend({
   font-size: 18px;
   font-family: "Roboto Flex";
 }
-.font-18 {
-  font-size: 18px;
-  font-family: "Roboto Flex";
+.font-14 {
+  font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
   margin-bottom: 0px;
 }
-.font-14 {
-  font-size: 18px;
-  font-family: "Roboto Flex";
+.font-18 {
+  font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
 }
 .custom-checkbox{
     background: #222B2F;
@@ -173,7 +179,7 @@ export default Vue.extend({
   line-height: 19px !important;
 }
 .mx-auto .colormiddle {
-  padding: 22px 0px;
+  padding: 30px 0px;
   text-align: center;
   height: 64px;
   border-bottom: 2px solid transparent;
@@ -232,5 +238,19 @@ input::placeholder {
 .field:focus {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+}
+.history-heading{
+  font-family: 'Roboto Flex';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 24px;
+margin-top: 3%;
+/* identical to box height, or 100% */
+
+
+/* Text + Icon/Content - Primary */
+
+color: #D6DDE1;
 }
 </style>

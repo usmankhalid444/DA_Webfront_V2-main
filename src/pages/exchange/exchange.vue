@@ -138,36 +138,64 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-xl-4 bs-left-table">
-            <div class="bid-offer-container">
-              <select>
-                <option value="">Bid / Offer</option>
-                <option value="">Bid</option>
-                <option value="">Offer</option>
-                <option value="">All Coins</option>
-                <option value="">Fav</option>
-                <option value="">Coin Ticker</option>
-              </select>
-              <span
-                ><svg
-                  width="8"
-                  height="6"
-                  viewBox="0 0 8 6"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.94 0.726562L4 3.7799L7.06 0.726562L8 1.66656L4 5.66656L0 1.66656L0.94 0.726562Z"
-                    fill="#677F8E"
-                  />
-                </svg>
-              </span>
+            <div
+              class="bid-offer-container d-flex justify-content-between align-center"
+            >
+              <div class="coinSelect d-flex justify-content-start align-center">
+                <select >
+                  <option value="">Bid / Offer</option>
+                  <option value="">Bid</option>
+                  <option value="">Offer</option>
+                  <option value="">All Coins</option>
+                  <option value="">Fav</option>
+                  <option value="">Coin Ticker</option>
+                </select>
+                <div
+                  ><svg
+                    width="8"
+                    height="6"
+                    viewBox="0 0 8 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.94 0.726562L4 3.7799L7.06 0.726562L8 1.66656L4 5.66656L0 1.66656L0.94 0.726562Z"
+                      fill="#677F8E"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div class="ratioSelect d-flex justify-content-start align-center">
+                <select >
+                  <option value="">0.1</option>
+                  <option value="">0.01</option>
+                  <option value="">0.001</option>
+                  <option value="">0.0001</option>
+                  <option value="">0.00001</option>
+                </select>
+                <div
+                  ><svg
+                    width="8"
+                    height="6"
+                    viewBox="0 0 8 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.94 0.726562L4 3.7799L7.06 0.726562L8 1.66656L4 5.66656L0 1.66656L0.94 0.726562Z"
+                      fill="#677F8E"
+                    />
+                  </svg>
+               </div>
+
+              </div>
             </div>
             <!-- buy / sell live scores table start -->
             <div class="bs-table-l">
               <table class="table table-borderless">
                 <thead>
                   <tr>
-                    <th style="width:50%">Price (THB)</th>
+                    <th style="width: 50%">Price (THB)</th>
                     <th>Vol (BTC)</th>
                     <th>Total (THB)</th>
                   </tr>
@@ -213,7 +241,12 @@
           <div class="col-12 col-lg-6 col-xl-8 p-0">
             <div class="chart p-0">
               <!-- <h1 class="text-white">Chart Here</h1> -->
-              <iframe src="https://bitenium.com/StockChartXRTC/chart.aspx" width="715" height="440"  title="Iframe Example"></iframe>
+              <iframe
+                src="https://bitenium.com/StockChartXRTC/chart.aspx"
+                width="715"
+                height="440"
+                title="Iframe Example"
+              ></iframe>
             </div>
             <!-- End Chart Area -->
 
@@ -255,7 +288,7 @@
           <table class="table table-borderless">
             <thead>
               <tr class="sticky-top fixed">
-                <th style="width:50%">Coin</th>
+                <th style="width: 50%">Coin</th>
                 <th>Price (THB)</th>
                 <th>
                   %Chg
@@ -310,9 +343,9 @@
           <table class="table table-borderless p-0">
             <thead>
               <tr class="sticky-top">
-                <th style="width:45%">Time</th>
+                <th style="width: 45%">Time</th>
                 <th>Price (THB)</th>
-                <th >Volume (BTC)</th>
+                <th>Volume (BTC)</th>
               </tr>
             </thead>
             <tbody>
@@ -637,7 +670,6 @@ export default {
 .bid-offer-container {
   margin: 1rem 0;
   position: relative;
-  width: 120px;
 
   span {
     position: absolute;
@@ -645,13 +677,28 @@ export default {
     pointer-events: none;
     right: 8px;
   }
-  select {
-    width: 100%;
+  .ratioSelect {
+    width: 80px;
     height: 32px;
     border-radius: 2px;
     padding: 4px 8px;
     background-color: #2c3b44;
     color: white;
+  }
+  .coinSelect {
+    width: 100px;
+    height: 32px;
+    border-radius: 2px;
+    padding: 4px 8px;
+    background-color: #2c3b44;
+    color: white;
+  }
+  select {
+    color: white;
+  }
+  select:focus {
+    outline: none !important;
+    border: none !important;
   }
 }
 .all-coins-container {

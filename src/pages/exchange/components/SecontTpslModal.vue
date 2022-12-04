@@ -171,7 +171,7 @@
             </div>
           </div>
           <div class="col-3"></div>
-          <div class="col-9" style="padding-left: 36px;">
+          <div class="col-9" style="padding-left: 24px;">
             <ul class="thai-font sl-ul">
               <li>
                 ขายจำนวน 100% เมื่อราคาเป็นไปตามเงื่อนไข <br />
