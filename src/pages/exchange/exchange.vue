@@ -142,7 +142,7 @@
               class="bid-offer-container d-flex justify-content-between align-center"
             >
               <div class="coinSelect d-flex justify-content-start align-center">
-                <select >
+                <select>
                   <option value="">Bid / Offer</option>
                   <option value="">Bid</option>
                   <option value="">Offer</option>
@@ -150,8 +150,8 @@
                   <option value="">Fav</option>
                   <option value="">Coin Ticker</option>
                 </select>
-                <div
-                  ><svg
+                <div>
+                  <svg
                     width="8"
                     height="6"
                     viewBox="0 0 8 6"
@@ -165,16 +165,18 @@
                   </svg>
                 </div>
               </div>
-              <div class="ratioSelect d-flex justify-content-start align-center">
-                <select >
+              <div
+                class="ratioSelect d-flex justify-content-start align-center"
+              >
+                <select>
                   <option value="">0.1</option>
                   <option value="">0.01</option>
                   <option value="">0.001</option>
                   <option value="">0.0001</option>
                   <option value="">0.00001</option>
                 </select>
-                <div
-                  ><svg
+                <div>
+                  <svg
                     width="8"
                     height="6"
                     viewBox="0 0 8 6"
@@ -186,8 +188,7 @@
                       fill="#677F8E"
                     />
                   </svg>
-               </div>
-
+                </div>
               </div>
             </div>
             <!-- buy / sell live scores table start -->
@@ -241,12 +242,12 @@
           <div class="col-12 col-lg-6 col-xl-8 p-0">
             <div class="chart p-0">
               <!-- <h1 class="text-white">Chart Here</h1> -->
-              <iframe
+              <!-- <iframe
                 src="https://bitenium.com/StockChartXRTC/chart.aspx"
                 width="715"
                 height="440"
                 title="Iframe Example"
-              ></iframe>
+              ></iframe> -->
             </div>
             <!-- End Chart Area -->
 
