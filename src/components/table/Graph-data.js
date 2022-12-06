@@ -6,7 +6,7 @@ export const GraphData = {
     datasets: [
       {
         lineTension: 0,
-        data: [10, 30, 50, 100, 5, 25, 40, 5],
+        data: [10, 5, 5, 10, 15, 0, 35],
         borderColor: "#47b784",
         borderWidth: 1,
         fill: true,

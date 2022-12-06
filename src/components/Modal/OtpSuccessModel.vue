@@ -45,7 +45,7 @@
 
     methods:{
         mainPage(){
-            this.$router.push('/withdraw/main_account')
+            this.$router.push('/withdraw/cash_main_account')
         }
     }
   };

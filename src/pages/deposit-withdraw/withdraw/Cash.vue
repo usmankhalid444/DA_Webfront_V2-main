@@ -170,7 +170,7 @@
               <span>ยอมรับเงื่อนไขทั้งหมด</span>
             </label> -->
           <div class="last-btn">
-            <button @click="openOTPModel()" class="thai-font">ยืนยันการถอนเงิน</button>
+            <button   @click="$bvModal.show('otp-success-modal')" class="thai-font">ยืนยันการถอนเงิน</button>
           </div>
         </div>
         <!-- bottom section end -->
@@ -188,14 +188,12 @@
       </ul>
     </div>
 
-    <otp-model
-      v-if="showWithdrawOTPModal"
-      @closeModel="showWithdrawOTPModal = false"
-    ></otp-model>
+  
+    <otp-model :otp="true"></otp-model>
   </div>
 </template>
 <script>
-import OtpModel from "@/components/Modal/OtpModel.vue";
+import OtpModel from "@/components/Modal/WIthdrawCashOtpModel.vue";
 export default {
   components: {
     OtpModel,

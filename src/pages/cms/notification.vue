@@ -39,6 +39,7 @@
     color: #d6dde1;
     font-weight: 500;
     font-size: 24px;
+    padding-left: 12px;
   }
   .notification-button {
     text-align: right;
@@ -62,6 +63,7 @@
     border-bottom: 1px solid #28363e;
     padding-bottom: 10px;
     margin: 0 2px;
+    font-family: "sarabun";
     p {
       margin: 0;
       svg {

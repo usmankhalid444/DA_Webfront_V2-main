@@ -9,34 +9,34 @@
         background-darkgrey
       "
     >
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col">
-            <div class="my-portfolio-header">
+      <div class="container h-100">
+        <div class=" d-flex justify-content-center align-items-center h-100 s-bar">
+          <div class="">
+            <div class="my-portfolio-header right">
               <p class="font-18 light-grey">My Portfolio Value</p>
               <h3>161,980.97 THB</h3>
             </div>
           </div>
-          <div class="col">
-            <div class="coin-header">
+          <div class="">
+            <div class="my-portfolio-header">
               <p class="font-18 light-grey">Coin</p>
               <h4>121,191.91 THB</h4>
             </div>
           </div>
-          <div class="col">
-            <div class="cash-header">
+          <div class="">
+            <div class="my-portfolio-header">
               <p class="font-18 light-grey">Cash</p>
               <h4>40,000.00 THB</h4>
             </div>
           </div>
-          <div class="col">
-            <div class="unRealized-header">
+          <div class="">
+            <div class="my-portfolio-header">
               <p class="font-18 light-grey">P/L Unrealized (Est.)</p>
-              <h4 class="greent-text mt-1">+37.02 (0.03%)</h4>
+              <h4 class="greent-text">+37.02 (0.03%)</h4>
             </div>
           </div>
-          <div class="col">
-            <div class="Realized-header">
+          <div class="">
+            <div class="my-portfolio-header">
               <p class="font-18 light-grey">P/L Realized (Today)</p>
               <h4>0 (0%)</h4>
             </div>
@@ -54,6 +54,7 @@
             d-flex
             justify-content-between
             border-bottom
+            tab_bar
           "
         >
           <div class="page-MarKetHeader">
@@ -109,7 +110,6 @@ export default Vue.extend({
   methods: {
     getRouteName() {
       let path = this.$route.path;
-      console.log(path);
       let pathArr = path.split("/");
       this.pathName = pathArr[1];
     },
@@ -121,6 +121,35 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+.s-bar{
+  max-width: 875px;
+  margin: auto;
+}
+.tab_bar{
+  max-width: 875px;
+  margin: auto;
+}
+.my-portfolio-header
+{
+  margin-right: 35px;
+}
+.my-portfolio-header  h3
+{
+  font-size: 24px;
+    line-height: 24px;
+    font-weight: 400;
+    margin:0px 
+}
+.right{
+  margin-right:65px
+}
+.my-portfolio-header  h4
+{
+  font-size: 18px ;
+  line-height: 24px;
+  font-weight: 600;
+  margin:0px 
+}
 .background-darkgrey {
   background-color: #192126;
 }
@@ -135,13 +164,18 @@ export default Vue.extend({
   font-family: "Roboto Flex";
 }
 .font-18 {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Roboto Flex";
   margin-bottom: 0px;
+  line-height: 24px;
+  font-weight: 400;
 }
 .font-14 {
   font-size: 18px;
   font-family: "Roboto Flex";
+}
+.checkbox{
+  margin-bottom: 12px;
 }
 .custom-checkbox {
   background: #222b2f;
@@ -164,7 +198,9 @@ export default Vue.extend({
   align-items: center;
   justify-content: space-between;
 }
-
+.bg-MarKetHeader{
+  margin-top:45px
+}
 .mx-auto {
   display: flex;
   gap: 0px !important;
@@ -174,16 +210,15 @@ export default Vue.extend({
   color: #677f8e !important;
 }
 .menu-item {
-  margin-right: 32px !important;
+  margin-right: 36px !important;
   position: relative !important;
   font-weight: 400 !important;
   font-size: 16px !important;
   line-height: 19px !important;
 }
 .mx-auto .colormiddle {
-  padding: 22px 0px;
+  padding: 0px 0px 12px;
   text-align: center;
-  height: 64px;
   border-bottom: 2px solid transparent;
   display: flex;
   transition: 0.4s;
@@ -243,5 +278,22 @@ input::placeholder {
 }
 .coin-nav {
   height: 80px;
+}
+@media (max-width:992px) {
+  
+.my-portfolio-header  h4{
+  font-size:15px
+}
+   .container{
+      max-width: 100% !important
+   }
+}
+@media (max-width:880px) {
+  .right{
+    margin-right: 17px !important;
+  }
+  .my-portfolio-header{
+    margin-right: 17px;
+  }
 }
 </style>

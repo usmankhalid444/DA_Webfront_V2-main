@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
-    <button @click="showModal = true">modal temp</button>
-    <div class="row">
-      <div class="col-5">
-        <div id="chart" class="custom-charts">
-          <div class="coin-allocation">Coin Allocation</div>
+    <!-- <button @click="showModal = true" >modal temp</button> -->
+    <div class="row chart_area">
+      <div class="col-7 col-lg-6  col-xl-6">
+        <div id="chart" class="custom-charts coin">
+          <!-- <div class="coin-allocation">Coin Allocation</div> -->
           <apexchart
             type="donut"
             width="400"
@@ -13,36 +13,58 @@
           ></apexchart>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-1">
         <div class="chart-values">
           <div class="ETH d-flex">
+            <p class="coinvalue">41.62%</p>
+          </div>
+          <div class="BTC d-flex">
+            <p class="coinvalue">40.31%</p>
+          </div>
+
+          <div class="THB d-flex">
+            <p class="coinvalue">40.31%</p>
+          </div>
+
+          <div class="DOGE d-flex">
+            <p class="coinvalue">1.01%</p>
+          </div>
+
+          <div class="Others d-flex">
+            <p class="coinvalue">1.01%</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="chart-values">
+          <div class="ETH d-flex justify-content-end">
             <p class="coinvalue">120,089.00</p>
             <p class="ms-1 coinshortform">THB</p>
           </div>
 
-          <div class="BTC d-flex">
+          <div class="BTC d-flex justify-content-end">
             <p class="coinvalue">8,009.00</p>
             <p class="ms-1 coinshortform">THB</p>
           </div>
 
-          <div class="THB d-flex">
+          <div class="THB d-flex justify-content-end">
             <p class="coinvalue">989.00</p>
             <p class="ms-1 coinshortform">THB</p>
           </div>
 
-          <div class="DOGE d-flex">
+          <div class="DOGE d-flex justify-content-end">
             <p class="coinvalue">300.00</p>
             <p class="ms-1 coinshortform">THB</p>
           </div>
 
-          <div class="Others d-flex">
+          <div class="Others d-flex justify-content-end">
             <p class="coinvalue">400.00</p>
             <p class="ms-1 coinshortform">THB</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+    <div class="row table">
       <div class="col">
         <Dynamic-Table
           :TableHeader="TableHeading"
@@ -143,8 +165,11 @@ export default {
       showModal: false,
       series: [44, 20, 10, 30, 10],
       chartOptions: {
+        dataLabels: {
+      enabled: false,
+    },
         labels: ["ETH", "BTC", "THB", "DOGE", "Others"],
-        colors: ["#20A3FF", "#3FDE68", "#B554FF", "#F8C417", "grey"],
+        colors: ["#B554FF", "#F8C417",  "#20A3FF", "#3FDE68", "#D0D0D0"],
         chart: {
           type: "donut",
         },
@@ -242,10 +267,45 @@ export default {
   methods: {},
 };
 </script>
-
+<style> 
+.coin .apexcharts-canvas::before{
+    content: 'Coin Allocation';
+    position: absolute;
+    right: 0px;
+    top: 13px;
+    color: #677F8E;
+    font-weight: 400 !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+.coin  .apexcharts-legend-marker{
+  width:14px;
+  height:14px
+}
+.coin .apexcharts-legend-text{
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: white !important;
+    margin-left: 16px !important;
+}
+.table td {
+    height: 56px;
+    line-height: 56px;
+    padding: 0px;
+}
+</style>
 <style scoped>
+.table{
+  max-width:1200px;
+  margin: auto;
+}
+.chart_area{
+  max-width: 875px;
+  margin: auto;
+}
 .wrapper {
-  margin-top: 4%;
+  margin-top: 40px;
 }
 .light-grey {
   color: #d6dde1;
@@ -267,9 +327,11 @@ export default {
 .chart-values {
   position: relative;
   top: 44px;
+  width: fit-content;
 }
 .chart-values p {
   margin-bottom: 8px;
+  margin-top:4px;
 }
 
 /* modal */

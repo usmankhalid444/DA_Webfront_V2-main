@@ -277,11 +277,16 @@ const routes = [
     name: "WithdrawCoin",
   },
   {
-    path: "/withdraw/main_account",
-    component: () =>
-      import("../pages/deposit-withdraw/withdraw/MainAccount.vue"),
-    name: "WithdrawCoin",
+    path: "/withdraw/cash_main_account",
+    component: () => import("../pages/deposit-withdraw/withdraw/CashMainAccount.vue"),
+    name: "cash_main_account",
   },
+  {
+    path: "/withdraw/main_account",
+    component: () => import("../pages/deposit-withdraw/withdraw/MainAccount.vue"),
+    name: "main_account",
+  },
+
 
   {
     path: "/wallet",

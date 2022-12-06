@@ -73,9 +73,9 @@
         คำตอบที่ถูกคือ “ไม่ใช่” เพราะ “บล็อกเชน” Blockchain ทำให้มีความ
         ปลอดภัยต่ำ ต้นทุนการทำธุรกรรมสูง ไม่มีความเป็นส่วนตัว
       </div>
-      <div class="f-section">
-        <router-link to="/pre-test/pass"><button>ส่งคำตอบ</button></router-link>
-      </div>
+    </div>
+    <div class="f-section">
+      <router-link to="/pre-test/pass"><button>ส่งคำตอบ</button></router-link>
     </div>
   </div>
 </template>
@@ -98,13 +98,14 @@ export default {
   min-height: 588px;
   margin: auto;
   margin-top: 25px;
-  padding: 20px;
+  padding: 16px;
   h1 {
     text-align: center;
     color: #d6dde1;
     font-family: "Noto Sans Thai";
     font-weight: 500;
     font-size: 24px;
+    padding: 5px 0;
   }
   .detail {
     color: #9bacb6;
@@ -128,7 +129,7 @@ export default {
       .radio_btn {
         display: inline-block;
         label {
-          padding-left: 7px;
+          padding-left: 10px;
         }
 
         input[type="radio"]:after {

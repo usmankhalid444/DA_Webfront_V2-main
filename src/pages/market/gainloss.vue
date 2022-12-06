@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid">
-    <div class="Tab-wrapper">
+  <div class="wraper-main">
+    <div class="Tab-wrapper px-3">
       <ul class="nav nav-pills">
         <li>
           <a

@@ -16,7 +16,7 @@
         </p>
         <p class="text-value thai-font">ขั้นตอนต่อไป</p>
         <router-link to="/">
-          <button class="thai-font">เริ่มต้นใช้งาน</button>
+          <button class="thai-font">กลับหน้าเข้าสู่ระบบ</button>
         </router-link>
       </div>
     </div>
@@ -65,7 +65,7 @@ export default {};
       text-decoration: none;
       button {
         margin: auto;
-        margin-top: 25px;
+        margin-top: 35px;
         color: white;
         width: 142px;
         height: 40px;

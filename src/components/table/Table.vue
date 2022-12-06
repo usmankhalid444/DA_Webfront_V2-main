@@ -88,7 +88,7 @@
         <!-- Hedaing Categories -->
         <th
           scope="col"
-          class="textGreyDark"
+          class="textGreyDark my-auto"
           v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
         >
           <div class="d-flex px-0">
@@ -588,8 +588,13 @@
           </td>
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
-          <td class="textGrey px-0" v-if="Showfavorite">
-            <canvas v-bind:id="'favoriteGraph' + index" width="150" height="30"></canvas>
+          <td class="textGrey px-0 my-0 py-0" v-if="Showfavorite">
+            <canvas
+              class="w-100"
+              v-bind:id="'favoriteGraph' + index"
+              width="150"
+              height="30"
+            ></canvas>
           </td>
           <!-- End Chart PLoting in table -->
           <!-- last price data -->
@@ -604,14 +609,13 @@
           <td
             class="textGrey justify-content-left px-2 tableData-white"
             v-if="ShowCategories || ShowThemes || ShowTreeMap"
-            style="width: 8%"
           >
             {{ item.marketCap }}
           </td>
           <!--End marketCap data -->
           <!-- hour change data -->
           <td
-            class="textGreen px-2"
+            class="textGreen justify-content-left px-2 tableData-white"
             v-if="
               Showfavorite || ShowCategories || ShowThemes || ShowTreeMap || ShowGainLoss
             "
@@ -651,19 +655,14 @@
           <!--End Description data -->
 
           <!-- marketCapM in nested ShowAllCategoriesCurrency data -->
-          <td
-            class="textGrey align-marketcap-data"
-            v-if="ShowAllCategoriesCurrency"
-            style="width: 10%"
-          >
+          <td class="textGrey px-2" v-if="ShowAllCategoriesCurrency">
             {{ item.marketCapM }}
           </td>
           <!-- End  marketCapM in nested ShowAllCategoriesCurrency data -->
           <!-- MarketCapPercentage data -->
           <td
-            class="textGrey align-marketcap-data tableData-white"
+            class="textGrey px-2 tableData-white"
             v-if="ShowTreeMap || ShowAllCategoriesCurrency"
-            style="width: 10%"
           >
             {{ item.MarketCapPercentage }}
           </td>
@@ -680,7 +679,7 @@
             style="text-align: end; vertical-align: middle"
           >
             <span class="textYellow" @click="handleDetail">Detail</span>
-            <span class="textSeprator mx-2">|</span>
+            <span class="textSeprator mx-2"></span>
             <span class="textYellow" @click="handleBuySell">Buy/Sell</span>
           </td>
           <!-- End BuySell Button -->
@@ -737,6 +736,7 @@ export default {
   mounted() {
     let start = this.Showfavorite;
     let themeschart = this.ShowThemes;
+
     if (start == true || themeschart) {
       for (let i = 0; i < this.TableData.length; i++) {
         //   console.log("===length",this.TableData?.length)
@@ -746,11 +746,14 @@ export default {
         var ss = document.getElementById(`favoriteGraph${i}`).getContext("2d");
 
         /*** Gradient ***/
-        var gradient = ss.createLinearGradient(0, 0, 0, 400);
-        gradient.addColorStop(0, "rgba(250,174,50,1)");
-        gradient.addColorStop(1, "rgba(250,174,50,0)");
+        var gradient = ss.createLinearGradient(0, 25, 0, 300);
+        gradient.addColorStop(0, "rgba(23, 206, 54, 0.10)");
+        gradient.addColorStop(0.35, "rgba(23, 206, 54, 0.09)");
+        gradient.addColorStop(0, "rgba(23, 206, 54, 0)");
 
-        this.favoriteGraph.data.datasets[0].fillColor = gradient;
+        this.favoriteGraph.data.datasets.forEach((g) => {
+          g.backgroundColor = gradient;
+        });
 
         new Chart(ctx, this.favoriteGraph);
       }
@@ -962,6 +965,7 @@ export default {
 }
 .textSeprator {
   color: #28363e;
+  border-right: 2px solid;
 }
 .textGrey {
   color: #d6dde1;

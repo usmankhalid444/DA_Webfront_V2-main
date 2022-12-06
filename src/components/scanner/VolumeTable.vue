@@ -1,13 +1,11 @@
 <template>
-      <div class="padding-table scroller">
-        <table class="table ma-3" id="myTable">
-            <thead v-for="(item, index) in TableHeading" :key="index">
+  <div class="padding-table scroller">
+    <table class="table ma-3" id="myTable">
+      <thead v-for="(item, index) in TableHeading" :key="index">
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark">
           <div class="d-flex px-0">
-            <div
-              class="align-Icon-Heading Header-Name"
-            >
+            <div class="align-Icon-Heading Header-Name">
               {{ item.headingCoin }}
             </div>
             <div @click="headCoinDown = !headCoinDown">
@@ -44,14 +42,11 @@
           </div>
         </th>
         <!-- End Heading Coin -->
-         <!-- Heading LastPrice -->
-         <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <!-- Heading LastPrice -->
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingLastPrice }}</div>
-            <div @click="(headLastPriceDown = !headLastPriceDown)">
+            <div @click="headLastPriceDown = !headLastPriceDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,13 +81,10 @@
         </th>
         <!-- End Heading LastPrice -->
 
-        <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingHourChange }}</div>
-            <div @click="(headHourChangeDown = !headHourChangeDown)">
+            <div @click="headHourChangeDown = !headHourChangeDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -126,13 +118,10 @@
           </div>
         </th>
 
-        <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingVolumeHour }}</div>
-            <div @click="(headingVolumeHourDown = !headingVolumeHourDown)">
+            <div @click="headingVolumeHourDown = !headingVolumeHourDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -165,13 +154,10 @@
             </div>
           </div>
         </th>
-        <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingVolume }}</div>
-            <div @click="(headingVolumeDown = !headingVolumeDown)">
+            <div @click="headingVolumeDown = !headingVolumeDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -204,13 +190,10 @@
             </div>
           </div>
         </th>
-        <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingVolumeUP }}</div>
-            <div @click="(headingVolumeUpDown = !headingVolumeUpDown)">
+            <div @click="headingVolumeUpDown = !headingVolumeUpDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -243,13 +226,10 @@
             </div>
           </div>
         </th>
-        <th
-          scope="col"
-          class="textGreyDark"
-        >
+        <th scope="col" class="textGreyDark">
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingUp }}</div>
-            <div @click="(headingUpDown = !headingUpDown)">
+            <div @click="headingUpDown = !headingUpDown">
               <div class="chevronUp" @click="sortTables(0)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -283,8 +263,8 @@
           </div>
         </th>
         <th></th>
-</thead>
- <tbody>
+      </thead>
+      <tbody>
         <tr
           class="textDarkgrey-Border px-0 mx-2"
           v-for="(item, index) in TableDatas"
@@ -293,7 +273,7 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- coin data without start in gainloss -->
-          <td  class="px-0">
+          <td class="px-0">
             <div class="d-flex flex-wrap px-0">
               <div class="">
                 <div :class="`${item.StarIcon ? 'icon-image-with-star' : 'icon-image'}`">
@@ -328,70 +308,63 @@
             </div>
           </td>
           <td
-            class="textGrey justify-content-left px-2 tableData-white" style="color:#4FA15D"
+            class="textGrey justify-content-left px-2 tableData-white"
+            style="color: #4fa15d"
           >
             {{ item.lastPrice }}
           </td>
           <td
-            class="textGrey justify-content-left px-2 tableData-white" style="color:#4FA15D"
+            class="textGrey justify-content-left px-2 tableData-white"
+            style="color: #4fa15d"
           >
             {{ item.hourChange }}
           </td>
-          <td
-            class="textGrey justify-content-left px-2 tableData-white"
-          >
+          <td class="textGrey justify-content-left px-2 tableData-white">
             {{ item.hourVolume }}
           </td>
-          <td
-            class="textGrey justify-content-left px-2 tableData-white"
-          >
+          <td class="textGrey justify-content-left px-2 tableData-white">
             {{ item.volume }}
           </td>
-          <td
-            class="textGrey justify-content-left px-2 tableData-white"
-          >
+          <td class="textGrey justify-content-left px-2 tableData-white">
             {{ item.volumeUp }}
           </td>
           <td
-            class="textGrey justify-content-left px-2 tableData-white" style="color:#4FA15D"
+            class="textGrey justify-content-left px-2 tableData-white"
+            style="color: #4fa15d"
           >
             {{ item.volumepersent }}
           </td>
-          <td
-            class="px-0"
-            style="text-align: end; vertical-align: middle"
-          >
+          <td class="px-0" style="text-align: end; vertical-align: middle">
             <span class="textYellow">Detail</span>
-            <span class="textSeprator mx-2">|</span>
+            <span class="textSeprator mx-2"></span>
             <span class="textYellow">Buy/Sell</span>
           </td>
         </tr>
-        </tbody>
-        </table>
-    </div>
+      </tbody>
+    </table>
+  </div>
 </template>
-<script >
-export default{
-    name:'VolumeTable',
-  data()
-  {
-    return{
+<script>
+export default {
+  name: "VolumeTable",
+  data() {
+    return {
       headCoinDown: true,
       headLastPriceDown: true,
       headHourChangeDown: true,
       headingVolumeHourDown: true,
       headingVolumeDown: true,
-      headingVolumeUpDown:true,
-      headingUpDown:true,
-        TableHeading: [
+      headingVolumeUpDown: true,
+      headingUpDown: true,
+      TableHeading: [
         {
           headingCoin: "Coin :",
           headingLastPrice: "Last Price",
           headingHourChange: "%Change",
-          headingVolumeHour:"Vol. (1 hour ago)",
+          headingVolumeHour: "Vol. (1 hour ago)",
           headingVolume: "Volume",
-          headingVolumeUP:"Vol Up",
-          headingUp:'%Vol Up',
+          headingVolumeUP: "Vol Up",
+          headingUp: "%Vol Up",
         },
       ],
       TableDatas: [
@@ -402,7 +375,7 @@ export default{
           CoinName: "Bitcoin",
           lastPrice: "98,500,000",
           hourChange: "+1.78%",
-          hourVolume:'10.00',
+          hourVolume: "10.00",
           volume: "11.00",
           volumeUp: "11.00",
           volumepersent: "+10.00%",
@@ -414,7 +387,7 @@ export default{
           CoinName: "Bitcoin",
           lastPrice: "98,500,000",
           hourChange: "+1.78%",
-          hourVolume:'10.00',
+          hourVolume: "10.00",
           volume: "11.00",
           volumeUp: "11.00",
           volumepersent: "+10.00%",
@@ -426,7 +399,7 @@ export default{
           CoinName: "Bitcoin",
           lastPrice: "98,500,000",
           hourChange: "+1.78%",
-          hourVolume:'10.00',
+          hourVolume: "10.00",
           volume: "11.00",
           volumeUp: "11.00",
           volumepersent: "+10.00%",
@@ -438,15 +411,15 @@ export default{
           CoinName: "Bitcoin",
           lastPrice: "98,500,000",
           hourChange: "+1.78%",
-          hourVolume:'10.00',
+          hourVolume: "10.00",
           volume: "11.00",
           volumeUp: "11.00",
           volumepersent: "+10.00%",
         },
       ],
-    }
+    };
   },
-  methods:{
+  methods: {
     sortTable(n) {
       var table,
         rows,
@@ -543,8 +516,8 @@ export default{
         }
       }
     },
-  }
-}
+  },
+};
 </script>
 <style lang="scss" scoped>
 table thead th {
@@ -649,6 +622,7 @@ table tbody td {
 }
 .textSeprator {
   color: #28363e;
+  border-right: 2px solid;
 }
 .textGrey {
   color: #d6dde1;

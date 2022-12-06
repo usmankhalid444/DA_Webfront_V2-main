@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <p class="light-grey mb-0 mt-4">My Coin’s Profit / Loss</p>
+    <div class="chart">
+      <p class="light-grey mb-0 mt-4">My Coin’s Profit / Loss</p>
     <div id="chart" class="custom-charts">
       <apexchart
         type="treemap"
@@ -9,7 +10,9 @@
         :series="series"
       ></apexchart>
     </div>
-    <div class="row">
+    </div>
+   
+    <div class="row table">
       <div class="col">
         <Dynamic-Table
           :TableHeader="TableHeading"
@@ -38,30 +41,41 @@ export default {
         {
           name: "first",
           data: [
+          {
+              x: 'ETH',
+              y: "-42.10%",
+            },
+            {
+              x: "DOGE",
+              y: "-42.10%",
+            },
             {
               x: "BTC",
-              y: "+4.89%",
+              y: "-42.10%",
             },
+          
             {
-              x: "ETH",
-              y: "-8.89%",
-            },
-            {
-              x: "USDC",
-              y: "+3.49%",
-            },
-            {
-              x: "USDT",
-              y: "+3.21%",
-            },
-            {
-              x: "ETH",
-              y: "-4.89%",
+              x: "COIN B",
+              y: "-42.10%",
             },
             {
               x: "SOL",
-              y: "-5.89%",
+              y: "+42.10%",
             },
+            {
+              x: "COIN C",
+              y: "-42.10%",
+            },
+            {
+              x: "COIN A",
+              y: "-42.10%",
+            },
+            {
+              x: "COIN D",
+              y: "-42.10%",
+            },
+          
+           
           ],
         },
       ],
@@ -104,12 +118,12 @@ export default {
               ranges: [
                 {
                   from: 0,
-                  to: 30,
+                  to: 100,
                   color: "#40994F",
                 },
                 {
-                  from: -10,
-                  to: -1,
+                  from: -100,
+                  to: -0,
                   color: "#DE2D40",
                 },
               ],
@@ -186,7 +200,25 @@ export default {
 };
 </script>
 
+<style>
+.table td {
+    height: 56px;
+    line-height: 56px;
+    padding: 0px;
+}
+.custom-charts rect {
+  stroke: black;
+}
+</style>
 <style scoped>
+.table{
+  max-width:1200px;
+  margin: auto;
+}
+.chart{
+  max-width: 875px;
+  margin: auto;
+}
 .light-grey {
   color: #d6dde1;
   font-size: 14px;

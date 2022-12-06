@@ -46,6 +46,7 @@
                     >
                     </b-form-input>
                     <b-form-input
+                      style="padding-right: 50px !important"
                       v-else
                       type="password"
                       class="input"
@@ -113,6 +114,7 @@
                     >
                     </b-form-input>
                     <b-form-input
+                      style="padding-right: 50px !important"
                       v-else
                       type="password"
                       class="input"
@@ -435,7 +437,7 @@
                           <div class="modal-dialog" role="document">
                             <div
                               class="modal-content"
-                              style="margin-top: -308px !important"
+                              style="margin-top: -200px !important"
                             >
                               <div
                                 class="modal-header"
@@ -477,10 +479,11 @@
                                     <div class="col">
                                       <div class="otp-number mt-1">
                                         <p
-                                          class="text-grey text-center"
+                                          class="text-grey text-center thai-font"
                                           style="
                                             margin-top: 1rem;
-                                            margin-bottom: 20px;
+                                            margin-bottom: 25px;
+                                            color: #9bacb6;
                                           "
                                         >
                                           ระบุ OTP ที่ไดัรับจาก SMS
@@ -593,12 +596,14 @@
                     </transition>
                   </div>
                   <!-- OTP Modal -->
-                  <button
-                    class="font-family_th mt-32 fda_submit_btn-primary"
-                    @click="handler"
-                  >
-                    เข้าสู่ระบบ
-                  </button>
+                  <router-link to="exchange">
+                    <button
+                      class="font-family_th mt-32 fda_submit_btn-primary"
+                      @click="handler"
+                    >
+                      เข้าสู่ระบบ
+                    </button>
+                  </router-link>
                   <div class="text-center p-t-32 thai-font">
                     <b-link
                       class="textLink-ftLogin"
@@ -1057,11 +1062,10 @@ export default Vue.extend({
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-        width: 120px;
+        width: 160px;
         height: 36px;
-        margin-right: 12px;
-        margin-left: 6px;
         border-radius: 4px !important;
+        margin: 0 5px;
       }
       .buttons-D {
         background-color: var(--gray-active-state);
@@ -1070,10 +1074,10 @@ export default Vue.extend({
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
-        width: 120px;
+        width: 160px;
         height: 36px;
-        margin-right: 6px;
         border-radius: 4px !important;
+        margin: 0 5px;
       }
     }
     .contact {
