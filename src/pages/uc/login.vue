@@ -197,6 +197,7 @@
                       class="modal"
                       id="myModal"
                       :style="{ display: showModal == true ? 'block' : 'none' }"
+                      style="background-color: #080b0c"
                     >
                       <div class="modal-content modal-dialog">
                         <div class="modal-header">
@@ -235,14 +236,18 @@
 
                             <!-- button -->
                             <div class="cover-button">
-                              <b-button class="buttons-C font-sarabun" href="#"
-                                >ยืนยัน</b-button
+                              <button
+                                class="buttons-C font-sarabun"
+                                @click="showModal = false"
                               >
-                              <b-button
+                                ยืนยัน
+                              </button>
+                              <button
                                 class="buttons-D font-sarabun"
-                                href="/login"
-                                >ยกเลิก</b-button
+                                @click="showModal = false"
                               >
+                                ยกเลิก
+                              </button>
                             </div>
 
                             <div class="contact font-sarabun text-center">
@@ -267,10 +272,25 @@
                         display: showRegisterModal == true ? 'block' : 'none',
                       }"
                     >
-                      <div class="modal-content modal-register modal-dialog">
+                      <img
+                        :src="require('../../assets/img-fss-logo.png')"
+                        fluid
+                        alt="FINANSIA Project || Website"
+                        style="margin: auto; display: block; margin-top: 60px"
+                      />
+                      <div
+                        class="modal-content modal-register modal-dialog"
+                        style="
+                          background-color: #192126 !important;
+                          margin-top: 20px;
+                        "
+                      >
                         <div
                           class="modal-header"
-                          style="border-bottom: 1px solid #28363e !important"
+                          style="
+                            border-bottom: 1px solid #28363e !important;
+                            margin: 0 16px;
+                          "
                         >
                           <h5 class="modal-title rm-title">
                             ลงทะเบียน ทดลองใช้งานฟรี
@@ -348,7 +368,6 @@
                                 <b-form-input
                                   type="text"
                                   id="firstName"
-                                  class="thai-font"
                                   style="max-width: 256px"
                                   placeholder="Pre Text"
                                 >
@@ -364,7 +383,6 @@
                                   style="max-width: 256px"
                                   type="text"
                                   id="firstName"
-                                  class="thai-font"
                                   placeholder="Pre Text"
                                 >
                                 </b-form-input>
@@ -379,7 +397,7 @@
                                   >Mobile Number
                                 </label>
                                 <b-form-input
-                                  type="text"
+                                  type="number"
                                   id="name"
                                   placeholder="เช่น 080-XXX-XXXX"
                                   class="place-hold thai-font"
@@ -396,7 +414,8 @@
                                   >Email
                                 </label>
                                 <b-form-input
-                                  type="text"
+                                  type="email"
+                                  onkeypress="return event.charCode != 32"
                                   id="name"
                                   class="place-hold thai-font"
                                   style="max-width: 256px"
@@ -499,30 +518,35 @@
                                           maxlength="1"
                                           class="form-control otp-input"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           style="margin-left: 0px !important"
                                         />
                                         <input
                                           type="number"
                                           maxlength="1"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           class="form-control otp-input"
                                         />
                                         <input
                                           type="number"
                                           maxlength="1"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           class="form-control otp-input"
                                         />
                                         <input
                                           type="number"
                                           maxlength="1"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           class="form-control otp-input"
                                         />
                                         <input
                                           type="number"
                                           maxlength="1"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           class="form-control otp-input"
                                         />
                                         <input
@@ -543,7 +567,6 @@
                                             <button
                                               type="button"
                                               class="btn btn-primary btn-text-sarabun"
-                                              @click="confirmOtpEmail"
                                             >
                                               ยืนยัน
                                             </button>
@@ -678,6 +701,9 @@ export default Vue.extend({
     },
   },
   methods: {
+    next(e) {
+      e.target?.nextSibling?.focus();
+    },
     init() {
       console.log(this.isLogin);
       this.$store.state.HeaderActiveName = "0";
@@ -965,7 +991,7 @@ export default Vue.extend({
   .modal-psw {
     .modal {
       z-index: 1;
-      background-color: #080b0c;
+      background-color: #141b1f;
       width: 100%;
       height: 100%;
     }
@@ -981,8 +1007,6 @@ export default Vue.extend({
         border-bottom: none !important;
         justify-content: center;
         height: 75px;
-        width: 90%;
-        margin: 8px auto;
 
         .modal-title {
           font-weight: 600;
@@ -1005,6 +1029,7 @@ export default Vue.extend({
         .fdaForm-psw {
           padding: 0;
           .pad-16 {
+            margin-bottom: 15px;
             .pad-8 {
               padding: 0px 8px 8px 0px;
             }
@@ -1127,7 +1152,6 @@ export default Vue.extend({
     height: 56px !important;
     border-radius: 4px !important;
     margin-left: 16px !important;
-    text-align: center;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

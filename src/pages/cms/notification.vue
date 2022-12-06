@@ -3,7 +3,7 @@
     <h1>Notification</h1>
     <!-- notification start -->
     <div class="row mt-4 notification" v-for="(item, index) in 4" :key="index">
-      <div class="col-9">
+      <div class="col-9 p-0">
         <p>
           <svg
             width="8"
@@ -17,7 +17,7 @@
           คุณได้รับ 30 AXS กรุณากดยืนยันการรับเหรียญและกำหนดต้น
         </p>
       </div>
-      <div class="col-3 notification-button">
+      <div class="col-3 p-0 notification-button">
         <button class="">ระบุต้นทุน</button>
       </div>
       <div class="col-12 notification-time">วันนี้ | 15:04:58</div>
@@ -48,6 +48,8 @@
       width: 83px;
       height: 28px;
       border-radius: 4px;
+      font-size: 12px;
+      line-height: 24px;
       color: #0a0d10;
       &:hover {
         background-color: #f28e38;
