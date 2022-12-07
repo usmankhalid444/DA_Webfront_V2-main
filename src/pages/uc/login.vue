@@ -2,9 +2,9 @@
   <div class="fda0112982022-login">
     <section class="fdaLogin">
       <div class="fdaLogin-content">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
+        <div class="login-c">
+          <div class="">
+            <div class="">
               <div class="login-wrap p-0">
                 <b-link class="logo-wrap">
                   <b-img
@@ -306,11 +306,14 @@
                                   eventNameField == true ? 'block' : 'none',
                               }"
                             >
-                              <p class="text-dark-grey mt-2 mb-2 thai-font">
+                              <p
+                                class="text-dark-grey thai-font m-0"
+                                style="margin-bottom: 4px !important"
+                              >
                                 {ชื่อกิจกรรม - ถ้าระบบมี}
                               </p>
-                              <div class="wraper-input mb-2 thai-font">
-                                <select>
+                              <div class="wraper-input thai-font">
+                                <select style="background-color: #222b2f">
                                   <option>เลือกกิจกรรม</option>
                                   <option>เลือกกิจกรรม</option>
                                   <option>เลือกกิจกรรม</option>
@@ -332,14 +335,20 @@
                               </div>
                             </div>
                             <div class="pad-16">
-                              <p class="text-dark-grey mt-2 mb-2 thai-font">
+                              <p
+                                class="text-dark-grey thai-font m-0"
+                                style="
+                                  margin-bottom: 4px !important;
+                                  margin-top: 16px !important;
+                                "
+                              >
                                 Title (คำนำหน้าชื่อ)
                               </p>
                               <div
-                                class="wraper-input mb-2 thai-font"
+                                class="wraper-input thai-font"
                                 style="width: 160px"
                               >
-                                <select>
+                                <select style="background-color: #222b2f">
                                   <option>เลือกคำนำหน้า</option>
                                   <option>เลือกคำนำหน้า</option>
                                   <option>เลือกคำนำหน้า</option>
@@ -362,7 +371,12 @@
                             </div>
                             <div class="d-flex pad-16">
                               <b-form-group class="pad-8">
-                                <label class="text-title font-sarabun"
+                                <label
+                                  class="text-title font-sarabun m-0"
+                                  style="
+                                    margin-bottom: 4px !important;
+                                    margin-top: 16px !important;
+                                  "
                                   >First Name (ชื่อภาษาอังกฤษ)
                                 </label>
                                 <b-form-input
@@ -375,8 +389,16 @@
                               </b-form-group>
                               <!-- </div> -->
                               <!-- <div class="col-6"> -->
-                              <b-form-group class="pad-8">
-                                <label class="text-title font-sarabun"
+                              <b-form-group
+                                class="pad-8"
+                                style="margin-left: 16px"
+                              >
+                                <label
+                                  class="text-title font-sarabun m-0"
+                                  style="
+                                    margin-bottom: 4px !important;
+                                    margin-top: 16px !important;
+                                  "
                                   >Last Name (นามสกุลภาษาอังกฤษ)
                                 </label>
                                 <b-form-input
@@ -389,40 +411,38 @@
                               </b-form-group>
                             </div>
 
-                            <b-form-group class="pad-16">
-                              <div class="pad-8">
-                                <label
-                                  style="margin-top: 0px"
-                                  class="text-title1 font-sarabun"
-                                  >Mobile Number
-                                </label>
-                                <b-form-input
-                                  type="number"
-                                  id="name"
-                                  placeholder="เช่น 080-XXX-XXXX"
-                                  class="place-hold thai-font"
-                                  style="max-width: 256px"
-                                >
-                                </b-form-input>
-                              </div>
-                            </b-form-group>
-                            <b-form-group class="pad-16">
-                              <div class="pad-8">
-                                <label
-                                  style="margin-top: 0px"
-                                  class="text-title1 font-sarabun"
-                                  >Email
-                                </label>
-                                <b-form-input
-                                  type="email"
-                                  onkeypress="return event.charCode != 32"
-                                  id="name"
-                                  class="place-hold thai-font"
-                                  style="max-width: 256px"
-                                >
-                                </b-form-input>
-                              </div>
-                            </b-form-group>
+                            <label
+                              class="text-title1 font-sarabun m-0"
+                              style="
+                                margin-bottom: 4px !important;
+                                margin-top: 16px !important;
+                              "
+                              >Mobile Number
+                            </label>
+                            <b-form-input
+                              type="number"
+                              id="name"
+                              placeholder="เช่น 080-XXX-XXXX"
+                              class="place-hold thai-font"
+                              style="max-width: 256px"
+                            >
+                            </b-form-input>
+                            <label
+                              class="text-title1 font-sarabun m-0"
+                              style="
+                                margin-bottom: 4px !important;
+                                margin-top: 16px !important;
+                              "
+                              >Email
+                            </label>
+                            <b-form-input
+                              type="email"
+                              onkeypress="return event.charCode != 32"
+                              id="name"
+                              class="place-hold thai-font"
+                              style="max-width: 256px"
+                            >
+                            </b-form-input>
                             <!-- button -->
                             <div class="cover-button cover-button-register">
                               <b-button
@@ -768,7 +788,7 @@ export default Vue.extend({
       this.eventNameField = !this.eventNameField;
     },
     showOtpModal() {
-      this.showRegisterModal = !this.showRegisterModal;
+      // this.showRegisterModal = !this.showRegisterModal;
       this.showOtp = !this.showOtp;
     },
 
@@ -781,6 +801,10 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .fda0112982022-login {
+  .login-c {
+    margin: auto;
+    width: 346px;
+  }
   input:focus {
     outline: none !important;
     box-shadow: none !important;
@@ -977,15 +1001,13 @@ export default Vue.extend({
   .inp-cbx:checked + .cbx span:first-child {
     background: #f38220 !important;
     border-color: #f38220 !important;
-    animation: wave 0.4s ease;
   }
   .inp-cbx:checked + .cbx span:first-child svg {
+    stroke: black !important;
     stroke-dashoffset: 0;
   }
   .inp-cbx:checked + .cbx span:first-child:before {
-    transform: scale(3.5);
     opacity: 0;
-    transition: all 0.6s ease;
   }
 
   .modal-psw {
@@ -1029,10 +1051,6 @@ export default Vue.extend({
         .fdaForm-psw {
           padding: 0;
           .pad-16 {
-            margin-bottom: 15px;
-            .pad-8 {
-              padding: 0px 8px 8px 0px;
-            }
             .text-title {
               font-weight: 400;
               font-size: 14px;

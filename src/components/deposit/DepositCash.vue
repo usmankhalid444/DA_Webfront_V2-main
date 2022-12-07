@@ -141,7 +141,6 @@ export default {
 
 <style lang="scss">
 // tabs design
-
 .tabs {
   width: 616px;
   height: 458px;
@@ -1053,6 +1052,7 @@ export default {
   align-items: center;
   margin-top: 20px;
 }
+
 .QrCodeDeposit input {
   background-color: #222b2f;
   height: 40px;

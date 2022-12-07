@@ -80,7 +80,7 @@
                 จำนวนเงินที่ต้องการฝาก
               </div>
               <div class="col-7 col-md-8 input-container">
-                <input type="text" placeholder="0.00" />
+                <input type="number" placeholder="0.00" />
                 <span>THB</span>
               </div>
             </div>

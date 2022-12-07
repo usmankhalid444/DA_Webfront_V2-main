@@ -177,32 +177,32 @@ const routes = [
           },
         ],
       },
-      {
-        path: "withdraw",
-        component: () => import("../pages/wallet/withdraw"),
-        children: [
-          {
-            path: "",
-            component: () => import("../components/withdraw/WithdrawCash"),
-            name: "WithdrawCashWallet",
-          },
-          {
-            path: "cash",
-            component: () => import("../components/withdraw/WithdrawCash"),
-            name: "WithdrawCashWallet",
-          },
-          {
-            path: "coin",
-            component: () => import("../components/withdraw/WithdrawCoin"),
-            name: "WithdrawCoinWallet",
-          },
-        ],
-      },
-      {
-        path: "auto-mode",
-        component: () => import("../pages/portfolio/auto-mode"),
-        name: "AutoMode",
-      },
+      // {
+      //   path: "withdraw",
+      //   component: () => import("../pages/wallet/withdraw"),
+      //   children: [
+      //     {
+      //       path: "",
+      //       component: () => import("../components/withdraw/WithdrawCash"),
+      //       name: "WithdrawCashWallet",
+      //     },
+      //     {
+      //       path: "cash",
+      //       component: () => import("../components/withdraw/WithdrawCash"),
+      //       name: "WithdrawCashWallet",
+      //     },
+      //     {
+      //       path: "coin",
+      //       component: () => import("../components/withdraw/WithdrawCoin"),
+      //       name: "WithdrawCoinWallet",
+      //     },
+      //   ],
+      // },
+      // {
+      //   path: "auto-mode",
+      //   component: () => import("../pages/portfolio/auto-mode"),
+      //   name: "AutoMode",
+      // },
       {
         path: "my-portfolio",
         component: () => import("../pages/portfolio/my-portfolio"),

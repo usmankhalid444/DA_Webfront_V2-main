@@ -217,10 +217,10 @@
                   <button
                     class="dropbtn"
                     :class="
-                      $route.name == 'DepositCashWallet' ||
-                      $route.name == 'DepositCoinWallet' ||
-                      $route.name == 'WithdrawCashWallet' ||
-                      $route.name == 'WithdrawCoinWallet'
+                      $route.name == 'DepositeCash' ||
+                      $route.name == 'DepositeCoin' ||
+                      $route.name == 'WithdrawCash' ||
+                      $route.name == 'WithdrawCoin'
                         ? 'active'
                         : ''
                     "
