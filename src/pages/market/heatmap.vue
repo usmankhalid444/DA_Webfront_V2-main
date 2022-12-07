@@ -32,8 +32,8 @@
             aria-label=".form-select-sm example"
             style="background-color: #222b2f"
           >
-            <option selected>Sort by : Marketcap</option>
-            <option value="1">Sort by : Traded Volume</option>
+            <option selected>Marketcap</option>
+            <option value="1">Traded Volume</option>
           </select>
         </div>
       </div>
@@ -294,7 +294,7 @@ export default {
         {
           headingCoin: "Coin ",
           headingLastPrice: "Last Price",
-          headingHourChange: "24h Change",
+          headingHourChange: "24h %Change",
           headingVolume: "Volume (M)",
           headingMarketCap: "Market Cap",
           headingMarketCapM: "Market Cap (M)",

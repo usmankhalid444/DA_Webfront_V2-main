@@ -61,7 +61,7 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- Datetime -->
-          <td>
+          <td style="width:110px;">
             <p class="Datetime-one textGrey mb-0">
               {{ item.Date }}
             </p>
@@ -69,7 +69,7 @@
           <!-- End Datetime -->
 
           <!-- TotalBuy -->
-          <td class="textGrey">
+          <td class="textGrey" style="width:125px;">
             <p class="mb-0">{{ item.TotalBuyValue }}</p>
           </td>
           <!-- End TotalBuy -->

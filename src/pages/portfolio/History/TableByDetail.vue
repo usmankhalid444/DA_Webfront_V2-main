@@ -102,7 +102,7 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- Datetime -->
-          <td>
+          <td style="width: 120px;">
             <p class="Datetime-one">
               <span class="textGrey Coin-Symbol">
                 {{ item.Date }}
@@ -159,7 +159,7 @@
           <!-- End TotalValue -->
 
           <!-- profitloss -->
-          <td class="text-end align-bottom">
+          <td class="text-end align-bottom" style="width: 290px;">
             <p class="profitloss-two mt-4" style="textalign: end">
               <span class="textGrey Coin-Symbol" style="color: #40994f">
                 {{ item.ProfitLossValue }}

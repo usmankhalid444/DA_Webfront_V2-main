@@ -70,7 +70,7 @@ export default {
           headingMarketCap: "Market Cap",
           headingDescription: "Description",
           headingCategories: "Categories",
-          headingChart: " ",
+          headingChart: "24h Chart",
         },
       ],
       TableDatas: [

@@ -6,7 +6,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="border-bottom: none">
                   <div class="container">
                     <div
                       class="row"
@@ -25,7 +25,7 @@
                           >
                             <span
                               aria-hidden="true"
-                              @click="showModal=false"
+                              @click="showModal = false"
                               style="color: #677f8e; font-size: 30px"
                               >&times;</span
                             >
@@ -35,8 +35,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body scroller ">
-                  <div class="container ">
+                <div class="modal-body scroller">
+                  <div class="container">
                     <div class="row">
                       <div class="col-3 pb-2">
                         <p class="text-dark-grey mt-2">ชื่อบัญชี</p>
@@ -50,10 +50,10 @@
                         <p class="text-dark-grey mt-2">เลือกธนาคาร</p>
                       </div>
                       <div class="col-9 pb-2 mb-3">
-                         <select
+                        <select
                           class="form-select form-select-sm w-auto text-light shadow-none borderColor"
                           aria-label=".form-select-sm example"
-                          style="background-color: #222b2f; color:#D6DDE1"
+                          style="background-color: #222b2f; color: #d6dde1"
                         >
                           <option selected>เลือกจังหวัด</option>
                         </select>
@@ -61,24 +61,24 @@
                     </div>
                     <div class="row mb-3">
                       <div class="col-3 pb-2">
-                        <p class="text-dark-grey mt-2 ">ชื่อสาขา</p>
+                        <p class="text-dark-grey mt-2">ชื่อสาขา</p>
                       </div>
                       <div class="col-9 pb-2">
                         <input
                           type="text"
-                          class="form-control  w-full"
+                          class="form-control w-full"
                           placeholder="สาขา"
                         />
                       </div>
                     </div>
-                     <div class="row mb-3">
+                    <div class="row mb-3">
                       <div class="col-3 pb-2">
-                        <p class="text-dark-grey mt-2 ">เลขที่บัญชี</p>
+                        <p class="text-dark-grey mt-2">เลขที่บัญชี</p>
                       </div>
                       <div class="col-9 pb-2">
                         <input
                           type="text"
-                          class="form-control  w-full"
+                          class="form-control w-full"
                           placeholder="เลขที่บัญชี"
                         />
                       </div>
@@ -93,14 +93,26 @@
                         >
                       </div>
                     </div>
-                    <div class="attachment-wrap d-flex py-5">
-                      <div @click="OpenCameraModel">
-                        <b-icon  class="iconPaperClip" icon="paperclip"></b-icon>
+                    <div
+                      class="attachment-wrap d-flex py-5"
+                      @click="onPickFile"
+                    >
+                      <div>
+                        <b-icon class="iconPaperClip" icon="paperclip"></b-icon>
                       </div>
                       <label class="table-text-yellow ms-2">เพิ่มเอกสาร</label>
                       <!-- <input class="form-controls" type="file" id="formFile"> -->
+                      <input
+                        type="file"
+                        style="display: none"
+                        ref="fileInput"
+                        accept="image/*"
+                        @change="onFilePicked"
+                      />
                     </div>
-                    <p class="text-dark-grey mt-2">สามารถเพิ่มได้สูงสุด 2 บัญชี</p>
+                    <p class="text-dark-grey mt-2">
+                      สามารถเพิ่มได้สูงสุด 2 บัญชี
+                    </p>
                     <!-- modal button bottom -->
                     <div class="button mt-4 mb-3 text-center">
                       <button
@@ -132,7 +144,7 @@
         <div class="modal-mask">
           <div class="modal-wrapper">
             <div class="modal-dialog otp-success" role="document">
-              <div class="modal-content">
+              <div class="modal-content" style="background-color: #141b1f !important;">
                 <div class="modal-body scroller-otp">
                   <div class="container">
                     <div class="row">
@@ -145,7 +157,12 @@
                           />
                         </div>
                         <div class="success-message">
-                          <p class="text-grey" style="font-size:18px;font-weight:600;">ระบบได้รับข้อมูลของคุณแล้ว</p>
+                          <p
+                            class="text-grey"
+                            style="font-size: 18px; font-weight: 600"
+                          >
+                            ระบบได้รับข้อมูลของคุณแล้ว
+                          </p>
                         </div>
                         <div
                           class="finisButton-SuccesOtp"
@@ -154,7 +171,7 @@
                           <button
                             type="button"
                             class="btn btn-text-sarabun btn-cancel buttonSuccess"
-                            style="width: 39%;"
+                            style="width: 39%"
                           >
                             เสร็จสิ้น
                           </button>
@@ -177,7 +194,7 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header"  style="border-bottom: none;">
+                <div class="modal-header" style="border-bottom: none">
                   <div class="container">
                     <div
                       class="row"
@@ -185,7 +202,7 @@
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
-                          <h5 class="modal-title m-auto  text-center">
+                          <h5 class="modal-title m-auto text-center">
                             ยืนยันการเปลี่ยนแปลงข้อมูล
                           </h5>
                           <button
@@ -320,8 +337,8 @@ export default {
   data() {
     return {
       showModal: false,
-      showModalOTP:false,
-      showModalOTPSuccess:false,
+      showModalOTP: false,
+      showModalOTPSuccess: false,
     };
   },
   methods: {
@@ -330,15 +347,24 @@ export default {
     },
     hide() {
       this.showModal = false;
-      this.showModalOTP =true;
-    },
-    OpenCameraModel() {
-      this.showModalSurnameChange = !this.showModalSurnameChange;
-      this.showModalOpenCamera = !this.showModalOpenCamera;
+      this.showModalOTP = true;
     },
     ConfirmOtp() {
       this.showModalOTP = !this.showModalOTP;
       this.showModalOTPSuccess = !this.showModalOTPSuccess;
+    },
+    onPickFile() {
+      this.$refs.fileInput.click();
+    },
+    onFilePicked(event) {
+      const files = event.target.files;
+      let filename = files[0].name;
+      const fileReader = new FileReader();
+      fileReader.addEventListener("load", () => {
+        this.imageUrl = fileReader.result;
+      });
+      fileReader.readAsDataURL(files[0]);
+      this.image = files[0];
     },
     inputenter(id) {
       const inputs = document.querySelectorAll("#otp > *[id]");
@@ -383,11 +409,11 @@ export default {
 .bg-box {
   background-color: #1c262b;
 }
-.w-full{
-    width: 100% !important;
+.w-full {
+  width: 100% !important;
 }
-.closeButton{
-    margin-right: 20px;
+.closeButton {
+  margin-right: 20px;
 }
 .Heading {
   color: #d6dde1;
@@ -463,6 +489,7 @@ export default {
   border-radius: 4px;
   justify-content: center;
   border: 1px dashed #28363e;
+  cursor: pointer;
 }
 .attachment-wrap-skull {
   background-color: #192126;
@@ -493,9 +520,9 @@ export default {
   font-weight: 400;
   font-family: "Sarabun" !important;
 }
-.iconPaperClip{
-   color: #f38220;
-  font-size: 16px; 
+.iconPaperClip {
+  color: #f38220;
+  font-size: 16px;
 }
 .text-yellow {
   color: #f38220;
@@ -526,9 +553,9 @@ export default {
 .modal-content {
   width: 100% !important;
 }
-.modal-body{
-    padding-left: 12px;
-    padding-right: 24px;
+.modal-body {
+  padding-left: 12px;
+  padding-right: 24px;
 }
 .modal-wrapper {
   display: table-cell;
@@ -567,8 +594,8 @@ export default {
   display: flex;
   margin-left: 30px;
 }
-.form-control{
-  color: #f38220!important;
+.form-control {
+  color: #f38220 !important;
   outline: none;
 }
 /* otp modal end */
@@ -649,8 +676,8 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #192126;
 }
-.modal-title{
-  color: #D6DDE1;
+.modal-title {
+  color: #d6dde1;
   font-size: 18px;
   font-weight: 600;
   font-family: "Noto Sans Thai" !important;

@@ -43,7 +43,7 @@ export default {
           Date: "Date",
           TotalBuy: "Total Buy",
           TotalSell: "Total Sell",
-          FreeVAT: "Free + VAT",
+          FreeVAT: "Fee + VAT",
           AvrgCost: "Avg. Cost",
           Total: "Total",
           ProfitLoss: "Profit/Loss",
@@ -222,10 +222,10 @@ input::placeholder {
   box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
   transition: all 0.4s ease;
 }
-.field:focus {
+/* .field:focus {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
-}
+} */
 .mx-input-wrapper .mx-input {
   background-color: #222b2f !important;
   color: #d6dde1;

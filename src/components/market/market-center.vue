@@ -125,7 +125,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 768px) and (max-width: 855px) {
+@media (min-width: 768px) and (max-width: 1076px) {
   .form-div {
     display: flex;
     width: 100%;
@@ -195,7 +195,6 @@ export default Vue.extend({
   }
   .field-container {
     // position: relative;
-    border: 1px solid red;
     padding: 0;
     margin: 0;
     border: 0;

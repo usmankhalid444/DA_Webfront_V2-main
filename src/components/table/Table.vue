@@ -128,7 +128,7 @@
         </th>
         <!-- End Hedaing Categories -->
         <!-- Heading Chart -->
-        <th scope="col" v-if="Showfavorite">
+        <th scope="col" v-if="Showfavorite || ShowCategories">
           <div class="align-Icon-Heading" style="margin-bottom: 15px">
             {{ item.headingChart }}
           </div>
@@ -499,7 +499,7 @@
               </div>
               <div class="coin-symbol-container">
                 <span class="coin-symbol"> {{ item.Coinsybmol }} </span>
-                <span class="textGreyDark-table"> / THB </span>
+                <span class="textGreyDark-table thai-font"> / THB </span>
               </div>
               <div class="">
                 <span class="textGreyDark-table ms-2">
@@ -538,7 +538,7 @@
               </div>
               <div class="coin-symbol-container">
                 <span class="coin-symbol"> {{ item.Coinsybmol }} </span>
-                <span class="textGreyDark-table"> / THB </span>
+                <span class="textGreyDark-table thai-font"> / THB </span>
               </div>
               <div class="">
                 <span class="textGreyDark-table ms-2">
@@ -588,12 +588,12 @@
           </td>
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
-          <td class="textGrey px-0 my-0 py-0" v-if="Showfavorite">
+          <td class="textGrey px-0 my-0 py-0" v-if="Showfavorite || ShowCategories">
             <canvas
               class="w-100"
               v-bind:id="'favoriteGraph' + index"
               width="150"
-              height="30"
+              height="50"
             ></canvas>
           </td>
           <!-- End Chart PLoting in table -->
@@ -746,10 +746,9 @@ export default {
         var ss = document.getElementById(`favoriteGraph${i}`).getContext("2d");
 
         /*** Gradient ***/
-        var gradient = ss.createLinearGradient(0, 25, 0, 300);
-        gradient.addColorStop(0, "rgba(23, 206, 54, 0.10)");
-        gradient.addColorStop(0.35, "rgba(23, 206, 54, 0.09)");
-        gradient.addColorStop(0, "rgba(23, 206, 54, 0)");
+        var gradient = ss.createLinearGradient(0, 0, 0, 150);
+        gradient.addColorStop(0, "green");
+        gradient.addColorStop(0.27, "#141B1F");
 
         this.favoriteGraph.data.datasets.forEach((g) => {
           g.backgroundColor = gradient;
@@ -917,7 +916,7 @@ export default {
   font-family: "Roboto Flex";
   font-weight: 400;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 18.75px;
 }
 .yellow {
   color: #f38220;
@@ -979,13 +978,11 @@ export default {
   color: #677f8e;
   vertical-align: middle;
   font-size: 14px;
-  font-family: "Sarabun";
   font-weight: 400;
 }
 .textGreyDark-description {
   color: #677f8e;
   vertical-align: middle;
-  font-family: "Sarabun";
 }
 .textDarkgrey-Border {
   border-color: #28363e;

@@ -4,21 +4,28 @@
       <div class="justify-content-start d-flex flex-row ms-2 scan">
         <div class="second-selectbox">
           <select
-            class="form-select form-select-sm w-auto text-light shadow-none borderColor"
+            class="form-select form-select-sm w-auto text-light shadow-none borderColor "
             aria-label=".form-select-sm example"
             style="background-color: #222b2f"
             v-model="scannnerValue"
           >
-            <option value="1" selected>Most Active</option>
-            <option value="2">Top Gain/Loss</option>
-            <option value="3">Volume Outperform</option>
-            <option value="4">New High/ Low</option>
+          <optgroup label="--------------- Scanner ------------">
             <option value="5">Pull the Bull</option>
+            <option value="8">Bullish Volume Break Out plus ADX</option>
             <option value="6">HH_RSI</option>
             <option value="7">HH_MACD Cross</option>
+          </optgroup>
+          <optgroup label="--------------- Market Movement ------------">
+            <option value="1" selected>Most Active</option>
+            <option value="2">Top Gain/Loss</option>
+            <option value="4">New High/ Low</option>
+            <option value="3">Volume Outperform</option>
+            </optgroup>
           </select>
         </div>
-        <svg
+       
+        <div class="info">
+          <svg
           data-v-1252a5dc=""
           xmlns="http://www.w3.org/2000/svg"
           width="12"
@@ -36,6 +43,14 @@
             d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"
           ></path>
         </svg>
+        <p v-if="(scannnerValue==5)">เหรียญที่มีโมเมนตัมเป็นบวกต่อเนื่องใน Timeframe 60 นาที <br>คอนเฟิร์มแนวโน้มขาขึ้นด้วยราคาและอินดิเคเตอร์ที่กำลังร้อนแรงและเป็นที่สนใจ</p>
+        <p v-else-if="(scannnerValue==6)">เหรียญที่ราคาเพิ่งกลับตัวจากโซนล่าง ต้นทุนต่ำเพราะอยู่ต้นน้ำ <br>พร้อมคอนเฟิร์มด้วยวอลลุ่มการซื้อขายที่โดดเด่น</p>
+        <p v-else-if="(scannnerValue==7)">เหรียญที่เริ่มมีสัญญาณเชิงบวก MACD เพิ่งตัด Signal ในวันแรก <br>พร้อมคอนเฟิร์มด้วยวอลลุ่มการซื้อขายที่โดดเด่น</p>
+        <p v-else>เหรียญที่มีโมเมนตัมเป็นบวกต่อเนื่อง <br> คอนเฟิร์มแนวโน้มขาขึ้นด้วยราคาและอินดิเคเตอร์ที่กำลังร้อนแรงและเป็นที่สนใจ</p>
+      </div>
+        
+    
+     
        
         <div class="third-selectbox" v-if="(scannnerValue==4)">
           <select
@@ -73,7 +88,7 @@
           <label for="day" class="m-0">Day</label>
         </div>
         <div class="radio_btn" v-if="(scannnerValue==3)">
-          <input type="number" class="from-control" />
+          <input type="number" min="1" class="from-control" />
           <label class="m-0">Day Ago</label>
         </div>
     
@@ -84,7 +99,7 @@
       <div id="chart" class="custom-charts">
         <apexchart
           type="bar"
-          height="350"
+          height="350 "
           :options="chartOptions"
           :series="series"
         ></apexchart>
@@ -96,8 +111,8 @@
       <div id="chart" class="custom-charts">
         <apexchart
           type="bar"
-          height="350"
-          :options="chartOptions"
+          height="250"
+          :options="chartOptionsLoss"
           :series="seriesLoss"
         ></apexchart>
       </div>
@@ -225,11 +240,11 @@ export default {
         {
           name: "Cash Flow",
           data: [
-            "-138%",
-            "-130%",
-            "-120%",
-            "-110%",
-            "-95%",
+            "-98%",
+            "-96%",
+            "-94%",
+            "-90%",
+            "-85%",
             "-80%",
             "-75%",
             "-70%",
@@ -252,9 +267,95 @@ export default {
         legend: {
           show: false,
         },
+        yaxis: {
+          axisBorder: { show: false },
+          labels: { show: false },
+        },
+        xaxis: {
+          categories: ["ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH","ETH", "ETH", "ETH", "ETH","ETH", "ETH", "ETH", "ETH"],
+          position: 'bottom',
+          axisTicks: { show: false },
+          axisBorder: { show: true},
+          labels: { show: true },
+        },
         chart: {
           type: "bar",
           height: 350,
+          toolbar: {
+            show: false,
+          },
+        },
+
+        plotOptions: {
+          bar: {
+            dataLabels: {
+              position: "top", // top, center, bottom
+            },
+            colors: {
+              ranges: [
+                {
+                  from: 0,
+                  to: 200,
+                  color: "#40994F",
+                },
+                {
+                  from: -100,
+                  to: 0,
+                  color: "#DE2D40",
+                },
+              ],
+            },
+            columnWidth: "45%",
+          },
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: "12px",
+            colors: ["#D6DDE1"],
+          },
+        },
+        grid: {
+          show: true,
+          borderColor: "#90A4AE",
+          strokeDashArray: 0,
+          position: "back",
+          xaxis: {
+            lines: {
+              show: false,
+            },
+          },
+          yaxis: {
+            lines: {
+              show: false,
+            },
+          },
+        },
+      },
+
+      
+      chartOptionsLoss: {
+        legend: {
+          show: false,
+        },
+        yaxis: {
+          axisBorder: { show: false },
+          labels: { show: false },
+        },
+        xaxis: {
+          categories: ["ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH", "ETH","ETH", "ETH", "ETH", "ETH","ETH", "ETH", "ETH", "ETH"],
+          position: 'top',
+          axisTicks: { show: false },
+          axisBorder: { show: true},
+          labels: { show: true },
+        },
+        chart: {
+          type: "bar",
+          height:200,
           toolbar: {
             show: false,
           },
@@ -315,6 +416,41 @@ export default {
 };
 </script>
 <style scoped>
+
+#tooltip-target-1
+{
+    background: transparent;
+    border: none;
+    padding: 0px;
+    margin: 0px 0px;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.info{
+  position:relative
+}
+.info svg{
+    cursor:pointer
+  }
+.info p {
+    position: absolute;
+    width: 444px;
+    color: #677F8E;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 4px 8px;
+    line-height: 24px;
+    height: 56px;
+    z-index:10;
+    background: #D6DDE1;
+    border-radius: 4px;
+    top: -63px;
+    left: 18px;
+    display: none;
+}
+.info:hover p {
+   display: block;
+}
 .scan {
   align-items: center;
   margin-top: 21.44px;
@@ -343,6 +479,12 @@ export default {
   border-radius: 4px;
   color: white;
   border: none;
+}
+.second-selectbox select option{
+    font-size: 14px;
+    line-height:24px;
+    -webkit-padding: 18px !important;
+    /* display: inline-block; */
 }
 .third-selectbox select {
   width: 122px !important;

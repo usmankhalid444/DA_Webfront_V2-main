@@ -149,7 +149,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -207,7 +207,7 @@
                         <input
                           type="text"
                           class="form-control pinInput-width"
-                          placeholder="PIN ใหม่"
+                          placeholder="กรอกตัวเลข 6 หลัก"
                         />
                       </div>
                     </div>
@@ -226,13 +226,13 @@
                         <input
                           type="text"
                           class="form-control pinInput-width"
-                          placeholder="PIN ใหม่"
+                          placeholder="กรอกตัวเลข 6 หลัก"
                         />
                       </div>
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -266,7 +266,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -409,7 +409,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -467,7 +467,7 @@
                         <input
                           type="text"
                           class="form-control pinInput-width"
-                          placeholder="รหัสผ่านใหม่"
+                          placeholder="กรอกตัวหนังสือและตัวเลข 8-20 ตัวอักษร"
                         />
                       </div>
                     </div>
@@ -486,7 +486,7 @@
                         <input
                           type="text"
                           class="form-control pinInput-width"
-                          placeholder="รหัสผ่านใหม่"
+                          placeholder="กรอกตัวหนังสือและตัวเลข 8-20 ตัวอักษร"
                         />
                       </div>
                     </div>
@@ -500,20 +500,20 @@
                       <p class="text-dark-grey mt-2">หมายเหตุ:</p>
                       <ul>
                         <li>
-                            xxxxxxxx 
+                            หมายเหตุ: ความยาว 8-20 ตัวอักษร 
                         </li>
-                        <li>xxxxxxx </li>
-                        <li>xxxxxxxx </li>
-                        <li>xxxxxxxxxxxxxxx</li>
+                        <li>กรอกได้เฉพาะตัวหนังสือ และตัวเลขเท่านั้น </li>
+                        <li>ต้องประกอบไปด้วยภาษาอังกฤษตัวพิมพ์ใหญ่ และตัวเลขอย่างน้อย 1 ตัว </li>
+                        <!-- <li>xxxxxxxxxxxxxxx</li>
                         <li>xxxxxxx</li>
                         <li>xxxxxxxx </li>
-                        <li>xxxxxxx</li>
+                        <li>xxxxxxx</li> -->
                       </ul>
                       
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -547,7 +547,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -809,6 +809,10 @@ export default {
   border-bottom: 1px solid #28363e;
 }
 /* modal */
+.marginTopBottom32{
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
 .buttonSuccess{
   font-size: 16px!important;
   font-weight: 700!important;
@@ -964,7 +968,7 @@ ul li::before {
   border-radius: 10px;
 }
 .pinInput-width {
-  width: 240px !important;
+  width: 270px !important;
 }
 .SurnameWidth {
   width: 280px !important;

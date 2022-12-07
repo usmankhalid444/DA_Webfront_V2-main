@@ -251,7 +251,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -372,7 +372,7 @@
                       <!-- <input class="form-controls" type="file" id="formFile"> -->
                     </div>
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -406,7 +406,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -546,7 +546,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -643,7 +643,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -704,7 +704,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -738,7 +738,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -881,7 +881,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -916,7 +916,7 @@
                           </p>
                           <p
                             class="text-grey"
-                            style="margin-left: 15px; margin-top: 1rem"
+                            style="margin-left: 45px; margin-top: 1rem"
                           >
                             khembearland@gmail.com
                           </p>
@@ -943,7 +943,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-3 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -977,7 +977,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -1120,7 +1120,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -1314,7 +1314,7 @@
                     
 
                     <!-- modal button bottom -->
-                    <div class="button mt-3 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -1348,7 +1348,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -1493,7 +1493,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -1685,7 +1685,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-3 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -1719,7 +1719,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -1862,7 +1862,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-between">
@@ -2136,7 +2136,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-3 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -2170,7 +2170,7 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 5%; padding-bottom: 5%"
+                      style="padding-top: 3%; padding-bottom: 3%"
                     >
                       <div class="">
                         <div class="d-flex justify-content-around">
@@ -2543,6 +2543,10 @@ export default {
   font-family: "Sarabun" !important;
 }
 /* modal */
+.marginTopBottom32{
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
 .buttonSuccess{
   font-size: 16px!important;
   font-weight: 700!important;

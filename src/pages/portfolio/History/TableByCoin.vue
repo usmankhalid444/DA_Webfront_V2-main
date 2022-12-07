@@ -3,8 +3,8 @@
     <table class="table ma-3" id="myTable">
       <thead>
         <tr>
-          <th></th>
-          <th></th>
+          <th style="border:#141B1F"></th>
+          <th style="border:#141B1F"></th>
           <th
             scope="colgroup"
             colspan="3"
@@ -23,7 +23,7 @@
       </thead>
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Date -->
-        <th scope="col" class="textGreyDark">
+        <th scope="col" class="textGreyDark borderBottom" >
           <div class="d-flex">
           <p class="align-Icon-Heading mb-0">
             {{ item.Date }}
@@ -45,7 +45,7 @@
         <!-- End Heading Date -->
 
         <!-- Heading CoinSymbolHeading -->
-        <th scope="col" class="textGreyDark">
+        <th scope="col" class="textGreyDark borderBottom">
           <p class="align-Icon-Heading mb-0">
             {{ item.CoinSymbolHeading }}
           </p>
@@ -64,7 +64,7 @@
         <!-- End Heading BuyActualHeading -->
 
         <!-- Heading BuyAvrgCostHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-center">
+        <th scope="col" class="textGreyDark borderTopBottom text-end">
           <p class="align-Icon-Heading mb-0">
             {{ item.BuyAvrgCostHeading }}
           </p>
@@ -72,7 +72,7 @@
         <!-- End Heading BuyAvrgCostHeading -->
 
         <!-- Heading BuyTotalHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-center">
+        <th scope="col" class="textGreyDark borderTopBottom text-end" style="padding-right:3px;">
           <p class="align-Icon-Heading mb-0">
             {{ item.BuyTotalHeading }}
           </p>
@@ -91,7 +91,7 @@
         <!-- End Heading SellActualHeading -->
 
         <!-- Heading SellAvrgCostHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-center">
+        <th scope="col" class="textGreyDark borderTopBottom text-end">
           <p class="align-Icon-Heading mb-0">
             {{ item.SellAvrgCostHeading }}
           </p>
@@ -101,8 +101,7 @@
         <!-- Heading SellTotalHeading -->
         <th
           scope="col"
-          class="textGreyDark border-right-table borderTopBottom text-center"
-        >
+          class="textGreyDark border-right-table borderTopBottom text-end" style="padding-right:3px;">
           <p class="align-Icon-Heading mb-0">
             {{ item.SellTotalHeading }}
           </p>
@@ -110,7 +109,7 @@
         <!-- End Heading SellTotalHeading -->
 
         <!-- Heading Total -->
-        <th scope="col" class="textGreyDark text-center">
+        <th scope="col" class="textGreyDark text-end borderBottom">
           <p class="align-Icon-Heading mb-0">
             {{ item.Total }}
           </p>
@@ -118,7 +117,7 @@
         <!-- End Heading Total -->
 
         <!-- Heading FreeVAT -->
-        <th scope="col" class="textGreyDark">
+        <th scope="col" class="textGreyDark borderBottom">
           <p class="align-Icon-Heading mb-0">
             {{ item.FreeVAT }}
           </p>
@@ -126,7 +125,7 @@
         <!-- End Heading FreeVAT -->
 
         <!-- Heading ProfitLoss -->
-        <th scope="col" class="textGreyDark text-center">
+        <th scope="col" class="textGreyDark text-end borderBottom" style="padding-right:25px;">
           <p class="align-Icon-Heading mb-0">{{ item.ProfitLoss }}</p>
         </th>
         <!-- End Heading ProfitLoss -->
@@ -335,6 +334,9 @@ tbody tr td{
 .borderTopBottom {
   border-bottom: 1px solid #28363e;
   border-top: 1px solid #28363e;
+}
+.borderBottom {
+  border-bottom: 1px solid #28363e;
 }
 .BuySellHeading-table {
   color: #ffff;

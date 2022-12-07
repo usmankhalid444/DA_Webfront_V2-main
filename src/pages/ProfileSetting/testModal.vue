@@ -231,7 +231,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -512,7 +512,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button mt-5 mb-5 text-center">
+                    <div class="button marginTopBottom32 text-center">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -869,7 +869,10 @@ ul li::before {
   width: 1em;
   margin-left: -1em;
 }
-
+.marginTopBottom32{
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
 /* otp modal */
 .otp-input {
   width: 44px !important;

@@ -354,10 +354,14 @@
           >
             1d
           </div>
-          <div @click="trendSignal = 'more'" class="col-2 time more-time">
+          <div
+            @click="trendSignal = 'more'"
+            class="d-flex align-items-center col-2 time more-time"
+          >
             <select
               name="cars"
               id="cars"
+              class="px-0 mx-0"
               :class="trendSignal === 'more' ? 'ts-active-tab' : ''"
             >
               <option value="" selected disabled hidden>More</option>
@@ -366,8 +370,16 @@
               <option value="opel">Opel</option>
               <option value="audi">Audi</option>
             </select>
-            <span>
-              <svg
+
+            <img
+              src="@/assets/images/wallet/dropIcon.png"
+              alt="drop-icon"
+              width="7px"
+              class="px-0 mx-0 me-2"
+              height="7px"
+            />
+
+            <!-- <span> <svg
                 width="7"
                 height="5"
                 viewBox="0 0 7 5"
@@ -377,8 +389,7 @@
                 <path
                   d="M0.8225 0.0107422L3.5 2.68241L6.1775 0.0107422L7 0.833242L3.5 4.33324L0 0.833242L0.8225 0.0107422Z"
                 />
-              </svg>
-            </span>
+              </svg> </span> -->
           </div>
         </div>
         <div class="chart-section">
@@ -680,7 +691,7 @@ export default {
   .search-svg {
     position: absolute;
     right: 0;
-    margin-right: 38px;
+    margin-right: 11px;
     margin-top: 10px;
   }
   .coin-image {
@@ -790,7 +801,7 @@ export default {
     font-size: 12px;
     color: var(--sub-2);
     padding: 4px 2px;
-    margin-left: 2px;
+    // margin-left: 2px;
     .time {
       padding: 3px 0;
       border-radius: 2px;
@@ -814,11 +825,6 @@ export default {
     }
     .more-time {
       position: relative;
-      & span {
-        position: absolute;
-        right: 0px;
-        pointer-events: none;
-      }
     }
     .more-time:hover select {
       color: white;
