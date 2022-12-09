@@ -23,7 +23,7 @@
           </form>
 
           <div class="date-picker-container">
-            <date-picker v-model="time3" range lang="eng" :title-format='format'></date-picker>
+            <date-picker v-model="time3" range lang="eng" :format='format'></date-picker>
           </div>
         </div>
         <div class="mt-3">
@@ -59,7 +59,7 @@ export default {
   data: function () {
     return {
       time3: null,
-      format: 'dd-MMM-yyyy',
+      format: 'DD/MM/YYYY',
 
       TableHeading: [
         {
@@ -196,7 +196,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 142px;
+  width: 142px!important;
   height: 40px;
 }
 
@@ -264,6 +264,13 @@ input::placeholder {
   font-size: 14px;
   color: #677f8e;
   border: 1px solid #28363E;
+}
+.exportExcel:hover {
+  font-weight: 400;
+  font-size: 14px;
+  color: #677f8e;
+  border: 1px solid #28363E!important;
+  background-color: #28363E!important;
 }
 .date-picker-container .mx-datepicker-range {
   /* width: 177px; */

@@ -4,161 +4,153 @@
       class="deposite-cash-container"
       :class="currentSettings === 'qr' ? 'qr-h' : 'bc-h'"
     >
-      <div class="container-fluid">
-        <!-- top section start -->
-        <div class="row dcc-head">
-          <div class="col-12">
-            <router-link to="/deposit/cash"
-              ><button class="active">Deposit Cash</button></router-link
-            >
-            <router-link to="/deposit/coin"
-              ><button class="not-active">Deposit Coin</button></router-link
-            >
-          </div>
-        </div>
-        <!-- top section end -->
-        <!-- center section start -->
-        <div class="row mt-3 center-section">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-5 col-md-4 my-auto thai-font">
-                เลือกช่องทางการฝาก
-              </div>
-              <div class="col-7 col-md-8">
-                <div
-                  class="select-container"
-                  tabindex="0"
-                  @click="open_dropdown = !open_dropdown"
-                  @blur="open_dropdown = false"
-                >
-                  <span class="text">{{ selected_option }}</span>
-                  <span
-                    class="icon"
-                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
-                    ><svg
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                        fill="#677F8E"
-                      />
-                    </svg>
-                  </span>
-                  <div
-                    class="options"
-                    :class="open_dropdown ? 'show' : 'hidden'"
+      <!-- top section start -->
+      <div class="dcc-head">
+        <router-link to="/deposit/cash"
+          ><button class="active">Deposit Cash</button></router-link
+        >
+        <router-link to="/deposit/coin"
+          ><button class="not-active">Deposit Coin</button></router-link
+        >
+      </div>
+      <!-- top section end -->
+      <!-- center section start -->
+      <div class="row mt-3 center-section">
+        <div class="col-12 p-0">
+          <div class="row margin-l-24">
+            <div class="col-5 col-md-4 my-auto thai-font p-0">
+              เลือกช่องทางการฝาก
+            </div>
+            <div class="col-7 col-md-8">
+              <div
+                class="select-container"
+                tabindex="0"
+                @click="open_dropdown = !open_dropdown"
+                @blur="open_dropdown = false"
+              >
+                <span class="text">{{ selected_option }}</span>
+                <span
+                  class="icon"
+                  :class="open_dropdown ? 'rotate-sc-icon' : ''"
+                  ><svg
+                    width="12"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <ul>
-                      <li
-                        @click="
-                          (selected_option = 'QR Code (Prompt Pay)'),
-                            $bvModal.show('deposit-qr-modal'),
-                            (currentSettings = 'qr')
-                        "
-                      >
-                        QR Code (Prompt Pay)
-                      </li>
-                      <li
-                        @click="
-                          (selected_option = 'Bank Transfer'),
-                            (currentSettings = 'bank_transfer')
-                        "
-                      >
-                        Bank Transfer
-                      </li>
-                    </ul>
-                  </div>
+                    <path
+                      d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                      fill="#677F8E"
+                    />
+                  </svg>
+                </span>
+                <div class="options" :class="open_dropdown ? 'show' : 'hidden'">
+                  <ul>
+                    <li
+                      @click="
+                        (selected_option = 'QR Code (Prompt Pay)'),
+                          $bvModal.show('deposit-qr-modal'),
+                          (currentSettings = 'qr')
+                      "
+                    >
+                      QR Code (Prompt Pay)
+                    </li>
+                    <li
+                      @click="
+                        (selected_option = 'Bank Transfer'),
+                          (currentSettings = 'bank_transfer')
+                      "
+                    >
+                      Bank Transfer
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div class="row mt-3" v-if="currentSettings === 'qr'">
-              <div class="col-5 col-md-4 my-auto thai-font">
-                จำนวนเงินที่ต้องการฝาก
-              </div>
-              <div class="col-7 col-md-8 input-container">
-                <input type="number" placeholder="0.00" />
-                <span>THB</span>
-              </div>
+          </div>
+          <div class="row mt-3 margin-l-24" v-if="currentSettings === 'qr'">
+            <div class="col-5 col-md-4 my-auto thai-font p-0">
+              จำนวนเงินที่ต้องการฝาก
             </div>
-            <div class="row mt-4" v-if="currentSettings === 'bank_transfer'">
-              <div class="col-5 col-md-4">ชื่อบัญชี</div>
-              <div class="col-7 col-md-8 lr">
-                บริษัท ฟินันเซีย ดิจิทัล แอสเซท จำกัด <span>คัดลอก</span>
-              </div>
-              <div class="col-5 col-md-4 mt-3">ธนาคาร</div>
-              <div class="col-7 col-md-8 mt-3">ธนาคารกรุงเทพ - BBL</div>
+            <div class="col-7 col-md-8 input-container">
+              <input type="number" placeholder="0.00" />
+              <span>THB</span>
             </div>
-            <div class="row mt-4" v-if="currentSettings === 'qr'">
-              <div class="col-12 info thai-font">
+          </div>
+          <div
+            class="row mt-4 margin-l-24"
+            v-if="currentSettings === 'bank_transfer'"
+          >
+            <div class="col-5 col-md-4 p-0">ชื่อบัญชี</div>
+            <div class="col-7 col-md-8 lr">
+              บริษัท ฟินันเซีย ดิจิทัล แอสเซท จำกัด <span>คัดลอก</span>
+            </div>
+            <div class="col-5 col-md-4 p-0 mt-3">ธนาคาร</div>
+            <div class="col-7 col-md-8 mt-3">ธนาคารกรุงเทพ - BBL</div>
+          </div>
+          <div class="row mt-4 margin-l-24" v-if="currentSettings === 'qr'">
+            <div class="col-12 info thai-font p-0">
+              <p>ยอมรับเงื่อนไขการฝากเงิน</p>
+              <ul class="p-0 margin-l-24 mt-1">
+                <li>
+                  โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
+                </li>
+                <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
+                <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
+              </ul>
+            </div>
+          </div>
+          <div v-if="currentSettings === 'bank_transfer'">
+            <div class="bcb"></div>
+            <div class="row p-0 margin-l-24">
+              <div class="col-12 bc-info thai-font p-0">
                 <p>ยอมรับเงื่อนไขการฝากเงิน</p>
-                <ul>
+                <ul class="">
                   <li>
                     โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
                   </li>
                   <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
-                  <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
                 </ul>
               </div>
             </div>
-            <div v-if="currentSettings === 'bank_transfer'">
-              <div class="bcb"></div>
-              <div class="row">
-                <div class="col-12 bc-info thai-font">
-                  <p>ยอมรับเงื่อนไขการฝากเงิน</p>
-                  <ul class="">
-                    <li>
-                      โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2
-                      บัญชี)
-                    </li>
-                    <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-12 bc-info thai-font">
-                  <p>วิธีโอนเงิน</p>
-                  <ul class="number">
-                    <li>
-                      ไปยัง Mobile Banking หรือ
-                      โอนเงินผ่านธนาคารด้วยบัญชีที่ท่านให้ไว้กับบริษัทเท่านั้น
-                      (สูงสุด 2 บัญชี)
-                    </li>
-                    <li>เข้าสู่เมนู “จ่ายบิล” จาก Mobile Banking ของท่าน</li>
-                    <li>ค้นหา “ฟินันเซีย ดิจิทัล แอสเซท”</li>
-                    <li>กรอกรหัสอ้างอิง 1 (Ref.1) ด้วย xxxxxx</li>
-                    <li>กรอกรหัสอ้างอิง 2 (Ref.2) ด้วย xxxxxx</li>
-                    <li>ระบุจำนวนเงิน</li>
-                  </ul>
-                </div>
+            <div class="row mt-2 p-0 margin-l-24">
+              <div class="col-12 bc-info thai-font p-0">
+                <p>วิธีโอนเงิน</p>
+                <ul class="number">
+                  <li>
+                    ไปยัง Mobile Banking หรือ
+                    โอนเงินผ่านธนาคารด้วยบัญชีที่ท่านให้ไว้กับบริษัทเท่านั้น
+                    (สูงสุด 2 บัญชี)
+                  </li>
+                  <li>เข้าสู่เมนู “จ่ายบิล” จาก Mobile Banking ของท่าน</li>
+                  <li>ค้นหา “ฟินันเซีย ดิจิทัล แอสเซท”</li>
+                  <li>กรอกรหัสอ้างอิง 1 (Ref.1) ด้วย xxxxxx</li>
+                  <li>กรอกรหัสอ้างอิง 2 (Ref.2) ด้วย xxxxxx</li>
+                  <li>ระบุจำนวนเงิน</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-        <!-- center section start -->
-        <!-- bottom section start -->
-        <div
-          class="mx-3 pt-4 bottom-section thai-font"
-          v-if="currentSettings === 'qr'"
-        >
-          <label>
-            <input class="form-check-input" type="checkbox" />
-            <span>ยอมรับเงื่อนไขทั้งหมด</span>
-          </label>
-          <div class="last-btn">
-            <button
-              @click="$bvModal.show('deposit-qr-modal')"
-              class="thai-font"
-            >
-              ยืนยันการฝากเงิน
-            </button>
-          </div>
-        </div>
-        <!-- bottom section end -->
       </div>
+      <!-- center section start -->
+      <!-- bottom section start -->
+      <div
+        class="pt-4 bottom-section thai-font margin-l-24"
+        v-if="currentSettings === 'qr'"
+      >
+        <label>
+          <input class="form-check-input" type="checkbox" />
+          <span>ยอมรับเงื่อนไขทั้งหมด</span>
+        </label>
+        <div class="last-btn">
+          <button @click="$bvModal.show('deposit-qr-modal')" class="thai-font">
+            ยืนยันการฝากเงิน
+          </button>
+        </div>
+      </div>
+      <!-- bottom section end -->
     </div>
     <div class="right-info thai-font">
       <p>คำถามที่พบบ่อย</p>
@@ -194,13 +186,16 @@ export default {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  .margin-l-24 {
+    margin-left: 24px;
+  }
   .dcc-head {
     border-bottom: 1px solid #28363e;
     button {
       display: inline-block;
       font-size: 16px;
       padding: 15px 0;
-      margin-left: 20px;
+      margin-left: 24px;
       border-bottom: 2px solid transparent;
       color: #677f8e;
       &:hover {
@@ -299,7 +294,7 @@ export default {
       }
     }
     .bcb {
-      margin: 0 -27px;
+      margin: 0 -4px;
       margin-top: 30px;
       margin-bottom: 20px;
       border-top: 1px solid #28363e;
@@ -320,6 +315,7 @@ export default {
   }
 
   .bottom-section {
+    margin-right: 24px;
     border-top: 1px solid #28363e;
     input {
       background: #222b2f;
@@ -328,6 +324,9 @@ export default {
       height: 17px;
       width: 17px;
       margin-top: -0.1px;
+    }
+    input:focus {
+      box-shadow: none;
     }
     input:checked {
       background-color: #f38220;

@@ -39,17 +39,17 @@
         <div class="chart-values">
           <div class="ETH d-flex justify-content-end">
             <p class="coinvalue">120,089.00</p>
-            <p class="ms-1 coinshortform">THB</p>
+            <p class="ms-2 coinshortform">THB</p>
           </div>
 
           <div class="BTC d-flex justify-content-end">
             <p class="coinvalue">8,009.00</p>
-            <p class="ms-1 coinshortform">THB</p>
+            <p class="ms-2 coinshortform">THB</p>
           </div>
 
           <div class="THB d-flex justify-content-end">
             <p class="coinvalue">989.00</p>
-            <p class="ms-1 coinshortform">THB</p>
+            <p class="ms-2 coinshortform">THB</p>
           </div>
 
           <div class="DOGE d-flex justify-content-end">
@@ -59,7 +59,7 @@
 
           <div class="Others d-flex justify-content-end">
             <p class="coinvalue">400.00</p>
-            <p class="ms-1 coinshortform">THB</p>
+            <p class="ms-2 coinshortform">THB</p>
           </div>
         </div>
       </div>
@@ -271,7 +271,7 @@ export default {
 .coin .apexcharts-canvas::before{
     content: 'Coin Allocation';
     position: absolute;
-    right: 0px;
+    right: 3px;
     top: 13px;
     color: #677F8E;
     font-weight: 400 !important;
@@ -288,6 +288,10 @@ export default {
     line-height: 20px !important;
     color: white !important;
     margin-left: 16px !important;
+    font-family: 'Roboto Flex' !important;
+}
+.table th>div {
+  padding:0px;
 }
 .table td {
     height: 56px;
@@ -296,6 +300,7 @@ export default {
 }
 </style>
 <style scoped>
+
 .table{
   max-width:1200px;
   margin: auto;
@@ -369,6 +374,7 @@ export default {
 }
 .custom-charts {
   position: relative;
+  margin-left:-35px
 }
 .coin-allocation {
   position: absolute;

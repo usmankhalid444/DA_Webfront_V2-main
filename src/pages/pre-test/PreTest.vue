@@ -134,6 +134,10 @@ export default {
   }
   .questions {
     color: #d6dde1;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
     .q-text {
       margin-left: -30px;
     }
@@ -195,6 +199,10 @@ export default {
       color: #0a0d10;
       background-color: #f38220;
       border-radius: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+
       &:hover {
         background-color: #f28e38;
       }

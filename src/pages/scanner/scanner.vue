@@ -3,25 +3,48 @@
     <div class="container-fluid">
       <div class="justify-content-start d-flex flex-row ms-2 scan">
         <div class="second-selectbox">
-          <select
-            class="form-select form-select-sm w-auto text-light shadow-none borderColor "
-            aria-label=".form-select-sm example"
-            style="background-color: #222b2f"
-            v-model="scannnerValue"
-          >
-          <optgroup label="--------------- Scanner ------------">
-            <option value="5">Pull the Bull</option>
-            <option value="8">Bullish Volume Break Out plus ADX</option>
-            <option value="6">HH_RSI</option>
-            <option value="7">HH_MACD Cross</option>
-          </optgroup>
-          <optgroup label="--------------- Market Movement ------------">
-            <option value="1" selected>Most Active</option>
-            <option value="2">Top Gain/Loss</option>
-            <option value="4">New High/ Low</option>
-            <option value="3">Volume Outperform</option>
-            </optgroup>
-          </select>
+          <div
+                  class="select-container"
+                  tabindex="0"
+                  @click="open_dropdown = !open_dropdown"
+                  @blur="open_dropdown = false"
+                >
+                  <span class="text">{{ list[scannnerValue] }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
+                    ><svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="options"
+                    :class="open_dropdown ? 'show' : 'hidden'"
+                  >
+                    <ul>
+                      <li>--------------- Scanner ------------</li>
+                      <li @click="(scannnerValue = '5')"> Pull the Bull </li>
+                      <li @click="(scannnerValue = '8')"> Bullish Volume Break Out plus ADX</li>
+                      <li @click="(scannnerValue = '6')"> HH_RSI </li>
+                      <li @click="(scannnerValue = '7')"> HH_MACD Cross</li>
+                      <li>--------------- Market Movement ------------</li>
+                      <li @click="(scannnerValue = '1')"> Most Active </li>
+                      <li @click="(scannnerValue = '2')">Top Gain/Loss</li>
+                      <li @click="(scannnerValue = '4')"> New High/ Low </li>
+                      <li @click="(scannnerValue = '3')">Volume Outperform</li>
+                  
+                    </ul>
+                  </div>
+                </div>
         </div>
        
         <div class="info">
@@ -87,8 +110,12 @@
           <input type="radio" id="day" name="time" />
           <label for="day" class="m-0">Day</label>
         </div>
-        <div class="radio_btn" v-if="(scannnerValue==3)">
-          <input type="number" min="1" class="from-control" />
+        <div class="radio_btn position-relative" v-if="(scannnerValue==3)">
+          <input type="number" v-model="day" min="1" class="from-control" />
+           <div class="icons">
+            <span @click="(day=day+1)"><b-icon icon="caret-up-fill"></b-icon></span>
+            <span @click="decrement()"><b-icon icon="caret-down-fill"></b-icon></span>
+           </div>
           <label class="m-0">Day Ago</label>
         </div>
     
@@ -137,6 +164,7 @@ import highTableVue from "@/components/scanner/highTable.vue";
 import VueApexCharts from "vue-apexcharts";
 export default {
   name: "scan",
+  
   components: {
     "Dynamic-Table": Table,
     apexchart: VueApexCharts,
@@ -147,6 +175,9 @@ export default {
     return {
       scannnerValue:'1',
       top:"0",
+      day:1,
+      open_dropdown:false,
+      list:['','Most Active','Top Gain/ Loss','Volume Outperform','New High/ Low','Pull the Bull','HH_RSI','HH_MACD Cross','Bullish Volume Break Out plus ADX'],
       TableHeading: [
         {
           headingCoin: "Coin :",
@@ -305,7 +336,7 @@ export default {
                 },
               ],
             },
-            columnWidth: "45%",
+            columnWidth: "50%",
           },
         },
         dataLabels: {
@@ -380,7 +411,7 @@ export default {
                 },
               ],
             },
-            columnWidth: "45%",
+            columnWidth: "50%",
           },
         },
         dataLabels: {
@@ -413,8 +444,133 @@ export default {
       },
     };
   },
+  methods:{
+    decrement(){
+      let d = this.day-1 
+      if(d<=0){
+        return false
+      }else{
+        this.day= this.day-1
+      }
+    }
+  }
 };
 </script>
+<style lang="scss">
+.second-selectbox{
+  .select-container {
+    background-color: #222b2f;
+    color: #d6dde1;
+    border-radius: 4px;
+    height: 40px;
+    width: 240px;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    .icon {
+      pointer-events: none;
+      position: absolute;
+      right: 20px;
+      svg{
+        width:12px !important;
+        height:8px
+            }
+    }
+    .rotate-sc-icon {
+      transform: rotateX(180deg);
+    }
+    .text {
+      padding-left: 15px;
+    }
+    .options {
+      position: absolute;
+      top: 42px;
+    z-index: 1;
+    width: 346px;
+      background-color: #222b2f;
+      border-radius: 4px;
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 0 8px;
+          border-radius: 4px;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 24px;
+          &:hover {
+            background-color: #2c3b44;
+          }
+        }
+      }
+    }
+    .hidden {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+  }
+  .input-container {
+    input {
+      background-color: #222b2f;
+      color: #d6dde1;
+      border-radius: 4px;
+      height: 40px;
+      padding: 0 18px;
+      &::placeholder {
+        color: #566a76;
+      }
+    }
+    span {
+      color: #9bacb6;
+      margin-left: -40px;
+    }
+  }
+  .info {
+    color: #d6dde1;
+    p {
+      margin: 0;
+    }
+    ul {
+      list-style: disc;
+    }
+  }
+  .lr {
+    font-size: 16px;
+    span {
+      font-size: 14px;
+      color: #f38220;
+      margin-left: 8px;
+    }
+  }
+  .bcb {
+    margin: 0 -27px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-top: 1px solid #28363e;
+  }
+  .bc-info {
+    ul {
+      list-style: disc;
+      padding: 0 24px;
+      li {
+        color: #9bacb6;
+        width: 70%;
+      }
+    }
+    ul.number {
+      list-style: decimal;
+    }
+  }
+}
+
+</style>
 <style scoped>
 
 #tooltip-target-1
@@ -533,7 +689,8 @@ input[type="radio"]:checked:after {
 }
 
 input[type="number"] {
-  padding: 3px;
+  text-align: right;
+  padding: 3px 24px;
   color: white;
   width: 85px;
   height: 37px;
@@ -541,6 +698,28 @@ input[type="number"] {
   border-radius: 4px;
   border: none;
   outline: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.icons{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 65px;
+}
+.icons span{
+line-height: 0px;
+}
+.icons span svg{
+width:12px;
+height:12px;
+color: #677F8E;
+cursor:pointer
 }
 .number-wrapper {
   position: relative;

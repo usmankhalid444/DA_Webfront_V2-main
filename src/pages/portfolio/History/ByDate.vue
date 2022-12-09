@@ -3,7 +3,7 @@
     <div class="row mb-3">
       <div class="d-flex justify-content-between">
         <div>
-          <date-picker v-model="time3" range></date-picker>
+          <date-picker v-model="time3" :format="format" range></date-picker>
         </div>
         <div class="mt-3">
           <button type="button" class="btn btn-outline-secondary exportExcel">
@@ -38,6 +38,7 @@ export default {
   data: function () {
     return {
       time3: null,
+      format: 'DD/MM/YYYY',
       TableHeading: [
         {
           Date: "Date",
@@ -185,7 +186,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 219px;
+  width: 219px!important;
   height: 40px;
 }
 
@@ -253,5 +254,12 @@ input::placeholder {
   font-size: 14px;
   color: #677f8e;
   border: 1px solid #28363E;
+}
+.exportExcel:hover {
+  font-weight: 400;
+  font-size: 14px;
+  color: #677f8e;
+  border: 1px solid #28363E!important;
+  background-color: #28363E!important;
 }
 </style>

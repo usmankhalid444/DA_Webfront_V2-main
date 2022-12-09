@@ -23,7 +23,7 @@
           </form>
 
           <div>
-            <date-picker v-model="time3" range></date-picker>
+            <date-picker v-model="time3" :format="format" range></date-picker>
           </div>
         </div>
         <div class="mt-3">
@@ -59,6 +59,7 @@ export default {
   data: function () {
     return {
       time3: null,
+      format: 'DD/MM/YYYY',
       TableHeading: [
         {
           Date: "Date",
@@ -70,7 +71,7 @@ export default {
           SellAvrgCostHeading: "Avg. Cost",
           SellTotalHeading: "Total",
           Total: "Total",
-          FreeVAT: "Free + VAT",
+          FreeVAT: "Fee + VAT",
           ProfitLoss: "Profit/Loss",
         },
       ],
@@ -242,7 +243,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 142px;
+  width: 142px!important;
   height: 40px;
 }
 
@@ -309,7 +310,14 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
-  border: 1px solid #28363E;
+  border: 1px solid #28363E!important;
+}
+.exportExcel:hover {
+  font-weight: 400;
+  font-size: 14px;
+  color: #677f8e;
+  border: 1px solid #28363E!important;
+  background-color: #28363E!important;
 }
 .date-picker-container .mx-datepicker-range {
   /* width: 177px; */

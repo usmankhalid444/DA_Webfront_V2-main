@@ -70,6 +70,7 @@ nav a.router-link-exact-active {
 ::-webkit-scrollbar-thumb:hover {
   background: #192126;
 }
+/* code for removing white bg from inputs when fech previous data */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -77,5 +78,15 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   color: #d6dde1;
   -webkit-text-fill-color: #d6dde1 !important;
+}
+
+/* code for removing up down button from input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>

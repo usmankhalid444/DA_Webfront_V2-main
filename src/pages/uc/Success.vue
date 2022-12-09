@@ -38,13 +38,14 @@ export default {};
   height: 299px;
   background-color: #192126;
   margin: auto;
-  margin-top: 35px;
+  margin-top: 26px;
+  border-radius: 8px;
 
   .tick-img {
     display: flex;
     justify-content: center;
     img {
-      margin-top: 18px;
+      margin-top: 26px;
     }
   }
   .text {

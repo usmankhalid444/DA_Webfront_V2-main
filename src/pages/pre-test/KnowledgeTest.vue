@@ -411,6 +411,14 @@ export default {
     padding-right: 20px;
     color: #d6dde1;
     .q-text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+      /* or 143% */
+
+      /* Text+Icon/Primary */
+
+      color: #d6dde1;
     }
     .answer {
       .radio_btn {
@@ -470,6 +478,8 @@ export default {
       color: #0a0d10;
       background-color: #f38220;
       font-weight: 700;
+      font-size: 16px;
+      line-height: 24px;
       border-radius: 4px;
       &:hover {
         background-color: #f28e38;

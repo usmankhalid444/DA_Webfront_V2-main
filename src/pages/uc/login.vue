@@ -512,7 +512,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="modal-body scroller-otp">
+                              <div class="modal-body scroller-otp thai-font">
                                 <div class="container">
                                   <div class="row">
                                     <div class="col">
@@ -573,6 +573,7 @@
                                           type="number"
                                           maxlength="1"
                                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                          @input="next"
                                           class="form-control otp-input"
                                         />
                                       </div>
@@ -581,7 +582,7 @@
                                       >
                                         <router-link to="/login/success">
                                           <div
-                                            class="buttonConfirm d-grid gap-2 mb-4"
+                                            class="buttonConfirm d-grid gap-2"
                                             style="width: 344px"
                                           >
                                             <button
@@ -599,7 +600,7 @@
                                         <p
                                           class="text-grey text-center"
                                           style="
-                                            margin-top: 1rem;
+                                            margin-top: 24px;
                                             margin-bottom: 20px;
                                           "
                                         >
@@ -609,7 +610,7 @@
                                         <p
                                           class="text-center"
                                           style="
-                                            margin-top: 1rem;
+                                            margin-top: 24px;
                                             margin-bottom: 20px;
                                             margin-left: 0.5rem;
                                             color: #f38220 !important;
@@ -722,7 +723,12 @@ export default Vue.extend({
   },
   methods: {
     next(e) {
-      e.target?.nextSibling?.focus();
+      if (e.data == null) {
+        e.target?.previousSibling?.focus();
+      } else {
+        e.target?.nextSibling?.focus();
+        // console.log(e.data);
+      }
     },
     init() {
       console.log(this.isLogin);
@@ -1090,8 +1096,8 @@ export default Vue.extend({
       justify-content: center;
       display: flex;
       margin: 24px 0 0 0 !important;
-
       padding: 24px;
+      padding-bottom: 0;
       border-top: 1px solid #28363e !important;
     }
     .cover-button {
@@ -1170,6 +1176,8 @@ export default Vue.extend({
     height: 56px !important;
     border-radius: 4px !important;
     margin-left: 16px !important;
+    text-align: center;
+    caret-color: #f38220;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

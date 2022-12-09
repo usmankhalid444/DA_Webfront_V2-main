@@ -19,7 +19,9 @@
         <div class="info">
           <div class="row">
             <div class="col-5 title">จำนวนเงินฝาก</div>
-            <div class="col-7 n-value">100,000.00 THB</div>
+            <div class="col-7 n-value" style="font-family: 'Roboto Flex'">
+              100,000.00 THB
+            </div>
             <div class="col-5 title">ผู้นำฝาก</div>
             <div class="col-7 value">ณัฎฐ์ เพ็ญชาติ</div>
             <div class="col-5 title">ไปยัง</div>
@@ -39,8 +41,12 @@
           </ul>
         </div>
         <div class="f-btns">
-          <button class="b-yellow">บันทึกรูป</button>
-          <button class="b-gray">ยกเลิก</button>
+          <button @click="$bvModal.hide('deposit-qr-modal')" class="b-yellow">
+            บันทึกรูป
+          </button>
+          <button @click="$bvModal.hide('deposit-qr-modal')" class="b-gray">
+            ยกเลิก
+          </button>
         </div>
       </div>
     </b-modal>
@@ -63,11 +69,12 @@ export default {
 }
 
 .qr-modal {
+  font-family: "Sarabun";
   .modal-top {
     text-align: center;
     color: #d6dde1;
     font-size: 18px;
-    font-family: "sarabun";
+    font-family: "Noto Sans Thai";
     p {
       margin: 0;
       margin-bottom: 2px;
@@ -83,9 +90,8 @@ export default {
     background-color: #1c262b;
     width: 332px;
     margin: 10px auto;
-    padding: 0 20px;
-    padding-top: 20px;
-    padding-bottom: 15px;
+    padding: 16px 24px;
+    border-radius: 8px;
     .title {
       color: #9bacb6;
       margin-bottom: 5px;
@@ -110,7 +116,7 @@ export default {
     }
     ul {
       margin: 0;
-      padding-left: 15px;
+      padding-left: 22px;
       list-style: disc;
       li {
         margin-bottom: 5px;

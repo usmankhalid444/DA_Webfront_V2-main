@@ -360,8 +360,8 @@
                         >
                       </div>
                     </div>
-                    <div class="attachment-wrap d-flex py-5">
-                      <div @click="OpenCameraModel">
+                    <div class="attachment-wrap d-flex py-5" @click="OpenCameraModel">
+                      <div>
                         <img
                           src="../../assets/images/profile-setting/photo_camera.png"
                           alt=""

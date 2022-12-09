@@ -101,7 +101,7 @@
             <div class="row mt-4 info">
               <div class="col-12 col-md-4"></div>
               <div
-                class="col-12 col-md-8 thai-font mb-3"
+                class="col-12 col-md-8 thai-font"
                 @click="$bvModal.show('deposit-coin-tutorial')"
               >
                 กรุณาเลือก Network ของผู้รับ Address ให้ตรงกับ Network
@@ -151,7 +151,7 @@ export default {
       selected_option: "เลือก Network",
     };
   },
-  created() {
+  mounted() {
     this.$bvModal.show("deposit-coin-tutorial");
   },
 };
@@ -163,13 +163,15 @@ export default {
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
+  font-family: "Sarabun";
   .dcc-head {
     border-bottom: 1px solid #28363e;
+    font-family: "Roboto Flex";
     button {
       display: inline-block;
       font-size: 16px;
       padding: 15px 0;
-      margin-left: 20px;
+      margin-left: 24px;
       border-bottom: 2px solid transparent;
       color: #677f8e;
       &:hover {
@@ -308,7 +310,8 @@ export default {
     }
     .last-btn {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 24px;
+      margin-right: -15px;
       button {
         color: #0a0d10;
         background-color: #f38220;
