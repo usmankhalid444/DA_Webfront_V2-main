@@ -61,7 +61,7 @@ export default {};
     }
     .m-center {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 22.25px;
       p {
         margin: 0;
       }
@@ -69,10 +69,11 @@ export default {};
         color: #d6dde1;
         font-size: 18px;
         font-weight: 600;
-        margin-bottom: 10px;
+        font-family: "Sarabun";
       }
       .c-value {
         color: #677f8e;
+        font-family: "Sarabun";
       }
     }
     .f-btn {

@@ -138,6 +138,7 @@ export default {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    margin-left: -11px;
     .q-text {
       margin-left: -30px;
     }

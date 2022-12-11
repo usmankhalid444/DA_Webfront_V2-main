@@ -17,7 +17,6 @@ Vue.use(IconsPlugin)
 
 
 
-
 import HighchartsVue from 'highcharts-vue'
 import Highcharts from 'highcharts'
 // import exportingInit from 'highcharts/modules/exporting'
@@ -34,6 +33,9 @@ import ToggleButton from 'vue-js-toggle-button'
 Vue.use(ToggleButton)
 
 
+import Notifications from 'vue-notification'
+
+Vue.use(Notifications)
 
 
 

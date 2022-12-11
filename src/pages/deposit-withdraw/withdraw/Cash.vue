@@ -21,22 +21,28 @@
         <div class="row mt-3 center-section">
           <div class="col-12">
             <div class="row" v-if="currentSettings === 'qr'">
-              <div class="col-5 col-md-4 my-auto thai-font">จำนวนเงินที่ต้องการถอน</div>
+              <div class="col-5 col-md-4 my-auto thai-font l-24">
+                จำนวนเงินที่ต้องการถอน
+              </div>
               <div class="col-7 col-md-8 input-container">
-                <input type="text" placeholder="0" />
+                <input type="number" placeholder="0" />
                 <span>THB</span>
               </div>
             </div>
             <div class="row">
               <div class="col-7 col-md-8 offset-md-4 input-container">
                 <p class="input_label">
-                  จำนวนเงินที่ถอนได้&nbsp; 20,000.00 THB &nbsp;&nbsp;ถอนทั้งหมด
+                  จำนวนเงินที่ถอนได้&nbsp; 20,000.00 THB &nbsp;&nbsp;<u
+                    >ถอนทั้งหมด</u
+                  >
                 </p>
               </div>
             </div>
             <div class="row mt-3">
-              <div class="col-5 col-md-4 my-auto thai-font">บัญชีธนาคารที่รับเงิน</div>
-              <div class="col-7 col-md-8">
+              <div class="col-5 col-md-4 my-auto thai-font l-24">
+                บัญชีธนาคารที่รับเงิน
+              </div>
+              <div class="col-7 col-md-8 l-24">
                 <div class="d-info">
                   <span>นายวาเลน ทองคำ</span>
                   <div>
@@ -110,15 +116,21 @@
                   <div class="col-5 col-md-4 my-auto thai-font del-font">
                     จำนวนเงินที่ต้องการถอน
                   </div>
-                  <div class="col-7 col-md-8">1,000,000.00 THB</div>
+                  <div class="col-7 col-md-8 font-robot-flex l-24">
+                    1,000,000.00 THB
+                  </div>
                   <div class="col-5 col-md-4 my-auto thai-font del-font">
                     ค่าธรรมเนียมการถอน
                   </div>
-                  <div class="col-7 col-md-8">20.00 THB</div>
+                  <div class="col-7 col-md-8 font-robot-flex l-24">
+                    20.00 THB
+                  </div>
                   <div class="col-5 col-md-4 my-auto thai-font del-font">
                     จำนวนเงินที่ได้รับ
                   </div>
-                  <div class="col-7 col-md-8">999,980.00 THB</div>
+                  <div class="col-7 col-md-8 font-robot-flex l-24">
+                    999,980.00 THB
+                  </div>
                   <!-- <ul>
                     <li>
                       โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)
@@ -135,7 +147,10 @@
                 <div class="col-12 bc-info thai-font">
                   <p>ยอมรับเงื่อนไขการฝากเงิน</p>
                   <ul class="">
-                    <li>โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)</li>
+                    <li>
+                      โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2
+                      บัญชี)
+                    </li>
                     <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
                   </ul>
                 </div>
@@ -144,7 +159,10 @@
                 <div class="col-12 bc-info thai-font">
                   <p>ยอมรับเงื่อนไขการฝากเงิน</p>
                   <ul class="number">
-                    <li>โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2 บัญชี)</li>
+                    <li>
+                      โอนเงินด้วยบัญชีที่ให้ไว้กับบริษัทเท่านั้น (สูงสุด 2
+                      บัญชี)
+                    </li>
                     <li>โอนเงินได้ตลอด 24 ชั่วโมง (ขึ้นอยู่กับธนาคารต้นทาง)</li>
                     <li>QR Code ใช้งานได้ไม่เกิน 24 ชั่วโมง</li>
                   </ul>
@@ -170,7 +188,12 @@
               <span>ยอมรับเงื่อนไขทั้งหมด</span>
             </label> -->
           <div class="last-btn">
-            <button   @click="$bvModal.show('otp-success-modal')" class="thai-font">ยืนยันการถอนเงิน</button>
+            <button
+              @click="$bvModal.show('otp-success-modal')"
+              class="thai-font"
+            >
+              ยืนยันการถอนเงิน
+            </button>
           </div>
         </div>
         <!-- bottom section end -->
@@ -188,7 +211,6 @@
       </ul>
     </div>
 
-  
     <otp-model :otp="true"></otp-model>
   </div>
 </template>
@@ -472,6 +494,8 @@ export default {
   color: #9bacb6;
   padding: 0px 10px;
   font-size: 14px;
+  border-radius: 4px;
+  font-family: "Sarabun";
 }
 .d-info > div {
   display: flex;
@@ -487,6 +511,9 @@ export default {
   color: #677f8e;
   line-height: 24px;
   font-size: 14px;
+}
+.l-24 {
+  line-height: 24px;
 }
 .b-ins p {
   color: #677f8e;

@@ -33,7 +33,7 @@ export default {};
   .cross-img {
     display: flex;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 78.21px;
   }
   .text {
     p {

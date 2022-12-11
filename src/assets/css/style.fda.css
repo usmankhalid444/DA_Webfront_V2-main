@@ -12558,3 +12558,11 @@ fieldset:disabled .btn {
 .thai-font {
     font-family: 'sarabun';
 }
+
+.nono-sans-thai-font {
+    font-family: 'Noto Sans Thai';
+}
+
+.font-robot-flex {
+    font-family: 'Roboto Flex';
+}

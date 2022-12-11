@@ -34,7 +34,7 @@
           <p class="body-title">AXS Deposit Address</p>
           <div class="body-value">
             <p>d3o30493jflkei309eioldkeoi20293kdoe93930 9eioldkeoi2</p>
-            <span
+            <span @click="copySuccess('Address')"
               ><svg
                 width="17"
                 height="20"
@@ -49,10 +49,10 @@
               </svg>
             </span>
           </div>
-          <p class="body-title">MEMO</p>
+          <p class="body-title" style="margin-top: 24px">MEMO</p>
           <div class="body-value">
             <p>1209394</p>
-            <span
+            <span @click="copySuccess('MEMO')"
               ><svg
                 width="17"
                 height="20"
@@ -80,12 +80,53 @@
       </div>
     </b-modal>
     <QrSuccessModal />
+    <notifications position="center center" classes="my-custom-class">
+      <template slot="body" slot-scope="{ item, close }">
+        <div class="my-notification">
+          <p class="title">
+            {{ item.title }}
+          </p>
+          <button class="close" @click="close">
+            <i class="fa fa-fw fa-close"></i>
+          </button>
+          <div class="success-notification">
+            <span
+              ><svg
+                width="16"
+                height="12"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.4987 9.49984L1.9987 5.99984L0.832031 7.1665L5.4987 11.8332L15.4987 1.83317L14.332 0.666504L5.4987 9.49984Z"
+                  fill="white"
+                />
+              </svg>
+            </span>
+            <span>Copy {{ success_text }} สำเร็จแล้ว</span>
+          </div>
+        </div>
+      </template>
+    </notifications>
   </div>
 </template>
 <script>
 import QrSuccessModal from "./QrSuccessModal.vue";
 export default {
   components: { QrSuccessModal },
+  data() {
+    return {
+      success_text: "",
+    };
+  },
+  methods: {
+    copySuccess(e) {
+      console.log("hi");
+      this.success_text = e;
+      this.$notify("Hello!");
+    },
+  },
 };
 </script>
 <style lang="scss">
@@ -94,10 +135,11 @@ export default {
   width: 480px;
   #deposit-coin-qr-modal___BV_modal_body_ {
     font-family: var(--bs-roboto-font-sans-serif);
+    margin-top: 5px;
     .barcode-image {
       height: 140px;
       width: 140px;
-      margin: 20px auto;
+      margin: 24px auto;
       display: block;
     }
     p {
@@ -109,7 +151,7 @@ export default {
       p {
         font-size: 18px;
         font-family: "Noto Sans Thai";
-        font-weight: 600px;
+        font-weight: 600;
         color: #d6dde1;
       }
       span {
@@ -126,6 +168,7 @@ export default {
       padding-bottom: 20px;
       .body-title {
         color: #9bacb6;
+        line-height: 24px;
       }
       .body-value {
         display: flex;
@@ -138,7 +181,7 @@ export default {
         padding: 10px 0;
         padding-left: 6px;
         border-radius: 4px;
-        margin: 10px 0;
+        margin-top: 4px;
         span {
           position: absolute;
           right: 13px;
@@ -154,13 +197,27 @@ export default {
         margin: auto;
         border-radius: 4px;
         color: #0a0d10;
-        margin-top: 25px;
+        margin-top: 32px;
         background-color: #f38220;
         &:hover {
           background-color: #f28e38;
         }
       }
     }
+  }
+}
+.success-notification {
+  position: absolute;
+  top: 180px;
+  left: 50px;
+  padding: 8px 0px;
+  background: #40994f;
+  width: 206px;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+  span {
+    margin: 0 3px;
   }
 }
 </style>
