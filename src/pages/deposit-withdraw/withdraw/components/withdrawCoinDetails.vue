@@ -2,70 +2,87 @@
   <div>
     <!-- center section start -->
     <div class="row mt-3 center-section">
-      <div class="col-12">
+      <div class="col-12 px-3">
         <div class="row">
-          <div class="col-4 my-auto thai-font">จำนวนเงินที่ต้องการถอน</div>
-          <div class="col-8 input-container">
+          <div class="col-4 my-auto thai-font px-0">จำนวนเงินที่ต้องการถอน</div>
+          <div class="col-8 top-input-container">
             <input type="text" placeholder="0" />
-            <span>THB</span>
+            <span>ETH</span>
           </div>
         </div>
         <div class="row">
           <div class="col-8 offset-md-4 input-container">
-            <p class="input_label">
-              จำนวนเงินที่ถอนได้&nbsp; 20,000.00 THB &nbsp;&nbsp;ถอนทั้งหมด
+            <p class="input_label" style="margin-top: 2px">
+              เหรียญที่ถอนได้&nbsp; 2.00 ETH &nbsp;&nbsp;<u>ถอนทั้งหมด</u>
             </p>
           </div>
         </div>
         <div class="row mt-3">
-          <div class="col-4 thai-font"><p>ต้องการถอนไปที่</p></div>
-          <div class="col-8">
+          <div class="col-4 thai-font px-0"><p>ต้องการถอนไปที่</p></div>
+          <div class="col-8 px-0 thai-font">
             <div class="row side-card mx-0">
-              <div class="col-5 col-md-4 my-auto thai-font del-font" align="right">
+              <div
+                class="col-5 col-md-4 my-auto thai-font del-font"
+                align="right"
+              >
                 Wallet Name
               </div>
               <div class="col-7 col-md-8">Natt 1</div>
-              <div class="col-5 col-md-4 my-auto thai-font del-font" align="right">
+              <div
+                class="col-5 col-md-4 my-auto thai-font del-font"
+                align="right"
+              >
                 Address
               </div>
-              <div class="col-7 col-md-8">0xfA3EXBF392XBF3923</div>
-              <div class="col-5 col-md-4 my-auto thai-font del-font" align="right">
+              <div class="col-7 col-md-8">0xfA3EXBF3KFL3d9e9i322a6</div>
+              <div
+                class="col-5 col-md-4 my-auto thai-font del-font"
+                align="right"
+              >
                 Network
               </div>
-              <div class="col-7 col-md-8">Ethereum (ERC20)</div>
-              <div class="col-5 col-md-4 my-auto thai-font del-font" align="right">
+              <div class="col-7 col-md-8">
+                Ethereum (ERC20)
+                <span style="color: #f8c417; margin-left: 5px">Congest</span>
+              </div>
+              <div
+                class="col-5 col-md-4 my-auto thai-font del-font"
+                align="right"
+              >
                 ใช้เวลาถอน
               </div>
               <div class="col-7 col-md-8">~15 นาที</div>
-              <div class="col-5 col-md-4 my-auto thai-font del-font" align="right">
+              <div
+                class="col-5 col-md-4 my-auto thai-font del-font"
+                align="right"
+              >
                 Free
               </div>
               <div class="col-7 col-md-8">0.0001 ETH (~301.24 THB)</div>
             </div>
-            <div class="row">
-              <div class="col-12 input-container">
-                <p class="input_label underline">เลือก Wallet Address ใหม่</p>
-              </div>
-            </div>
+            <u class="c-b">เลือก Wallet Address ใหม่</u>
           </div>
         </div>
-        <hr />
+        <div class="divider"></div>
         <div class="row my-3">
-          <div class="col-5 my-auto thai-font">บัญชีธนาคารที่รับเงิน</div>
+          <div class="col-5 my-auto thai-font px-0">บัญชีธนาคารที่รับเงิน</div>
           <div class="col-7 my-auto thai-font">1.9999 ETH (~298.24 THB)</div>
         </div>
       </div>
     </div>
-    <p class="del-font px-3 my-2">
-      เงื่อนไขการถอนเหรียญ <br />กรณาเลือก Network ของผู้รับ Address ให้ตรงกับ Network
-      ของเหรียญที่คุณเลือก บริษัทฯ จะไม่รับผิดชอบในความ เสียหายใดๆ ที่เกิดจาก
-      การที่ผู้ใช้งานโอนเหรียญผิด Wallet Address
+    <p class="bottom-text px-2 my-2">
+      เงื่อนไขการถอนเหรียญ <br />กรณาเลือก Network ของผู้รับ Address ให้ตรงกับ
+      Network ของเหรียญที่คุณเลือก บริษัทฯ จะไม่รับผิดชอบในความ เสียหายใดๆ
+      ที่เกิดจาก การที่ผู้ใช้งานโอนเหรียญผิด Wallet Address
     </p>
-    <div class="mx-3 pt-1 thai-font pb-3 justify-center text-center">
+    <div class="mx-3 pt-3 thai-font pb-4 justify-center text-center">
       <button class="btn btn-yellow thai-font mx-1" @click="openOTPModel()">
         ยืนยัน
       </button>
-      <button class="btn btn-blue thai-font mx-1" @click="$emit('onCancelClicked')">
+      <button
+        class="btn btn-blue thai-font mx-1"
+        @click="$emit('onCancelClicked')"
+      >
         ยกเลิก
       </button>
     </div>
@@ -75,21 +92,21 @@
       @onOTPSubmitted="onOTPSubmitted()"
       @closeModel="showWithdrawOTPModal = false"
     ></OtpModel>
-    <QrSuccessModal
+    <RequestDoneModal
       showStatusButton
       @onShowStatus="$bvModal.show('qr-status-modal')"
-      @onCloseSuccessModel="$bvModal.hide('qr-success-modal')"
-    ></QrSuccessModal>
+      @onCloseSuccessModel="$bvModal.hide('request-done-modal')"
+    ></RequestDoneModal>
     <CoinStatusModel></CoinStatusModel>
   </div>
 </template>
 <script>
 import OtpModel from "@/components/Modal/OtpModel.vue";
-import QrSuccessModal from "./QrSuccessModal.vue";
+import RequestDoneModal from "./RequestDoneModal.vue";
 import CoinStatusModel from "./CoinStatusModel.vue";
 
 export default {
-  components: { OtpModel, QrSuccessModal, CoinStatusModel },
+  components: { OtpModel, RequestDoneModal, CoinStatusModel },
   data() {
     return {
       showWithdrawOTPModal: false,
@@ -100,7 +117,7 @@ export default {
     onOTPSubmitted() {
       this.showWithdrawOTPModal = false;
       this.showQrSuccessModal = true;
-      this.$bvModal.show("qr-success-modal");
+      this.$bvModal.show("request-done-modal");
     },
     openOTPModel() {
       this.showWithdrawOTPModal = true;
@@ -129,6 +146,20 @@ export default {
     color: #0a0d10;
     background-color: #f28e38 !important;
   }
+}
+.c-b {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #677f8e;
+  position: relative;
+  top: 5px;
+}
+.divider {
+  border: 1px solid #28363e;
+  margin: 20px -13px;
 }
 .side-card {
   background-color: #1c262b;
@@ -228,6 +259,7 @@ export default {
         margin-left: -40px;
       }
     }
+
     .info {
       color: #d6dde1;
       p {
@@ -251,6 +283,7 @@ export default {
       margin-bottom: 20px;
       border-top: 1px solid #28363e;
     }
+
     .bc-info {
       ul {
         list-style: disc;
@@ -266,9 +299,16 @@ export default {
     }
   }
 }
+.bottom-text {
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #de2d40;
+}
 .right-info {
   position: absolute;
-  right: 100px;
   top: 100px;
   color: #677f8e;
   ul {
@@ -337,6 +377,28 @@ export default {
 @media (min-width: 1366px) {
   .right-info {
     display: block;
+    right: 100px;
+  }
+}
+@media (min-width: 1536px) {
+  .right-info {
+    right: 240px;
+  }
+}
+.top-input-container {
+  input {
+    background-color: #222b2f;
+    color: #d6dde1;
+    border-radius: 4px;
+    height: 40px;
+    padding: 0 18px;
+    &::placeholder {
+      color: #566a76;
+    }
+  }
+  span {
+    color: #9bacb6;
+    margin-left: -40px;
   }
 }
 </style>

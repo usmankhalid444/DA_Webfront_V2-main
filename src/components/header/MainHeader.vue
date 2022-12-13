@@ -958,7 +958,7 @@ export default {
   .main-NavMenu {
     ul {
       li {
-        //margin: 0 25px;
+        margin: 0 25px;
       }
     }
   }

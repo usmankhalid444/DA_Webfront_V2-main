@@ -60,6 +60,7 @@
       @closeModel="showWithdrawOTPModal = false"
     ></OtpModel>
     <QrSuccessModal @onCloseSuccessModel="showTable = true"></QrSuccessModal>
+    <withdrawCoinTutorialModal />
   </div>
 </template>
 <script>
@@ -67,12 +68,14 @@ import withdrawCoin from "@/components/Modal/withdrawCoin.vue";
 import OtpModel from "@/components/Modal/OtpModel.vue";
 import QrSuccessModal from "./components/QrSuccessModal.vue";
 import coinsListTable from "./components/coinsListTable.vue";
+import withdrawCoinTutorialModal from "./components/withdrawCoinTutorialModal.vue";
 export default {
   components: {
     withdrawCoin,
     OtpModel,
     QrSuccessModal,
     coinsListTable,
+    withdrawCoinTutorialModal,
   },
   data() {
     return {
@@ -92,6 +95,9 @@ export default {
     openOTPModel() {
       this.showWithdrawOTPModal = true;
     },
+  },
+  mounted() {
+    this.$bvModal.show("withdraw-coin-tutorial");
   },
 };
 </script>
@@ -126,7 +132,7 @@ export default {
 .deposite-coin-container {
   background-color: #192126;
   border-radius: 8px;
-  min-height: 445px;
+  min-height: auto;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
@@ -258,7 +264,6 @@ export default {
 }
 .right-info {
   position: absolute;
-  right: 100px;
   top: 100px;
   color: #677f8e;
   ul {
@@ -306,9 +311,16 @@ export default {
     display: none;
   }
 }
+
 @media (min-width: 1366px) {
   .right-info {
     display: block;
+    right: 100px;
+  }
+}
+@media (min-width: 1536px) {
+  .right-info {
+    right: 240px;
   }
 }
 </style>

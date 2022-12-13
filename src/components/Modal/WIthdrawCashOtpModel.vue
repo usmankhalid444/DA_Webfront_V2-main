@@ -89,7 +89,7 @@
             <label style="color: #f38220">กดส่งอีกครั้ง</label>
           </div>
           <label class="l-info thai-font"
-            >กรณีไม่สามารถยืนยัน OTP ได้ โทร. 063-393-4664</label
+            >กรณีไม่สามารถยืนยัน OTP ได้ โทร. XX-XXX-XXXX</label
           >
         </div>
       </div>

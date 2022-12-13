@@ -327,7 +327,6 @@ export default {
 }
 .right-info {
   position: absolute;
-  right: 100px;
   top: 100px;
   color: #677f8e;
   ul {
@@ -380,6 +379,12 @@ export default {
 @media (min-width: 1366px) {
   .right-info {
     display: block;
+    right: 100px;
+  }
+}
+@media (min-width: 1536px) {
+  .right-info {
+    right: 240px;
   }
 }
 </style>

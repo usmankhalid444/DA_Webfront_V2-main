@@ -107,7 +107,7 @@ export default {};
 
     .checkbox-input {
       input {
-        background: #222b2f;
+        background-color: #222b2f;
         border: 1px solid #3c515d;
         border-radius: 2px;
         height: 17px;

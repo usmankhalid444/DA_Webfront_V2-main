@@ -2,7 +2,7 @@
   <div>
     <b-modal
       class="qr-success-modal"
-      id="qr-success-modal"
+      id="request-done-modal"
       :hide-footer="true"
       :hide-header="true"
     >
@@ -11,9 +11,8 @@
       </div>
       <div class="m-center">
         <p class="c-title">บันทึก QR Code สำเร็จ</p>
-        <p class="c-value">นำ QR Code</p>
-        <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
-        <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
+        <p class="c-value">ท่านจะได้รับเงินภายใน 24 ชั่วโมง</p>
+        <p class="c-value">และจะได้รับ อีเมลยืนยัน เมื่อการถอนเงินสำเร็จ</p>
       </div>
       <div class="d-flex mt-3 justify-content-center">
         <button
@@ -46,17 +45,19 @@ export default {
       } else {
         this.$emit("onCloseSuccessModel");
       }
-      this.$bvModal.hide("qr-success-modal");
+      this.$bvModal.hide("request-done-modal");
     },
   },
 };
 </script>
 <style lang="scss">
-#qr-success-modal___BV_modal_content_ {
+#request-done-modal___BV_modal_content_ {
   background-color: #141b1f;
-  min-height: 430px;
+  width: 458px;
+  height: 355px;
+  margin: auto;
   font-family: "Noto Sans Thai";
-  #qr-success-modal___BV_modal_body_ {
+  #request-done-modal___BV_modal_body_ {
     .close-btn {
       cursor: pointer;
       position: absolute;
@@ -73,7 +74,7 @@ export default {
         color: #d6dde1;
         font-size: 18px;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
       .c-value {
         color: #677f8e;
@@ -84,7 +85,7 @@ export default {
       background-color: #38454d;
       border-radius: 4px;
       height: 36px;
-      min-width: 132px;
+      width: 176px;
       &:hover {
         background-color: #283238 !important;
       }
@@ -94,7 +95,7 @@ export default {
       background-color: #f38220;
       border-radius: 4px;
       height: 36px;
-      min-width: 132px;
+      width: 176px;
       &:hover {
         color: #0a0d10;
         background-color: #f28e38 !important;

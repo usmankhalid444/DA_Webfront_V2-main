@@ -1,11 +1,11 @@
 <template>
-  <b-modal id="deposit-coin-tutorial" :hide-footer="true" :hide-header="true">
+  <b-modal id="withdraw-coin-tutorial" :hide-footer="true" :hide-header="true">
     <div class="row">
       <div class="col-12 modal-th">
         <h5>ฝากเหรียญ</h5>
         <span
           class="modal-close-button"
-          @click="$bvModal.hide('deposit-coin-tutorial')"
+          @click="$bvModal.hide('withdraw-coin-tutorial')"
         >
           <svg
             width="14"
@@ -50,7 +50,7 @@
         </div>
 
         <button
-          @click="$bvModal.hide('deposit-coin-tutorial')"
+          @click="$bvModal.hide('withdraw-coin-tutorial')"
           type="button"
           class="tut-btn text-center"
         >
@@ -64,9 +64,9 @@
 export default {};
 </script>
 <style lang="scss">
-#deposit-coin-tutorial___BV_modal_content_ {
+#withdraw-coin-tutorial___BV_modal_content_ {
   width: 360px;
-  #deposit-coin-tutorial___BV_modal_body_ {
+  #withdraw-coin-tutorial___BV_modal_body_ {
     background-color: #141b1f;
     .modal-close-button {
       cursor: pointer;
@@ -107,7 +107,7 @@ export default {};
 
     .checkbox-input {
       input {
-        background: #222b2f;
+        background-color: #222b2f;
         border: 1px solid #3c515d;
         border-radius: 2px;
         height: 17px;

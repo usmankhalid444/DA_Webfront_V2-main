@@ -22,12 +22,42 @@
             <!-- OTP INPUT FIELD -->
 
             <div class="OTPInput">
-              <input />
-              <input />
-              <input />
-              <input />
-              <input />
-              <input />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
+              <input
+                type="number"
+                maxlength="1"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                @input="next"
+              />
             </div>
 
             <!-- buttons -->
@@ -41,7 +71,9 @@
               <label>หากไม่ได้รับ OTP </label>
               <label style="color: #f38220">กดส่งอีกครั้ง</label>
             </div>
-            <label class="l-info">กรณีไม่สามารถยืนยัน OTP ได้ โทร. 063-393-4664</label>
+            <label class="l-info"
+              >กรณีไม่สามารถยืนยัน OTP ได้ โทร. XX-XXX-XXXX</label
+            >
             <!-- <div v-if="copyAlert" class="copyAlert">
                 <div class="tickImg">
                   <img src="@/assets/images/wallet/tick.png" />
@@ -64,6 +96,14 @@ export default {
     };
   },
   methods: {
+    next(e) {
+      if (e.data == null) {
+        e.target?.previousSibling?.focus();
+      } else {
+        e.target?.nextSibling?.focus();
+        // console.log(e.data);
+      }
+    },
     onOTPSubmitted() {
       this.showWithdrawOTPModal = false;
       //showWithdrawDoneAlert = true;
@@ -75,7 +115,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -139,6 +179,9 @@ export default {
   justify-content: center;
   margin-top: 24px;
   gap: 10px;
+  input {
+    caret-color: #f38220;
+  }
 }
 .flexCoinWithdraw {
   display: flex;

@@ -625,8 +625,8 @@
                                           class="text-center"
                                           style="color: #677f8e"
                                         >
-                                          กรณีไม่สามารถยืนยัน OTP ได ้โทร.
-                                          063-393-4664
+                                          กรณีไม่สามารถยืนยัน OTP ได้ โทร.
+                                          XX-XXX-XXXX
                                         </p>
                                       </div>
                                     </div>

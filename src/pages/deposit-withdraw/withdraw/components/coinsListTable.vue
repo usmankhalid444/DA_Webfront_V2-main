@@ -3,39 +3,30 @@
     <div v-if="!showWithdrawCoinDetails">
       <span class="top-heading px-2 my-3">1. เลือก Wallet ที่รับเหรียญ</span>
 
-      <div class="row px-2 mb-2">
-        <div class="col-9">
-          <div class="coversearch">
-            <b-input-group class="mb-2 mr-sm-2 mb-sm-0">
-              <div class="form-group has-search search-wrapper">
-                <svg
-                  class="form-control-feedback"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.5 11H11.71L11.43 10.73C12.41 9.59 13 8.11 13 6.5C13 2.91 10.09 0 6.5 0C2.91 0 0 2.91 0 6.5C0 10.09 2.91 13 6.5 13C8.11 13 9.59 12.41 10.73 11.43L11 11.71V12.5L16 17.49L17.49 16L12.5 11ZM6.5 11C4.01 11 2 8.99 2 6.5C2 4.01 4.01 2 6.5 2C8.99 2 11 4.01 11 6.5C11 8.99 8.99 11 6.5 11Z"
-                    fill="#9BACB6"
-                  />
-                </svg>
-              </div>
-              <b-form-input
-                class="inline-form-input-Search"
-                placeholder="ค้นหาข่าว, เหรียญ, หัวข้อที่สนใจ"
-              ></b-form-input>
-            </b-input-group>
-          </div>
+      <div class="row">
+        <div class="col-9 w-search-c">
+          <input type="text" placeholder="Search Coin" />
+          <span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.9167 9.66667H10.2583L10.025 9.44167C10.8417 8.49167 11.3333 7.25833 11.3333 5.91667C11.3333 2.925 8.90833 0.5 5.91667 0.5C2.925 0.5 0.5 2.925 0.5 5.91667C0.5 8.90833 2.925 11.3333 5.91667 11.3333C7.25833 11.3333 8.49167 10.8417 9.44167 10.025L9.66667 10.2583V10.9167L13.8333 15.075L15.075 13.8333L10.9167 9.66667ZM5.91667 9.66667C3.84167 9.66667 2.16667 7.99167 2.16667 5.91667C2.16667 3.84167 3.84167 2.16667 5.91667 2.16667C7.99167 2.16667 9.66667 3.84167 9.66667 5.91667C9.66667 7.99167 7.99167 9.66667 5.91667 9.66667Z"
+                fill="#677F8E"
+              />
+            </svg>
+          </span>
         </div>
-
-        <div class="col-3 last-btn">
-          <button class="thai-font">+ เพิ่ม Address ใหม่</button>
+        <div class="col-3">
+          <button class="srb">+ เพิ่ม Address ใหม่</button>
         </div>
       </div>
 
-      <div class="padding-table scroller">
+      <div class="scroller mt-3">
         <table class="table px-0" id="myTable">
           <thead>
             <!-- Heading Unrealized -->
@@ -45,7 +36,16 @@
               scope="col"
               class="textGreyDark"
             >
-              <div class="align-Icon-Heading ps-4">{{ item }}</div>
+              <div
+                v-if="item === 'Wallet'"
+                class="align-Icon-Heading p-0"
+                style="position: relative; left: 27px"
+              >
+                {{ item }}
+              </div>
+              <div v-else class="align-Icon-Heading p-0">
+                {{ item }}
+              </div>
             </th>
             <!-- End Heading Unrealized -->
 
@@ -57,23 +57,23 @@
               v-for="(item, index) in TableData"
               :key="index"
             >
-              <td class="textGrey px-0">
+              <td class="textGrey px-0 font-roboto">
                 <div class="d-flex">
                   <input type="radio" class="me-3" id="min" name="time" />
                   {{ item.wallet }}
                 </div>
               </td>
-              <td class="textGrey text-center px-0">
+              <td class="textGrey px-0 font-roboto">
                 {{ item.coin }}
               </td>
-              <td class="textGrey text-center px-0">
+              <td class="textGrey px-0 font-roboto">
                 {{ item.network }}
               </td>
-              <td class="textGrey text-center px-0">
+              <td class="textGrey px-0 thai-font">
                 {{ item.address }}
               </td>
               <!-- buysell button -->
-              <td class="textGrey text-center px-0">
+              <td class="textGrey px-0 thai-font">
                 <span class="textYellow" @click="showWithdrawCoinDetails = true"
                   >แก้ไข</span
                 >
@@ -83,9 +83,14 @@
           </tbody>
         </table>
       </div>
+      <div class="wbb">
+        <button>ยืนยัน</button>
+      </div>
     </div>
     <div v-else>
-      <span class="top-heading px-2 my-3">2. ระบุจำนวนและยืนยันการถอนเหรียญ </span>
+      <span class="top-heading px-2 my-3"
+        >2. ระบุจำนวนและยืนยันการถอนเหรียญ
+      </span>
       <withdrawCoinDetails
         @onCancelClicked="showWithdrawCoinDetails = false"
       ></withdrawCoinDetails>
@@ -99,8 +104,8 @@ export default {
   components: { withdrawCoinDetails },
   data() {
     return {
-      showWithdrawCoinDetails: false,
-      TableHeader: ["Wallet", "Coin", "Network", "Address", "Action"],
+      showWithdrawCoinDetails: true,
+      TableHeader: ["Wallet", "Coin", "Network", "Address"],
       TableData: [
         {
           id: 0,
@@ -205,10 +210,38 @@ input[type="radio"]:checked:after {
     }
   }
 }
-.coversearch {
-  font-family: var(--bs-nst-font-sans-serif);
-}
 
+.w-search-c {
+  position: relative;
+  height: 28px;
+  input {
+    width: 424px;
+    height: 100%;
+    background: #222b2f;
+    padding: 0 30px;
+    color: white;
+  }
+  input::placeholder {
+    color: #566a76;
+  }
+  span {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.srb {
+  width: 128px;
+  height: 28px;
+  background-color: #38454d;
+  border-radius: 4px;
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+}
 .search-wrapper {
   background-color: #222b2f;
   border-radius: 4px 0px 0px 4px;
@@ -267,8 +300,14 @@ input[type="radio"]:checked:after {
   vertical-align: middle;
   font-family: "Sarabun";
 }
+
 .textDarkgrey-Border {
-  border-color: #28363e;
+  border-color: transparent;
+  // font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .align-Icon-Heading {
@@ -295,14 +334,36 @@ input[type="radio"]:checked:after {
 
 .scroller {
   // width: 300px;
-  height: 200px;
+  height: 230px;
   overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;
 }
+.wbb {
+  margin-top: 16px;
+  border-top: 1px solid #28363e;
+  button {
+    margin: auto;
+    margin-top: 22px;
+    width: 102px;
+    height: 28px;
+    display: block;
+    background-color: #f38220;
+    border-radius: 4px;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #0a0d10;
+    line-height: 24px;
+    &:hover {
+      background-color: #f28e38;
+    }
+  }
+}
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 /* Track */
 ::-webkit-scrollbar-track {

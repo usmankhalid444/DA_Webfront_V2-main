@@ -18,26 +18,26 @@
           <span class="px-2" style="color: #e04152"> x ถอนไม่สำเร็จ</span>
         </div>
 
-        <div class="row mt-5">
-          <div class="col-4 thai-font del-font">Confirmation</div>
-          <div class="col-8 thai-font">1/13</div>
+        <div class="row mt-5 font-roboto">
+          <div class="col-4 del-font">Confirmation</div>
+          <div class="col-8">1/13</div>
         </div>
-        <div class="row">
-          <div class="col-4 thai-font del-font">Network</div>
-          <div class="col-8 thai-font">BTC</div>
+        <div class="row font-roboto">
+          <div class="col-4 del-font">Network</div>
+          <div class="col-8">BTC</div>
         </div>
-        <div class="row">
-          <div class="col-4 thai-font del-font">Memo</div>
-          <div class="col-8 thai-font">4955849</div>
+        <div class="row font-roboto">
+          <div class="col-4 del-font">Memo</div>
+          <div class="col-8">4955849</div>
         </div>
-        <div class="row">
-          <div class="col-4 thai-font del-font">Network Fee</div>
-          <div class="col-8 thai-font">0.0001 BTC (~500 THB)</div>
+        <div class="row font-roboto">
+          <div class="col-4 del-font">Network Fee</div>
+          <div class="col-8">0.0001 BTC (~500 THB)</div>
         </div>
         <div class="row">
           <div class="col-4 thai-font del-font">หมายเลขธุรกรรม</div>
           <div class="col-7">
-            <span class="thai-font">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>
+            <span class="thai-font">XXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXX</span>
           </div>
           <div class="col-1">
             <img src="@/assets/images/wallet/copyIcon.png" alt="copy" />
@@ -48,7 +48,7 @@
           <div class="col-8 thai-font">25/05/22 00:00:00</div>
         </div>
         <div class="d-flex justify-content-center mt-3">
-          <button @click="onCloseStatusModel()" class="btn-yellow">เสร็จสิ้น</button>
+          <button @click="onCloseStatusModel()" class="btn-yellow">ปิด</button>
         </div>
       </div>
     </b-modal>
@@ -84,6 +84,7 @@ export default {
   background-color: #f38220;
   border-radius: 4px;
   height: 36px;
+  font-family: "Sarabun";
   min-width: 132px;
   &:hover {
     color: #0a0d10;
@@ -92,8 +93,10 @@ export default {
 }
 #qr-status-modal___BV_modal_content_ {
   background-color: #141b1f;
-  min-height: 480px;
-  font-family: "Noto Sans Thai";
+  width: 416px;
+  margin: auto;
+  height: 440px;
+  font-family: "Roboto Flex";
   #qr-status-modal___BV_modal_body_ {
     .close-btn {
       cursor: pointer;
