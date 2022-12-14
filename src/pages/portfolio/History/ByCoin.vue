@@ -4,13 +4,7 @@
       <div class="d-flex justify-content-between">
         <div class="search-datePicker d-flex">
           <form
-            class="
-              navbar-search navbar-search-dark
-              form-inline
-              mr-3
-              ml-lg-auto
-              mt-3
-            "
+            class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto mt-3"
           >
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
@@ -27,9 +21,7 @@
           </div>
         </div>
         <div class="mt-3">
-          <button type="button" class="btn btn-outline-secondary exportExcel">
-            Export to Excel
-          </button>
+          <button type="button" class="exportExcel">Export to Excel</button>
         </div>
       </div>
     </div>
@@ -59,7 +51,7 @@ export default {
   data: function () {
     return {
       time3: null,
-      format: 'DD/MM/YYYY',
+      format: "DD/MM/YYYY",
       TableHeading: [
         {
           Date: "Date",
@@ -243,7 +235,7 @@ export default {
   padding: 0;
   margin: 0;
   border: 0;
-  width: 142px!important;
+  width: 142px !important;
   height: 40px;
 }
 
@@ -310,14 +302,13 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
-  border: 1px solid #28363E!important;
+  width: 124px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #28363e;
 }
 .exportExcel:hover {
-  font-weight: 400;
-  font-size: 14px;
-  color: #677f8e;
-  border: 1px solid #28363E!important;
-  background-color: #28363E!important;
+  border: 1px solid #3c515d;
 }
 .date-picker-container .mx-datepicker-range {
   /* width: 177px; */

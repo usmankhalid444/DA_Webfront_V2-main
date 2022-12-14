@@ -22,43 +22,43 @@
           <div class="col-8 px-0 thai-font">
             <div class="row side-card mx-0">
               <div
-                class="col-5 col-md-4 my-auto thai-font del-font"
+                class="col-5 col-md-4 my-auto thai-font del-font title"
                 align="right"
               >
                 Wallet Name
               </div>
-              <div class="col-7 col-md-8">Natt 1</div>
+              <div class="col-7 col-md-8 value">Natt 1</div>
               <div
-                class="col-5 col-md-4 my-auto thai-font del-font"
+                class="col-5 col-md-4 my-auto thai-font del-font title"
                 align="right"
               >
                 Address
               </div>
-              <div class="col-7 col-md-8">0xfA3EXBF3KFL3d9e9i322a6</div>
+              <div class="col-7 col-md-8 value">0xfA3EXBF3KFL3d9e9i322a6</div>
               <div
-                class="col-5 col-md-4 my-auto thai-font del-font"
+                class="col-5 col-md-4 my-auto thai-font del-font title"
                 align="right"
               >
                 Network
               </div>
-              <div class="col-7 col-md-8">
+              <div class="col-7 col-md-8 value">
                 Ethereum (ERC20)
                 <span style="color: #f8c417; margin-left: 5px">Congest</span>
               </div>
               <div
-                class="col-5 col-md-4 my-auto thai-font del-font"
+                class="col-5 col-md-4 my-auto thai-font del-font title"
                 align="right"
               >
                 ใช้เวลาถอน
               </div>
-              <div class="col-7 col-md-8">~15 นาที</div>
+              <div class="col-7 col-md-8 value">~15 นาที</div>
               <div
-                class="col-5 col-md-4 my-auto thai-font del-font"
+                class="col-5 col-md-4 my-auto thai-font del-font title"
                 align="right"
               >
                 Free
               </div>
-              <div class="col-7 col-md-8">0.0001 ETH (~301.24 THB)</div>
+              <div class="col-7 col-md-8 value">0.0001 ETH (~301.24 THB)</div>
             </div>
             <u class="c-b">เลือก Wallet Address ใหม่</u>
           </div>
@@ -165,6 +165,13 @@ export default {
   background-color: #1c262b;
   border-radius: 5px;
   padding: 10px 0;
+  .title {
+    margin: 2px 0;
+  }
+  .value {
+    line-height: 24px;
+    margin: 2px 0;
+  }
 }
 .deposite-cash-container {
   background-color: #192126;

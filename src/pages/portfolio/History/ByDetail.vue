@@ -4,13 +4,8 @@
       <div class="d-flex justify-content-between">
         <div class="search-datePicker d-flex">
           <form
-            class="
-              navbar-search navbar-search-dark
-              form-inline
-              mr-3
-              ml-lg-auto
-              mt-3
-            "
+            class="navbar-search navbar-search-dark form-inline ml-lg-auto mt-3"
+            style="margin-right: 16px"
           >
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
@@ -23,18 +18,25 @@
           </form>
 
           <div class="date-picker-container">
-            <date-picker v-model="time3" range lang="eng" :format='format'></date-picker>
+            <date-picker
+              v-model="time3"
+              range
+              lang="eng"
+              :format="format"
+              placeholder="25/08/22 - 25/09/22"
+            ></date-picker>
           </div>
         </div>
         <div class="mt-3">
-          <button type="button" class="btn  exportExcel">
-            Export to Excel
-          </button>
+          <button type="button" class="exportExcel">Export to Excel</button>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div
+        class="col p-0"
+        style="margin-left: 12px !important; margin-right: 12px !important"
+      >
         <Dynamic-Table
           :TableHeader="TableHeading"
           :TableData="TableDatas"
@@ -59,8 +61,7 @@ export default {
   data: function () {
     return {
       time3: null,
-      format: 'DD/MM/YYYY',
-
+      format: "DD/MM/YY",
       TableHeading: [
         {
           Date: "Date",
@@ -184,19 +185,17 @@ export default {
       ],
     };
   },
-  methods: {
-    
-  },
+  methods: {},
 };
 </script>
 
-<style >
+<style lang="scss">
 .field-container {
   position: relative;
   padding: 0;
   margin: 0;
   border: 0;
-  width: 142px!important;
+  width: 142px !important;
   height: 40px;
 }
 
@@ -225,7 +224,7 @@ input::placeholder {
   line-height: 24px;
   color: var(--primary);
   border: 0;
-  max-width: 142px;
+  width: 142px;
   height: 40px;
   padding: 8px 40px;
   background-color: #222b2f;
@@ -243,7 +242,11 @@ input::placeholder {
   border: 1px solid #222b2f;
   margin-top: 15px;
   height: 40px;
-  margin-left: 10px;
+  // margin-left: 10px;
+  width: 221px;
+  &::placeholder {
+    color: #d6dde1 !important;
+  }
 }
 .mx-input-wrapper .mx-input:hover {
   border: 1px solid #222b2f !important;
@@ -251,10 +254,12 @@ input::placeholder {
 .mx-icon-calendar {
   color: #677f8e !important;
   padding-top: 12px;
+  padding-right: 11.67px;
 }
 .mx-icon-clear {
   color: #677f8e !important;
   padding-top: 12px;
+  padding-right: 11.67px;
 }
 .mx-datepicker-range {
   width: 236px;
@@ -263,16 +268,12 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
-  border: 1px solid #28363E;
+  width: 124px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #28363e;
 }
 .exportExcel:hover {
-  font-weight: 400;
-  font-size: 14px;
-  color: #677f8e;
-  border: 1px solid #28363E!important;
-  background-color: #28363E!important;
-}
-.date-picker-container .mx-datepicker-range {
-  /* width: 177px; */
+  border: 1px solid #3c515d;
 }
 </style>

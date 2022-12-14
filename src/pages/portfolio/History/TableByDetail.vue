@@ -4,29 +4,29 @@
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Date -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex">
-            <div class="align-Icon-Heading ">
+          <div class="d-flex" style="padding-left: 1px">
+            <div class="align-Icon-Heading">
               {{ item.Date }}
             </div>
             <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  class="bi bi-caret-down-fill dateChevron"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
-                  />
-                </svg>
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="currentColor"
+              class="bi bi-caret-down-fill dateChevron"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
           </div>
         </th>
         <!-- End Heading Date -->
 
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">
               {{ item.Coin }}
             </div>
@@ -36,7 +36,7 @@
 
         <!-- Heading B/S -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">
               {{ item.BS }}
             </div>
@@ -46,7 +46,7 @@
 
         <!-- Heading Actual -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">{{ item.Actual }}</div>
             <div class="question-circle" @click="sortTable(0)">
               <!-- <svg
@@ -71,7 +71,7 @@
 
         <!-- Heading AvrgCost -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">{{ item.AvrgCost }}</div>
           </div>
         </th>
@@ -79,7 +79,7 @@
 
         <!-- Heading Total -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">{{ item.Total }}</div>
           </div>
         </th>
@@ -87,7 +87,7 @@
 
         <!-- Heading ProfitLoss -->
         <th scope="col" class="textGreyDark">
-          <div class="d-flex justify-content-end">
+          <div class="d-flex">
             <div class="align-Icon-Heading">{{ item.ProfitLoss }}</div>
           </div>
         </th>
@@ -102,8 +102,8 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- Datetime -->
-          <td style="width: 120px;">
-            <p class="Datetime-one">
+          <td style="width: 120px; padding-left: 1px">
+            <p class="Datetime-one" style="margin: 0px; margin-top: 5px">
               <span class="textGrey Coin-Symbol">
                 {{ item.Date }}
               </span>
@@ -112,7 +112,10 @@
               </span>
             </p>
 
-            <p class="DateTime-two">
+            <p
+              class="DateTime-two"
+              style="margin: 0px; margin-top: 24px; margin-bottom: 10px"
+            >
               <span class="textGrey Coin-Symbol">
                 {{ item.Date }}
               </span>
@@ -124,43 +127,62 @@
           <!-- End Datetime -->
 
           <!-- CoinSymbol -->
-          <td class="textGrey text-end">
-            <p>{{ item.CoinSymbol }}</p>
-            <p>{{ item.CoinSymbol }}</p>
+          <td class="textGrey">
+            <p style="margin: 0px; margin-top: 5px">{{ item.CoinSymbol }}</p>
+            <p style="margin: 0px; margin-top: 24px; margin-bottom: 10px">
+              {{ item.CoinSymbol }}
+            </p>
           </td>
           <!-- End CoinSymbol -->
 
           <!-- B/S -->
-          <td class="textGrey text-end">
-            <p style="color: #40994f">{{ item.BGreen }}</p>
-            <p style="color: #de2d40">{{ item.SRed }}</p>
+          <td class="textGrey">
+            <p style="color: #40994f; margin: 0px; margin-top: 5px">
+              {{ item.BGreen }}
+            </p>
+            <p
+              style="
+                color: #de2d40;
+                margin: 0px;
+                margin-top: 24px;
+                margin-bottom: 10px;
+              "
+            >
+              {{ item.SRed }}
+            </p>
           </td>
           <!-- End B/S -->
 
           <!-- last ActualValue -->
-          <td class="textGrey text-end">
-            <p>{{ item.ActualValue }}</p>
-            <p>{{ item.ActualValue }}</p>
+          <td class="textGrey">
+            <p style="margin: 0px; margin-top: 5px">{{ item.ActualValue }}</p>
+            <p style="margin: 0px; margin-top: 24px; margin-bottom: 10px">
+              {{ item.ActualValue }}
+            </p>
           </td>
           <!-- End ActualValue -->
 
           <!-- last AvrgCostValue -->
-          <td class="textGrey text-end">
-            <p>{{ item.AvrgCostValue }}</p>
-            <p>{{ item.AvrgCostValue }}</p>
+          <td class="textGrey">
+            <p style="margin: 0px; margin-top: 5px">{{ item.AvrgCostValue }}</p>
+            <p style="margin: 0px; margin-top: 24px; margin-bottom: 10px">
+              {{ item.AvrgCostValue }}
+            </p>
           </td>
           <!-- End AvrgCostValue -->
 
           <!-- last TotalValue -->
-          <td class="textGrey text-end">
-            <p>{{ item.TotalValue }}</p>
-            <p>{{ item.TotalValue }}</p>
+          <td class="textGrey">
+            <p style="margin: 0px; margin-top: 5px">{{ item.TotalValue }}</p>
+            <p style="margin: 0px; margin-top: 24px; margin-bottom: 10px">
+              {{ item.TotalValue }}
+            </p>
           </td>
           <!-- End TotalValue -->
 
           <!-- profitloss -->
-          <td class="text-end align-bottom" style="width: 290px;">
-            <p class="profitloss-two mt-4" style="textalign: end">
+          <td class="align-bottom" style="width: 290px">
+            <p class="profitloss-two" style="margin-0">
               <span class="textGrey Coin-Symbol" style="color: #40994f">
                 {{ item.ProfitLossValue }}
               </span>
@@ -201,7 +223,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.dateChevron{
+.dateChevron {
   margin-left: 50px;
   top: 3px;
   position: relative;
@@ -209,12 +231,12 @@ export default {
 .textGreen {
   color: #40994f;
   text-align: center;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textRed {
   color: #de2d40;
   text-align: center;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textYellow {
   color: #f38220;
@@ -226,11 +248,11 @@ export default {
 
 .textGrey {
   color: #d6dde1;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark-table {
   color: #677f8e;
@@ -241,7 +263,7 @@ export default {
 }
 .textGreyDark-description {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
   font-family: "Sarabun";
 }
 .textDarkgrey-Border {
@@ -270,7 +292,7 @@ export default {
 
 .scroller {
   // width: 300px;
-  height: 420px;
+  height: 335px;
   overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;

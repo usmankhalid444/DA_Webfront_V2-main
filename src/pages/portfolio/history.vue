@@ -1,10 +1,13 @@
 <template>
   <div class="wraper">
     <div class="container">
-          <p class="history-heading">History</p>
+      <p class="history-heading">History</p>
 
       <section>
-        <b-container fluid class="pLR-24 bg-MarKetHeader d-flex justify-content-between border-bottom">
+        <b-container
+          fluid
+          class="pLR-24 bg-MarKetHeader d-flex justify-content-between border-bottom"
+        >
           <div class="page-MarKetHeader">
             <b-navbar>
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -40,12 +43,11 @@
               </b-collapse>
             </b-navbar>
           </div>
-                
         </b-container>
         <router-view></router-view>
       </section>
     </div>
-    
+
     <div class="container-fluid background-darkgrey">
       <!--
         
@@ -129,27 +131,27 @@ export default Vue.extend({
   font-family: "Roboto Flex";
 }
 .font-14 {
-  font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
+  font-family: "Roboto Flex";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
   margin-bottom: 0px;
 }
 .font-18 {
-  font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
+  font-family: "Roboto Flex";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
 }
-.custom-checkbox{
-    background: #222B2F;
-    border: 1px solid #3C515D;
-    border-radius: 2px;
-    height: 17px;
-    width: 17px;
+.custom-checkbox {
+  background: #222b2f;
+  border: 1px solid #3c515d;
+  border-radius: 2px;
+  height: 17px;
+  width: 17px;
 }
-.border-bottom{
-    border-bottom: 1px solid #28363E!important;
+.border-bottom {
+  border-bottom: 1px solid #28363e !important;
 }
 .pLR-24 {
   padding-left: 0px !important;
@@ -239,18 +241,18 @@ input::placeholder {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
 }
-.history-heading{
-  font-family: 'Roboto Flex';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 24px;
-margin-top: 3%;
-/* identical to box height, or 100% */
+.history-heading {
+  font-family: "Roboto Flex";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 24px;
+  margin-bottom: 0;
+  /* identical to box height, or 100% */
 
+  /* Text + Icon/Content - Primary */
 
-/* Text + Icon/Content - Primary */
-
-color: #D6DDE1;
+  color: #d6dde1;
 }
 </style>

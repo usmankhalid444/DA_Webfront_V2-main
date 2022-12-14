@@ -3,12 +3,15 @@
     <div class="row mb-3">
       <div class="d-flex justify-content-between">
         <div>
-          <date-picker v-model="time3" :format="format" range></date-picker>
+          <date-picker
+            v-model="time3"
+            :format="format"
+            range
+            placeholder="25/08/22 - 25/09/22"
+          ></date-picker>
         </div>
         <div class="mt-3">
-          <button type="button" class="btn btn-outline-secondary exportExcel">
-            Export to Excel
-          </button>
+          <button type="button" class="exportExcel">Export to Excel</button>
         </div>
       </div>
     </div>
@@ -38,7 +41,7 @@ export default {
   data: function () {
     return {
       time3: null,
-      format: 'DD/MM/YYYY',
+      format: "DD/MM/YYYY",
       TableHeading: [
         {
           Date: "Date",
@@ -180,15 +183,15 @@ export default {
 };
 </script>
 
-<style>
-.field-container {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 219px!important;
-  height: 40px;
-}
+<style lang="scss">
+// .field-container {
+//   position: relative;
+//   padding: 0;
+//   margin: 0;
+//   border: 0;
+//   width: 219px !important;
+//   height: 40px;
+// }
 
 .icons-container {
   position: absolute;
@@ -209,20 +212,20 @@ input::placeholder {
   line-height: 24px;
 }
 
-.field {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--primary);
-  border: 0;
-  width: 219px;
-  height: 40px;
-  padding: 8px 40px;
-  background-color: #222b2f;
-  border-radius: 4px;
-  box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
-  transition: all 0.4s ease;
-}
+// .field {
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 24px;
+//   color: var(--primary);
+//   border: 0;
+//   width: 219px;
+//   height: 40px;
+//   padding: 8px 40px;
+//   background-color: #222b2f;
+//   border-radius: 4px;
+//   box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+//   transition: all 0.4s ease;
+// }
 /* .field:focus {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
@@ -233,7 +236,9 @@ input::placeholder {
   border: 1px solid #222b2f;
   margin-top: 15px;
   height: 40px;
-  margin-left: 10px;
+  &::placeholder {
+    color: #d6dde1 !important;
+  }
 }
 .mx-input-wrapper .mx-input:hover {
   border: 1px solid #222b2f !important;
@@ -241,10 +246,12 @@ input::placeholder {
 .mx-icon-calendar {
   color: #677f8e !important;
   padding-top: 12px;
+  padding-right: 11.67px;
 }
 .mx-icon-clear {
   color: #677f8e !important;
   padding-top: 12px;
+  padding-right: 11.67px;
 }
 .mx-datepicker-range {
   width: 236px;
@@ -253,13 +260,12 @@ input::placeholder {
   font-weight: 400;
   font-size: 14px;
   color: #677f8e;
-  border: 1px solid #28363E;
+  width: 124px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #28363e;
 }
 .exportExcel:hover {
-  font-weight: 400;
-  font-size: 14px;
-  color: #677f8e;
-  border: 1px solid #28363E!important;
-  background-color: #28363E!important;
+  border: 1px solid #3c515d;
 }
 </style>

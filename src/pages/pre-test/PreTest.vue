@@ -203,6 +203,7 @@ export default {
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
+      font-family: "Sarabun";
 
       &:hover {
         background-color: #f28e38;
