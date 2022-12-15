@@ -1,10 +1,10 @@
 <template>
-  <div class="padding-table scroller">
+  <div class="padding-table scroller bc-table">
     <table class="table ma-3" id="myTable">
       <thead>
         <tr>
-          <th style="border:#141B1F"></th>
-          <th style="border:#141B1F"></th>
+          <th style="border: #141b1f"></th>
+          <th style="border: #141b1f"></th>
           <th
             scope="colgroup"
             colspan="3"
@@ -23,23 +23,23 @@
       </thead>
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Date -->
-        <th scope="col" class="textGreyDark borderBottom" >
+        <th scope="col" class="textGreyDark borderBottom">
           <div class="d-flex">
-          <p class="align-Icon-Heading mb-0">
-            {{ item.Date }}
-          </p>
-          <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  class="bi bi-caret-down-fill dateChevron"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
-                  />
-                </svg>
+            <p class="align-Icon-Heading mb-0">
+              {{ item.Date }}
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="currentColor"
+              class="bi bi-caret-down-fill dateChevron"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
           </div>
         </th>
         <!-- End Heading Date -->
@@ -55,7 +55,7 @@
         <!-- Heading BuyActualHeading -->
         <th
           scope="col"
-          class="textGreyDark border-left-table borderTopBottom text-center"
+          class="textGreyDark border-left-table borderTopBottom pad-l"
         >
           <p class="align-Icon-Heading mb-0">
             {{ item.BuyActualHeading }}
@@ -64,7 +64,7 @@
         <!-- End Heading BuyActualHeading -->
 
         <!-- Heading BuyAvrgCostHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-end">
+        <th scope="col" class="textGreyDark borderTopBottom pad-l">
           <p class="align-Icon-Heading mb-0">
             {{ item.BuyAvrgCostHeading }}
           </p>
@@ -72,7 +72,7 @@
         <!-- End Heading BuyAvrgCostHeading -->
 
         <!-- Heading BuyTotalHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-end" style="padding-right:3px;">
+        <th scope="col" class="textGreyDark borderTopBottom pad-l">
           <p class="align-Icon-Heading mb-0">
             {{ item.BuyTotalHeading }}
           </p>
@@ -82,7 +82,7 @@
         <!-- Heading SellActualHeading -->
         <th
           scope="col"
-          class="textGreyDark border-left-table borderTopBottom text-center"
+          class="textGreyDark border-left-table borderTopBottom pad-l"
         >
           <p class="align-Icon-Heading mb-0">
             {{ item.SellActualHeading }}
@@ -91,7 +91,7 @@
         <!-- End Heading SellActualHeading -->
 
         <!-- Heading SellAvrgCostHeading -->
-        <th scope="col" class="textGreyDark borderTopBottom text-end">
+        <th scope="col" class="textGreyDark borderTopBottom pad-l">
           <p class="align-Icon-Heading mb-0">
             {{ item.SellAvrgCostHeading }}
           </p>
@@ -101,7 +101,9 @@
         <!-- Heading SellTotalHeading -->
         <th
           scope="col"
-          class="textGreyDark border-right-table borderTopBottom text-end" style="padding-right:3px;">
+          class="textGreyDark border-right-table borderTopBottom pad-l"
+          style="padding-right: 3px"
+        >
           <p class="align-Icon-Heading mb-0">
             {{ item.SellTotalHeading }}
           </p>
@@ -109,7 +111,7 @@
         <!-- End Heading SellTotalHeading -->
 
         <!-- Heading Total -->
-        <th scope="col" class="textGreyDark text-end borderBottom">
+        <th scope="col" class="textGreyDark borderBottom pad-l">
           <p class="align-Icon-Heading mb-0">
             {{ item.Total }}
           </p>
@@ -117,7 +119,7 @@
         <!-- End Heading Total -->
 
         <!-- Heading FreeVAT -->
-        <th scope="col" class="textGreyDark borderBottom">
+        <th scope="col" class="textGreyDark borderBottom pad-l">
           <p class="align-Icon-Heading mb-0">
             {{ item.FreeVAT }}
           </p>
@@ -125,7 +127,7 @@
         <!-- End Heading FreeVAT -->
 
         <!-- Heading ProfitLoss -->
-        <th scope="col" class="textGreyDark text-end borderBottom" style="padding-right:25px;">
+        <th scope="col" class="textGreyDark borderBottom pad-l">
           <p class="align-Icon-Heading mb-0">{{ item.ProfitLoss }}</p>
         </th>
         <!-- End Heading ProfitLoss -->
@@ -155,7 +157,7 @@
           <!-- End CoinSymbol -->
 
           <!-- BuyActualValue -->
-          <td class="border-left-table text-center">
+          <td class="border-left-table pad-l">
             <p class="BuyActualValue-one textGrey mb-0">
               {{ item.BuyActualValue }}
             </p>
@@ -163,7 +165,7 @@
           <!-- End BuyActualValue -->
 
           <!-- BuyAvrgCostValue -->
-          <td class="text-center">
+          <td class="pad-l">
             <p class="BuyAvrgCostValue-one textGrey mb-0">
               {{ item.BuyAvrgCostValue }}
             </p>
@@ -171,7 +173,7 @@
           <!-- End BuyAvrgCostValue -->
 
           <!-- BuyTotalValue -->
-          <td class="text-center">
+          <td class="pad-l">
             <p class="BuyTotalValue-one textGrey mb-0">
               {{ item.BuyTotalValue }}
             </p>
@@ -179,7 +181,7 @@
           <!-- End BuyTotalValue -->
 
           <!-- SellActualValue -->
-          <td class="border-left-table text-center">
+          <td class="border-left-table pad-l">
             <p class="SellActualValue-one textGrey mb-0">
               {{ item.SellActualValue }}
             </p>
@@ -187,7 +189,7 @@
           <!-- End SellActualValue -->
 
           <!-- SellAvrgCostValue -->
-          <td class="text-center">
+          <td class="pad-l">
             <p class="SellAvrgCostValue-one textGrey mb-0">
               {{ item.SellAvrgCostValue }}
             </p>
@@ -195,7 +197,7 @@
           <!-- End SellAvrgCostValue -->
 
           <!-- SellTotalValue -->
-          <td class="border-right-table text-center">
+          <td class="border-right-table pad-l">
             <p class="SellTotalValue-one textGrey mb-0">
               {{ item.SellTotalValue }}
             </p>
@@ -203,19 +205,19 @@
           <!-- End SellTotalValue -->
 
           <!-- TotalValue -->
-          <td class="textGrey">
+          <td class="textGrey pad-l">
             <p class="mb-0">{{ item.TotalValue }}</p>
           </td>
           <!-- End TotalValue -->
 
           <!-- last FreeVAT -->
-          <td>
+          <td class="pad-l">
             <p class="mb-0 textGrey">{{ item.FreeVATValue }}</p>
           </td>
           <!-- End FreeVAT -->
 
           <!-- profitloss -->
-          <td>
+          <td class="pad-l">
             <span
               class="textGrey Coin-Symbol profitloss-one mb-0"
               style="color: #40994f"
@@ -258,23 +260,33 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-tbody tr td{
-  padding: 20px 0px 20px 10px;
+.table > :not(caption) > * > * {
+  padding: 5px 0;
 }
-.dateChevron{
+.pad-l {
+  padding-left: 5px !important;
+}
+tbody tr td {
+  padding-top: 15px !important;
+  padding-bottom: 10px !important;
+  line-height: 24px;
+
+  // padding-left: 5px !important;
+}
+.dateChevron {
   margin-left: 50px;
   top: 3px;
   position: relative;
 }
 .textGreen {
   color: #40994f;
-  text-align: center;
-  vertical-align: middle;
+  // text-align: center;
+  // vertical-align: middle;
 }
 .textRed {
   color: #de2d40;
-  text-align: center;
-  vertical-align: middle;
+  // text-align: center;
+  // vertical-align: middle;
 }
 .textYellow {
   color: #f38220;
@@ -286,11 +298,11 @@ tbody tr td{
 
 .textGrey {
   color: #d6dde1;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark-table {
   color: #677f8e;
@@ -301,7 +313,7 @@ tbody tr td{
 }
 .textGreyDark-description {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
   font-family: "Sarabun";
 }
 .textDarkgrey-Border {
@@ -362,7 +374,7 @@ tbody tr td{
 
 .scroller {
   // width: 300px;
-  height: 420px;
+  height: 375px;
   overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;

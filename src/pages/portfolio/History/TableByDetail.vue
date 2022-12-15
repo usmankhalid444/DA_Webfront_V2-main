@@ -1,5 +1,5 @@
 <template>
-  <div class="padding-table scroller">
+  <div class="padding-table scroller by-detail-table">
     <table class="table ma-3" id="myTable">
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Date -->

@@ -1,32 +1,32 @@
 <template>
   <div class="padding-table scroller">
-    <table class="table ma-3" id="myTable">
+    <table class="table ma-3 table-by-date" id="myTable">
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Date -->
-        <th scope="col" class="textGreyDark ">
-          <div class="d-flex">
-          <p class="align-Icon-Heading mb-0">
-            {{ item.Date }}
-          </p>
-          <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="10"
-                  height="10"
-                  fill="currentColor"
-                  class="bi bi-caret-down-fill dateChevron"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
-                  />
-                </svg>
+        <th scope="col" class="textGreyDark">
+          <div class="d-flex p-0">
+            <p class="align-Icon-Heading mb-0">
+              {{ item.Date }}
+            </p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="10"
+              fill="currentColor"
+              class="bi bi-caret-down-fill dateChevron"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"
+              />
+            </svg>
           </div>
         </th>
         <!-- End Heading Date -->
 
         <!-- Heading TotalBuy -->
         <th scope="col" class="textGreyDark">
-          <p class="align-Icon-Heading mb-0" style="margin-left: 14%;">
+          <p class="align-Icon-Heading mb-0 p-0">
             {{ item.TotalBuy }}
           </p>
         </th>
@@ -34,7 +34,7 @@
 
         <!-- Heading TotalSell -->
         <th scope="col" class="textGreyDark">
-          <p class="align-Icon-Heading mb-0" style="margin-left: 14%;">
+          <p class="align-Icon-Heading mb-0 p-0">
             {{ item.TotalSell }}
           </p>
         </th>
@@ -42,13 +42,13 @@
 
         <!-- Heading FreeVAT -->
         <th scope="col" class="textGreyDark">
-          <p class="align-Icon-Heading mb-0" >{{ item.FreeVAT }}</p>
+          <p class="align-Icon-Heading mb-0 p-0">{{ item.FreeVAT }}</p>
         </th>
         <!-- End Heading FreeVAT -->
 
         <!-- Heading ProfitLoss -->
-        <th scope="col" class="textGreyDark" style="width:50%">
-          <p class="align-Icon-Heading mb-0" style="margin-left: 14%;">{{ item.ProfitLoss }}</p>
+        <th scope="col" class="textGreyDark" style="width: 50%">
+          <p class="align-Icon-Heading mb-0 p-0">{{ item.ProfitLoss }}</p>
         </th>
         <!-- End Heading ProfitLoss -->
       </thead>
@@ -61,7 +61,7 @@
           <!-- {{ index }}: {{ item.lastPrice }} -->
 
           <!-- Datetime -->
-          <td style="width:110px;">
+          <td style="width: 110px">
             <p class="Datetime-one textGrey mb-0">
               {{ item.Date }}
             </p>
@@ -69,7 +69,7 @@
           <!-- End Datetime -->
 
           <!-- TotalBuy -->
-          <td class="textGrey" style="width:125px;">
+          <td class="textGrey" style="width: 125px">
             <p class="mb-0">{{ item.TotalBuyValue }}</p>
           </td>
           <!-- End TotalBuy -->
@@ -87,17 +87,14 @@
           <!-- End FreeVAT -->
 
           <!-- profitloss -->
-          <td >
+          <td>
             <span
               class="textGrey Coin-Symbol profitloss-one mb-0"
               style="color: #40994f"
             >
               {{ item.ProfitLossValue }}
             </span>
-            <span
-              class="textGrey profitloss-one mb-0 "
-              style="color: #40994f"
-            >
+            <span class="textGrey profitloss-one mb-0" style="color: #40994f">
               {{ item.ProfitLossPercentage }}
             </span>
           </td>
@@ -133,18 +130,23 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-tbody tr td{
-  padding: 20px 0px 20px 10px;
+.table-by-date {
+  tbody tr td {
+    padding-top: 15px !important;
+    padding-bottom: 10px !important;
+    padding: 0;
+    line-height: 24px;
+  }
 }
 .textGreen {
   color: #40994f;
-  text-align: center;
-  vertical-align: middle;
+  // text-align: center;
+  // vertical-align: middle;
 }
 .textRed {
   color: #de2d40;
-  text-align: center;
-  vertical-align: middle;
+  // text-align: center;
+  // vertical-align: middle;
 }
 .textYellow {
   color: #f38220;
@@ -153,7 +155,7 @@ tbody tr td{
 .textYellow:hover {
   color: #d6dde1;
 }
-.dateChevron{
+.dateChevron {
   margin-left: 50px;
   top: 3px;
   position: relative;
@@ -161,11 +163,11 @@ tbody tr td{
 
 .textGrey {
   color: #d6dde1;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
 }
 .textGreyDark-table {
   color: #677f8e;
@@ -176,7 +178,7 @@ tbody tr td{
 }
 .textGreyDark-description {
   color: #677f8e;
-  vertical-align: middle;
+  // vertical-align: middle;
   font-family: "Sarabun";
 }
 .textDarkgrey-Border {
@@ -205,7 +207,7 @@ tbody tr td{
 
 .scroller {
   // width: 300px;
-  height: 420px;
+  height: 311px;
   overflow-y: scroll;
   // scrollbar-color: rebeccapurple green;
   // scrollbar-width: thin;

@@ -93,7 +93,8 @@
                     <input
                       type="checkbox"
                       class="form-check-input"
-                      v-b-modal.limitorder-TPSL
+                      value="false"
+                      v-model="profitLoss"
                     />
                     <p>Take Profit / Stop Loss</p></label
                   >
@@ -547,7 +548,7 @@
     <!-- TP/SL Order-Confirmation modal -->
     <b-modal id="limitorder-TPSLB" :hide-footer="true" :hide-header="true">
       <div class="row mb-3 mt-2">
-        <div class="col-12 modal-th">
+        <div class="col-12 modal-th limitorder-TPSLB">
           <h5 >Order Confirmation</h5>
           <span
             class="modal-close-button"
@@ -572,39 +573,39 @@
       <div class="row body">
         <div class="col-12">
           <div class="row">
-            <div class="col-4"><p>Coin</p></div>
+            <div class="col-4"><p style="margin-bottom:20px">Coin</p></div>
             <div class="col-8"><span>BTC/THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Order</p></div>
+            <div class="col-4"><p style="margin-bottom:10px">Order</p></div>
             <div class="col-8"><span class="buy-badge">BUY</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Price</p></div>
+            <div class="col-4"><p style="margin-bottom:8px">Price</p></div>
             <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Amount</p></div>
+            <div class="col-4"><p style="margin-bottom:8px">Amount</p></div>
             <div class="col-8"><span>10,000 THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Total</p></div>
+            <div class="col-4"><p style="margin-bottom:16px">Total</p></div>
             <div class="col-8"><span>0.01535 BTC</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Order</p></div>
+            <div class="col-4"><p style="margin-bottom:8px">Order</p></div>
             <div class="col-8"><span class="sell-badge">Sell</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Take Profit</p></div>
+            <div class="col-4"><p style="margin-bottom:8px">Take Profit</p></div>
             <div class="col-8"><span>886,800.00(+10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Stop Loss</p></div>
+            <div class="col-4"><p style="margin-bottom:8px">Stop Loss</p></div>
             <div class="col-8"><span>665,100.00(-10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p>Amount</p></div>
+            <div class="col-4"><p style="margin-bottom:16px">Amount</p></div>
             <div class="col-8"><span>10,000.00 THB</span></div>
           </div>
           <div class="form-group form-check">
@@ -613,8 +614,8 @@
               <span>ไม่ต้องแจ้งเตือนอีก</span></label
             >
           </div>
-          <br />
-          <div class="row buttons-row">
+         
+          <div class="row buttons-row"  style="margin-top:8px">
             <div class="col-6" style="padding-right: 8px">
               <button type="button" class="btn yellow-btn text-center">
                 ยืนยัน
@@ -694,7 +695,7 @@
             ดูวิดีโอสอนใช้งาน
           </p>
 
-          <div class="form-group form-check mt-3">
+          <div class="form-group form-check " style="margin-top: 24px !important;">
             <label class="checkbox-input">
               <input type="checkbox" class="form-check-input" />
               <span>ไม่ต้องแจ้งเตือนอีก</span></label
@@ -816,6 +817,7 @@ export default {
   props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
+      profitLoss:false,
       buying_amount: null,
       selling_amount: null,
       buying_btc: null,
@@ -834,8 +836,34 @@ export default {
       selectedorder: "Limit Order",
     };
   },
+  watch:{
+    profitLoss(){
+      if(this.profitLoss==true){
+        this.$bvModal.show('limitorder-TPSL')
+      }
+    }
+  }
 };
 </script>
+<style>
+#limitorder-TPSLB___BV_modal_body_{
+  padding: 0px 16px 20px 16px !important;
+}
+</style>
+<style scoped>
+
+.modal-th{
+  padding: 24px 0px ;
+  display: flex;
+  justify-content: center;
+}
+.modal-th>h5{
+  margin-right: 42px;
+}
+.limitorder-TPSLB > h5{
+  margin-right:52px  !important
+}
+</style>
 <style lang="scss">
 .modal-content {
   // width: 360px;
@@ -961,8 +989,16 @@ export default {
   vertical-align: middle;
 }
 
+.sells .form-check input[type="checkbox"]{
+  border: none !important;
+  box-shadow: none !important;
+}
+.form-check-input:checked[type=checkbox] {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='111827' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e") !important
+}
 .modal-body .checkbox:checked {
   background-color: #f38220;
+  outline:none !important
 }
 
 .modal-body .yellow-btn {
@@ -1070,9 +1106,10 @@ p{
 }
 .sells input {
   width: 100%;
-  padding: 8px 45px;
   text-align: right;
   border: none;
+  outline:none !important ;
+  padding: 8px 45px 8px 142px;
   margin-bottom: 15px;
   height: 40px;
   font-style: normal;

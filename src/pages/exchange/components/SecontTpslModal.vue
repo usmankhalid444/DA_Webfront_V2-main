@@ -44,17 +44,17 @@
           </h5>
         </div>
         <div class="row top-row">
-          <div class="col-3 my-1 ts-title">Order</div>
-          <div class="col-9 my-1 ts-value">
+          <div class="col-3 mt-2 ts-title">Order</div>
+          <div class="col-9 mt-2 ts-value">
             <span class="buy-tag">BUY</span> <span>BTC</span>
             <span class="gs">/THB</span>
           </div>
 
-          <div class="col-3 my-1 ts-title">Price</div>
-          <div class="col-9 my-1 ts-value">1,025,500.10 THB (Limit)</div>
+          <div class="col-3 mt-2 ts-title">Price</div>
+          <div class="col-9 mt-2 ts-value">1,025,500.10 THB (Limit)</div>
 
-          <div class="col-3 my-1 ts-title">Amount</div>
-          <div class="col-9 my-1 ts-value">0.00973 BTC (10,000 THB)</div>
+          <div class="col-3 mt-2 ts-title">Amount</div>
+          <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
         </div>
         <div class="row">
           <div class="col-3 form-group form-check" style="padding-left: 2.5em;">
@@ -129,6 +129,7 @@
             </div>
           </div>
         </div>
+        <hr/>
         <div class="row">
           <div class="col-3 w-title my-auto">Sell Amount</div>
           <div class="col-9" style="padding-left: 36px;">
@@ -196,9 +197,36 @@ export default {
     return {
       tp: "thb",
       sl: "thb",
-      sa: "25%",
+      sa: "100%",
     };
   },
 };
 </script>
-<style lang="scss"></style>
+<style >
+#limitorder-TPSL___BV_modal_body_ {
+  padding: 0px 16px 20px 16px !important;
+}
+#limitorder-STPSL___BV_modal_body_{
+  padding: 0px 16px 26px 16px !important;
+}
+</style>
+<style scoped>
+hr{
+  
+  margin: 16px 0px;
+  background: #28363E;
+
+}
+.stop-loss-detail-modal .tab{
+color:#677F8E;
+}
+.stop-loss-detail-modal .tab.active{
+  color: white !important;
+}
+.top-row{
+line-height: 24px;
+}
+.stop-loss-detail-modal  h5{
+  padding: 24px 0px;
+}
+</style>

@@ -324,8 +324,8 @@
                     <th scope="col">Coin</th>
                     <th scope="col">Type</th>
                     <th scope="col">Price(THB)</th>
-                    <th scope="col">Matched(BTC)</th>
-                    <th scope="col">Matched(THB)</th>
+                    <th scope="col" class=" text-right">Matched(BTC)</th>
+                    <th scope="col" class="text-right">Matched(THB)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -335,8 +335,8 @@
                     <td>BTC</td>
                     <td>Market</td>
                     <td>898,000.00</td>
-                    <td>1</td>
-                    <td>10,000</td>
+                    <td class="text-right">1</td>
+                    <td class="text-right">10,000</td>
                   </tr>
                 </tbody>
               </table>
@@ -422,8 +422,7 @@
               <thead>
                 <tr>
                   <th scope="col">Coin</th>
-                  <th scope="col">Value</th>
-                  <th scope="col">Avg. Cost  <span >
+                  <th scope="col">Value <span >
               <svg
                 width="20"
                 height="20"
@@ -437,9 +436,10 @@
                 />
               </svg>
             </span></th>
+                  <th scope="col" class="text-center">Avg. Cost </th>
                   <th scope="col">Last Price</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">Unrealized (Est.)</th>
+                  <th scope="col" class="text-center">Total</th>
+                  <th scope="col" class="text-center">Unrealized (Est.)</th>
                   <th scope="col">Realized (Today)</th>
                 </tr>
               </thead>
@@ -447,10 +447,10 @@
                 <tr v-for="(item, index) in 4" :key="index">
                   <td>ETH<span>Ethereum</span></td>
                   <td>1.00</td>
-                  <td>70,723.16</td>
+                  <td class="text-center">70,723.16</td>
                   <td>39,720.00</td>
-                  <td>1,000,000.00</td>
-                  <td class="red">-29,775.29(-42.10%)</td>
+                  <td class="text-center ">1,000,000.00</td>
+                  <td class="red text-center">-29,775.29(-42.10%)</td>
                   <td>0.00 (0.00%)</td>
                   <td @click="$bvModal.show('portfolio-detail')" class="orange">
                     ดูรายละเอียด
@@ -681,6 +681,13 @@ export default {
   },
 };
 </script>
+<style scoped>
+.text-right
+{
+text-align: right;
+
+}
+</style>
 <style scoped lang="scss">
 // custome
 .matchTable{
@@ -727,6 +734,7 @@ export default {
   color: #d6dde1;
   width: auto;
   font-style: normal;
+  padding-bottom: 12px;
 }
 
 .footer .pills-tab li button:hover{
@@ -807,10 +815,12 @@ export default {
 }
 .footer table .green {
   color: #40994f;
+   display: table-cell !important;
 }
 
 .footer table .red {
   color: #de2d40;
+  display: table-cell !important;
 }
 
 .footer table .orange {

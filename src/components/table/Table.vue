@@ -223,7 +223,11 @@
           scope="col"
           class="textGreyDark"
           v-if="
-            Showfavorite || ShowCategories || ShowThemes || ShowTreeMap || ShowGainLoss
+            Showfavorite ||
+            ShowCategories ||
+            ShowThemes ||
+            ShowTreeMap ||
+            ShowGainLoss
           "
         >
           <div class="d-flex justify-content-left">
@@ -350,7 +354,11 @@
         </th>
         <!-- End Heading HourChange -->
         <!-- Heading marketcap on end as on favorite tab -->
-        <th scope="col" class="textGreyDark" v-if="Showfavorite || ShowGainLoss">
+        <th
+          scope="col"
+          class="textGreyDark"
+          v-if="Showfavorite || ShowGainLoss"
+        >
           <div class="d-flex justify-content-left">
             <div class="align-Icon-Heading">{{ item.headingMarketCap }}</div>
             <div @click="headMarketCapFavDown = !headMarketCapFavDown">
@@ -494,7 +502,12 @@
           <td v-if="ShowGainLoss" class="px-0">
             <div class="d-flex flex-wrap px-0">
               <div class="icon-image">
-                <b-img class="imageIcon-bitcoin" :src="item.CoinImage" fluid alt="#">
+                <b-img
+                  class="imageIcon-bitcoin"
+                  :src="item.CoinImage"
+                  fluid
+                  alt="#"
+                >
                 </b-img>
               </div>
               <div class="coin-symbol-container">
@@ -516,7 +529,11 @@
           <td v-if="Showfavorite || ShowTreeMap" class="px-0">
             <div class="d-flex flex-wrap px-0">
               <div class="">
-                <div :class="`${item.StarIcon ? 'icon-image-with-star' : 'icon-image'}`">
+                <div
+                  :class="`${
+                    item.StarIcon ? 'icon-image-with-star' : 'icon-image'
+                  }`"
+                >
                   <b-img
                     width="20"
                     v-if="item.StarIcon"
@@ -558,7 +575,9 @@
                 <b-img
                   id="img1Table"
                   class="imageCoinTable"
-                  :src="require('../../assets/images/favoriteTable/bitcoin.png')"
+                  :src="
+                    require('../../assets/images/favoriteTable/bitcoin.png')
+                  "
                   fluid
                   alt="#"
                 >
@@ -574,7 +593,9 @@
                 <b-img
                   id="img3Table"
                   class="imageCoinTable"
-                  :src="require('../../assets/images/favoriteTable/Ethereum.png')"
+                  :src="
+                    require('../../assets/images/favoriteTable/Ethereum.png')
+                  "
                   fluid
                   alt="#"
                 >
@@ -588,13 +609,19 @@
           </td>
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
-          <td class="textGrey px-0 my-0 py-0" v-if="Showfavorite || ShowCategories">
-            <canvas
-              class="w-100"
-              v-bind:id="'favoriteGraph' + index"
-              width="150"
-              height="50"
-            ></canvas>
+          <td
+            class="textGrey px-0 my-0 py-0"
+            v-if="Showfavorite || ShowCategories"
+          >
+            <div id="chart">
+              <apexchart
+                type="area"
+                height="100"
+                width="150"
+                :options="chartOptions"
+                :series="series"
+              ></apexchart>
+            </div>
           </td>
           <!-- End Chart PLoting in table -->
           <!-- last price data -->
@@ -617,7 +644,11 @@
           <td
             class="textGreen justify-content-left px-2 tableData-white"
             v-if="
-              Showfavorite || ShowCategories || ShowThemes || ShowTreeMap || ShowGainLoss
+              Showfavorite ||
+              ShowCategories ||
+              ShowThemes ||
+              ShowTreeMap ||
+              ShowGainLoss
             "
           >
             {{ item.hourChange }}
@@ -644,12 +675,18 @@
           </td>
           <!--End hour change data -->
           <!-- marketCap data at end in show favorite tab -->
-          <td class="textGrey px-2 tableData-white" v-if="Showfavorite || ShowGainLoss">
+          <td
+            class="textGrey px-2 tableData-white"
+            v-if="Showfavorite || ShowGainLoss"
+          >
             {{ item.marketCap }}
           </td>
           <!-- End marketCap data at end in show favorite tab -->
           <!-- Description data -->
-          <td class="textGreyDark thaiLang px-2" v-if="ShowCategories || ShowThemes">
+          <td
+            class="textGreyDark thaiLang px-2"
+            v-if="ShowCategories || ShowThemes"
+          >
             {{ item.Description }}
           </td>
           <!--End Description data -->
@@ -668,7 +705,10 @@
           </td>
           <!-- End MarketCapPercentage data -->
           <!--Description ShowAllCategoriesCurrency data  -->
-          <td class="textGreyDark thaiLang px-2" v-if="ShowAllCategoriesCurrency">
+          <td
+            class="textGreyDark thaiLang px-2"
+            v-if="ShowAllCategoriesCurrency"
+          >
             {{ item.Description }}
           </td>
           <!--End Description ShowAllCategoriesCurrency data  -->
@@ -730,6 +770,84 @@ export default {
       favoriteGraph: favoriteGraph,
       // child_msg: "message from child"
       child_msg: true,
+      series: [
+        {
+          name: "STOCK ABC",
+          data: [15, 11, 18, 13],
+        },
+      ],
+      chartOptions: {
+        chart: {
+          type: "area",
+          height: 350,
+          zoom: {
+            enabled: false,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "straight",
+        },
+        colors: ["#40994F", "#263238", "#FFCA28"],
+        grid: {
+          show: false, // you can either change hear to disable all grids
+          xaxis: {
+            lines: {
+              show: false, //or just here to disable only x axis grids
+            },
+          },
+          yaxis: {
+            lines: {
+              show: false, //or just here to disable only y axis
+            },
+          },
+        },
+        xaxis: {
+          show: false,
+          labels: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+        },
+        yaxis: {
+          show: false,
+          labels: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+        },
+
+        // title: {
+        //   text: "Fundamental Analysis of Stocks",
+        //   align: "left",
+        // },
+        // subtitle: {
+        //   text: "Price Movements",
+        //   align: "left",
+        // },
+        labels: [10, 11, 12, 13],
+        // xaxis: {
+        //   type: "datetime",
+        // },
+        // yaxis: {
+        //   opposite: true,
+        // },
+        legend: {
+          horizontalAlign: "left",
+        },
+      },
     };
   },
 

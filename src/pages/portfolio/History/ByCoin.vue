@@ -1,10 +1,11 @@
 <template>
-  <div class="wrapper">
-    <div class="row mb-5">
+  <div class="wrapper by-coin">
+    <div class="row" style="margin-bottom: 28px">
       <div class="d-flex justify-content-between">
         <div class="search-datePicker d-flex">
           <form
-            class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto mt-3"
+            class="navbar-search navbar-search-dark form-inline ml-lg-auto mt-3"
+            style="margin-right: 16px"
           >
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
@@ -17,7 +18,12 @@
           </form>
 
           <div>
-            <date-picker v-model="time3" :format="format" range></date-picker>
+            <date-picker
+              v-model="time3"
+              :format="format"
+              range
+              placeholder="25/08/22 - 25/09/22"
+            ></date-picker>
           </div>
         </div>
         <div class="mt-3">
@@ -229,88 +235,96 @@ export default {
 };
 </script>
 
-<style>
-.field-container {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  width: 142px !important;
-  height: 40px;
-}
+<style lang="scss">
+.by-coin {
+  .field-container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 142px !important;
+    height: 40px;
+  }
 
-.icons-container {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 35px;
-  height: 35px;
-  overflow: hidden;
-}
-.icon-search:after {
-  content: url("@/assets/images/iconArrow/icon-search.png") !important;
-}
+  .icons-container {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+  }
+  .icon-search:after {
+    content: url("@/assets/images/iconArrow/icon-search.png") !important;
+  }
 
-input::placeholder {
-  color: var(--sub-2) !important;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-}
+  input::placeholder {
+    color: var(--sub-2) !important;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
 
-.field {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
-  color: var(--primary);
-  border: 0;
-  max-width: 142px;
-  height: 40px;
-  padding: 8px 40px;
-  background-color: #222b2f;
-  border-radius: 4px;
-  box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
-  transition: all 0.4s ease;
-}
-/* .field:focus {
+  .field {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: var(--primary);
+    border: 0;
+    width: 142px;
+    height: 40px;
+    padding: 8px 40px;
+    background-color: #222b2f;
+    border-radius: 4px;
+    box-shadow: 0px 8px 15px rgba(75, 72, 72, 0.1);
+    transition: all 0.4s ease;
+  }
+  /* .field:focus {
   outline: none;
   box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
 } */
-.mx-input-wrapper .mx-input {
-  background-color: #222b2f !important;
-  color: #d6dde1;
-  border: 1px solid #222b2f;
-  margin-top: 15px;
-  height: 40px;
-  margin-left: 10px;
-}
-.mx-input-wrapper .mx-input:hover {
-  border: 1px solid #222b2f !important;
-}
-.mx-icon-calendar {
-  color: #677f8e !important;
-  padding-top: 12px;
-}
-.mx-icon-clear {
-  color: #677f8e !important;
-  padding-top: 12px;
-}
-.mx-datepicker-range {
-  width: 236px;
-}
-.exportExcel {
-  font-weight: 400;
-  font-size: 14px;
-  color: #677f8e;
-  width: 124px;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid #28363e;
-}
-.exportExcel:hover {
-  border: 1px solid #3c515d;
-}
-.date-picker-container .mx-datepicker-range {
-  /* width: 177px; */
+  .mx-input-wrapper .mx-input {
+    background-color: #222b2f !important;
+    color: #d6dde1;
+    border: 1px solid #222b2f;
+    margin-top: 15px;
+    height: 40px;
+    // margin-left: 10px;
+    width: 221px;
+    &::placeholder {
+      color: #d6dde1 !important;
+    }
+  }
+  .mx-input-wrapper .mx-input:hover {
+    border: 1px solid #222b2f !important;
+  }
+  .mx-icon-calendar {
+    color: #677f8e !important;
+    padding-top: 12px;
+    padding-right: 20.67px;
+  }
+  .mx-icon-clear {
+    color: #677f8e !important;
+    padding-top: 12px;
+    padding-right: 20.67px;
+  }
+  .mx-datepicker-range {
+    width: 236px;
+  }
+  .exportExcel {
+    font-weight: 400;
+    font-size: 14px;
+    color: #677f8e;
+    width: 124px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #28363e;
+  }
+  .exportExcel:hover {
+    border: 1px solid #3c515d;
+  }
+  .date-picker-container .mx-datepicker-range {
+    /* width: 177px; */
+  }
 }
 </style>
