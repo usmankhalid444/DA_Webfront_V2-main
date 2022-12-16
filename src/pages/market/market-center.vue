@@ -59,7 +59,9 @@
               </b-navbar-nav>
             </b-collapse>
           </b-navbar>
-          <form class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto">
+          <form
+            class="navbar-search navbar-search-dark form-inline mr-3 ml-lg-auto"
+          >
             <div class="mb-0 form-group FDASearch">
               <fieldset class="field-container">
                 <div class="icons-container">

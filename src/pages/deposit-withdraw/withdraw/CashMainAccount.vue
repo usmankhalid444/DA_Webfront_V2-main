@@ -1,6 +1,7 @@
+r
 <template>
   <div>
-    <div class="deposite-coin-container">
+    <div class="cash-main-account-container">
       <div class="container-fluid">
         <!-- top section start -->
         <div class="row dcc-head">
@@ -8,8 +9,8 @@
             <router-link to="/withdraw/cash"
               ><button class="active">Withdraw Cash</button></router-link
             >
-            <a href="javascript:;"
-              ><button class="not-active">Withdraw Coin</button></a
+            <router-link to="/withdraw/coin"
+              ><button class="not-active">Withdraw Coin</button></router-link
             >
           </div>
         </div>
@@ -95,7 +96,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.deposite-coin-container {
+.cash-main-account-container {
   background-color: #192126;
   border-radius: 8px;
   min-height: 445px;
@@ -273,7 +274,7 @@ export default {
   }
 }
 @media (max-width: 640px) {
-  .deposite-coin-container {
+  .cash-main-account-container {
     width: auto;
     height: auto;
     margin-left: 10px;
@@ -290,7 +291,7 @@ export default {
   }
 }
 @media (min-width: 640px) {
-  .deposite-coin-container {
+  .cash-main-account-container {
     width: 616px;
     height: 330px;
     padding-bottom: 0;

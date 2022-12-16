@@ -1,6 +1,6 @@
 <template>
   <div class="padding-table scroller">
-    <table class="table ma-3" id="myTable">
+    <table class="table ma-3 table-responsive table-w-setting" id="myTable">
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark" v-if="Showfavorite || ShowTreeMap">
@@ -610,14 +610,15 @@
           <!-- End Categories data with three image -->
           <!-- Chart PLoting in table -->
           <td
-            class="textGrey px-0 my-0 py-0"
+            class="textGrey p-0 my-0"
+            style="position: relative; width: 140px"
             v-if="Showfavorite || ShowCategories"
           >
-            <div id="chart">
+            <div id="chart" style="position: absolute; top: -10px; left: -9px">
               <apexchart
                 type="area"
-                height="100"
-                width="150"
+                height="80"
+                width="130"
                 :options="chartOptions"
                 :series="series"
               ></apexchart>
@@ -626,7 +627,7 @@
           <!-- End Chart PLoting in table -->
           <!-- last price data -->
           <td
-            class="textGrey justify-content-left px-2 tableData-white"
+            class="textGrey justify-content-left tableData-white"
             v-if="Showfavorite || ShowTreeMap || ShowGainLoss"
           >
             {{ item.lastPrice }}
@@ -634,7 +635,7 @@
           <!-- End last price data -->
           <!-- marketCap data -->
           <td
-            class="textGrey justify-content-left px-2 tableData-white"
+            class="textGrey justify-content-left tableData-white"
             v-if="ShowCategories || ShowThemes || ShowTreeMap"
           >
             {{ item.marketCap }}
@@ -642,7 +643,7 @@
           <!--End marketCap data -->
           <!-- hour change data -->
           <td
-            class="textGreen justify-content-left px-2 tableData-white"
+            class="textGreen justify-content-left tableData-white"
             v-if="
               Showfavorite ||
               ShowCategories ||
@@ -656,7 +657,7 @@
           <!--End hour change data -->
           <!-- Volume data -->
           <td
-            class="textGrey text-left px-2 tableData-white"
+            class="textGrey text-left tableData-white"
             v-if="
               Showfavorite ||
               ShowCategories ||
@@ -670,45 +671,39 @@
           </td>
           <!-- End Volume data -->
           <!-- hour change data -->
-          <td class="textGreen px-2" v-if="ShowAllCategoriesCurrency">
+          <td class="textGreen" v-if="ShowAllCategoriesCurrency">
             {{ item.hourChange }}
           </td>
           <!--End hour change data -->
           <!-- marketCap data at end in show favorite tab -->
           <td
-            class="textGrey px-2 tableData-white"
+            class="textGrey tableData-white"
             v-if="Showfavorite || ShowGainLoss"
           >
             {{ item.marketCap }}
           </td>
           <!-- End marketCap data at end in show favorite tab -->
           <!-- Description data -->
-          <td
-            class="textGreyDark thaiLang px-2"
-            v-if="ShowCategories || ShowThemes"
-          >
+          <td class="textGreyDark thaiLang" v-if="ShowCategories || ShowThemes">
             {{ item.Description }}
           </td>
           <!--End Description data -->
 
           <!-- marketCapM in nested ShowAllCategoriesCurrency data -->
-          <td class="textGrey px-2" v-if="ShowAllCategoriesCurrency">
+          <td class="textGrey" v-if="ShowAllCategoriesCurrency">
             {{ item.marketCapM }}
           </td>
           <!-- End  marketCapM in nested ShowAllCategoriesCurrency data -->
           <!-- MarketCapPercentage data -->
           <td
-            class="textGrey px-2 tableData-white"
+            class="textGrey tableData-white"
             v-if="ShowTreeMap || ShowAllCategoriesCurrency"
           >
             {{ item.MarketCapPercentage }}
           </td>
           <!-- End MarketCapPercentage data -->
           <!--Description ShowAllCategoriesCurrency data  -->
-          <td
-            class="textGreyDark thaiLang px-2"
-            v-if="ShowAllCategoriesCurrency"
-          >
+          <td class="textGreyDark thaiLang" v-if="ShowAllCategoriesCurrency">
             {{ item.Description }}
           </td>
           <!--End Description ShowAllCategoriesCurrency data  -->
@@ -773,7 +768,7 @@ export default {
       series: [
         {
           name: "STOCK ABC",
-          data: [15, 11, 18, 13],
+          data: [10, 20, 10, 25, 30],
         },
       ],
       chartOptions: {
@@ -783,14 +778,28 @@ export default {
           zoom: {
             enabled: false,
           },
+          toolbar: {
+            show: false,
+          },
         },
         dataLabels: {
           enabled: false,
         },
+
         stroke: {
           curve: "straight",
         },
-        colors: ["#40994F", "#263238", "#FFCA28"],
+        colors: ["#40994F", "#40994F", "#40994F"],
+        fill: {
+          type: "gradient",
+          gradient: {
+            shadeIntensity: 1,
+            inverseColors: false,
+            opacityFrom: 0.3,
+            opacityTo: 0.05,
+            stops: [50, 100, 100, 100],
+          },
+        },
         grid: {
           show: false, // you can either change hear to disable all grids
           xaxis: {
@@ -828,24 +837,16 @@ export default {
             show: false,
           },
         },
-
-        // title: {
-        //   text: "Fundamental Analysis of Stocks",
-        //   align: "left",
-        // },
-        // subtitle: {
-        //   text: "Price Movements",
-        //   align: "left",
-        // },
-        labels: [10, 11, 12, 13],
-        // xaxis: {
-        //   type: "datetime",
-        // },
-        // yaxis: {
-        //   opposite: true,
-        // },
+        labels: [10, 11, 12, 13, 14],
         legend: {
           horizontalAlign: "left",
+        },
+        tooltip: {
+          enabled: false,
+        },
+        stroke: {
+          width: 1,
+          curve: "straight",
         },
       },
     };
@@ -855,26 +856,26 @@ export default {
     let start = this.Showfavorite;
     let themeschart = this.ShowThemes;
 
-    if (start == true || themeschart) {
-      for (let i = 0; i < this.TableData.length; i++) {
-        //   console.log("===length",this.TableData?.length)
-        //   console.log("=== i",i)
-        const ctx = document.getElementById(`favoriteGraph${i}`);
+    // if (start == true || themeschart) {
+    //   for (let i = 0; i < this.TableData.length; i++) {
+    //     //   console.log("===length",this.TableData?.length)
+    //     //   console.log("=== i",i)
+    //     const ctx = document.getElementById(`favoriteGraph${i}`);
 
-        var ss = document.getElementById(`favoriteGraph${i}`).getContext("2d");
+    //     var ss = document.getElementById(`favoriteGraph${i}`).getContext("2d");
 
-        /*** Gradient ***/
-        var gradient = ss.createLinearGradient(0, 0, 0, 150);
-        gradient.addColorStop(0, "green");
-        gradient.addColorStop(0.27, "#141B1F");
+    //     /*** Gradient ***/
+    //     var gradient = ss.createLinearGradient(0, 0, 0, 150);
+    //     gradient.addColorStop(0, "green");
+    //     gradient.addColorStop(0.27, "#141B1F");
 
-        this.favoriteGraph.data.datasets.forEach((g) => {
-          g.backgroundColor = gradient;
-        });
+    //     this.favoriteGraph.data.datasets.forEach((g) => {
+    //       g.backgroundColor = gradient;
+    //     });
 
-        new Chart(ctx, this.favoriteGraph);
-      }
-    }
+    //     new Chart(ctx, this.favoriteGraph);
+    //   }
+    // }
   },
   methods: {
     sortTable(n) {
@@ -986,6 +987,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.table > :not(caption) > * > * {
+  padding: 22px 0;
+}
 .icon-image {
   width: 40px;
 }
@@ -1184,6 +1188,9 @@ export default {
   // left: 12px;
   text-align: center;
 }
+.scroller {
+  overflow: auto;
+}
 
 .scroller:hover {
   // width: 300px;
@@ -1201,9 +1208,16 @@ export default {
 //   // scrollbar-width: thin;
 // }
 
+@media only screen and (max-width: 880px) {
+  .table-w-setting {
+    width: 120%;
+    margin: auto;
+  }
+}
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 /* Track */
 ::-webkit-scrollbar-track {

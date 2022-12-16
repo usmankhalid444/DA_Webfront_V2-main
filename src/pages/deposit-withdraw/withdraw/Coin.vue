@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="deposite-coin-container">
+    <div class="withdraw-coin-container">
       <div class="container-fluid">
         <!-- top section start -->
         <div class="row dcc-head">
@@ -129,7 +129,7 @@ export default {
   }
 }
 
-.deposite-coin-container {
+.withdraw-coin-container {
   background-color: #192126;
   border-radius: 8px;
   min-height: auto;
@@ -275,7 +275,7 @@ export default {
   }
 }
 @media (max-width: 640px) {
-  .deposite-coin-container {
+  .withdraw-coin-container {
     width: auto;
     margin-left: 10px;
     margin-right: 10px;
@@ -291,7 +291,7 @@ export default {
   }
 }
 @media (min-width: 640px) {
-  .deposite-coin-container {
+  .withdraw-coin-container {
     width: 616px;
     padding-bottom: 0;
     .center-section {

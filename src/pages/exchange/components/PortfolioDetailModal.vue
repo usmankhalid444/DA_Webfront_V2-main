@@ -33,39 +33,39 @@
           </div>
           <div class="col-6">
             <div class="row">
-              <div class="col-6">
-                <button class="buy-btn">Buy</button>
+              <div class="col-6  p-0">
+                <button class="buy-btn mr-14">Buy</button>
               </div>
-              <div class="col-6">
+              <div class="col-6 m-0 p-0">
                 <button class="sell-btn">Sell</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="row body-container" style="margin-top: 4px">
+        <div class="row body-container">
           <div class="col-5">
             <p class="c-title">Avg. Cost</p>
             <p class="c-title">Actual</p>
-            <p class="c-title">Available</p>
+            <p class="c-title mb-0">Available</p>
           </div>
           <div class="col-6">
             <p class="c-value">1,299,111.01 <span>THB / Coin</span></p>
             <p class="c-value">0.0098 <span>BTC</span></p>
-            <p class="c-value">0.0098</p>
+            <p class="c-value mb-0">0.0098</p>
           </div>
         </div>
-        <div class="row body-container" style="margin-top: 4px">
+        <div class="row body-container dc1" style="margin-top:4px">
           <div class="col-5">
             <p class="c-title">Market Value</p>
             <p class="c-title">Total Cost</p>
             <p class="c-title">Unrealized (Est.)</p>
-            <p class="c-title">Realized (Today)</p>
+            <p class="c-title mb-0">Realized (Today)</p>
           </div>
           <div class="col-6">
             <p class="c-value">51,325.58 <span>THB</span></p>
             <p class="c-value">50,000.58<span>THB</span></p>
             <p class="c-value-green">1,299,111.01 (+25.14%)</p>
-            <p class="c-value-green">1,299.01 (+1.01%)</p>
+            <p class="c-value-green mb-0">1,299.01 (+1.01%)</p>
           </div>
         </div>
         <div class="row f-buttons">
@@ -84,13 +84,26 @@
 <script>
 export default {};
 </script>
+<style>
+#portfolio-detail___BV_modal_body_{
+  padding-top:0px !important;
+}
+</style>
 <style lang="scss">
+.mr-14{
+  margin-right: 14px !important;
+}
+.dc1{
+  padding: 12px 0px 7px !important;
+  border-radius: 8px 8px 0px 0px
+}
 .portfolio-detail-modal {
   padding: 0 10px;
   padding-top: 8px;
   .close-btn {
     float: right;
     cursor: pointer;
+    margin-top:29px
   }
   .pair {
     margin: 0;
@@ -111,7 +124,7 @@ export default {};
     color: white;
     background-color: #40994f;
     border-radius: 4px;
-    width: 100%;
+    width:96px;
     height: 40px;
     &:hover {
       background-color: var(--green-positiveHover);
@@ -123,7 +136,7 @@ export default {};
     color: white;
     background-color: #de2d40;
     border-radius: 4px;
-    width: 100%;
+    width: 96px;
     height: 40px;
     &:hover {
       background-color: var(--red-negativeHover);
@@ -131,9 +144,11 @@ export default {};
   }
   .c-title {
     color: #677f8e;
+    margin-bottom: 8px ;
   }
   .c-value {
     color: #d6dde1;
+    margin-bottom: 8px;
     span {
       margin-left: 5px;
       color: #677f8e;
@@ -141,6 +156,7 @@ export default {};
   }
   .c-value-green {
     color: #40994f;
+    margin-bottom: 8px;
   }
   .f-buttons {
     text-align: center;
@@ -155,7 +171,7 @@ export default {};
   .body-container {
     margin-top: 2px;
     background-color: #192126;
-    padding: 10px 0;
+    padding: 12px 0px 13px;
     margin: 0;
   }
 }

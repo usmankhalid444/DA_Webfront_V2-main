@@ -690,6 +690,10 @@ text-align: right;
 </style>
 <style scoped lang="scss">
 // custome
+.pills-tab{
+  margin-top:29px !important;
+  margin-bottom:26 !important
+}
 .matchTable{
   margin-left: 8px;
 }
@@ -735,6 +739,7 @@ text-align: right;
   width: auto;
   font-style: normal;
   padding-bottom: 12px;
+  line-height: 19px;
 }
 
 .footer .pills-tab li button:hover{
@@ -989,8 +994,8 @@ text-align: right;
       height: 32px;
       background-color: #d6dde1;
       border-radius: 4px;
-      top: 40px;
-      left: -20px;
+      top: 26px;
+      left: 0px;
       color: #0a0d10;
       display: none;
       justify-items: center;
@@ -1057,7 +1062,7 @@ text-align: right;
     display: none;
   }
   .footer .pills-tab li button {
-    margin-right: 15px;
+    margin-right: 26px;
   }
 
   // .tab-pane {

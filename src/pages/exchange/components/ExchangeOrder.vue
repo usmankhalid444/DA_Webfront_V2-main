@@ -177,12 +177,12 @@
                 <div class="form-group form-check">
                   <label>
                     <input
-                      @click="showStopLoss = true"
                       type="checkbox"
                       class="form-check-input"
                       data-toggle="modal"
                       data-target="#limit-stop"
-                      v-b-modal.limitorder-stop-loss
+                      value="false"
+                      v-model="SL"
                     />
                     <p>Stop Loss</p></label
                   >
@@ -724,6 +724,7 @@
           <h5>Stop Loss</h5>
           <span
             class="modal-close-button"
+            style="position: absolute;right: 30px;"
             @click="$bvModal.hide('limitorder-stop-loss')"
           >
             <svg
@@ -817,6 +818,7 @@ export default {
   props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
+      SL:false,
       profitLoss:false,
       buying_amount: null,
       selling_amount: null,
@@ -841,12 +843,17 @@ export default {
       if(this.profitLoss==true){
         this.$bvModal.show('limitorder-TPSL')
       }
+    },
+    SL(){
+          if(this.SL==true){
+            this.$bvModal.show('limitorder-stop-loss')
+          }
     }
   }
 };
 </script>
 <style>
-#limitorder-TPSLB___BV_modal_body_{
+#limitorder-TPSLB___BV_modal_body_,#limitorder-stop-loss___BV_modal_body_{
   padding: 0px 16px 20px 16px !important;
 }
 </style>
@@ -902,6 +909,7 @@ export default {
     display: inline-block;
     margin-left: 8px;
     margin-top: 3px;
+    line-height: 19px;
   }
 }
 .limitorder-STPSL {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="deposite-coin-container">
+    <div class="main-account-container">
       <div class="container-fluid">
         <!-- top section start -->
         <div class="row dcc-head">
@@ -123,7 +123,7 @@ export default {
   }
 }
 
-.deposite-coin-container {
+.main-account-container {
   background-color: #192126;
   border-radius: 8px;
   min-height: 445px;
@@ -269,7 +269,7 @@ export default {
   }
 }
 @media (max-width: 640px) {
-  .deposite-coin-container {
+  .main-account-container {
     width: auto;
     margin-left: 10px;
     margin-right: 10px;
@@ -285,7 +285,7 @@ export default {
   }
 }
 @media (min-width: 640px) {
-  .deposite-coin-container {
+  .main-account-container {
     width: 616px;
     padding-bottom: 0;
     .center-section {

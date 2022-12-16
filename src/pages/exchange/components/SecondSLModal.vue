@@ -9,7 +9,7 @@
     >
       <div class="stop-loss-detail-modal px-2">
         <div class="col-12 my-2">
-          <h5>
+          <h5 class="header">
             Stop Loss
             <span @click="$bvModal.hide('limitorder-SSL')">
               <svg
@@ -44,17 +44,17 @@
           </h5>
         </div>
         <div class="row top-row">
-          <div class="col-3 my-1 ts-title">Order</div>
-          <div class="col-9 my-1 ts-value">
+          <div class="col-3 mb-2 ts-title">Order</div>
+          <div class="col-9 mb-2 ts-value">
             <span class="sell-tag">SELL</span> <span>BTC</span>
             <span class="gs">/THB</span>
           </div>
 
-          <div class="col-3 my-1 ts-title">Price</div>
-          <div class="col-9 my-1 ts-value">1,025,500.10 THB (Limit)</div>
+          <div class="col-3 mt-2 ts-title">Price</div>
+          <div class="col-9 mt-2 ts-value">1,025,500.10 THB (Limit)</div>
 
-          <div class="col-3 my-1 ts-title">Amount</div>
-          <div class="col-9 my-1 ts-value">0.00973 BTC (10,000 THB)</div>
+          <div class="col-3 mt-2 ts-title">Amount</div>
+          <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
         </div>
         <div class="row">
           <div class="col-3 form-group form-check">
@@ -128,6 +128,7 @@
             </div>
           </div>
         </div>
+        <hr/>
         <div class="row">
           <div class="col-3 w-title my-auto">Sell Amount</div>
           <div class="col-9">
@@ -192,9 +193,50 @@ export default {
     return {
       tp: "thb",
       sl: "thb",
-      sa: "25%",
+      sa: "100%",
     };
   },
 };
 </script>
+<style>
+#limitorder-SSL___BV_modal_body_{
+  padding: 0px 16px 20px 16px !important;
+}
+
+</style>
+<style scoped>
+.sa-tabs > div{
+  color: #9BACB6;
+}
+.sa-tabs >  .active{
+  color: white !important;
+}
+hr{
+  
+  margin: 16px 0px;
+  background: #28363E;
+
+}
+ .stop-loss-detail-modal .header{
+  padding: 24px 0px;
+  margin: 0px !important;
+  width: 100%;
+}
+.stop-loss-detail-modal .header > span {
+  margin-left: 10px;
+
+}
+.stop-loss-detail-modal .tab{
+color:#677F8E;
+}
+.stop-loss-detail-modal .tab.active{
+  color: white !important;
+}
+.top-row{
+line-height: 24px;
+}
+.stop-loss-detail-modal  h5{
+  padding: 24px 0px;
+}
+</style>
 <style lang="scss"></style>
