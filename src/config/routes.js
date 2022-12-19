@@ -31,6 +31,11 @@ const routes = [
     name: "exchange",
   },
   {
+    path: "/exchange/:pair",
+    component: () => import("../pages/exchange/exchange.vue"),
+    name: "exchangePair",
+  },
+  {
     path: "/order-history",
     component: () => import("../pages/exchange/components/OrderHistory.vue"),
     name: "order-history",

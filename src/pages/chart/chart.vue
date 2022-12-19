@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>chart</h1>
+        <iframe src="https://www.missionsoftwarethailand.com/stockchartxrtc/chart.aspx" style="width: 100vw;height: 85vh;"></iframe>
     </div>
 </template>
 <script>

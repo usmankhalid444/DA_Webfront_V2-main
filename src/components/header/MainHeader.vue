@@ -83,7 +83,7 @@
                   <b-link
                     :to="{ path: '/exchange' }"
                     class="hovername"
-                    :class="$route.name == 'exchange' ? 'active' : ''"
+                    :class="$route.name == 'exchange' ? 'active' : '' || $route.name == 'exchangePair' ? 'active' : ''"
                   >
                     Buy/Sell<span
                       ><svg
@@ -958,7 +958,7 @@ export default {
   .main-NavMenu {
     ul {
       li {
-        margin: 0 25px;
+        //margin: 0 25px;
       }
     }
   }

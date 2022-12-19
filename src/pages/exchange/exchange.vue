@@ -126,20 +126,29 @@
               <div
                 class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores"
               >
-                <span class="live-amount-title">896,485.67</span>
-                <span class="live-amount-value">(-4.26%)</span>
+                <span class="live-amount-title" :class="priceInfo.textColor">{{
+                  formatPrice(priceInfo.last)
+                }}</span>
+                <span class="live-amount-value" :class="priceInfo.textColor"
+                  >({{ priceInfo.pChg }}%)</span
+                >
                 <span class="title">24h High:</span>
-                <span class="value">986,574.00</span>
+                <span class="value">{{ formatPrice(priceInfo.high24) }}</span>
                 <span class="title">24h Low:</span>
-                <span class="value">785,959.84</span>
+                <span class="value">{{ formatPrice(priceInfo.low24) }}</span>
                 <span class="title">24h Volume (BTC):</span>
-                <span class="value">4,532.98</span>
+                <span class="value">{{ formatPrice(priceInfo.vol24) }}</span>
               </div>
             </div>
           </div>
           <div class="col-12 col-lg-6 col-xl-4 bs-left-table">
             <div
-              class="bid-offer-container d-flex justify-content-between align-center"
+              class="
+                bid-offer-container
+                d-flex
+                justify-content-between
+                align-center
+              "
             >
               <div class="coinSelect d-flex justify-content-start align-center">
                 <select>
@@ -198,40 +207,30 @@
                   <tr>
                     <th style="width: 50%">Price (THB)</th>
                     <th>Vol (BTC)</th>
-                    <th>Total (THB)</th>
+                    <th class="text-end">Total (THB)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    v-for="(item, index) in sell_live_scores"
-                    :key="'b' + index"
-                  >
-                    <td
-                      class="red"
-                      @click="selected_sell_score = item.price_thb"
-                    >
-                      {{ item.price_thb }}
+                  <tr v-for="(item, index) in plate.askRows" :key="'b' + index">
+                    <td class="red" @click="selected_sell_score = item.price">
+                      {{ formatPrice(item.price) }}
                     </td>
-                    <td>{{ item.vol_btc }}</td>
-                    <td class="text-center">{{ item.total_thb }}</td>
+                    <td>{{ formatPrice(item.amount, 6) }}</td>
+                    <td class="text-end">{{ formatPrice(item.total) }}</td>
                   </tr>
                   <tr>
-                    <td class="red-big">896,485.67</td>
+                    <td class="text-last-price" :class="priceInfo.textColor">
+                      {{ formatPrice(priceInfo.last) }}
+                    </td>
                     <td></td>
                     <td></td>
                   </tr>
-                  <tr
-                    v-for="(item, index) in buy_live_scores"
-                    :key="'c' + index"
-                  >
-                    <td
-                      @click="selected_buy_score = item.price_thb"
-                      class="green"
-                    >
-                      {{ item.price_thb }}
+                  <tr v-for="(item, index) in plate.bidRows" :key="'c' + index">
+                    <td @click="selected_buy_score = item.price" class="green">
+                      {{ formatPrice(item.price) }}
                     </td>
-                    <td>{{ item.vol_btc }}</td>
-                    <td class="text-center">{{ item.total_thb }}</td>
+                    <td>{{ formatPrice(item.amount, 6) }}</td>
+                    <td class="text-end">{{ formatPrice(item.total) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -241,6 +240,7 @@
 
           <div class="col-12 col-lg-6 col-xl-8 p-0">
             <div class="chart p-0">
+              <iframe id="mydiv" ref="myid" class="iframe-chart" src="https://www.missionsoftwarethailand.com/stockchartxrtc/chart.aspx"></iframe>
               <!-- <h1 class="text-white">Chart Here</h1> -->
               <!-- <iframe
                 src="https://bitenium.com/StockChartXRTC/chart.aspx"
@@ -314,7 +314,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in 18" :key="'d' + index">
+              <tr v-for="(item, index) in coinMarket" :key="'d' + index">
                 <td>
                   <span
                     ><svg
@@ -330,10 +330,10 @@
                       />
                     </svg>
                   </span>
-                  BTC / THB
+                  {{ item.symbol }}
                 </td>
-                <td>698,948.88</td>
-                <td class="green">+99.98%</td>
+                <td>{{ formatPrice(item.price) }}</td>
+                <td class="green">{{ item.pChg }}%</td>
               </tr>
             </tbody>
           </table>
@@ -350,10 +350,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in 18" :key="'a' + index">
-                <td>14:59:20</td>
-                <td>586,908.00</td>
-                <td class="text-center">0.00083</td>
+              <tr v-for="(item, index) in ticker.tickerRows" :key="'a' + index">
+                <td>{{ item.time }}</td>
+                <td>{{ formatPrice(item.price) }}</td>
+                <td class="text-center">{{ formatPrice(item.amount, 6) }}</td>
               </tr>
             </tbody>
           </table>
@@ -367,6 +367,8 @@
 <script>
 import ExchangeFooter from "./components/ExchangeFooter.vue";
 import ExchangeOrder from "./components/ExchangeOrder.vue";
+var Stomp = require("stompjs");
+var SockJS = require("sockjs-client");
 export default {
   components: {
     ExchangeFooter,
@@ -379,41 +381,303 @@ export default {
       showSearchBox: false,
       selected_sell_score: null,
       selected_buy_score: null,
-      sell_live_scores: [
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 796585.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 193485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 596485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 796485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 296485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 396485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-      ],
-      buy_live_scores: [
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 696485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 596485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 996485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 496485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 396485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 296485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 196485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-        { price_thb: 896485.67, vol_btc: 0.000345, total_thb: 1823.67 },
-      ],
+      currentCoin: {
+        base: "",
+        coin: "",
+        symbol: "BTC/USDT",
+      },
+      plate: {
+        maxPostion: 15,
+        askRows: [],
+        bidRows: [],
+      },
+      ticker: {
+        tickerRows: [],
+      },
+      priceInfo: {
+        last: "0",
+        chg: "0",
+        high24: "0",
+        low24: "0",
+        vol24: "0",
+        pChg: "0",
+        textColor: "",
+      },
+      coinMarket: [
+        {
+          symbol: "BTC/THB",
+          price: "16,988.20",
+          pChg: "0.005",
+          url: "/exchange/btc_thb"
+        },
+        // {
+        //   symbol: "ETH/USDT",
+        //   price: "1,354.95",
+        //   pChg: "0.012",
+        //   url: "/exchange/eth_usdt"
+        // }
+      ]
     };
+  },
+  methods: {
+    defaultSymbol() {
+      // console.log(this.$refs.myid.contentWindow.setupIndicators())
+      // console.log(this.$refs.myid.contentWindow.location.Symbol("BTC"))
+
+      var frame = document.getElementById('mydiv'); 
+
+frame.contentWindow.postMessage("test", '*'); 
+// In your <iframe> (contained in the main page):
+
+window.addEventListener('message', function(event) { 
+
+    // IMPORTANT: Check the origin of the data! 
+    if (~event.origin.indexOf('http://192.168.1.209:8080')) { 
+        // The data has been sent from your site 
+
+        // The data sent with postMessage is stored in event.data 
+        console.log(event.data); 
+    } else { 
+        // The data hasn't been sent from your site! 
+        // Be careful! Do not use it. 
+        return; 
+    } 
+}); 
+      
+      
+      if (typeof this.$route.params.pair == "undefined") {
+        this.currentCoin.symbol = "BTC/THB";
+        this.$route.params["pair"] = "btc_thb";
+      } else {
+        let pair = this.$route.params.pair;
+        let dataArr = pair.split("_");
+
+        this.currentCoin.symbol = (dataArr[0] + "/" + dataArr[1]).toUpperCase();
+      }
+
+      setTimeout(function(){console.log(frames[0].setupIndicators())}, 5000)
+    },
+    updateDataTrade() {
+      if (this.stompClient) {
+        this.stompClient.ws.close();
+      }
+
+      var stompClient = null;
+      var that = this;
+      var symbol = that.currentCoin.symbol;
+      var url = "http://27.254.47.45/market/market-ws";
+      var socket = new SockJS(url);
+      stompClient = Stomp.over(socket);
+      this.stompClient = stompClient;
+      stompClient.debug = false;
+
+      stompClient.connect({}, function (frame) {
+        stompClient.subscribe("/topic/market/thumb", function (msg) {
+          var resp = JSON.parse(msg.body);
+          that.updatePriceInfo(resp);
+        });
+
+        stompClient.subscribe("/topic/market/trade/" + symbol, function (msg) {
+          var resp = JSON.parse(msg.body);
+          that.updateTickers(resp);
+        });
+
+        stompClient.subscribe(
+          "/topic/market/trade-plate/" + symbol,
+          function (msg) {
+            var resp = JSON.parse(msg.body);
+            that.updateBidAsk(resp);
+          }
+        );
+      });
+    },
+    getBidAsk() {
+      var params = {};
+      params["symbol"] = this.currentCoin.symbol;
+
+      this.$http
+        .post("http://27.254.47.45/market/exchange-plate", params, {
+          emulateJSON: true,
+        })
+        .then((response) => {
+          var resp = response.body;
+          if (resp.ask) {
+            var asks = resp.ask;
+            this.plate.askRows = [];
+            for (var i = this.plate.maxPostion - 1; i >= 0; i--) {
+              var ask = {
+                price: asks[i].price.toFixed(2),
+                amount: asks[i].amount.toFixed(6),
+                total: (asks[i].price * asks[i].amount).toFixed(2),
+              };
+              this.plate.askRows.push(ask);
+            }
+            if (this.plate.askRows.length > 15) {
+              this.plate.askRows = this.plate.askRows.slice(0, 15);
+            }
+          } else {
+            var bids = resp.items;
+            this.plate.bidRows = [];
+            for (var i = this.plate.maxPostion - 1; i >= 0; i--) {
+              var bid = {
+                price: bids[i].price.toFixed(2),
+                amount: bids[i].amount.toFixed(6),
+                total: (bids[i].price * bids[i].amount).toFixed(2),
+              };
+              this.plate.bidRows.push(bid);
+            }
+            if (this.plate.bidRows.length > 15) {
+              this.plate.bidRows = this.plate.bidRows.slice(0, 15);
+            }
+          }
+          // console.log(resp);
+        });
+    },
+    updateBidAsk(resp) {
+      // console.log(resp)
+      var that = this;
+      if (resp.direction == "SELL") {
+        var asks = resp.items;
+        this.plate.askRows = [];
+        for (var i = that.plate.maxPostion - 1; i >= 0; i--) {
+          var ask = {
+            price: asks[i].price.toFixed(2),
+            amount: asks[i].amount.toFixed(6),
+            total: (asks[i].price * asks[i].amount).toFixed(2),
+          };
+          that.plate.askRows.push(ask);
+        }
+        if (that.plate.askRows.length > 15) {
+          that.plate.askRows = that.plate.askRows.slice(0, 15);
+        }
+      } else {
+        var bids = resp.items;
+        this.plate.bidRows = [];
+        for (var i = that.plate.maxPostion - 1; i >= 0; i--) {
+          var bid = {
+            price: bids[i].price.toFixed(2),
+            amount: bids[i].amount.toFixed(6),
+            total: (bids[i].price * bids[i].amount).toFixed(2),
+          };
+          that.plate.bidRows.unshift(bid);
+        }
+        if (that.plate.bidRows.length > 15) {
+          that.plate.bidRows = that.plate.bidRows.slice(0, 15);
+        }
+      }
+    },
+    getTickers() {
+      var params = {};
+      params["symbol"] = this.currentCoin.symbol;
+      params["size"] = 15;
+
+      this.$http
+        .post("http://27.254.47.45/market/latest-trade", params, {
+          emulateJSON: true,
+        })
+        .then((response) => {
+          var resp = response.body;
+          if (resp.length > 0) {
+            this.priceInfo.last = resp[0].price;
+            for (var i = 0; i < resp.length; i++) {
+              let date = new Date(resp[i].time);
+              let hours = ("0" + date.getHours()).slice(-2);
+              let minute = ("0" + date.getMinutes()).slice(-2);
+              let second = ("0" + date.getSeconds()).slice(-2);
+              let time = hours + ":" + minute + ":" + second;
+              resp[i].price = resp[i].price.toFixed(2);
+              resp[i].amount = resp[i].amount.toFixed(6);
+              resp[i].time = time;
+              this.ticker.tickerRows.push(resp[i]);
+            }
+          }
+          if (this.ticker.tickerRows.length > 15) {
+            this.ticker.tickerRows = this.ticker.tickerRows.slice(0, 15);
+          }
+        });
+    },
+    updateTickers(resp) {
+      // console.log(resp);
+      var that = this;
+      if (resp.length > 0) {
+        for (var i = 0; i < resp.length; i++) {
+          let date = new Date(resp[i].time);
+          let hours = ("0" + date.getHours()).slice(-2);
+          let minute = ("0" + date.getMinutes()).slice(-2);
+          let second = ("0" + date.getSeconds()).slice(-2);
+          let time = hours + ":" + minute + ":" + second;
+          resp[i].price = resp[i].price.toFixed(2);
+          resp[i].amount = resp[i].amount.toFixed(6);
+          resp[i].time = time;
+          that.priceInfo.last = resp[i].price;
+          that.ticker.tickerRows.unshift(resp[i]);
+        }
+      }
+      if (that.ticker.tickerRows.length > 15) {
+        that.ticker.tickerRows = that.ticker.tickerRows.slice(0, 15);
+      }
+    },
+    getSymbolThumb() {
+      var params = {};
+      params["symbol"] = this.currentCoin.symbol;
+      params["size"] = 15;
+
+      this.$http
+        .post("http://27.254.47.45/market/symbol-thumb", {
+          emulateJSON: true,
+        })
+        .then((response) => {
+          var resp = response.body;
+          console.log(resp);
+          for (let i = 0; i < resp.length; i++) {
+            if (this.currentCoin.symbol == resp[i].symbol) {
+              if (resp[i].chg < 0) {
+                this.priceInfo.textColor = "red";
+              } else if (resp[i].chg > 0) {
+                this.priceInfo.textColor = "green";
+              }
+
+              this.priceInfo.chg = resp[i].change;
+              this.priceInfo.high24 = resp[i].high;
+              this.priceInfo.low24 = resp[i].low;
+              this.priceInfo.vol24 = resp[i].volume;
+              this.priceInfo.pChg = resp[i].chg;
+
+              break;
+            }
+          }
+        });
+    },
+    updatePriceInfo(resp) {
+      if (this.currentCoin.symbol == resp.symbol) {
+        if (resp.chg < 0) {
+          this.priceInfo.textColor = "red";
+        } else if (resp.chg > 0) {
+          this.priceInfo.textColor = "green";
+        }
+
+        this.priceInfo.chg = resp.change;
+        this.priceInfo.high24 = resp.high;
+        this.priceInfo.low24 = resp.low;
+        this.priceInfo.vol24 = resp.volume;
+        this.priceInfo.pChg = resp.chg;
+      }
+    },
+    formatPrice(value, digits = 2) {
+      if (value > 999) {
+        let val = (value / 1).toFixed(digits);
+        return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      } else {
+        return value;
+      }
+    },
+  },
+  mounted() {
+    this.defaultSymbol();
+    this.getSymbolThumb();
+    this.getBidAsk();
+    this.getTickers();
+    this.updateDataTrade();
   },
 };
 </script>
@@ -537,14 +801,24 @@ export default {
   }
   .trading-scores {
     .live-amount-title {
-      color: #de2d40;
       font-size: 18px;
     }
-    .live-amount-value {
+    .live-amount-title.red {
       color: #de2d40;
+    }
+    .live-amount-title.green {
+      color: #40994f;
+    }
+    .live-amount-value {
       font-size: 14px;
       margin-left: 8px;
       margin-right: 16px;
+    }
+    .live-amount-value.red {
+      color: #de2d40;
+    }
+    .live-amount-value.green {
+      color: #40994f;
     }
     .title {
       color: #9bacb6;
@@ -756,8 +1030,7 @@ export default {
   display: inline-block;
 }
 
-.buy-sell table .red-big {
-  color: #de2d40;
+.buy-sell table .text-last-price {
   font-weight: 600;
   font-size: 18px;
 }
@@ -1206,7 +1479,21 @@ export default {
   .buy-sell .chart {
     height: 446px;
   }
+
 }
 @media only screen and (min-width: 1536px) {
 }
+
+.iframe-chart {
+  width: 49.9vw;
+  height: 45.5vh;
+}
+@media only screen and (max-width: 1536px) {
+  .iframe-chart {
+  width: 49.9vw;
+  height: 58.5vh;
+}
+}
+
+
 </style>
