@@ -143,12 +143,7 @@
           </div>
           <div class="col-12 col-lg-6 col-xl-4 bs-left-table">
             <div
-              class="
-                bid-offer-container
-                d-flex
-                justify-content-between
-                align-center
-              "
+              class="bid-offer-container d-flex justify-content-between align-center"
             >
               <div class="coinSelect d-flex justify-content-start align-center">
                 <select>
@@ -240,7 +235,12 @@
 
           <div class="col-12 col-lg-6 col-xl-8 p-0">
             <div class="chart p-0">
-              <iframe id="mydiv" ref="myid" class="iframe-chart" src="https://www.missionsoftwarethailand.com/stockchartxrtc/chart.aspx"></iframe>
+              <iframe
+                id="mydiv"
+                ref="myid"
+                class="iframe-chart"
+                src="http://27.254.47.24/libchart/chart"
+              ></iframe>
               <!-- <h1 class="text-white">Chart Here</h1> -->
               <!-- <iframe
                 src="https://bitenium.com/StockChartXRTC/chart.aspx"
@@ -408,7 +408,7 @@ export default {
           symbol: "BTC/THB",
           price: "16,988.20",
           pChg: "0.005",
-          url: "/exchange/btc_thb"
+          url: "/exchange/btc_thb",
         },
         // {
         //   symbol: "ETH/USDT",
@@ -416,7 +416,7 @@ export default {
         //   pChg: "0.012",
         //   url: "/exchange/eth_usdt"
         // }
-      ]
+      ],
     };
   },
   methods: {
@@ -424,27 +424,25 @@ export default {
       // console.log(this.$refs.myid.contentWindow.setupIndicators())
       // console.log(this.$refs.myid.contentWindow.location.Symbol("BTC"))
 
-      var frame = document.getElementById('mydiv'); 
+      var frame = document.getElementById("mydiv");
 
-frame.contentWindow.postMessage("test", '*'); 
-// In your <iframe> (contained in the main page):
+      frame.contentWindow.postMessage("test", "*");
+      // In your <iframe> (contained in the main page):
 
-window.addEventListener('message', function(event) { 
+      window.addEventListener("message", function (event) {
+        // IMPORTANT: Check the origin of the data!
+        if (~event.origin.indexOf("http://192.168.1.209:8080")) {
+          // The data has been sent from your site
 
-    // IMPORTANT: Check the origin of the data! 
-    if (~event.origin.indexOf('http://192.168.1.209:8080')) { 
-        // The data has been sent from your site 
+          // The data sent with postMessage is stored in event.data
+          console.log(event.data);
+        } else {
+          // The data hasn't been sent from your site!
+          // Be careful! Do not use it.
+          return;
+        }
+      });
 
-        // The data sent with postMessage is stored in event.data 
-        console.log(event.data); 
-    } else { 
-        // The data hasn't been sent from your site! 
-        // Be careful! Do not use it. 
-        return; 
-    } 
-}); 
-      
-      
       if (typeof this.$route.params.pair == "undefined") {
         this.currentCoin.symbol = "BTC/THB";
         this.$route.params["pair"] = "btc_thb";
@@ -455,7 +453,9 @@ window.addEventListener('message', function(event) {
         this.currentCoin.symbol = (dataArr[0] + "/" + dataArr[1]).toUpperCase();
       }
 
-      setTimeout(function(){console.log(frames[0].setupIndicators())}, 5000)
+      setTimeout(function () {
+        console.log(frames[0].setupIndicators());
+      }, 5000);
     },
     updateDataTrade() {
       if (this.stompClient) {
@@ -1479,7 +1479,6 @@ window.addEventListener('message', function(event) {
   .buy-sell .chart {
     height: 446px;
   }
-
 }
 @media only screen and (min-width: 1536px) {
 }
@@ -1490,10 +1489,8 @@ window.addEventListener('message', function(event) {
 }
 @media only screen and (max-width: 1536px) {
   .iframe-chart {
-  width: 49.9vw;
-  height: 58.5vh;
+    width: 49.9vw;
+    height: 58.5vh;
+  }
 }
-}
-
-
 </style>
