@@ -143,7 +143,12 @@
           </div>
           <div class="col-12 col-lg-6 col-xl-4 bs-left-table">
             <div
-              class="bid-offer-container d-flex justify-content-between align-center"
+              class="
+                bid-offer-container
+                d-flex
+                justify-content-between
+                align-center
+              "
             >
               <div class="coinSelect d-flex justify-content-start align-center">
                 <select>
@@ -239,7 +244,7 @@
                 id="mydiv"
                 ref="myid"
                 class="iframe-chart"
-                src="http://27.254.47.24/libchart/chart"
+                :src="chartSymbolUrl"
               ></iframe>
               <!-- <h1 class="text-white">Chart Here</h1> -->
               <!-- <iframe
@@ -314,7 +319,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in coinMarket" :key="'d' + index">
+              <tr
+                v-for="(item, index) in coinMarket"
+                :key="'d' + index"
+                @click="selectMarketSymbol(item.url.toString())"
+                style="cursor: pointer"
+              >
                 <td>
                   <span
                     ><svg
@@ -333,7 +343,7 @@
                   {{ item.symbol }}
                 </td>
                 <td>{{ formatPrice(item.price) }}</td>
-                <td class="green">{{ item.pChg }}%</td>
+                <td :class="item.color">{{ item.pChg }}%</td>
               </tr>
             </tbody>
           </table>
@@ -403,20 +413,9 @@ export default {
         pChg: "0",
         textColor: "",
       },
-      coinMarket: [
-        {
-          symbol: "BTC/THB",
-          price: "16,988.20",
-          pChg: "0.005",
-          url: "/exchange/btc_thb",
-        },
-        // {
-        //   symbol: "ETH/USDT",
-        //   price: "1,354.95",
-        //   pChg: "0.012",
-        //   url: "/exchange/eth_usdt"
-        // }
-      ],
+      coinMarket: [],
+      chartSymbolUrl: "http://27.254.47.24/libchart/chart?symbol=BTC%2FTHB",
+      test: ""
     };
   },
   methods: {
@@ -424,24 +423,24 @@ export default {
       // console.log(this.$refs.myid.contentWindow.setupIndicators())
       // console.log(this.$refs.myid.contentWindow.location.Symbol("BTC"))
 
-      var frame = document.getElementById("mydiv");
+      // var frame = document.getElementById("mydiv");
 
-      frame.contentWindow.postMessage("test", "*");
-      // In your <iframe> (contained in the main page):
+      // frame.contentWindow.postMessage("test", "*");
+      // // In your <iframe> (contained in the main page):
 
-      window.addEventListener("message", function (event) {
-        // IMPORTANT: Check the origin of the data!
-        if (~event.origin.indexOf("http://192.168.1.209:8080")) {
-          // The data has been sent from your site
+      // window.addEventListener("message", function (event) {
+      //   // IMPORTANT: Check the origin of the data!
+      //   if (~event.origin.indexOf("http://192.168.1.209:8080")) {
+      //     // The data has been sent from your site
 
-          // The data sent with postMessage is stored in event.data
-          console.log(event.data);
-        } else {
-          // The data hasn't been sent from your site!
-          // Be careful! Do not use it.
-          return;
-        }
-      });
+      //     // The data sent with postMessage is stored in event.data
+      //     console.log(event.data);
+      //   } else {
+      //     // The data hasn't been sent from your site!
+      //     // Be careful! Do not use it.
+      //     return;
+      //   }
+      // });
 
       if (typeof this.$route.params.pair == "undefined") {
         this.currentCoin.symbol = "BTC/THB";
@@ -451,11 +450,13 @@ export default {
         let dataArr = pair.split("_");
 
         this.currentCoin.symbol = (dataArr[0] + "/" + dataArr[1]).toUpperCase();
+        let symbolEncode = encodeURIComponent(this.currentCoin.symbol);
+        this.chartSymbolUrl = "http://27.254.47.24/libchart/chart?symbol="+symbolEncode;
       }
 
-      setTimeout(function () {
-        console.log(frames[0].setupIndicators());
-      }, 5000);
+      // setTimeout(function () {
+      //   console.log(frames[0].setupIndicators());
+      // }, 5000);
     },
     updateDataTrade() {
       if (this.stompClient) {
@@ -474,6 +475,7 @@ export default {
       stompClient.connect({}, function (frame) {
         stompClient.subscribe("/topic/market/thumb", function (msg) {
           var resp = JSON.parse(msg.body);
+          // console.log(resp)
           that.updatePriceInfo(resp);
         });
 
@@ -629,7 +631,25 @@ export default {
         .then((response) => {
           var resp = response.body;
           console.log(resp);
+          this.coinMarket = [];
           for (let i = 0; i < resp.length; i++) {
+            let symbolArr = resp[i].symbol.split("/");
+            let symbol = (symbolArr[0] + "_" + symbolArr[1]).toLowerCase();
+            let color = "";
+            if (resp[i].chg > 0) {
+              color = "green";
+            } else if (resp[i].chg < 0) {
+              color = "red";
+            }
+            let coinMarket = {
+              symbol: resp[i].symbol,
+              price: resp[i].close,
+              pChg: resp[i].chg,
+              url: "/exchange/" + symbol,
+              color: color,
+            };
+            this.coinMarket.push(coinMarket);
+
             if (this.currentCoin.symbol == resp[i].symbol) {
               if (resp[i].chg < 0) {
                 this.priceInfo.textColor = "red";
@@ -642,13 +662,25 @@ export default {
               this.priceInfo.low24 = resp[i].low;
               this.priceInfo.vol24 = resp[i].volume;
               this.priceInfo.pChg = resp[i].chg;
-
-              break;
             }
           }
         });
     },
     updatePriceInfo(resp) {
+      for (let i = 0; i < this.coinMarket.length; i++) {
+        if (this.coinMarket[i].symbol == resp.symbol) {
+          this.coinMarket[i].price = resp.close;
+          this.coinMarket[i].pChg = resp.chg;
+          if (resp.chg > 0) {
+            this.coinMarket[i].color = "green";
+          } else if (resp.chg < 0) {
+            this.coinMarket[i].color = "red";
+          }
+
+          break;
+        }
+      }
+
       if (this.currentCoin.symbol == resp.symbol) {
         if (resp.chg < 0) {
           this.priceInfo.textColor = "red";
@@ -670,6 +702,9 @@ export default {
       } else {
         return value;
       }
+    },
+    selectMarketSymbol(url) {
+      window.location.href = url;
     },
   },
   mounted() {

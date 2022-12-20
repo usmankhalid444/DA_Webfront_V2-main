@@ -212,9 +212,6 @@ export default {
         },
       ],
       chartOptions: {
-        stroke: {
-          colors: ["#141B1F"],
-        },
         xaxis: {
           type: "numeric",
           lines: {
@@ -268,9 +265,9 @@ export default {
         plotOptions: {
           treemap: {
             enableShades: false,
-            // shadeIntensity: 0.5,
-            // reverseNegativeShade: false,
-            // useFillColorAsStroke: true,
+            shadeIntensity: 0.5,
+            reverseNegativeShade: false,
+            useFillColorAsStroke: true,
             colorScale: {
               ranges: [
                 {

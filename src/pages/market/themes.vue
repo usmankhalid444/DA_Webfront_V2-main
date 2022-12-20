@@ -6,7 +6,6 @@
         :TableData="TableDatas"
         :ShowThemes="true"
         v-on:child-method="updateParent"
-        current_page="theme"
       ></Dynamic-Table>
     </div>
     <div class="buy-sell-detail" v-show="ShowBuySell">
@@ -17,8 +16,8 @@
             <p class="discription-coin thaiLang">
               การอัพเกรดครั้งยิ่งใหญ่ของเหรียญที่มีความยิ่งใหญ่อันดับสองของโลก
               Cryptocurrency ที่จะเปลี่ยนจากการทำงาน PoW เป็น PoS
-              ซึ่งจะส่งผลกระทบทางบวกกับเหรียญบางชนิด
-              โดยอีเว้นท์นี้มีชื่อเรียกว่า “ The Merge “
+              ซึ่งจะส่งผลกระทบทางบวกกับเหรียญบางชนิด โดยอีเว้นท์นี้มีชื่อเรียกว่า “ The
+              Merge “
             </p>
           </div>
           <!-- <div class="vr"></div> -->
@@ -47,7 +46,6 @@
           :TableHeader="TableHeading"
           :TableData="TableDatas"
           :Showfavorite="true"
-          current_page="theme"
         ></Dynamic-Table>
       </div>
     </div>
@@ -125,8 +123,7 @@ export default {
           hourChange: "+4.78%",
           volume: "400,000M",
           marketCap: "468,987M",
-          Description:
-            "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
+          Description: "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
           Categories: "Governance Token /DeFi",
         },
         {
@@ -138,8 +135,7 @@ export default {
           hourChange: "+5.78%",
           volume: "500,000M",
           marketCap: "568,987M",
-          Description:
-            "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
+          Description: "เหรียญที่ถูกจ่าย เป็น Reward จากการนำเหรียญ ไปฟาร์ม/ปล่อยกู้",
           Categories: "Governance Token /DeFi",
         },
       ],

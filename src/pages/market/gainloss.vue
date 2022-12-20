@@ -187,9 +187,17 @@ export default {
             "BTC",
             "BTC",
           ],
+          opposite: true,
           axisTicks: { show: false },
-          axisBorder: { show: true, offsetY: -114 },
-          labels: { show: true },
+          axisBorder: { color: "#3C515D" },
+          labels: {
+            show: true,
+            style: {
+              colors: "#D6DDE1",
+              fontSize: "14px",
+              fontWeight: "300",
+            },
+          },
         },
         chart: {
           type: "bar",
@@ -198,7 +206,18 @@ export default {
             show: false,
           },
         },
-
+        yaxis: {
+          show: false,
+          labels: {
+            show: false,
+          },
+          axisBorder: {
+            show: false,
+          },
+          axisTicks: {
+            show: false,
+          },
+        },
         plotOptions: {
           bar: {
             dataLabels: {
@@ -228,8 +247,9 @@ export default {
           },
           offsetY: -20,
           style: {
-            fontSize: "12px",
+            fontSize: "14px",
             colors: ["#D6DDE1"],
+            fontWeight: "300",
           },
         },
         grid: {
@@ -299,5 +319,8 @@ a {
   font-family: "Roboto Flex";
   font-style: normal;
   font-weight: 400;
+}
+.apexcharts-xaxis-texts-g text {
+  display: none !important;
 }
 </style>

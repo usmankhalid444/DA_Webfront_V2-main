@@ -1,6 +1,6 @@
 <template>
     <div>
-        <iframe src="https://www.missionsoftwarethailand.com/stockchartxrtc/chart.aspx" style="width: 100vw;height: 85vh;"></iframe>
+        <iframe src="http://27.254.47.24/libchart/chart?symbol=BTC%2FTHB" style="width: 100vw;height: 85vh;"></iframe>
     </div>
 </template>
 <script>
