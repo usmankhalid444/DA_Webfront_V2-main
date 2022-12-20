@@ -1,6 +1,14 @@
 <template>
   <div class="padding-table scroller">
-    <table class="table ma-3 table-responsive table-w-setting" id="myTable">
+    <table
+      class="table ma-3 table-responsive"
+      :class="
+        current_page === 'categories' || current_page === 'theme'
+          ? 'category-theme-w-setting'
+          : 'table-w-setting'
+      "
+      id="myTable"
+    >
       <thead v-for="(item, index) in TableHeader" :key="index">
         <!-- Heading Coin -->
         <th scope="col" class="textGreyDark" v-if="Showfavorite || ShowTreeMap">
@@ -482,7 +490,6 @@
           scope="col"
           class="textGreyDark-description"
           v-if="ShowCategories || ShowThemes || ShowAllCategoriesCurrency"
-          style="padding-left: 16px"
         >
           <div class="d-flex justify-content-left" style="margin-bottom: 15px">
             <div class="align-Icon-Heading">{{ item.headingDescription }}</div>
@@ -734,7 +741,7 @@
 </template>
 
 <script>
-import Chart from "chart.js";
+// import Chart from "chart.js";
 import favoriteGraph from "./Graph-data.js";
 export default {
   name: "favorite",
@@ -749,6 +756,7 @@ export default {
     "ShowTreeMap",
     "ShowAllCategoriesCurrency",
     "ShowGainLoss",
+    "current_page",
   ],
   data() {
     return {
@@ -1211,6 +1219,10 @@ export default {
 @media only screen and (max-width: 880px) {
   .table-w-setting {
     width: 120%;
+    margin: auto;
+  }
+  .category-theme-w-setting {
+    width: 200%;
     margin: auto;
   }
 }
