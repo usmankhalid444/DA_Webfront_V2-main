@@ -65,15 +65,18 @@ export default {
   background-color: #141b1f;
   width: 480px;
   margin: auto;
+  margin-top: 70px;
   padding: 20px 0;
 }
 
 .qr-modal {
   font-family: "Sarabun";
+  line-height: 24px;
   .modal-top {
     text-align: center;
     color: #d6dde1;
     font-size: 18px;
+    line-height: 27.2px;
     font-family: "Noto Sans Thai";
     p {
       margin: 0;

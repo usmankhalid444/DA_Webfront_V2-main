@@ -84,7 +84,7 @@
         </span>
       </div>
       <div class="filter-date-picker">
-        <date-picker v-model="time3" range></date-picker>
+        <date-picker v-model="time3" range style="width:221px"></date-picker>
       </div>
       <div class="export-button">
         <button>Export to Exel</button>

@@ -68,7 +68,7 @@
             </span>
           </div>
           <button
-            class="f-btn"
+            class="f-btn thai-font"
             @click="
               $bvModal.hide('deposit-coin-qr-modal'),
                 $bvModal.show('qr-success-modal')
@@ -80,7 +80,7 @@
       </div>
     </b-modal>
     <QrSuccessModal />
-    <notifications position="center center" classes="my-custom-class">
+    <notifications position="center center" classes="">
       <template slot="body" slot-scope="{ item, close }">
         <div class="my-notification">
           <p class="title">
@@ -133,13 +133,15 @@ export default {
 #deposit-coin-qr-modal___BV_modal_content_ {
   background-color: #141b1f;
   width: 480px;
+  margin-top: 60px;
+  z-index: 999;
   #deposit-coin-qr-modal___BV_modal_body_ {
     font-family: var(--bs-roboto-font-sans-serif);
     margin-top: 5px;
     .barcode-image {
       height: 140px;
       width: 140px;
-      margin: 24px auto;
+      margin: 24px auto 16px;
       display: block;
     }
     p {
@@ -196,6 +198,8 @@ export default {
         display: block;
         margin: auto;
         border-radius: 4px;
+        line-height: 24px;
+        font-weight: 500;
         color: #0a0d10;
         margin-top: 32px;
         background-color: #f38220;
@@ -206,11 +210,19 @@ export default {
     }
   }
 }
+.my-notification,
+.vue-notification-wrapper,
+.vue-notification-group {
+  margin-top: 80px;
+}
 .success-notification {
-  position: absolute;
-  top: 180px;
-  left: 50px;
+  // position: absolute;
+  // top: 180px;
+  // left: 50px;
+  z-index: 0;
   padding: 8px 0px;
+  // margin-top: 400px;
+  pointer-events: none;
   background: #40994f;
   width: 206px;
   color: white;

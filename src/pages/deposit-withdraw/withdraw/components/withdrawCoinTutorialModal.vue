@@ -66,8 +66,9 @@ export default {};
 <style lang="scss">
 #withdraw-coin-tutorial___BV_modal_content_ {
   width: 360px;
+  background-color: #141b1f;
+  margin-top: 250px;
   #withdraw-coin-tutorial___BV_modal_body_ {
-    background-color: #141b1f;
     .modal-close-button {
       cursor: pointer;
     }

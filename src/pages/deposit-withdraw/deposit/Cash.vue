@@ -151,17 +151,17 @@
         </div>
       </div>
       <!-- bottom section end -->
-    </div>
-    <div class="right-info thai-font">
-      <p>คำถามที่พบบ่อย</p>
-      <ul>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-      </ul>
+      <div class="right-info thai-font">
+        <p>คำถามที่พบบ่อย</p>
+        <ul>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+        </ul>
+      </div>
     </div>
     <DepositCashModal />
   </div>
@@ -184,8 +184,7 @@ export default {
   background-color: #192126;
   border-radius: 8px;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
   .margin-l-24 {
     margin-left: 24px;
   }
@@ -417,16 +416,23 @@ export default {
   .right-info {
     display: none;
   }
+  .deposite-cash-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 @media (min-width: 1366px) {
   .right-info {
     display: block;
-    right: 100px;
+    right: 0;
+    margin-right: -255px;
+    top: 0;
+  }
+  .deposite-cash-container {
+    margin-left: 50%;
+    transform: translateX(-75%);
   }
 }
 @media (min-width: 1536px) {
-  .right-info {
-    right: 240px;
-  }
 }
 </style>

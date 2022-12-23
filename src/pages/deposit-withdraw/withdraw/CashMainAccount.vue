@@ -20,7 +20,7 @@ r
           <div class="col-12">
             <p class="heading">กรุณาเลือกบัญชีหลักที่ท่านต้องการรับเงิน</p>
             <div class="d-flex">
-              <input type="radio" />
+              <input @click="radio1 = !radio1" type="radio" :checked="radio1" />
               <div class="d-info">
                 <span>บัญชีธนาคารที่รับเงิน</span>
                 <div>
@@ -34,7 +34,7 @@ r
               </div>
             </div>
             <div class="d-flex sec">
-              <input type="radio" />
+              <input @click="radio2 = !radio2" type="radio" :checked="radio2" />
               <div class="d-info">
                 <span>บัญชีธนาคารที่รับเงิน</span>
                 <div>
@@ -47,7 +47,7 @@ r
                 <span class="link"></span>
               </div>
             </div>
-            <ul class="iner-list">
+            <ul class="iner-list thai-font">
               <li>เมื่อมีการถอนเงินบริษัทจะโอนเงินเข้าบัญชีหลักที่ท่านเลือก</li>
             </ul>
 
@@ -68,17 +68,17 @@ r
 
         <!-- bottom section end -->
       </div>
-    </div>
-    <div class="right-info thai-font">
-      <p>คำถามที่พบบ่อย</p>
-      <ul>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-      </ul>
+      <div class="right-info thai-font">
+        <p>คำถามที่พบบ่อย</p>
+        <ul>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+        </ul>
+      </div>
     </div>
     <otp-model :otp="false"></otp-model>
   </div>
@@ -90,7 +90,10 @@ export default {
     OtpModel,
   },
   data() {
-    return {};
+    return {
+      radio1: false,
+      radio2: false,
+    };
   },
   methods: {},
 };
@@ -101,8 +104,7 @@ export default {
   border-radius: 8px;
   min-height: 445px;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
   .dcc-head {
     border-bottom: 1px solid #28363e;
     button {
@@ -311,17 +313,25 @@ export default {
   .right-info {
     display: none;
   }
+  .cash-main-account-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 @media (min-width: 1366px) {
   .right-info {
     display: block;
-    right: 100px;
+    right: 0;
+    margin-right: -255px;
+    top: 0;
+  }
+  .cash-main-account-container {
+    margin-left: 50%;
+    transform: translateX(-75%);
   }
 }
 @media (min-width: 1536px) {
-  .right-info {
-    right: 240px;
-  }
+  //
 }
 </style>
 <style scoped>
@@ -358,8 +368,8 @@ input[type="radio"]:after {
   width: 15px;
   height: 15px;
   border-radius: 15px;
-  top: 26px;
-  right: 2px;
+  top: 27px;
+  right: 1px;
   position: relative;
   background-color: #222b2f;
   content: "";

@@ -7,8 +7,8 @@
       ref="otp-success-modal"
       :hide-footer="true"
       :hide-header="true"
-      centered
     >
+      <!-- centered -->
       <div class="modal-wrapper">
         <div class="modal-container">
           <div class="modalHeading">
@@ -139,6 +139,7 @@ export default {
   background: transparent !important;
   border: none;
   padding: 0px;
+  margin-top: 150px;
 }
 </style>
 <style scoped>

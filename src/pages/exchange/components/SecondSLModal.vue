@@ -128,7 +128,7 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div class="row">
           <div class="col-3 w-title my-auto">Sell Amount</div>
           <div class="col-9">
@@ -199,43 +199,39 @@ export default {
 };
 </script>
 <style>
-#limitorder-SSL___BV_modal_body_{
+#limitorder-SSL___BV_modal_body_ {
   padding: 0px 16px 20px 16px !important;
 }
-
 </style>
 <style scoped>
-.sa-tabs > div{
-  color: #9BACB6;
+.sa-tabs > div {
+  color: #9bacb6;
 }
-.sa-tabs >  .active{
+.sa-tabs > .active {
   color: white !important;
 }
-hr{
-  
+hr {
   margin: 16px 0px;
-  background: #28363E;
-
+  background: #28363e;
 }
- .stop-loss-detail-modal .header{
+.stop-loss-detail-modal .header {
   padding: 24px 0px;
   margin: 0px !important;
   width: 100%;
 }
 .stop-loss-detail-modal .header > span {
   margin-left: 10px;
-
 }
-.stop-loss-detail-modal .tab{
-color:#677F8E;
+.stop-loss-detail-modal .tab {
+  color: #677f8e;
 }
-.stop-loss-detail-modal .tab.active{
+.stop-loss-detail-modal .tab.active {
   color: white !important;
 }
-.top-row{
-line-height: 24px;
+.top-row {
+  line-height: 24px;
 }
-.stop-loss-detail-modal  h5{
+.stop-loss-detail-modal h5 {
   padding: 24px 0px;
 }
 </style>

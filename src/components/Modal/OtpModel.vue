@@ -3,7 +3,7 @@
     <!-- cash withdraw modal -->
 
     <transition name="modal">
-      <div class="modal-mask">
+      <div :class="wcd ? 'wcd' : 'modal-mask'">
         <div class="modal-wrapper">
           <div class="modal-container">
             <div class="modalHeading">
@@ -95,6 +95,7 @@ export default {
       showWithdrawOTPModal: true,
     };
   },
+  props: ["wcd"],
   methods: {
     next(e) {
       if (e.data == null) {
@@ -126,6 +127,19 @@ export default {
   background-color: rgba(0, 0, 0, 0.7);
   display: table;
   transition: opacity 0.3s ease;
+  margin-top: -100px;
+}
+.wcd {
+  position: absolute;
+  z-index: 9998;
+  top: -120%;
+  left: -120%;
+  width: 380%;
+  height: 350%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: table;
+  transition: opacity 0.3s ease;
+  margin-top: -100px;
 }
 .modal-wrapper {
   display: table-cell;

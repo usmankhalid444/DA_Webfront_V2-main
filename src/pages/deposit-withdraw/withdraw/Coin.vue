@@ -18,14 +18,16 @@
         <div class="container">
           <div v-if="!showTable" class="vertical-center" align="center">
             <div class="row" align="center">
-              <label class="col-12">ผู้ใช้งานต้องลงทะเบียน Wallet ก่อน</label>
-              <label class="col-12"
-                >จึงจะสามารถถอนเหรียญไปยัง Address ปลายทางได้ aaaaaa</label
+              <label class="col-12 wc-main-text m-0"
+                >ผู้ใช้งานต้องลงทะเบียน Wallet ก่อน
+              </label>
+              <label class="col-12 wc-main-text" style="margin-bottom: 16px"
+                >จึงจะสามารถถอนเหรียญไปยัง Address ปลายทางได้</label
               >
             </div>
             <div class="last-btn">
               <button @click="showWithdrawModal = true" class="thai-font">
-                ยืนยันการถอนเงิน
+                ลงทะเบียน Wallet ใหม่
               </button>
             </div>
           </div>
@@ -36,19 +38,18 @@
 
         <!-- bottom section end -->
       </div>
+      <div class="right-info thai-font">
+        <p>คำถามที่พบบ่อย</p>
+        <ul>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+        </ul>
+      </div>
     </div>
-    <div class="right-info thai-font">
-      <p>คำถามที่พบบ่อย</p>
-      <ul>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-      </ul>
-    </div>
-
     <withdrawCoin
       v-if="showWithdrawModal"
       @showOTPModel="showWithdrawOTPModal = true"
@@ -113,16 +114,26 @@ export default {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+  .wc-main-text {
+    color: #9bacb6;
+    line-height: 24px;
+    font-family: "Sarabun";
+  }
 }
 .last-btn {
   text-align: center;
   justify-content: center;
   button {
+    width: 164px;
     height: 36px;
-    width: 132px !important;
     color: #0a0d10;
     background-color: #f38220;
     border-radius: 4px;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
     &:hover {
       background-color: #f28e38;
     }
@@ -134,8 +145,7 @@ export default {
   border-radius: 8px;
   min-height: auto;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
   .dcc-head {
     border-bottom: 1px solid #28363e;
     button {
@@ -310,18 +320,25 @@ export default {
   .right-info {
     display: none;
   }
+  .withdraw-coin-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media (min-width: 1366px) {
   .right-info {
     display: block;
-    right: 100px;
+    right: 0;
+    margin-right: -255px;
+    top: 0;
+  }
+  .withdraw-coin-container {
+    margin-left: 50%;
+    transform: translateX(-75%);
   }
 }
 @media (min-width: 1536px) {
-  .right-info {
-    right: 240px;
-  }
 }
 </style>
 <style scoped>

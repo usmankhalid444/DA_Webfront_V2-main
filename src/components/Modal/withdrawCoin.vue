@@ -5,9 +5,12 @@
     <transition name="modal">
       <div class="modal-mask">
         <div class="modal-wrapper">
-          <div class="modal-container center-section">
+          <div
+            class="modal-container center-section"
+            style="margin-top: -150px; font-family: Sarabun !important"
+          >
             <div class="modalHeading">
-              <label>ลงทะเบียน Whitelisted </label>
+              <label class="nono-sans-thai-font">ลงทะเบียน Whitelisted </label>
               <span @click="closeModel()">&times;</span>
             </div>
 
@@ -18,7 +21,7 @@
                 <p class="text-dark-grey">ตั้งชื่อ Wallet</p>
               </div>
               <div class="col-9 input-container" align="left">
-                <input class="w-100" type="text" placeholder="เลือกเหรียญ" />
+                <input class="" type="text" placeholder="เลือกเหรียญ" />
               </div>
             </div>
             <div class="row py-1 px-3">
@@ -28,14 +31,17 @@
               <div class="col-9 input-container">
                 <input
                   type="text"
-                  class="prepend-icon w-100"
+                  class="prepend-icon"
                   placeholder="Ethereum (ETH)"
                 />
                 <span class="prepend"
                   ><img src="@/assets/images/wallet/eth.png" alt="eth-image"
                 /></span>
                 <span class="append"
-                  ><img src="@/assets/images/wallet/search.png" alt="search-image" />
+                  ><img
+                    src="@/assets/images/wallet/search.png"
+                    alt="search-image"
+                  />
                 </span>
               </div>
             </div>
@@ -45,20 +51,32 @@
               </div>
               <div class="col-9" align="left">
                 <div
-                  class="select-container w-100"
+                  class="select-container font-roboto-flex"
                   tabindex="0"
                   @click="open_dropdown = !open_dropdown"
                   @blur="open_dropdown = false"
                 >
-                  <span class="text input-container">{{ selected_option }}</span>
-                  <span class="icon" :class="open_dropdown ? 'rotate-sc-icon' : ''">
-                    <img src="@/assets/images/wallet/dropIcon.png" alt="drop-icon" />
+                  <span class="text input-container">{{
+                    selected_option
+                  }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
+                  >
+                    <img
+                      src="@/assets/images/wallet/dropIcon.png"
+                      alt="drop-icon"
+                    />
                   </span>
-                  <div class="options" :class="open_dropdown ? 'show' : 'hidden'">
+                  <div
+                    class="options"
+                    :class="open_dropdown ? 'show' : 'hidden'"
+                  >
                     <ul>
                       <li
                         @click="
-                          (selected_option = 'Network ABC'), (currentSettings = 'qr')
+                          (selected_option = 'Network ABC'),
+                            (currentSettings = 'qr')
                         "
                       >
                         Network ABC
@@ -81,7 +99,8 @@
               <div class="col-9" align="left">
                 <p class="text-dark-grey negative">
                   กรุณาเลือก Network ของผู้รับ Address ให้ตรงกับ Network
-                  <br />ของเหรียญที่คุณเลือก มิเช่นนั้นทรัพย์สินของคุณอาจสูญหายได้
+                  <br />ของเหรียญที่คุณเลือก
+                  มิเช่นนั้นทรัพย์สินของคุณอาจสูญหายได้
                 </p>
               </div>
             </div>
@@ -91,7 +110,11 @@
                 <p class="text-dark-grey">Address</p>
               </div>
               <div class="col-9 input-container" align="left">
-                <input class="with-icons w-100" type="text" placeholder="เลือกเหรียญ" />
+                <input
+                  class="with-icons"
+                  type="text"
+                  placeholder="เลือกเหรียญ"
+                />
                 <span class="append">
                   <img
                     style="width: 17px; height: 17px"
@@ -117,7 +140,7 @@
                 <p class="text-dark-grey">Memo</p>
               </div>
               <div class="col-9 input-container" align="left">
-                <input class="w-100" type="text" placeholder="(Optional)" />
+                <input class="" type="text" placeholder="(Optional)" />
               </div>
             </div>
 
@@ -164,6 +187,7 @@ export default {
     color: #d6dde1;
     border-radius: 4px;
     height: 40px;
+    width: 240px;
     margin: auto 0;
     display: flex;
     align-items: center;
@@ -236,6 +260,7 @@ export default {
       color: #d6dde1;
       border-radius: 4px;
       height: 40px;
+      width: 240px;
       padding: 0 20px;
       text-transform: capitalize;
       &::placeholder {
@@ -309,7 +334,7 @@ input {
   vertical-align: middle;
 }
 .modal-container {
-  max-width: 630px;
+  width: 524px;
   min-height: 411px;
   /* left: 0px; */
   /* top: 75px; */

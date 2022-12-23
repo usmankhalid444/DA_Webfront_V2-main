@@ -10,7 +10,7 @@
         <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
       </div>
       <div class="m-center">
-        <p class="c-title">บันทึก QR Code สำเร็จ</p>
+        <p class="c-title nono-sans-thai-font">บันทึก QR Code สำเร็จ</p>
         <p class="c-value">ท่านจะได้รับเงินภายใน 24 ชั่วโมง</p>
         <p class="c-value">และจะได้รับ อีเมลยืนยัน เมื่อการถอนเงินสำเร็จ</p>
       </div>
@@ -56,7 +56,8 @@ export default {
   width: 458px;
   height: 355px;
   margin: auto;
-  font-family: "Noto Sans Thai";
+  margin-top: 130px;
+  font-family: "Sarabun";
   #request-done-modal___BV_modal_body_ {
     .close-btn {
       cursor: pointer;

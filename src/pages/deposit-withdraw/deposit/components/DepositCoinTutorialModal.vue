@@ -66,8 +66,9 @@ export default {};
 <style lang="scss">
 #deposit-coin-tutorial___BV_modal_content_ {
   width: 360px;
+  margin-top: 165px;
+  background-color: #141b1f;
   #deposit-coin-tutorial___BV_modal_body_ {
-    background-color: #141b1f;
     .modal-close-button {
       cursor: pointer;
     }

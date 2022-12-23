@@ -36,10 +36,10 @@
         </div>
         <div class="row">
           <div class="col-4 thai-font del-font">หมายเลขธุรกรรม</div>
-          <div class="col-7">
+          <div class="col-5">
             <span class="thai-font">XXXXXXXXXXXXXXXXXXXX XXXXXXXXXXXX</span>
           </div>
-          <div class="col-1">
+          <div class="col-3 text-center">
             <img src="@/assets/images/wallet/copyIcon.png" alt="copy" />
           </div>
         </div>
@@ -95,6 +95,7 @@ export default {
   background-color: #141b1f;
   width: 416px;
   margin: auto;
+  margin-top: 130px;
   height: 440px;
   font-family: "Roboto Flex";
   #qr-status-modal___BV_modal_body_ {

@@ -38,7 +38,7 @@
             >
               <div
                 v-if="item === 'Wallet'"
-                class="align-Icon-Heading p-0"
+                class="align-Icon-Heading py-0"
                 style="position: relative; left: 27px"
               >
                 {{ item }}
@@ -57,7 +57,7 @@
               v-for="(item, index) in TableData"
               :key="index"
             >
-              <td class="textGrey px-0 font-roboto">
+              <td class="textGrey px-1 font-roboto">
                 <div class="d-flex">
                   <input type="radio" class="me-3" id="min" name="time" />
                   {{ item.wallet }}
@@ -176,7 +176,7 @@ input[type="radio"]:after {
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  right: 0px;
+  right: 1px;
   position: relative;
   background-color: #222b2f;
   content: "";

@@ -129,8 +129,7 @@
                   class="colormiddle"
                   :to="{ path: '/ProfileSetting/LogOut' }"
                   :active="$route.name == 'LogOut'"
-                  >ออกจากระบบ</b-link
-                >
+                  >ออกจากระบบ</b-link>
               </div>
             </li>
           </ul>
@@ -151,13 +150,12 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
-      pathName: "",
+      pathName:"",
     };
   },
   methods: {
     getRouteName() {
       let path = this.$route.path;
-      console.log(path);
       let pathArr = path.split("/");
       this.pathName = pathArr[1];
     },
@@ -172,6 +170,8 @@ export default Vue.extend({
 .background-tabs {
   background-color: #192126;
   padding-left: 0px;
+  width: 272px !important;
+  padding-right: 8px;
   padding-bottom: 15%;
   /* width: 272px; */
 }

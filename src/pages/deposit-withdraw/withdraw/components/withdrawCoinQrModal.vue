@@ -67,7 +67,10 @@
               </svg>
             </span>
           </div>
-          <button class="f-btn" @click="$bvModal.hide('deposit-coin-qr-modal')">
+          <button
+            class="f-btn thai-font"
+            @click="$bvModal.hide('deposit-coin-qr-modal')"
+          >
             บันทึกรูป
           </button>
         </div>
@@ -86,12 +89,13 @@ export default {
 #deposit-coin-qr-modal___BV_modal_content_ {
   background-color: #141b1f;
   width: 480px;
+  margin-top: 60px;
   #deposit-coin-qr-modal___BV_modal_body_ {
     font-family: var(--bs-roboto-font-sans-serif);
     .barcode-image {
       height: 140px;
       width: 140px;
-      margin: 20px auto;
+      margin: 20px auto 16px;
       display: block;
     }
     p {
@@ -146,6 +150,8 @@ export default {
         height: 36px;
         display: block;
         margin: auto;
+        line-height: 24px;
+        font-weight: 500;
         border-radius: 4px;
         color: #0a0d10;
         margin-top: 25px;

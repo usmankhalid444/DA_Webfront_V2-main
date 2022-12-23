@@ -27,7 +27,7 @@
           <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
         </div>
         <div class="m-center">
-          <p class="c-title">บันทึก QR Code สำเร็จ</p>
+          <p class="c-title nono-sans-thai-font">บันทึก QR Code สำเร็จ</p>
           <p class="c-value">นำ QR Code</p>
           <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
           <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
@@ -69,7 +69,6 @@ export default {};
         color: #d6dde1;
         font-size: 18px;
         font-weight: 600;
-        font-family: "Sarabun";
       }
       .c-value {
         color: #677f8e;

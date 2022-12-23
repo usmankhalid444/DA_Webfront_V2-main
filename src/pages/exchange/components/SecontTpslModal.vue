@@ -57,7 +57,7 @@
           <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
         </div>
         <div class="row">
-          <div class="col-3 form-group form-check" style="padding-left: 2.5em;">
+          <div class="col-3 form-group form-check" style="padding-left: 2.5em">
             <label class="stpsl-cb">
               <input type="checkbox" class="form-check-input" />
               <span class="w-title">Take Profit</span>
@@ -95,7 +95,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-3 form-group form-check" style="padding-left: 2.5em;">
+          <div class="col-3 form-group form-check" style="padding-left: 2.5em">
             <label class="stpsl-cb">
               <input type="checkbox" class="form-check-input" />
               <span class="w-title">Stop Loss</span>
@@ -129,10 +129,10 @@
             </div>
           </div>
         </div>
-        <hr/>
+        <hr />
         <div class="row">
           <div class="col-3 w-title my-auto">Sell Amount</div>
-          <div class="col-9" style="padding-left: 36px;">
+          <div class="col-9" style="padding-left: 36px">
             <div class="row sa-tabs">
               <div
                 class="col-2 text-center sa-tab-first"
@@ -172,7 +172,7 @@
             </div>
           </div>
           <div class="col-3"></div>
-          <div class="col-9" style="padding-left: 24px;">
+          <div class="col-9" style="padding-left: 24px">
             <ul class="thai-font sl-ul">
               <li>
                 ขายจำนวน 100% เมื่อราคาเป็นไปตามเงื่อนไข <br />
@@ -202,31 +202,29 @@ export default {
   },
 };
 </script>
-<style >
+<style>
 #limitorder-TPSL___BV_modal_body_ {
   padding: 0px 16px 20px 16px !important;
 }
-#limitorder-STPSL___BV_modal_body_{
+#limitorder-STPSL___BV_modal_body_ {
   padding: 0px 16px 26px 16px !important;
 }
 </style>
 <style scoped>
-hr{
-  
+hr {
   margin: 16px 0px;
-  background: #28363E;
-
+  background: #28363e;
 }
-.stop-loss-detail-modal .tab{
-color:#677F8E;
+.stop-loss-detail-modal .tab {
+  color: #677f8e;
 }
-.stop-loss-detail-modal .tab.active{
+.stop-loss-detail-modal .tab.active {
   color: white !important;
 }
-.top-row{
-line-height: 24px;
+.top-row {
+  line-height: 24px;
 }
-.stop-loss-detail-modal  h5{
+.stop-loss-detail-modal h5 {
   padding: 24px 0px;
 }
 </style>

@@ -10,7 +10,7 @@
         <img src="@/assets/images/wallet/tick-svg.png" alt="tick-image" />
       </div>
       <div class="m-center">
-        <p class="c-title">บันทึก QR Code สำเร็จ</p>
+        <p class="c-title nono-sans-thai-font">บันทึก QR Code สำเร็จ</p>
         <p class="c-value">นำ QR Code</p>
         <p class="c-value">ที่ได้รับไปสแกนจากแอปพลิเคชั่นต้นทาง</p>
         <p class="c-value">เพื่อฝากเหรียญเข้าสู่ Portfolio ของท่าน</p>
@@ -55,6 +55,7 @@ export default {
 #qr-success-modal___BV_modal_content_ {
   background-color: #141b1f;
   min-height: 430px;
+  margin-top: 140px;
   font-family: "Noto Sans Thai";
   #qr-success-modal___BV_modal_body_ {
     .close-btn {

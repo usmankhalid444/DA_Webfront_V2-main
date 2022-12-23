@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="deposite-cash-container"
+      class="withdraw-cash-container"
       :class="currentSettings === 'qr' ? 'qr-h' : 'bc-h'"
     >
       <div class="container-fluid">
@@ -48,7 +48,7 @@
                   <div>
                     <span>ธนาคารกสิกรไทย &nbsp;&nbsp;&nbsp;|</span>
                     <span>111-1-1111-1 </span>
-                    <span> เปลี่ยน</span>
+                    <span style="cursor: pointer"> เปลี่ยน</span>
                   </div>
                 </div>
                 <!-- <div
@@ -180,8 +180,11 @@
         >
           <p>หมายเหตุ</p>
           <ul>
-            <li>จะได้รับเงินภายใน 1 นาที ถึง 24 ชั่วโมง</li>
-            <li>ถอนเงินได้สูงสุดไม่เกินวันละ 2,000,000 บาท</li>
+            <li>
+              หมายเหตุ ถอนเงินไม่เกิน 2,000,000 บาท จะได้รับเงินภายใน 1 นาที ถึง
+              24 ชั่วโมง
+            </li>
+            <li>ถอนเงินมากกว่า 2,000,000 บาท จะได้รับเงินภายใน 3 วัน</li>
           </ul>
           <!-- <label>
               <input class="form-check-input" type="checkbox" />
@@ -198,17 +201,17 @@
         </div>
         <!-- bottom section end -->
       </div>
-    </div>
-    <div class="right-info thai-font">
-      <p>คำถามที่พบบ่อย</p>
-      <ul>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-      </ul>
+      <div class="right-info thai-font">
+        <p>คำถามที่พบบ่อย</p>
+        <ul>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+        </ul>
+      </div>
     </div>
 
     <otp-model :otp="true"></otp-model>
@@ -236,12 +239,11 @@ export default {
 };
 </script>
 <style lang="scss">
-.deposite-cash-container {
+.withdraw-cash-container {
   background-color: #192126;
   border-radius: 8px;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
   .dcc-head {
     border-bottom: 1px solid #28363e;
     button {
@@ -415,30 +417,9 @@ export default {
     }
   }
 }
-@media (max-width: 640px) {
-  .deposite-cash-container {
-    width: auto;
-    height: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-bottom: 20px;
-    .center-section {
-      padding: 0;
-    }
-    // .select-container {
-    //   select {
-    //     width: 190px;
-    //   }
-    // }
-    .input-container {
-      input {
-        width: 190px;
-      }
-    }
-  }
-}
+
 @media (min-width: 640px) {
-  .deposite-cash-container {
+  .withdraw-cash-container {
     width: 616px;
     padding-bottom: 0;
     .center-section {
@@ -466,21 +447,28 @@ export default {
   .right-info {
     display: none;
   }
+  .withdraw-cash-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 @media (min-width: 1366px) {
   .right-info {
     display: block;
-    right: 100px;
+    right: 0;
+    margin-right: -255px;
+    top: 0;
+  }
+  .withdraw-cash-container {
+    margin-left: 50%;
+    transform: translateX(-75%);
   }
 }
 @media (min-width: 1536px) {
-  .right-info {
-    right: 240px;
-  }
 }
 </style>
 <style scoped>
-.deposite-cash-container {
+.withdraw-cash-container {
   min-height: 540px !important;
 }
 .input-container .input_label {

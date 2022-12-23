@@ -50,7 +50,7 @@
               v-for="(tab, index) in openordertabs"
               :key="index"
               @click="selectedopenorder = tab"
-              :class="{ active: selectedopenorder === tab }"
+              :class="{ active: selectedopenorder == tab }"
             >
               {{ tab }}
             </button>
@@ -66,7 +66,7 @@
         <!-- Limit & Market Order below -->
         <div
           class="fade show tab-pane active"
-          v-if="selectedopenorder === 'Limit & Market Orders'"
+          v-if="selectedopenorder == 'Limit  Orders (6)'"
         >
           <div class="row lm-order-container">
             <div
@@ -240,7 +240,7 @@
         <!-- Trailing Stop below -->
         <div
           class="fade show tab-pane active"
-          v-if="selectedopenorder === 'Trailing Stop'"
+          v-if="selectedopenorder == 'Trailing Stop (3)'"
         >
           <div class="">
             <div
@@ -323,9 +323,11 @@
                     <th scope="col">B/S</th>
                     <th scope="col">Coin</th>
                     <th scope="col">Type</th>
-                    <th scope="col">Price(THB)</th>
+                    <th scope="col" style="width: 30px;">Price(THB)</th>
                     <th scope="col" class=" text-right">Matched(BTC)</th>
                     <th scope="col" class="text-right">Matched(THB)</th>
+                    <th  colspan="3" style="width:20%"></th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -337,6 +339,8 @@
                     <td>898,000.00</td>
                     <td class="text-right">1</td>
                     <td class="text-right">10,000</td>
+                    <td colspan="3"></td>
+
                   </tr>
                 </tbody>
               </table>
@@ -356,9 +360,10 @@
                     <th scope="col">B/S</th>
                     <th scope="col">Coin</th>
                     <th scope="col">Type</th>
-                    <th scope="col">Price(THB)</th>
-                    <th scope="col">Matched(BTC)</th>
-                    <th scope="col">Matched(THB)</th>
+                    <th scope="col" style="width: 30px;">Price(THB)</th>
+                    <th scope="col" class=" text-right">Matched(BTC)</th>
+                    <th scope="col" class="text-right">Matched(THB)</th>
+                    <th  colspan="3" style="width:20%"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -368,8 +373,9 @@
                     <td>BTC</td>
                     <td>Market</td>
                     <td>898,000.00</td>
-                    <td>1</td>
-                    <td>10,000</td>
+                    <td class="text-right">1</td>
+                    <td class="text-right">10,000</td>
+                    <td colspan="3"></td>
                   </tr>
                 </tbody>
               </table>
@@ -389,9 +395,10 @@
                     <th scope="col">B/S</th>
                     <th scope="col">Coin</th>
                     <th scope="col">Type</th>
-                    <th scope="col">Price(THB)</th>
-                    <th scope="col">Matched(BTC)</th>
-                    <th scope="col">Matched(THB)</th>
+                    <th scope="col" style="width: 30px;">Price(THB)</th>
+                    <th scope="col" class=" text-right">Matched(BTC)</th>
+                    <th scope="col" class="text-right">Matched(THB)</th>
+                    <th  colspan="3" style="width:20%"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -401,8 +408,10 @@
                     <td>ETH</td>
                     <td>Market</td>
                     <td>898,000.00</td>
-                    <td>8</td>
-                    <td>5,000</td>
+                    <td class="text-right">8</td>
+                    <td class="text-right">5,000</td>
+                    <td colspan="3"></td>
+
                   </tr>
                 </tbody>
               </table>
@@ -664,7 +673,7 @@ export default {
       matchedTabs: ["Limit Orders (3)", "Market Order (2)", "Traling Stop (2)"],
       selectedMatchedTab: "Limit Orders (3)",
       openordertabs: ["Limit  Orders (6)", "Trailing Stop (3)"],
-      selectedopenorder: "Limit & Market Orders",
+      selectedopenorder: "Limit  Orders (6)",
       historyTabs: [],
       selectedHistoryTabs: [],
     };

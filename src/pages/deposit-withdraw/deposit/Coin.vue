@@ -22,7 +22,21 @@
                 เลือกช่องทางการฝาก
               </div>
               <div class="col-7 col-md-8 input-container">
-                <input type="text" placeholder="0.00" value="BTC" />
+                <input
+                  @click="network_selection = true"
+                  v-if="!network_selection"
+                  style="padding-left: 10px !important"
+                  type="text"
+                  placeholder="เลือกเหรียญ"
+                  name=""
+                  id=""
+                />
+                <input
+                  v-if="network_selection"
+                  type="text"
+                  placeholder="0.00"
+                  value="BTC"
+                />
                 <span
                   ><svg
                     width="16"
@@ -37,7 +51,7 @@
                     />
                   </svg>
                 </span>
-                <span class="coin-image"
+                <span class="coin-image" v-if="network_selection"
                   ><img
                     class="coin-img"
                     src="../../../assets/images/coin_32/btc.png"
@@ -45,7 +59,7 @@
                 /></span>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3" v-if="network_selection">
               <div class="col-5 col-md-4 my-auto thai-font">Network</div>
               <div class="col-7 col-md-8">
                 <div
@@ -98,7 +112,7 @@
                 </div>
               </div>
             </div>
-            <div class="row mt-4 info">
+            <div class="row mt-4 info" v-if="network_selection">
               <div class="col-12 col-md-4"></div>
               <div
                 class="col-12 col-md-8 thai-font"
@@ -112,11 +126,18 @@
         </div>
         <!-- center section start -->
         <!-- bottom section start -->
-        <div class="bottom-section thai-font">
+        <div class="bottom-section thai-font" v-if="network_selection">
           <div class="last-btn">
             <button
               @click="$bvModal.show('deposit-coin-qr-modal')"
               class="thai-font"
+              :class="
+                selected_option === 'Ronin' ||
+                selected_option === 'Ethereum (ERC20)' ||
+                selected_option === 'Network A'
+                  ? 'btn-active'
+                  : 'btn-non-active'
+              "
             >
               ยืนยันการฝากเหรียญ
             </button>
@@ -124,17 +145,17 @@
         </div>
         <!-- bottom section end -->
       </div>
-    </div>
-    <div class="right-info thai-font">
-      <p>คำถามที่พบบ่อย</p>
-      <ul>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-        <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
-      </ul>
+      <div class="right-info thai-font">
+        <p>คำถามที่พบบ่อย</p>
+        <ul>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+          <li>วิธีการฝากเงินผ่านระบบทำอย่างไร?</li>
+        </ul>
+      </div>
     </div>
     <DepositCoinQrModal />
     <DepositCoinTutorialModal />
@@ -149,6 +170,7 @@ export default {
     return {
       open_dropdown: false,
       selected_option: "เลือก Network",
+      network_selection: false,
     };
   },
   mounted() {
@@ -161,9 +183,8 @@ export default {
   background-color: #192126;
   border-radius: 8px;
   margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
   font-family: "Sarabun";
+  position: relative;
   .dcc-head {
     border-bottom: 1px solid #28363e;
     font-family: "Roboto Flex";
@@ -314,10 +335,18 @@ export default {
       margin-right: -15px;
       button {
         color: #0a0d10;
-        background-color: #f38220;
         border-radius: 4px;
         height: 36px;
         width: 152px;
+      }
+      .btn-non-active {
+        background-color: #453425;
+        &:hover {
+          background-color: #6b4e35;
+        }
+      }
+      .btn-active {
+        background-color: #f38220;
         &:hover {
           background-color: #f28e38;
         }
@@ -375,16 +404,23 @@ export default {
   .right-info {
     display: none;
   }
+  .deposite-coin-container {
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
 }
 @media (min-width: 1366px) {
   .right-info {
     display: block;
-    right: 100px;
+    right: 0;
+    margin-right: -255px;
+    top: 0;
+  }
+  .deposite-coin-container {
+    margin-left: 50%;
+    transform: translateX(-75%);
   }
 }
 @media (min-width: 1536px) {
-  .right-info {
-    right: 240px;
-  }
 }
 </style>

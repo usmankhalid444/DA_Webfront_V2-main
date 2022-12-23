@@ -86,11 +86,11 @@
         ยกเลิก
       </button>
     </div>
-
     <OtpModel
       v-if="showWithdrawOTPModal"
       @onOTPSubmitted="onOTPSubmitted()"
       @closeModel="showWithdrawOTPModal = false"
+      :wcd="true"
     ></OtpModel>
     <RequestDoneModal
       showStatusButton
@@ -173,139 +173,138 @@ export default {
     margin: 2px 0;
   }
 }
-.deposite-cash-container {
-  background-color: #192126;
-  border-radius: 8px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  .dcc-head {
-    border-bottom: 1px solid #28363e;
-    button {
-      display: inline-block;
-      font-size: 16px;
-      padding: 15px 0;
-      margin-left: 20px;
-      border-bottom: 2px solid transparent;
-      color: #677f8e;
-      &:hover {
-        border-bottom: 2px solid #f38220;
-        color: #d6dde1;
-      }
-    }
+// .withdraw-coin-container {
+//   background-color: #192126;
+//   border-radius: 8px;
+//   margin-top: 50px;
+//   position: relative;
+//   .dcc-head {
+//     border-bottom: 1px solid #28363e;
+//     button {
+//       display: inline-block;
+//       font-size: 16px;
+//       padding: 15px 0;
+//       margin-left: 20px;
+//       border-bottom: 2px solid transparent;
+//       color: #677f8e;
+//       &:hover {
+//         border-bottom: 2px solid #f38220;
+//         color: #d6dde1;
+//       }
+//     }
 
-    button.active {
-      border-bottom: 2px solid #f38220;
-      color: #d6dde1;
-    }
-  }
-  .center-section {
-    .select-container {
-      background-color: #222b2f;
-      color: #d6dde1;
-      border-radius: 4px;
-      height: 40px;
-      width: 240px;
-      margin: auto 0;
-      display: flex;
-      align-items: center;
-      position: relative;
-      cursor: pointer;
-      .icon {
-        pointer-events: none;
-        position: absolute;
-        right: 20px;
-      }
-      .rotate-sc-icon {
-        transform: rotateX(180deg);
-      }
-      .text {
-        padding-left: 15px;
-      }
-      .options {
-        position: absolute;
-        bottom: -82px;
-        width: 100%;
-        background-color: #222b2f;
-        border-radius: 4px;
-        ul {
-          margin: 0;
-          padding: 0;
-          li {
-            display: flex;
-            align-items: center;
-            height: 40px;
-            padding: 0 15px;
-            border-radius: 4px;
-            &:hover {
-              background-color: #2c3b44;
-            }
-          }
-        }
-      }
-      .hidden {
-        display: none;
-      }
-      .show {
-        display: block;
-      }
-    }
-    .input-container {
-      input {
-        background-color: #222b2f;
-        color: #d6dde1;
-        border-radius: 4px;
-        height: 40px;
-        padding: 0 18px;
-        &::placeholder {
-          color: #566a76;
-        }
-      }
-      span {
-        color: #9bacb6;
-        margin-left: -40px;
-      }
-    }
+//     button.active {
+//       border-bottom: 2px solid #f38220;
+//       color: #d6dde1;
+//     }
+//   }
+//   .center-section {
+//     .select-container {
+//       background-color: #222b2f;
+//       color: #d6dde1;
+//       border-radius: 4px;
+//       height: 40px;
+//       width: 240px;
+//       margin: auto 0;
+//       display: flex;
+//       align-items: center;
+//       position: relative;
+//       cursor: pointer;
+//       .icon {
+//         pointer-events: none;
+//         position: absolute;
+//         right: 20px;
+//       }
+//       .rotate-sc-icon {
+//         transform: rotateX(180deg);
+//       }
+//       .text {
+//         padding-left: 15px;
+//       }
+//       .options {
+//         position: absolute;
+//         bottom: -82px;
+//         width: 100%;
+//         background-color: #222b2f;
+//         border-radius: 4px;
+//         ul {
+//           margin: 0;
+//           padding: 0;
+//           li {
+//             display: flex;
+//             align-items: center;
+//             height: 40px;
+//             padding: 0 15px;
+//             border-radius: 4px;
+//             &:hover {
+//               background-color: #2c3b44;
+//             }
+//           }
+//         }
+//       }
+//       .hidden {
+//         display: none;
+//       }
+//       .show {
+//         display: block;
+//       }
+//     }
+//     .input-container {
+//       input {
+//         background-color: #222b2f;
+//         color: #d6dde1;
+//         border-radius: 4px;
+//         height: 40px;
+//         padding: 0 18px;
+//         &::placeholder {
+//           color: #566a76;
+//         }
+//       }
+//       span {
+//         color: #9bacb6;
+//         margin-left: -40px;
+//       }
+//     }
 
-    .info {
-      color: #d6dde1;
-      p {
-        margin: 0;
-      }
-      ul {
-        list-style: disc;
-      }
-    }
-    .lr {
-      font-size: 16px;
-      span {
-        font-size: 14px;
-        color: #f38220;
-        margin-left: 8px;
-      }
-    }
-    .bcb {
-      margin: 0 -27px;
-      margin-top: 30px;
-      margin-bottom: 20px;
-      border-top: 1px solid #28363e;
-    }
+//     .info {
+//       color: #d6dde1;
+//       p {
+//         margin: 0;
+//       }
+//       ul {
+//         list-style: disc;
+//       }
+//     }
+//     .lr {
+//       font-size: 16px;
+//       span {
+//         font-size: 14px;
+//         color: #f38220;
+//         margin-left: 8px;
+//       }
+//     }
+//     .bcb {
+//       margin: 0 -27px;
+//       margin-top: 30px;
+//       margin-bottom: 20px;
+//       border-top: 1px solid #28363e;
+//     }
 
-    .bc-info {
-      ul {
-        list-style: disc;
-        padding: 0 24px;
-        li {
-          color: #9bacb6;
-          width: 70%;
-        }
-      }
-      ul.number {
-        list-style: decimal;
-      }
-    }
-  }
-}
+//     .bc-info {
+//       ul {
+//         list-style: disc;
+//         padding: 0 24px;
+//         li {
+//           color: #9bacb6;
+//           width: 70%;
+//         }
+//       }
+//       ul.number {
+//         list-style: decimal;
+//       }
+//     }
+//   }
+// }
 .bottom-text {
   font-family: "Sarabun";
   font-style: normal;
@@ -329,53 +328,53 @@ export default {
     }
   }
 }
-@media (max-width: 640px) {
-  .deposite-cash-container {
-    width: auto;
-    height: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding-bottom: 20px;
-    .center-section {
-      padding: 0;
-    }
-    // .select-container {
-    //   select {
-    //     width: 190px;
-    //   }
-    // }
-    .input-container {
-      input {
-        width: 190px;
-      }
-    }
-  }
-}
-@media (min-width: 640px) {
-  .deposite-cash-container {
-    width: 616px;
-    padding-bottom: 0;
-    .center-section {
-      padding: 0 1rem;
-    }
-    // .select-container {
-    //   select {
-    //     width: 240px;
-    //   }
-    // }
-    .input-container {
-      input {
-        width: 240px;
-      }
-    }
-  }
-  .qr-h {
-    height: 458px;
-  }
-  .bc-h {
-    height: 580px;
-  }
-}
+// @media (max-width: 640px) {
+//   .withdraw-coin-container {
+//     width: auto;
+//     height: auto;
+//     margin-left: 10px;
+//     margin-right: 10px;
+//     padding-bottom: 20px;
+//     .center-section {
+//       padding: 0;
+//     }
+//     // .select-container {
+//     //   select {
+//     //     width: 190px;
+//     //   }
+//     // }
+//     .input-container {
+//       input {
+//         width: 190px;
+//       }
+//     }
+//   }
+// }
+// @media (min-width: 640px) {
+//   .withdraw-coin-container {
+//     width: 616px;
+//     padding-bottom: 0;
+//     .center-section {
+//       padding: 0 1rem;
+//     }
+//     // .select-container {
+//     //   select {
+//     //     width: 240px;
+//     //   }
+//     // }
+//     .input-container {
+//       input {
+//         width: 240px;
+//       }
+//     }
+//   }
+//   .qr-h {
+//     height: 458px;
+//   }
+//   .bc-h {
+//     height: 580px;
+//   }
+// }
 @media (min-width: 100px) {
   .right-info {
     display: none;
@@ -410,9 +409,9 @@ export default {
 }
 </style>
 <style scoped>
-.deposite-cash-container {
+/* .withdraw-coin-container {
   min-height: 540px !important;
-}
+} */
 .input-container .input_label {
   margin: 0px;
   line-height: 24px;

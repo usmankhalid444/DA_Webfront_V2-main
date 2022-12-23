@@ -59,6 +59,7 @@ export default {
   background-color: #141b1f;
   width: 480px;
   margin: auto;
+  margin-top: 70px;
   padding: 20px 0;
 }
 

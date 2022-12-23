@@ -5,8 +5,8 @@
       id="main-verify-modal"
       :hide-footer="true"
       :hide-header="true"
-      centered
     >
+      <!-- centered -->
       <div class="otp-verify-modal">
         <div class="tick-img">
           <img
@@ -17,7 +17,7 @@
         </div>
         <div class="m-center">
           <p class="c-title">เพิ่มบัญชีหลักเรียบร้อยเเล้ว</p>
-          <p class="c-value">
+          <p class="c-value thai-font">
             เมื่อมีการถอนเงินบริษัทจะโอนเงินเข้าบัญชีหลัก<br />ที่ท่านเลือก
           </p>
         </div>
@@ -41,6 +41,7 @@ export default {
   border-radius: 15px;
   background-color: #141b1f;
   margin: auto;
+  margin-top: 150px;
   font-family: "Noto Sans Thai";
   #main-verify-modal___BV_modal_body_ {
     padding: 0px;

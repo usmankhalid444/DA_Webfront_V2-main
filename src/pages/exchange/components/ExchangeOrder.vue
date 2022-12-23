@@ -29,48 +29,42 @@
             <div class="row">
               <div class="col-md-6" style="padding-right: 16px">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="buying_amount" style="margin-bottom: "/>
+                  <input type="number" max="20000" v-model="buying_amount"  style="margin-bottom: "/>
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>ยอดเงินที่ซื้อได้</p>
-                  <p>20,000 THB</p>
+                  <p>{{buying_amount_value}} THB</p>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="lot_a = '0%'"
-                      :class="lot_a === '0%' ? 'active' : ''"
-                    >
+                  <b-progress height="2px" :value="limitOrder" style="margin: auto;
+                  height: 2px;
+                  background-color: #566a76;">
+                  </b-progress>
+                  <div class="spots">
+                    <div class="spot">
+                      <span class="dot align-self-baseline " :class="{active:limitOrder>=0}"></span>
                       <span>0%</span>
-                    </li>
-                    <li
-                      @click="lot_a = '25%'"
-                      :class="lot_a === '25%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot " :class="{active:limitOrder>=25}"></span>
                       <span>25%</span>
-                    </li>
-                    <li
-                      @click="lot_a = '50%'"
-                      :class="lot_a === '50%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:limitOrder>=50}"></span>
                       <span>50%</span>
-                    </li>
-                    <li
-                      @click="lot_a = '75%'"
-                      :class="lot_a === '75%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:limitOrder>=75}"></span>
                       <span>75%</span>
-                    </li>
-                    <li
-                      @click="lot_a = '100%'"
-                      :class="lot_a === '100%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot  align-self-end" :class="{active:limitOrder==100}"></span>
                       <span>100%</span>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
@@ -121,44 +115,38 @@
                 </div>
                   <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>มูลค่า BTC ที่มี</p>
-                  <p>986,937.90 THB</p>
+                  <p>{{ total_selling_amount }} THB</p>
                 </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="lot_b = '0%'"
-                      :class="lot_b === '0%' ? 'active' : ''"
-                    >
-                      <span>0%</span>
-                    </li>
-                    <li
-                      @click="lot_b = '25%'"
-                      :class="lot_b === '25%' ? 'active' : ''"
-                    >
-                      <span>25%</span>
-                    </li>
-                    <li
-                      @click="lot_b = '50%'"
-                      :class="lot_b === '50%' ? 'active' : ''"
-                    >
-                      <span>50%</span>
-                    </li>
-                    <li
-                      @click="lot_b = '75%'"
-                      :class="lot_b === '75%' ? 'active' : ''"
-                    >
-                      <span>75%</span>
-                    </li>
-                    <li
-                      @click="lot_b = '100%'"
-                      :class="lot_b === '100%' ? 'active' : ''"
-                    >
-                      <span>100%</span>
-                    </li>
-                  </ul>
-                </div>
-                <!-- timeline end -->
+                  <!-- timeline start -->
+                  <div class="timeline-bar">
+                    <b-progress height="2px" :value="selling_limit_order" style="margin: auto;
+                    height: 2px;
+                    background-color: #566a76;">
+                    </b-progress>
+                    <div class="spots">
+                      <div class="spot">
+                        <span class="dot align-self-baseline " :class="{active:selling_limit_order>=0}"></span>
+                        <span>0%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot " :class="{active:selling_limit_order>=25}"></span>
+                        <span>25%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot" :class="{active:selling_limit_order>=50}"></span>
+                        <span>50%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot" :class="{active:selling_limit_order>=75}"></span>
+                        <span>75%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot  align-self-end" :class="{active:selling_limit_order==100}"></span>
+                        <span>100%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input type="number" v-model="selected_sell_score" />
                   <span class="currency">BTC</span>
@@ -215,40 +203,38 @@
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="mot_a = '0%'"
-                      :class="mot_a === '0%' ? 'active' : ''"
-                    >
+                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>ยอดเงินที่ซื้อได้</p>
+                  <p>{{total_market_buying_value}} THB</p>
+                </div>
+                 <!-- timeline start -->
+                 <div class="timeline-bar">
+                  <b-progress height="2px" :value="market_buying_limit_order" style="margin: auto;
+                  height: 2px;
+                  background-color: #566a76;">
+                  </b-progress>
+                  <div class="spots">
+                    <div class="spot">
+                      <span class="dot align-self-baseline " :class="{active:market_buying_limit_order>=0}"></span>
                       <span>0%</span>
-                    </li>
-                    <li
-                      @click="mot_a = '25%'"
-                      :class="mot_a === '25%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot " :class="{active:market_buying_limit_order>=25}"></span>
                       <span>25%</span>
-                    </li>
-                    <li
-                      @click="mot_a = '50%'"
-                      :class="mot_a === '50%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:market_buying_limit_order>=50}"></span>
                       <span>50%</span>
-                    </li>
-                    <li
-                      @click="mot_a = '75%'"
-                      :class="mot_a === '75%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:market_buying_limit_order>=75}"></span>
                       <span>75%</span>
-                    </li>
-                    <li
-                      @click="mot_a = '100%'"
-                      :class="mot_a === '100%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot  align-self-end" :class="{active:market_buying_limit_order==100}"></span>
                       <span>100%</span>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
@@ -291,42 +277,40 @@
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="mot_b = '0%'"
-                      :class="mot_b === '0%' ? 'active' : ''"
-                    >
-                      <span>0%</span>
-                    </li>
-                    <li
-                      @click="mot_b = '25%'"
-                      :class="mot_b === '25%' ? 'active' : ''"
-                    >
-                      <span>25%</span>
-                    </li>
-                    <li
-                      @click="mot_b = '50%'"
-                      :class="mot_b === '50%' ? 'active' : ''"
-                    >
-                      <span>50%</span>
-                    </li>
-                    <li
-                      @click="mot_b = '75%'"
-                      :class="mot_b === '75%' ? 'active' : ''"
-                    >
-                      <span>75%</span>
-                    </li>
-                    <li
-                      @click="mot_b = '100%'"
-                      :class="mot_b === '100%' ? 'active' : ''"
-                    >
-                      <span>100%</span>
-                    </li>
-                  </ul>
+                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>มูลค่า BTC ที่มี</p>
+                  <p>{{total_market_selling_value}} THB</p>
                 </div>
-                <!-- timeline end -->
+                  <!-- timeline start -->
+                  <div class="timeline-bar">
+                    <b-progress height="2px" :value="market_selling_limit_order" style="margin: auto;
+                    height: 2px;
+                    background-color: #566a76;">
+                    </b-progress>
+                    <div class="spots">
+                      <div class="spot">
+                        <span class="dot align-self-baseline " :class="{active:market_selling_limit_order>=0}"></span>
+                        <span>0%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot " :class="{active:market_selling_limit_order>=25}"></span>
+                        <span>25%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot" :class="{active:market_selling_limit_order>=50}"></span>
+                        <span>50%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot" :class="{active:market_selling_limit_order>=75}"></span>
+                        <span>75%</span>
+                      </div>
+                      <div class="spot">
+                        <span class="dot  align-self-end" :class="{active:market_selling_limit_order==100}"></span>
+                        <span>100%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input
                     type="text"
@@ -372,44 +356,42 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" />
+                  <input type="number" v-model="triling_buying_value"/>
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="tst_a = '0%'"
-                      :class="tst_a === '0%' ? 'active' : ''"
-                    >
+                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>ยอดเงินที่ซื้อได้</p>
+                  <p>{{total_triling_buying_value}} THB</p>
+                </div>
+                 <!-- timeline start -->
+                 <div class="timeline-bar">
+                  <b-progress height="2px" :value="triling_buying_limit_order" style="margin: auto;
+                  height: 2px;
+                  background-color: #566a76;">
+                  </b-progress>
+                  <div class="spots">
+                    <div class="spot">
+                      <span class="dot align-self-baseline " :class="{active:triling_buying_limit_order>=0}"></span>
                       <span>0%</span>
-                    </li>
-                    <li
-                      @click="tst_a = '25%'"
-                      :class="tst_a === '25%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot " :class="{active:triling_buying_limit_order>=25}"></span>
                       <span>25%</span>
-                    </li>
-                    <li
-                      @click="tst_a = '50%'"
-                      :class="tst_a === '50%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:triling_buying_limit_order>=50}"></span>
                       <span>50%</span>
-                    </li>
-                    <li
-                      @click="tst_a = '75%'"
-                      :class="tst_a === '75%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot" :class="{active:triling_buying_limit_order>=75}"></span>
                       <span>75%</span>
-                    </li>
-                    <li
-                      @click="tst_a = '100%'"
-                      :class="tst_a === '100%' ? 'active' : ''"
-                    >
+                    </div>
+                    <div class="spot">
+                      <span class="dot  align-self-end" :class="{active:triling_buying_limit_order==100}"></span>
                       <span>100%</span>
-                    </li>
-                  </ul>
+                    </div>
+                  </div>
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
@@ -455,46 +437,44 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" />
+                  <input type="number" v-model="triling_selling_value"/>
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <ul class="timeline">
-                    <li
-                      @click="tst_b = '0%'"
-                      :class="tst_b === '0%' ? 'active' : ''"
-                    >
-                      <span>0%</span>
-                    </li>
-                    <li
-                      @click="tst_b = '25%'"
-                      :class="tst_b === '25%' ? 'active' : ''"
-                    >
-                      <span>25%</span>
-                    </li>
-                    <li
-                      @click="tst_b = '50%'"
-                      :class="tst_b === '50%' ? 'active' : ''"
-                    >
-                      <span>50%</span>
-                    </li>
-                    <li
-                      @click="tst_b = '75%'"
-                      :class="tst_b === '75%' ? 'active' : ''"
-                    >
-                      <span>75%</span>
-                    </li>
-                    <li
-                      @click="tst_b = '100%'"
-                      :class="tst_b === '100%' ? 'active' : ''"
-                    >
-                      <span>100%</span>
-                    </li>
-                  </ul>
+                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                  <p>มูลค่า BTC ที่มี</p>
+                  <p>{{total_triling_selling_value}} THB</p>
                 </div>
-                <!-- timeline end -->
+         <!-- timeline start -->
+         <div class="timeline-bar">
+          <b-progress height="2px" :value="triling_selling_limit_order" style="margin: auto;
+          height: 2px;
+          background-color: #566a76;">
+          </b-progress>
+          <div class="spots">
+            <div class="spot">
+              <span class="dot align-self-baseline " :class="{active:triling_selling_limit_order>=0}"></span>
+              <span>0%</span>
+            </div>
+            <div class="spot">
+              <span class="dot " :class="{active:triling_selling_limit_order>=25}"></span>
+              <span>25%</span>
+            </div>
+            <div class="spot">
+              <span class="dot" :class="{active:triling_selling_limit_order>=50}"></span>
+              <span>50%</span>
+            </div>
+            <div class="spot">
+              <span class="dot" :class="{active:triling_selling_limit_order>=75}"></span>
+              <span>75%</span>
+            </div>
+            <div class="spot">
+              <span class="dot  align-self-end" :class="{active:triling_selling_limit_order==100}"></span>
+              <span>100%</span>
+            </div>
+          </div>
+        </div>
+        <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input type="number" />
                   <span class="currency">THB</span>
@@ -818,16 +798,32 @@ export default {
   props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
+      
+      limitOrder:0,
+      buying_amount_value:20000,
       SL:false,
       profitLoss:false,
       buying_amount: null,
       selling_amount: null,
+      total_selling_amount:986937.90,
+      selling_limit_order:0,
       buying_btc: null,
       selling_btc: null,
       market_buying_price: 896458.67,
       market_selling_price: 896458.67,
       market_buying_value: null,
+      total_market_buying_value: 20000,
+      market_buying_limit_order:0,
       market_selling_value: null,
+      total_market_selling_value: 986937.90,
+      market_selling_limit_order:0,
+      triling_buying_value: null,
+      total_triling_buying_value: 20000,
+      triling_buying_limit_order:0,
+      triling_selling_value: null,
+      total_triling_selling_value: 986937.90,
+      triling_selling_limit_order:0,
+      
       lot_a: "0%",
       lot_b: "0%",
       mot_a: "0%",
@@ -839,6 +835,48 @@ export default {
     };
   },
   watch:{
+    buying_amount(newValue, oldValue){
+      if(this.buying_amount > this.buying_amount_value){
+         this.buying_amount=oldValue
+      }
+         let p = (this.buying_amount/this.buying_amount_value )*100
+         this.limitOrder = p
+    },
+    selling_amount(newValue, oldValue){
+      if(this.selling_amount > this.total_selling_amount){
+         this.selling_amount=oldValue
+      }
+         let p = (this.selling_amount/this.total_selling_amount )*100
+         this.selling_limit_order = p
+    },
+    market_buying_value(newValue, oldValue){
+      if(this.market_buying_value > this.total_market_buying_value){
+         this.market_buying_value=oldValue
+      }
+         let p = (this.market_buying_value/this.total_market_buying_value )*100
+         this.market_buying_limit_order = p
+    },
+    market_selling_value(newValue, oldValue){
+      if(this.market_selling_value > this.total_market_selling_value){
+         this.market_selling_value=oldValue
+      }
+         let p = (this.market_selling_value/this.total_market_selling_value )*100
+         this.market_selling_limit_order = p
+    },
+    triling_buying_value(newValue, oldValue){
+      if(this.triling_buying_value > this.total_triling_buying_value){
+         this.triling_buying_value=oldValue
+      }
+         let p = (this.triling_buying_value/this.total_triling_buying_value )*100
+         this.triling_buying_limit_order = p
+    },
+    triling_selling_value(newValue, oldValue){
+      if(this.triling_selling_value > this.total_triling_selling_value){
+         this.triling_selling_value=oldValue
+      }
+         let p = (this.triling_selling_value/this.total_triling_selling_value )*100
+         this.triling_selling_limit_order = p
+    },
     profitLoss(){
       if(this.profitLoss==true){
         this.$bvModal.show('limitorder-TPSL')
@@ -856,9 +894,44 @@ export default {
 #limitorder-TPSLB___BV_modal_body_,#limitorder-stop-loss___BV_modal_body_{
   padding: 0px 16px 20px 16px !important;
 }
+.timeline-bar{
+  width: 100%;
+  margin: auto !important;
+  padding: 18px 0px 35px !important; 
+  position:relative
+}
+.progress-bar{
+  background-color: #f38220 !important;
+}
 </style>
 <style scoped>
-
+.spots{
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -5px;
+}
+.spots .spot {
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #9bacb6;
+}
+.spots .spot .active{
+    background: #f38220 !important;
+    border-color: #203864 !important; 
+}
+.spots .spot .dot{
+  background: #1c262b;
+  border: 1px solid #566a76;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 4px;
+}
 .modal-th{
   padding: 24px 0px ;
   display: flex;
@@ -872,6 +945,7 @@ export default {
 }
 </style>
 <style lang="scss">
+
 .modal-content {
   // width: 360px;
   background-color: #141b1f !important;
