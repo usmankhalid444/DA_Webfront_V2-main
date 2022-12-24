@@ -22,7 +22,6 @@
             คุณจะได้รับเงินภายใน 1 นาที ถึง 24 ชั่วโมง<br />และจะได้รับอีเมลยืนยันเมื่อการถอนเงินสำเร็จ
           </p>
         </div>
-        <hr />
         <div class="row">
           <div class="col-5 thai-font"><span>ธนาคารที่รับเงิน</span></div>
           <div class="col-7 thai-font">
@@ -81,7 +80,12 @@ export default {
     }
     .m-center {
       text-align: center;
-
+      border-bottom: 1px solid #28363e;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
       p {
         margin: 0;
       }
@@ -112,12 +116,6 @@ export default {
 }
 </style>
 <style scoped>
-hr {
-  color: #28363e;
-  width: 80%;
-  margin: 24px auto !important;
-  opacity: 1;
-}
 .col-5 {
   font-weight: 400;
   font-size: 14px;
