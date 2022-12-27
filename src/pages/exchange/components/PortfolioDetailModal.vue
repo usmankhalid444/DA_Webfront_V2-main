@@ -7,9 +7,9 @@
       :hide-header="true"
     >
       <!-- v-if="show_SSL_order" -->
-      <div class="portfolio-detail-modal">
-        <div class="row">
-          <div class="col-12">
+      <div class="portfolio-detail-modal p-0">
+        <div class="row m-0">
+          <div class="col-12 p-0 heading">
             <span class="close-btn" @click="$bvModal.hide('portfolio-detail')"
               ><svg
                 width="14"
@@ -26,7 +26,7 @@
             </span>
           </div>
         </div>
-        <div class="row mt-3 mb-4">
+        <div class="row btns">
           <div class="col-6">
             <p class="pair">BTC <span>/THB</span></p>
             <p class="live-scores">1,399,111.01 (+2.5%)</p>
@@ -68,14 +68,14 @@
             <p class="c-value-green mb-0">1,299.01 (+1.01%)</p>
           </div>
         </div>
-        <div class="row f-buttons">
-          <div class="col-4">
+        <div class="f-buttons">
+          <div >
             <button class="thai-font">ฝาก BTC</button>
           </div>
-          <div class="col-4">
+          <div >
             <button class="thai-font">ถอน BTC</button>
           </div>
-          <div class="col-4"><button>Order History</button></div>
+          <div ><button>Order History</button></div>
         </div>
       </div>
     </b-modal>
@@ -84,12 +84,30 @@
 <script>
 export default {};
 </script>
+
 <style>
+#portfolio-detail .modal-dialog {
+  width: 456px;
+}
+
 #portfolio-detail___BV_modal_body_{
-  padding-top:0px !important;
+  padding:0px !important;
+}
+</style>
+<style scoped>
+.btns{
+  margin-bottom: 24px !important;
 }
 </style>
 <style lang="scss">
+.portfolio-detail-modal {
+  padding: 0px  24px !important;
+}
+.portfolio-detail-modal .heading{
+  padding-bottom: 8px !important;
+  height: 56px !important;
+  padding-top: 24px !important;
+}
 .mr-14{
   margin-right: 14px !important;
 }
@@ -103,7 +121,6 @@ export default {};
   .close-btn {
     float: right;
     cursor: pointer;
-    margin-top:29px
   }
   .pair {
     margin: 0;
@@ -160,12 +177,20 @@ export default {};
   }
   .f-buttons {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 24px;
+    display: flex;
+    margin-bottom: 21px;
     button {
       background-color: #222b2f;
       border-radius: 4px;
       height: 40px;
-      width: 100%;
+      width:124px;
+      margin-right: 16px;
+      &:active{
+        color: var(--bs-btn-active-color);
+        background-color: var(--bs-btn-active-bg);
+        border: 1px solid white !important;
+      }
     }
   }
   .body-container {

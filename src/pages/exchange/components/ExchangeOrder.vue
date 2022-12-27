@@ -25,7 +25,7 @@
             class="fade show active tab-pane"
             v-show="selectedorder === 'Limit Order'"
           >
-          <div style="padding-bottom: 20px;">
+          <div style="padding-bottom: 24px;">
             <div class="row">
               <div class="col-md-6" style="padding-right: 16px">
                 <div class="form-group bs-lp-input">
@@ -526,8 +526,8 @@
     </div>
 
     <!-- TP/SL Order-Confirmation modal -->
-    <b-modal id="limitorder-TPSLB" :hide-footer="true" :hide-header="true">
-      <div class="row mb-3 mt-2">
+    <b-modal id="limitorder-TPSLB" :hide-footer="true"  centered :hide-header="true">
+      <div class="row">
         <div class="col-12 modal-th limitorder-TPSLB">
           <h5 >Order Confirmation</h5>
           <span
@@ -550,42 +550,42 @@
         </div>
       </div>
 
-      <div class="row body">
+      <div class="row body order-confirm">
         <div class="col-12">
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:20px">Coin</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:20px">Coin</p></div>
             <div class="col-8"><span>BTC/THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:10px">Order</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:10px">Order</p></div>
             <div class="col-8"><span class="buy-badge">BUY</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:8px">Price</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Price</p></div>
             <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:8px">Amount</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Amount</p></div>
             <div class="col-8"><span>10,000 THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:16px">Total</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Total</p></div>
             <div class="col-8"><span>0.01535 BTC</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:8px">Order</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Order</p></div>
             <div class="col-8"><span class="sell-badge">Sell</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:8px">Take Profit</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Take Profit</p></div>
             <div class="col-8"><span>886,800.00(+10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:8px">Stop Loss</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Stop Loss</p></div>
             <div class="col-8"><span>665,100.00(-10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4"><p style="margin-bottom:16px">Amount</p></div>
+            <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Amount</p></div>
             <div class="col-8"><span>10,000.00 THB</span></div>
           </div>
           <div class="form-group form-check">
@@ -616,7 +616,7 @@
     </b-modal>
 
     <!-- TP/SL modal -->
-    <b-modal id="limitorder-TPSL" :hide-footer="true" :hide-header="true">
+    <b-modal id="limitorder-TPSL" :hide-footer="true" centered  :hide-header="true">
       <div class="row">
         <div class="col-12 modal-th">
           <h5>Take Profit / Stop Loss</h5>
@@ -905,6 +905,9 @@ export default {
 }
 </style>
 <style scoped>
+.order-confirm .col-4{
+  padding-left: 15px !important;
+}
 .spots{
   position: absolute;
   display: flex;
@@ -935,10 +938,12 @@ export default {
 .modal-th{
   padding: 24px 0px ;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 .modal-th>h5{
   margin-right: 42px;
+  margin-bottom: 0px;
 }
 .limitorder-TPSLB > h5{
   margin-right:52px  !important

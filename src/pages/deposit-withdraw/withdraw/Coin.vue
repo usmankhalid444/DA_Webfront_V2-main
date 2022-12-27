@@ -50,6 +50,7 @@
         </ul>
       </div>
     </div>
+    <RightInfo />
     <withdrawCoin
       v-if="showWithdrawModal"
       @showOTPModel="showWithdrawOTPModal = true"
@@ -70,6 +71,7 @@ import OtpModel from "@/components/Modal/OtpModel.vue";
 import QrSuccessModal from "./components/QrSuccessModal.vue";
 import coinsListTable from "./components/coinsListTable.vue";
 import withdrawCoinTutorialModal from "./components/withdrawCoinTutorialModal.vue";
+import RightInfo from "../../../components/deposit-withdraw/RightInfo";
 export default {
   components: {
     withdrawCoin,
@@ -77,6 +79,7 @@ export default {
     QrSuccessModal,
     coinsListTable,
     withdrawCoinTutorialModal,
+    RightInfo,
   },
   data() {
     return {

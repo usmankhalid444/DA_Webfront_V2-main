@@ -65,7 +65,7 @@
 
         <!-- Limit & Market Order below -->
         <div
-          class="fade show tab-pane active"
+          class="fade show  active"
           v-if="selectedopenorder == 'Limit  Orders (6)'"
         >
           <div class="row lm-order-container">
@@ -239,7 +239,7 @@
         </div>
         <!-- Trailing Stop below -->
         <div
-          class="fade show tab-pane active"
+          class="fade show  active"
           v-if="selectedopenorder == 'Trailing Stop (3)'"
         >
           <div class="">
@@ -311,7 +311,7 @@
           </li>
         </ul>
         <div v-if="selectedMatchedTab === 'Limit Orders (3)'">
-          <div class="row">
+          <div class="row m-0">
             <div
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
@@ -348,12 +348,12 @@
           </div>
         </div>
         <div v-if="selectedMatchedTab === 'Market Order (2)'">
-          <div class="row">
+          <div class="row m-0">
             <div
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0">
+              <table class="table table-borderless text-start p-0 matchTable">
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
@@ -383,12 +383,12 @@
           </div>
         </div>
         <div v-if="selectedMatchedTab === 'Traling Stop (2)'">
-          <div class="row">
+          <div class="row m-0">
             <div
               class="col-md-12 table-responsive mt-3 p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0">
+              <table class="table table-borderless text-start p-0 matchTable">
                 <thead>
                   <tr>
                     <th scope="col">Date</th>
@@ -501,7 +501,7 @@
       >
         <div class="bs-cancel-all-modal">
           <p class="ca-modal-title">
-            Cancel
+            <span>Cancel</span> 
             <span
               style="cursor: pointer"
               @click="$bvModal.hide('cancel-all-modal')"
@@ -519,21 +519,23 @@
               </svg>
             </span>
           </p>
-          <p class="content-text">
-            ท่านต้องการยกเลิกคำสั่งทั้ง <span>4 รายการ</span> หรือไม่
-          </p>
-          <div class="col-12 form-group form-check">
-            <label class="checkbox-input">
-              <input type="checkbox" class="form-check-input" />
-              <span>ไม่ต้องแจ้งเตือนอีก</span></label
-            >
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <button class="orange-btn">ยืนยัน</button>
+          <div class="cencel-body">
+            <p class="content-text">
+              ท่านต้องการยกเลิกคำสั่งทั้ง <span>4 รายการ</span> หรือไม่
+            </p>
+            <div class="col-12 form-group form-check">
+              <label class="checkbox-input" style="margin-bottom: 16px;">
+                <input type="checkbox" class="form-check-input"/>
+                <span>ไม่ต้องแจ้งเตือนอีก</span></label
+              >
             </div>
-            <div class="col-6">
-              <button class="gray-btn">ยกเลิก</button>
+            <div class="cencel-btn">
+              <div>
+                <button class="orange-btn">ยืนยัน</button>
+              </div>
+              <div>
+                <button class="gray-btn">ยกเลิก</button>
+              </div>
             </div>
           </div>
         </div>
@@ -690,12 +692,36 @@ export default {
   },
 };
 </script>
+<style>
+#cancel-all-modal___BV_modal_body_{
+  padding: 0px !important;
+}
+</style>
 <style scoped>
 .text-right
 {
 text-align: right;
 
 }
+.matchTable  tr th:nth-child(1) {
+  padding-left:0px !important;
+}
+.matchTable  tr td:nth-child(1) {
+  padding-left:0px !important;
+}
+.cencel-body{
+  padding:20px 16px 16px;
+}
+.cencel-btn {
+  display: flex;
+}
+.cencel-btn button{
+  width: 155px !important;
+  height: 36px !important;
+  margin-right: 16px;
+
+}
+
 </style>
 <style scoped lang="scss">
 // custome
@@ -703,9 +729,7 @@ text-align: right;
   margin-top:29px !important;
   margin-bottom:26 !important
 }
-.matchTable{
-  margin-left: 8px;
-}
+
 .trailingTable{
   margin-left: -6px;
 }
@@ -760,17 +784,22 @@ text-align: right;
   border-radius: 4px;
   border: 1px solid #28363e;
 }
-
+.footer .open-order ul li button:last-child{
+  margin-right: 0px !important;
+}
 .footer .open-order ul li button {
   background: none;
   border: none;
   border-radius: 2px;
   font-size: 14px;
-  width: 158px;
+  width: 103px;
+  line-height: 22px;
+  height: 32px;
+  margin-right: 13px !important;
   color: #677f8e;
   font-style: normal;
   margin: 1px;
-  padding: 8px 0px;
+  padding: 3px 0px;
 }
 
 .footer .open-order ul li .active {
@@ -778,8 +807,7 @@ text-align: right;
   background-color: #2c3b44;
   border-radius: 2px;
   font-size: 14px;
-  width: 158px;
-  padding: 8px 0px;
+  width: 108px;
   font-style: normal;
 }
 
@@ -848,6 +876,8 @@ text-align: right;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  width:76px;
+  height: 36px;
   padding: 8px 16px;
   background: #38454d;
   border-radius: 4px;
@@ -861,6 +891,8 @@ text-align: right;
   color: #d6dde1;
   font-style: normal;
   font-weight: 500;
+  width:96px;
+  height: 36px;
   font-size: 14px;
   padding: 8px 16px;
   background: #38454d;
@@ -890,12 +922,16 @@ text-align: right;
     font-size: 18px;
     color: white;
     font-weight: 600;
-    span {
-      float: right;
+    margin: 0px;
+    padding: 24px 0px;
+    span:nth-child(2) {
+        position: absolute;
+        margin-left: 82px;
     }
   }
   .content-text {
     font-family: "sarabun";
+    margin-bottom: 8px !important;
     span {
       color: #de2d40;
     }
@@ -1065,7 +1101,7 @@ text-align: right;
     margin-right: 40px;
   }
   .pills-tab {
-    padding: 0 12px;
+    padding: 0 24px;
   }
   .bs-bb {
     display: none;
@@ -1074,9 +1110,9 @@ text-align: right;
     margin-right: 26px;
   }
 
-  // .tab-pane {
-  //   padding: 0 1.5rem;
-  // }
+  .tab-pane {
+     padding: 0 1.5rem;
+   }
 }
 @media only screen and (min-width: 1024px) {
   .bs-bb {

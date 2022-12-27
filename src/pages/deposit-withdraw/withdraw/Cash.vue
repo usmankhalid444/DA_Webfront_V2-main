@@ -213,15 +213,17 @@
         </ul>
       </div>
     </div>
-
+    <RightInfo />
     <otp-model :otp="true"></otp-model>
   </div>
 </template>
 <script>
 import OtpModel from "@/components/Modal/WIthdrawCashOtpModel.vue";
+import RightInfo from "../../../components/deposit-withdraw/RightInfo";
 export default {
   components: {
     OtpModel,
+    RightInfo,
   },
   data() {
     return {

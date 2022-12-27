@@ -163,13 +163,15 @@
         </ul>
       </div>
     </div>
+    <RightInfo />
     <DepositCashModal />
   </div>
 </template>
 <script>
 import DepositCashModal from "./components/DepositCashModal";
+import RightInfo from "../../../components/deposit-withdraw/RightInfo";
 export default {
-  components: { DepositCashModal },
+  components: { DepositCashModal, RightInfo },
   data() {
     return {
       open_dropdown: false,

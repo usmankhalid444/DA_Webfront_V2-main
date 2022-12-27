@@ -1,5 +1,12 @@
 <template>
-  <div class="padding-table scroller">
+  <div
+    class="padding-table"
+    :class="
+      current_page === 'categories' || current_page === 'theme'
+        ? 'scroller'
+        : ''
+    "
+  >
     <table
       class="table ma-3 table-responsive"
       :class="
@@ -562,9 +569,9 @@
               </div>
               <div class="coin-symbol-container">
                 <span class="coin-symbol"> {{ item.Coinsybmol }} </span>
-                <span class="textGreyDark-table thai-font"> / THB </span>
+                <span class="textGreyDark-table thai-font h-t"> / THB </span>
               </div>
-              <div class="">
+              <div class="h-t">
                 <span class="textGreyDark-table ms-2">
                   {{ item.CoinName }}
                 </span>
@@ -1218,9 +1225,21 @@ export default {
 
 @media only screen and (max-width: 880px) {
   .table-w-setting {
-    width: 120%;
+    // width: 120%;
     margin: auto;
   }
+
+  .h-t {
+    display: none;
+  }
+  .coin-symbol-container {
+    width: auto;
+  }
+  .scroller {
+    // overflow: unset;
+  }
+}
+@media only screen and (max-width: 1024px) {
   .category-theme-w-setting {
     width: 200%;
     margin: auto;

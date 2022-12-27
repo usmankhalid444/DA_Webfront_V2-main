@@ -157,6 +157,7 @@
         </ul>
       </div>
     </div>
+    <RightInfo />
     <DepositCoinQrModal />
     <DepositCoinTutorialModal />
   </div>
@@ -164,8 +165,9 @@
 <script>
 import DepositCoinQrModal from "./components/DepositCoinQrModal.vue";
 import DepositCoinTutorialModal from "./components/DepositCoinTutorialModal.vue";
+import RightInfo from "../../../components/deposit-withdraw/RightInfo";
 export default {
-  components: { DepositCoinQrModal, DepositCoinTutorialModal },
+  components: { DepositCoinQrModal, DepositCoinTutorialModal, RightInfo },
   data() {
     return {
       open_dropdown: false,

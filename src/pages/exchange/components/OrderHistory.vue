@@ -1,8 +1,8 @@
 <template>
-  <div class="grid order-history p-3">
-    <div class="row">
-      <h1>Order History</h1>
-      <div class="menu-tabs">
+  <div class="grid order-history ">
+    <div class="row m-0">
+      <h1 class="p-0">Order History</h1>
+      <div class="menu-tabs p-0">
         <ul>
           <li
             @click="active_tab = 'Limit & Market Orders'"
@@ -84,15 +84,15 @@
         </span>
       </div>
       <div class="filter-date-picker">
-        <date-picker v-model="time3" range style="width:221px"></date-picker>
+        <date-picker v-model="time3" format="DD/MM/YY" range style="width:221px"></date-picker>
       </div>
       <div class="export-button">
         <button>Export to Exel</button>
       </div>
     </div>
-    <div v-if="active_tab === 'Limit & Market Orders'" class="row">
+    <div v-if="active_tab === 'Limit & Market Orders'" class="row m-0">
       <div
-        class="col-md-12 table-responsive p-2"
+        class="col-md-12 table-responsive p-0 m-0"
         style="height: 297px; overflow: auto"
       >
         <table class="table table-borderless text-start p-0">
@@ -353,9 +353,9 @@
         </table>
       </div>
     </div>
-    <div v-if="active_tab === 'Trailing Stop'" class="row">
+    <div v-if="active_tab === 'Trailing Stop'" class="row m-0">
       <div
-        class="col-md-12 table-responsive p-2"
+        class="col-md-12 table-responsive p-0"
         style="height: 297px; overflow: auto"
       >
         <table class="table table-borderless text-start p-0">
@@ -680,6 +680,31 @@ export default {
   },
 };
 </script>
+<style scoped>
+.order-history
+{
+  padding: 24px 25px 24px 26px !important;
+}
+.order-history table{
+  border-spacing: 0px 24px;
+  border-collapse: separate;
+  margin-top: 0px;
+}
+.order-history table th:nth-child(1){
+  padding-left: 0px !important;
+}
+.order-history table th
+{
+  text-align: left;
+  padding: 0px;
+}
+.order-history table td{
+  padding: 0px;
+}
+.order-history table td:nth-child(1){
+  padding-left: 0px !important;
+}
+</style>
 <style lang="scss">
 ::-webkit-scrollbar {
   width: 4px;
@@ -826,6 +851,11 @@ export default {
       color: #677f8e;
       border-radius: 4px;
       border: 1px solid #28363e;
+      &:active{
+        border: 1px solid white;
+        color: white;
+        background-color: #38454d;
+      }
     }
     // button:hover {
     //   color: #d6dde1;
@@ -872,7 +902,6 @@ export default {
       font-weight: 500;
       font-size: 14px;
       color: #d6dde1;
-      border-bottom: 1px solid #28363e;
       vertical-align: middle;
     }
     .green {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid buy-sell mb-3">
+  <div class="container-fluid buy-sell mb-3 p-0">
     <div class="row p-0">
       <div class="col-12 col-lg-8 col-xl-9">
         <div class="row">
@@ -7,8 +7,8 @@
 
           <div class="col-12 top-search-row">
             <div class="row">
-              <div class="col-11 col-md-4 col-lg-5 col-xl-3">
-                <div class="position-relative search-container">
+              <div class="col-11 col-md-4 col-lg-5 col-xl-3" style="padding-left: 24px !important;">
+                <div class="position-relative search-container m-0">
                   <div>
                     <span class="search-svg"
                       ><svg
@@ -44,10 +44,10 @@
                     />
                   </div>
 
-                  <div v-if="showSearchBox" class="searching-box">
+                  <div v-if="showSearchBox"  class="searching-box">
                     <p class="thai-font search-box-title">ค้นหาล่าสุด</p>
                     <div class="grid">
-                      <div class="row mt-3 sb-row">
+                      <div class="row sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -65,7 +65,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row mt-3 sb-row">
+                      <div class="row  sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -83,7 +83,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row mt-3 sb-row">
+                      <div class="row  sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -101,7 +101,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row mt-3 sb-row">
+                      <div class="row  sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -141,7 +141,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-6 col-xl-4 bs-left-table">
+          <div class="col-12 col-lg-6 col-xl-4 bs-left-table" style="padding-left: 24px;">
             <div
               class="
                 bid-offer-container
@@ -716,6 +716,7 @@ export default {
   },
 };
 </script>
+<style> @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap'); </style>
 <style lang="scss">
 ::-webkit-scrollbar {
   width: 4px;
@@ -775,14 +776,15 @@ export default {
         margin-left: 10px;
       }
       .sb-row {
-        padding: 10px 0;
+        padding: 12px 0px;
+        cursor: pointer;
         &:hover {
           background-color: #28363e;
         }
       }
       .sb-amount {
         color: #d6dde1;
-        font-size: 16px;
+        font-size: 15px;
       }
       .sb-increasing-trend {
         color: #40994f;
@@ -799,8 +801,10 @@ export default {
       color: white;
       width: 100%;
       font-size: 18px;
+      caret-color: #F38220;
       font-weight: 600;
       padding-left: 90px;
+      border-radius: 4px !important;
       padding-top: 6.5px;
       padding-bottom: 6.5px;
       padding-right: 60px;
@@ -1005,6 +1009,7 @@ export default {
   }
   select {
     color: white;
+    background-color: #2c3b44;
   }
   select:focus {
     outline: none !important;
@@ -1035,6 +1040,9 @@ export default {
 .buy-sell table {
   width: 100%;
   overflow: hidden;
+}
+.bs-left-table table tr th , .bs-left-table table tr td{
+   padding-left: 0!important;
 }
 
 .buy-sell table th {
@@ -1138,7 +1146,7 @@ export default {
 #limitorder-TPSLB___BV_modal_content_,
 #limitorder-TPSL___BV_modal_content_,
 #limitorder-stop-loss___BV_modal_content_ {
-  width: 80%;
+  width:360px;
   margin: 0 auto;
 }
 
@@ -1485,7 +1493,8 @@ export default {
   .buy-sell {
     .search-container {
       .searching-box {
-        width: 630px;
+          width: 593px;
+          height: 240px;
       }
     }
   }
