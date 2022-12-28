@@ -1058,11 +1058,12 @@ export default {
 .yellow {
   color: #f38220;
 }
-.padding-table {
-  // padding: 0px 18px 0px 18px;
-  padding: 0px 0px 0px 18px;
-  margin-right: 18px;
-}
+// .padding-table {
+//   // padding: 0px 18px 0px 18px;
+//   // padding: 0px 0px 0px 18px;
+//   // margin-right: 18px;
+//   margin: 0 24px;
+// }
 .imageIcon-Star {
   height: auto;
   // max-width: 100%;
@@ -1161,8 +1162,7 @@ export default {
   right: 13px;
 }
 .Header-Name {
-  // padding-left: 27px;
-  padding-left: 20px;
+  padding-left: 27px;
 }
 .align-Icon-Heading {
   width: max-content;
@@ -1239,6 +1239,7 @@ export default {
     // overflow: unset;
   }
 }
+
 @media only screen and (max-width: 1024px) {
   .category-theme-w-setting {
     width: 200%;
@@ -1265,5 +1266,15 @@ export default {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #192126;
+}
+@media (max-width: 848px) {
+  .padding-table {
+    margin: 0 16px;
+  }
+}
+@media (min-width: 848px) {
+  .padding-table {
+    margin: 0 24px;
+  }
 }
 </style>

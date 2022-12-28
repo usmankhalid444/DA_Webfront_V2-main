@@ -161,10 +161,7 @@ export default Vue.extend({
   .bg-MarKetHeader {
     background-color: var(--ui-layer-0p5);
   }
-  .pLR-24 {
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-  }
+
   .page-MarKetHeader {
     font-family: var(--bs-roboto-font-sans-serif);
     display: flex;
@@ -257,6 +254,18 @@ export default Vue.extend({
   .field:focus {
     outline: none;
     box-shadow: 0px 9px 20px rgba(75, 72, 72, 0.3);
+  }
+}
+@media (max-width: 848px) {
+  .pLR-24 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (min-width: 848px) {
+  .pLR-24 {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 </style>

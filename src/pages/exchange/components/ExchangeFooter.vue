@@ -549,7 +549,7 @@
       >
         <div class="bs-cancel-modal">
           <p class="c-modal-title">
-            Cancel
+            <span>Cancel</span>
             <span @click="$bvModal.hide('cancel-modal')"
               ><svg
                 width="14"
@@ -565,37 +565,38 @@
               </svg>
             </span>
           </p>
-          <div class="row">
-            <div class="col-4 title">
+          <div class="cencel_model_main">
+          <div class="row m-0 ">
+            <div class="col-4 title p-0 ">
               <p>Coin</p>
               <p>Order</p>
               <p>Price</p>
               <p>Amount</p>
               <p>Total</p>
             </div>
-            <div class="col-8 value">
+            <div class="col-8 value p-0">
               <p>BTC/THB</p>
               <p><span class="buy-tag">BUY</span>Limit</p>
               <p>739,000.00 THB (Limit)</p>
               <p>10,000 THB</p>
               <p>0.01353 BTC</p>
             </div>
-            <div class="col-12 mx-2 form-group form-check">
-              <label class="checkbox-input">
-                <input type="checkbox" class="form-check-input" />
-                <span>ไม่ต้องแจ้งเตือนอีก</span></label
-              >
+            <div class="col-12  form-group form-check p-0 " style="margin-top: 12px;margin-bottom: 20px;">
+              <label class="checkbox-input m-0">
+                <input type="checkbox" class="form-check-input" style="margin-left:0px"/>
+                <span>ไม่ต้องแจ้งเตือนอีก</span></label>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-6">
+          <div class="cencel-btn p-0">
+            <div>
               <button class="orange-btn">ยืนยัน</button>
             </div>
-            <div class="col-6">
+            <div>
               <button class="gray-btn">ยกเลิก</button>
             </div>
           </div>
         </div>
+      </div>
+      </div>
       </b-modal>
     </div>
   </div>
@@ -693,7 +694,7 @@ export default {
 };
 </script>
 <style>
-#cancel-all-modal___BV_modal_body_{
+#cancel-all-modal___BV_modal_body_,#cancel-modal___BV_modal_body_{
   padding: 0px !important;
 }
 </style>
@@ -721,7 +722,16 @@ text-align: right;
   margin-right: 16px;
 
 }
-
+.c-modal-title{
+  margin: 0px;
+  padding: 24px 0px;
+}
+.cencel_model_main{
+  padding: 0px 0px 24px 16px !important;
+}
+.cencel_model_main p{
+  margin-bottom: 8px !important;
+}
 </style>
 <style scoped lang="scss">
 // custome
@@ -968,9 +978,11 @@ text-align: right;
     text-align: center;
     font-size: 18px;
     font-weight: 600;
-    span {
-      float: right;
-    }
+    span:nth-child(2) {
+      position: absolute;
+      margin-left: 111px;
+      cursor: pointer;
+  }
   }
   .orange-btn {
     width: 100%;

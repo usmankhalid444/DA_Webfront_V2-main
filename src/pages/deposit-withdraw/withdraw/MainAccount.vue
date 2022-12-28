@@ -131,7 +131,6 @@ export default {
   margin-left: auto;
   margin-right: auto;
   .dcc-head {
-    border-bottom: 1px solid #28363e;
     button {
       display: inline-block;
       font-size: 16px;
@@ -305,7 +304,7 @@ export default {
     display: none;
   }
 }
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
     right: 100px;

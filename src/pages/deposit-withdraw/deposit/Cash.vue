@@ -16,7 +16,7 @@
       <!-- top section end -->
       <!-- center section start -->
       <div class="row mt-3 center-section">
-        <div class="col-12 p-0">
+        <div class="col-12 p-lg-0">
           <div class="row margin-l-24">
             <div class="col-5 col-md-4 my-auto thai-font p-0">
               เลือกช่องทางการฝาก
@@ -137,7 +137,7 @@
       <!-- center section start -->
       <!-- bottom section start -->
       <div
-        class="pt-4 bottom-section thai-font margin-l-24"
+        class="pt-4 bottom-section thai-font"
         v-if="currentSettings === 'qr'"
       >
         <label>
@@ -183,15 +183,12 @@ export default {
 </script>
 <style lang="scss">
 .deposite-cash-container {
-  background-color: #192126;
   border-radius: 8px;
-  margin-top: 50px;
   position: relative;
   .margin-l-24 {
     margin-left: 24px;
   }
   .dcc-head {
-    border-bottom: 1px solid #28363e;
     button {
       display: inline-block;
       font-size: 16px;
@@ -295,7 +292,6 @@ export default {
       }
     }
     .bcb {
-      margin: 0 -4px;
       margin-top: 30px;
       margin-bottom: 20px;
       border-top: 1px solid #28363e;
@@ -316,7 +312,6 @@ export default {
   }
 
   .bottom-section {
-    margin-right: 24px;
     border-top: 1px solid #28363e;
     input {
       background: #222b2f;
@@ -418,12 +413,8 @@ export default {
   .right-info {
     display: none;
   }
-  .deposite-cash-container {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
 }
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
     right: 0;
@@ -431,10 +422,40 @@ export default {
     top: 0;
   }
   .deposite-cash-container {
-    margin-left: 50%;
-    transform: translateX(-75%);
+    transform: translateX(-50%);
   }
 }
-@media (min-width: 1536px) {
+@media (max-width: 848px) {
+  .deposite-cash-container {
+    background-color: none;
+    // margin-left: 40px;
+    width: 100%;
+    .dcc-head {
+      background-color: #192126;
+    }
+    .bottom-section {
+      margin: 0 40px;
+    }
+    .bcb {
+      margin: 0 20px;
+    }
+  }
+}
+@media (min-width: 848px) {
+  .deposite-cash-container {
+    background-color: #192126;
+    margin-left: 50%;
+    margin-top: 50px;
+    transform: translateX(-70%);
+    .dcc-head {
+      border-bottom: 1px solid #28363e;
+    }
+    .bottom-section {
+      margin: 0 24px;
+    }
+    .bcb {
+      margin: 0 -4px;
+    }
+  }
 }
 </style>

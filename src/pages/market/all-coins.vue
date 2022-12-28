@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="container-fluid">
-      <P class="textGrey-heading marginTop32 ms-2 marginBottom16">Popular Theme</P>
+      <P class="textGrey-heading marginTop32 ms-pt marginBottom16"
+        >Popular Theme</P
+      >
       <!-- cards -->
 
       <VueSlickCarousel
@@ -50,7 +52,9 @@
                     >
                     </b-img>
                   </div>
-                  <p class="textGrey-heading mb-0 font-roboto">{{ card.CoinName }}</p>
+                  <p class="textGrey-heading mb-0 font-roboto">
+                    {{ card.CoinName }}
+                  </p>
                 </div>
 
                 <!-- End card images coin -->
@@ -89,7 +93,7 @@
 
       <!-- cards end  -->
 
-      <P class="textGrey-heading marginTop32 marginBottom16 ms-2">All Coins</P>
+      <P class="textGrey-heading marginTop32 marginBottom16 ms-pt">All Coins</P>
     </div>
     <Dynamic-Table
       :TableHeader="TableHeading"
@@ -237,7 +241,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .carousel-cards {
-  margin: 0 30px;
+  margin: 0 40px;
 }
 .marginTop32 {
   margin-top: 32px;
@@ -377,5 +381,17 @@ export default {
 .carousel-control-next-icon {
   background-image: url(../../../src/assets/images/iconArrow/icon-arrow-right.png);
   width: 100%;
+}
+@media (max-width: 848px) {
+  .ms-pt {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+@media (min-width: 848px) {
+  .ms-pt {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
 }
 </style>

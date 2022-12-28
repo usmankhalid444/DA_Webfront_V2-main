@@ -16,9 +16,10 @@ export default {};
 </script>
 <style lang="scss">
 .right-info-tablet {
-  width: 616px;
-  margin: auto;
-  margin-top: 40px;
+  border-top: 1px solid #28363e;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 40px;
   color: #677f8e;
   ul {
     list-style: disc;
@@ -32,7 +33,7 @@ export default {};
   }
 }
 
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info-tablet {
     display: none;
   }

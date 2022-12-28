@@ -182,13 +182,10 @@ export default {
 </script>
 <style lang="scss">
 .deposite-coin-container {
-  background-color: #192126;
   border-radius: 8px;
-  margin-top: 50px;
   font-family: "Sarabun";
   position: relative;
   .dcc-head {
-    border-bottom: 1px solid #28363e;
     font-family: "Roboto Flex";
     button {
       display: inline-block;
@@ -406,12 +403,8 @@ export default {
   .right-info {
     display: none;
   }
-  .deposite-coin-container {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
 }
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
     right: 0;
@@ -419,10 +412,37 @@ export default {
     top: 0;
   }
   .deposite-coin-container {
-    margin-left: 50%;
-    transform: translateX(-75%);
+    transform: translateX(-50%);
   }
 }
-@media (min-width: 1536px) {
+@media (max-width: 848px) {
+  .deposite-coin-container {
+    background-color: none;
+    // margin-left: 40px;
+    width: 100%;
+    .dcc-head {
+      background-color: #192126;
+    }
+    .bottom-section {
+      margin: 0 40px;
+    }
+    .center-section {
+      margin: 0 3px;
+    }
+  }
+}
+@media (min-width: 848px) {
+  .deposite-coin-container {
+    background-color: #192126;
+    margin-left: 50%;
+    margin-top: 50px;
+    transform: translateX(-70%);
+    .dcc-head {
+      border-bottom: 1px solid #28363e;
+    }
+    .bottom-section {
+      margin: 0 24px;
+    }
+  }
 }
 </style>

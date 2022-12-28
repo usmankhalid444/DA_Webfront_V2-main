@@ -81,13 +81,16 @@ r
       </div>
     </div>
     <otp-model :otp="false"></otp-model>
+    <RightInfo />
   </div>
 </template>
 <script>
 import OtpModel from "@/components/Modal/WIthdrawCashOtpModel.vue";
+import RightInfo from "../../../components/deposit-withdraw/RightInfo.vue";
 export default {
   components: {
     OtpModel,
+    RightInfo,
   },
   data() {
     return {
@@ -100,13 +103,10 @@ export default {
 </script>
 <style lang="scss">
 .cash-main-account-container {
-  background-color: #192126;
   border-radius: 8px;
   min-height: 445px;
-  margin-top: 50px;
   position: relative;
   .dcc-head {
-    border-bottom: 1px solid #28363e;
     button {
       display: inline-block;
       font-size: 16px;
@@ -313,12 +313,8 @@ export default {
   .right-info {
     display: none;
   }
-  .cash-main-account-container {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
 }
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
     right: 0;
@@ -326,12 +322,44 @@ export default {
     top: 0;
   }
   .cash-main-account-container {
-    margin-left: 50%;
-    transform: translateX(-75%);
+    transform: translateX(-50%);
   }
 }
-@media (min-width: 1536px) {
-  //
+@media (max-width: 848px) {
+  .cash-main-account-container {
+    background-color: none;
+    // margin-left: 40px;
+    width: 100%;
+    .dcc-head {
+      background-color: #192126;
+    }
+    .bottom-section {
+      margin: 0 40px;
+    }
+    .bcb {
+      margin: 0 20px;
+    }
+    .center-section {
+      margin: 0;
+    }
+  }
+}
+@media (min-width: 848px) {
+  .cash-main-account-container {
+    background-color: #192126;
+    margin-left: 50%;
+    margin-top: 50px;
+    transform: translateX(-70%);
+    .dcc-head {
+      border-bottom: 1px solid #28363e;
+    }
+    .bottom-section {
+      margin: 0 24px;
+    }
+    .bcb {
+      margin: 0 -4px;
+    }
+  }
 }
 </style>
 <style scoped>

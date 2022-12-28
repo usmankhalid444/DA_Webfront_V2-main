@@ -175,7 +175,7 @@
         <!-- center section start -->
         <!-- bottom section start -->
         <div
-          class="mx-3 pt-1 bottom-section thai-font mt-3 b-ins"
+          class="mx-lg-3 pt-1 bottom-section thai-font mt-3 b-ins"
           v-if="currentSettings === 'qr'"
         >
           <p>หมายเหตุ</p>
@@ -242,12 +242,9 @@ export default {
 </script>
 <style lang="scss">
 .withdraw-cash-container {
-  background-color: #192126;
   border-radius: 8px;
-  margin-top: 50px;
   position: relative;
   .dcc-head {
-    border-bottom: 1px solid #28363e;
     button {
       display: inline-block;
       font-size: 16px;
@@ -449,12 +446,8 @@ export default {
   .right-info {
     display: none;
   }
-  .withdraw-cash-container {
-    margin-left: 50%;
-    transform: translateX(-50%);
-  }
 }
-@media (min-width: 1366px) {
+@media (min-width: 1024px) {
   .right-info {
     display: block;
     right: 0;
@@ -462,11 +455,44 @@ export default {
     top: 0;
   }
   .withdraw-cash-container {
-    margin-left: 50%;
-    transform: translateX(-75%);
+    transform: translateX(-50%);
   }
 }
-@media (min-width: 1536px) {
+@media (max-width: 848px) {
+  .withdraw-cash-container {
+    background-color: none;
+    // margin-left: 40px;
+    width: 100%;
+    .dcc-head {
+      background-color: #192126;
+    }
+    .bottom-section {
+      margin: 0 27px;
+    }
+    .bcb {
+      margin: 0 20px;
+    }
+    .center-section {
+      margin: 0 3px;
+    }
+  }
+}
+@media (min-width: 848px) {
+  .withdraw-cash-container {
+    background-color: #192126;
+    margin-left: 50%;
+    margin-top: 50px;
+    transform: translateX(-70%);
+    .dcc-head {
+      border-bottom: 1px solid #28363e;
+    }
+    .bottom-section {
+      margin: 0 24px;
+    }
+    .bcb {
+      margin: 0 -4px;
+    }
+  }
 }
 </style>
 <style scoped>

@@ -133,7 +133,7 @@ export default {
   position: absolute;
   z-index: 9998;
   top: -120%;
-  left: -120%;
+  left: -140%;
   width: 380%;
   height: 350%;
   background-color: rgba(0, 0, 0, 0.7);

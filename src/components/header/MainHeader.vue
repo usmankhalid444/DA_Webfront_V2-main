@@ -3,7 +3,7 @@
     <NavDrawer></NavDrawer>
     <header class="container-fluid site-main-header pmd">
       <div class="row px-0">
-        <div class="col-md-12 col-lg-2 px-0 my-auto main-header-logo">
+        <div class="col-md-12 col-lg-2 my-auto main-header-logo">
           <span>
             <b-link :to="{ path: '/' }">
               <b-img
@@ -83,7 +83,13 @@
                   <b-link
                     :to="{ path: '/exchange' }"
                     class="hovername"
-                    :class="$route.name == 'exchange' ? 'active' : '' || $route.name == 'exchangePair' ? 'active' : ''"
+                    :class="
+                      $route.name == 'exchange'
+                        ? 'active'
+                        : '' || $route.name == 'exchangePair'
+                        ? 'active'
+                        : ''
+                    "
                   >
                     Buy/Sell<span
                       ><svg
@@ -292,7 +298,7 @@
         <!-- ******** BUTTON Login AND Add   Open Account ******** -->
         <!-- ******** BUTTON Add Favorite AND Add Price Alert ******** -->
         <div
-          class="col-md-1 col-lg-2 px-0 icon-navbar_right my-auto"
+          class="col-md-1 col-lg-2 icon-navbar_right my-auto"
           v-if="$route.name != 'Login'"
         >
           <ul class="header-dots">
@@ -920,7 +926,7 @@ export default {
     order: 2;
   }
   .pmd {
-    padding-bottom: 110px;
+    padding-bottom: 90px;
   }
 }
 
