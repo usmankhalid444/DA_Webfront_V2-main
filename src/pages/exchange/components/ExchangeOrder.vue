@@ -35,7 +35,7 @@
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>ยอดเงินที่ซื้อได้</p>
-                  <p>{{buying_amount_value}} THB</p>
+                  <p>20,000THB</p>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -104,7 +104,7 @@
                     Buy
                   </button>
 
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
               <div class="col-md-6" style="padding-left: 16px">
@@ -115,7 +115,7 @@
                 </div>
                   <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>มูลค่า BTC ที่มี</p>
-                  <p>{{ total_selling_amount }} THB</p>
+                  <p>9,86,937.9THB</p>
                 </div>
                   <!-- timeline start -->
                   <div class="timeline-bar">
@@ -184,7 +184,7 @@
                   >
                     Sell
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>ยอดเงินที่ซื้อได้</p>
-                  <p>{{total_market_buying_value}} THB</p>
+                  <p>20,000THB</p>
                 </div>
                  <!-- timeline start -->
                  <div class="timeline-bar">
@@ -268,7 +268,7 @@
                   >
                     Buy
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
               <div class="col-md-6">
@@ -279,7 +279,7 @@
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>มูลค่า BTC ที่มี</p>
-                  <p>{{total_market_selling_value}} THB</p>
+                  <p>9,86,937.9 THB</p>
                 </div>
                   <!-- timeline start -->
                   <div class="timeline-bar">
@@ -342,7 +342,7 @@
                   >
                     Sell
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
             </div>
@@ -362,7 +362,7 @@
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>ยอดเงินที่ซื้อได้</p>
-                  <p>{{total_triling_buying_value}} THB</p>
+                  <p>20,000 THB</p>
                 </div>
                  <!-- timeline start -->
                  <div class="timeline-bar">
@@ -395,12 +395,12 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="number" />
+                  <input type="number" value="0" />
                   <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
+                  <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
 
-                <div class="form-group form-check">
+                <!-- <div class="form-group form-check">
                   <label>
                     <input
                       type="checkbox"
@@ -411,28 +411,41 @@
                       >ระบบทำงานทันทีที่ราคาปัจจุบัน</p
                     ></label
                   >
-                </div>
+                </div> -->
+                <span class="massage">จะซื้อเมื่อราคา วกกลับจากราคา Low</span>
                 <div class="form-group mb-5 bs-lp-input">
+                  <input type="text"  readonly value="0" style="padding-right: 60px;margin-top: 5px;"/>
+                  <span class="currency dropdown-trailing">THB  
+                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  </span>
+                  <span class="text">ตั้งเงื่อนไข Trailing 
+                    <svg style="cursor:pointer" data-v-aa362e22="" width="12" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-aa362e22="" d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z" fill="#677F8E"></path></svg>
+                  </span>
+                </div>
+                <div class="form-group mb-1.5 bs-lp-input">
+                  <input type="text"  readonly  style="padding-right: 60px;"/>
+                  <span class="currency dropdown-trailing"  style="color: white;border-left:none">1 เดือน  
+                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  </span>
+                  <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
+                </div>
+                <!-- <div class="form-group bs-lp-input">
                   <input type="number" />
                   <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
-                </div>
-                <div class="form-group bs-lp-input">
-                  <input type="number" />
-                  <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
-                </div>
+                  <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
+                </div> -->
                 <div class="form-group">
                   <button
+                  style="margin-top: 11px;"
                     v-b-modal.limitorder-TPSLB
                     @click="show_TPSLB_order = true"
                     type="button"
                     class="buy-btn"
                     data-toggle="modal"
                   >
-                    Buy
+                  ซื้อ
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
               <div class="col-md-6">
@@ -443,7 +456,7 @@
                 </div>
                 <div class="input-group-bottom-text d-flex justify-content-between align-center">
                   <p>มูลค่า BTC ที่มี</p>
-                  <p>{{total_triling_selling_value}} THB</p>
+                  <p>9,86,937.9 THB</p>
                 </div>
          <!-- timeline start -->
          <div class="timeline-bar">
@@ -476,12 +489,12 @@
         </div>
         <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="number" />
+                  <input type="number" value="0" />
                   <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
+                  <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
 
-                <div class="form-group form-check">
+                <!-- <div class="form-group form-check">
                   <label>
                     <input
                       @click="showStopLoss = true"
@@ -495,28 +508,46 @@
                       >ระบบทำงานทันทีที่ราคาปัจจุบัน</p
                     ></label
                   >
-                </div>
+                </div> -->
 
-                <div class="form-group mb-5 bs-lp-input">
-                  <input type="number" />
-                  <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
+                <div class="form-group  bs-lp-input" style="margin-top: 29px;">
+                  <input type="text"  readonly value="0" style="padding-right:60px"/>
+                  <span class="currency dropdown-trailing">THB  
+                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  </span>
+                  <span class="text">ตั้งเงื่อนไข Trailing</span>
                 </div>
-                <div class="form-group bs-lp-input">
-                  <input type="number" />
-                  <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
+                <div class="form-group form-check">
+                  <label>
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      data-toggle="modal"
+                      data-target="#limit-stop"
+                      value="false"
+                      v-model="SL"
+                    />
+                    <p>Stop Loss</p></label
+                  >
+                </div>
+                <div class="form-group mb-1.5 bs-lp-input">
+                  <input type="text"  readonly  style="padding-right: 60px;"/>
+                  <span class="currency dropdown-trailing " style="color: white; border-left:none">1 เดือน  
+                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  </span>
+                  <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
                 <div class="form-group">
                   <button
+                    style="margin-top: 11px;"
                     v-b-modal.limitorder-TPSLB
                     @click="show_TPSLB_order = true"
                     type="button"
                     class="sell-btn"
                   >
-                    Sell
+                  ขาย
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.20%</p>
+                  <p class="text-end p-0 m-0">Fee 0.2%</p>
                 </div>
               </div>
             </div>
@@ -597,7 +628,11 @@
          
           <div class="row buttons-row"  style="margin-top:8px">
             <div class="col-6" style="padding-right: 8px">
-              <button type="button" class="btn yellow-btn text-center">
+              <button type="button" class="btn yellow-btn text-center" 
+               @click="
+               $bvModal.show('limitorder-TPSLB2')
+               $bvModal.hide('limitorder-TPSLB')
+               ">
                 ยืนยัน
               </button>
             </div>
@@ -605,7 +640,7 @@
               <button
                 type="button" 
                 class="btn grey-btn text-center"
-                @click="show_TPSLB_order = false"
+                 @click="$bvModal.hide('limitorder-TPSLB')"
               >
                 ยกเลิก
               </button>
@@ -614,6 +649,103 @@
         </div>
       </div>
     </b-modal>
+
+ <!-- TP/SL Order-Confirmation modal2 -->
+ <b-modal id="limitorder-TPSLB2" :hide-footer="true"  centered :hide-header="true">
+  <div class="row">
+    <div class="col-12 modal-th limitorder-TPSLB">
+      <h5 >Order Confirmation</h5>
+      <span
+        class="modal-close-button"
+        @click="$bvModal.hide('limitorder-TPSLB2')"
+      >
+        <svg
+          width="14"
+          height="15"
+          viewBox="0 0 14 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+            fill="#677F8E"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+
+  <div class="row body order-confirm">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:20px">Coin</p></div>
+        <div class="col-8"><span>BTC/THB</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:10px">Order</p></div>
+        <div class="col-8"><span class="buy-badge">BUY</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Price</p></div>
+        <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Amount</p></div>
+        <div class="col-8"><span>10,000 THB</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Total</p></div>
+        <div class="col-8"><span>0.01535 BTC</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Order</p></div>
+        <div class="col-8"><span class="sell-badge">Sell</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Take Profit</p></div>
+        <div class="col-8"><span>886,800.00(+10%)</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Stop Loss</p></div>
+        <div class="col-8"><span>665,100.00(-10%)</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Amount</p></div>
+        <div class="col-8"><span>10,000.00 THB</span></div>
+      </div>
+      <div class="row">
+        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">PIN</p></div>
+        <div class="col-8"><span>
+          <input type="password" class="pin" >
+        </span></div>
+      </div>
+      <!-- <div class="form-group form-check">
+        <label class="checkbox-input">
+          <input type="checkbox" class="form-check-input" />
+          <span>ไม่ต้องแจ้งเตือนอีก</span></label
+        >
+      </div> -->
+     
+      <div class="row buttons-row"  style="margin-top: 24px;">
+        <div class="col-6" style="padding-right: 8px">
+          <button type="button" class="btn yellow-btn text-center">
+            ยืนยัน
+          </button>
+        </div>
+        <div class="col-6" style="padding-left: 8px">
+          <button
+            type="button" 
+            class="btn grey-btn text-center"
+             @click="$bvModal.hide('limitorder-TPSLB2')"
+          >
+            ยกเลิก
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</b-modal>
+<!--TP/SL Order-Confirmation modal2 end -->
 
     <!-- TP/SL modal -->
     <b-modal id="limitorder-TPSL" :hide-footer="true" centered  :hide-header="true">
@@ -803,24 +935,24 @@ export default {
       buying_amount_value:20000,
       SL:false,
       profitLoss:false,
-      buying_amount: null,
-      selling_amount: null,
+      buying_amount: 0,
+      selling_amount: 0,
       total_selling_amount:986937.90,
       selling_limit_order:0,
-      buying_btc: null,
-      selling_btc: null,
+      buying_btc: 0,
+      selling_btc: 0,
       market_buying_price: 896458.67,
       market_selling_price: 896458.67,
-      market_buying_value: null,
+      market_buying_value: 0,
       total_market_buying_value: 20000,
       market_buying_limit_order:0,
-      market_selling_value: null,
+      market_selling_value: 0,
       total_market_selling_value: 986937.90,
       market_selling_limit_order:0,
-      triling_buying_value: null,
+      triling_buying_value: 0,
       total_triling_buying_value: 20000,
       triling_buying_limit_order:0,
-      triling_selling_value: null,
+      triling_selling_value: 0,
       total_triling_selling_value: 986937.90,
       triling_selling_limit_order:0,
       
@@ -891,13 +1023,17 @@ export default {
 };
 </script>
 <style>
-#limitorder-TPSLB___BV_modal_body_,#limitorder-stop-loss___BV_modal_body_{
+#limitorder-TPSLB___BV_modal_body_,#limitorder-TPSLB2___BV_modal_body_,#limitorder-stop-loss___BV_modal_body_{
   padding: 0px 16px 20px 16px !important;
+}
+#limitorder-TPSLB2___BV_modal_content_{
+  width:360px;
+  margin: 0 auto;
 }
 .timeline-bar{
   width: 100%;
   margin: auto !important;
-  padding: 18px 0px 35px !important; 
+  padding: 18px 0px 42px !important; 
   position:relative
 }
 .progress-bar{
@@ -905,6 +1041,36 @@ export default {
 }
 </style>
 <style scoped>
+.pin{
+padding: 8px;
+width: 160px;
+height: 36px;
+border-radius: 4px;
+background: #38454D;
+color: #FFFFFF;
+}
+.massage{
+  width: 224px;
+  height: 24px;
+  padding: 4px 8px;
+  background: #D6DDE1;
+  border-radius: 4px;
+  color: #0A0D10;
+  font-family: 'Sarabun';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+.dropdown-trailing{
+  padding-left: 8px;
+  border-left: 1px solid #28363E;
+}
+.dropdown-trailing svg
+{
+  width: 6px;
+  margin-top: -4px;
+}
 .order-confirm .col-4{
   padding-left: 15px !important;
 }

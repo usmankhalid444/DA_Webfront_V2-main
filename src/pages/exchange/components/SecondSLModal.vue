@@ -11,7 +11,10 @@
         <div class="col-12 my-2">
           <h5 class="header">
             Stop Loss
-            <span @click="$bvModal.hide('limitorder-SSL')">
+            <span class="cursor-pointer"  @click="
+            $bvModal.show('limitorder-stop-loss');
+            $bvModal.hide('limitorder-SSL');
+          ">
               <svg
                 width="20"
                 height="20"
@@ -44,8 +47,8 @@
           </h5>
         </div>
         <div class="row top-row">
-          <div class="col-3 mb-2 ts-title">Order</div>
-          <div class="col-9 mb-2 ts-value">
+          <div class="col-3  ts-title">Order</div>
+          <div class="col-9  ts-value">
             <span class="sell-tag">SELL</span> <span>BTC</span>
             <span class="gs">/THB</span>
           </div>
@@ -55,8 +58,10 @@
 
           <div class="col-3 mt-2 ts-title">Amount</div>
           <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
+          <div class=" mt-2 border-line"></div>
         </div>
-        <div class="row">
+       
+        <!-- <div class="row">
           <div class="col-3 form-group form-check">
             <label class="stpsl-cb">
               <input type="checkbox" class="form-check-input" />
@@ -92,12 +97,12 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="row">
-          <div class="col-3 form-group form-check">
+          <div class="col-3 form-group form-check" style="padding-left: 1em !important;">
             <label class="stpsl-cb">
-              <input type="checkbox" class="form-check-input" />
-              <span class="w-title">Stop Loss</span>
+              <!-- <input type="checkbox" class="form-check-input" /> -->
+              <span class="w-title m-0">Stop Loss</span>
             </label>
           </div>
           <div class="col-9">
@@ -119,7 +124,7 @@
             </div>
             <div class="row">
               <div class="col-12 input-row">
-                <input type="text" placeholder="Price (THB)" />
+                <input type="number" placeholder="Price (THB)" />
                 <ul class="thai-font sl-ul">
                   <li>ขายเมื่อราคา +20% (1,230,600.12 บาท)</li>
                   <li>กำไรประมาณ 1,995.62 บาท</li>
@@ -172,7 +177,7 @@
           </div>
           <div class="col-3"></div>
           <div class="col-9">
-            <ul class="thai-font sl-ul">
+            <ul class="thai-font sl-ul" style="list-style: outside !important;padding: 0px 12px !important;">
               <li>
                 ขายจำนวน 100% เมื่อราคาเป็นไปตามเงื่อนไข <br />
                 0.0153 BTC (10,000 THB)
@@ -200,10 +205,28 @@ export default {
 </script>
 <style>
 #limitorder-SSL___BV_modal_body_ {
-  padding: 0px 16px 20px 16px !important;
+  padding: 0px 11px 20px 16px !important;
+  width: 511px;
 }
 </style>
 <style scoped>
+.cursor-pointer{
+  cursor: pointer;
+}
+.border-line
+{
+  border: 4px solid #0A0D10;
+  margin-left: -12px;
+  width: 511px;
+  max-width: 511px;
+}
+.stop-loss-detail-modal .top-row{
+  border-bottom: 0px solid #0a0d10 !important;
+}
+.sl-ul{
+  padding: 0px 8px !important;
+  list-style: inside !important;
+}
 .sa-tabs > div {
   color: #9bacb6;
 }

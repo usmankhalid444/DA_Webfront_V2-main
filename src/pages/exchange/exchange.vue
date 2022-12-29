@@ -150,8 +150,49 @@
                 align-center
               "
             >
-              <div class="coinSelect d-flex justify-content-start align-center">
-                <select>
+              <div class="d-flex justify-content-start align-center">
+                <div
+                class="select"
+                tabindex="0"
+                @click="open_dropdown_coin = !open_dropdown_coin"
+                @blur="open_dropdown_coin = false"
+              >
+                <span class="text" style="left: 15px;">{{ Value }}</span>
+                <span
+                  class="icon"
+                  :class="open_dropdown_coin? 'rotate-sc-icon' : ''"
+                  ><svg
+                    width="8"
+                    height="8"
+                    viewBox="0 0 12 8"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                      fill="#677F8E"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="options"
+                  v-show="open_dropdown_coin"
+                  style="
+                  left: 0px;
+                  top: 33px;
+                  "
+                >
+                  <ul>
+                    <li @click="(Value = 'Bid / Offer')">Bid / Offer</li>
+                    <li @click="(Value = 'Bid')">Bid</li>
+                    <li @click="(Value = 'Offer')">Offer</li>
+                    <li @click="(Value = 'All Coins')">All Coins</li>
+                    <li @click="(Value = 'Fav')">Fav</li>
+                    <li @click="(Value = 'Coin Ticker')">Coin Ticker</li>
+                  </ul>
+                </div>
+              </div>
+                <!-- <select>
                   <option value="">Bid / Offer</option>
                   <option value="">Bid</option>
                   <option value="">Offer</option>
@@ -172,12 +213,52 @@
                       fill="#677F8E"
                     />
                   </svg>
-                </div>
+                </div> -->
               </div>
               <div
-                class="ratioSelect d-flex justify-content-start align-center"
+                class=" d-flex justify-content-start align-center"
               >
-                <select>
+              <div
+              class="select ratioSelect"
+              tabindex="0"
+              @click="open_dropdown_ratio = !open_dropdown_ratio"
+              @blur="open_dropdown_ratio = false"
+            >
+              <span class="text" style="left: 15px;">{{ Value1 }}</span>
+              <span
+                class="icon"
+                :class="open_dropdown_ratio? 'rotate-sc-icon' : ''"
+                ><svg
+                  width="8"
+                  height="8"
+                  viewBox="0 0 12 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                    fill="#677F8E"
+                  />
+                </svg>
+              </span>
+              <div
+                class="options"
+                v-show="open_dropdown_ratio"
+                style="
+                left: 0px;
+                top: 33px;
+                "
+              >
+                <ul>
+                  <li @click="(Value1 = '0.1')">0.1</li>
+                  <li @click="(Value1 = '0.01')">0.01</li>
+                  <li @click="(Value1 = '0.001')">0.001</li>
+                  <li @click="(Value1 = '0.0001')">0.0001</li>
+                  <li @click="(Value1 = '0.00001')">0.00001</li>
+                </ul>
+              </div>
+            </div>
+                <!-- <select>
                   <option value="">0.1</option>
                   <option value="">0.01</option>
                   <option value="">0.001</option>
@@ -197,7 +278,7 @@
                       fill="#677F8E"
                     />
                   </svg>
-                </div>
+                </div> -->
               </div>
             </div>
             <!-- buy / sell live scores table start -->
@@ -266,7 +347,49 @@
 
       <div class="col-12 col-lg-4 col-xl-3 bs-right-table">
         <div class="all-coins-container">
-          <select>
+          <div
+          class="select ratioSelect"
+          tabindex="0"
+          @click="open_dropdown_right = !open_dropdown_right"
+          @blur="open_dropdown_right = false"
+          style="width:120px !important"
+        >
+          <span class="text" style="left: 15px;">{{ Value2 }}</span>
+          <span
+            class="icon"
+            :class="open_dropdown_right? 'rotate-sc-icon' : ''"
+            ><svg
+              width="8"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                fill="#677F8E"
+              />
+            </svg>
+          </span>
+          <div
+            class="options"
+            v-show="open_dropdown_right"
+            style="
+            left: 0px;
+            top: 33px;
+            "
+          >
+          <ul>
+            <li @click="(Value2 = 'Bid / Offer')">Bid / Offer</li>
+            <li @click="(Value2 = 'Bid')">Bid</li>
+            <li @click="(Value2 = 'Offer')">Offer</li>
+            <li @click="(Value2 = 'All Coins')">All Coins</li>
+            <li @click="(Value2 = 'Fav')">Fav</li>
+            <li @click="(Value2 = 'Coin Ticker')">Coin Ticker</li>
+          </ul>
+          </div>
+        </div>
+          <!-- <select>
             <option value="">All Coins</option>
             <option value="">Bid</option>
             <option value="">Offer</option>
@@ -287,7 +410,7 @@
                 fill="#677F8E"
               />
             </svg>
-          </span>
+          </span> -->
         </div>
 
         <div class="bs-table-s fav-table">
@@ -386,6 +509,12 @@ export default {
   },
   data() {
     return {
+      open_dropdown_right:false,
+      open_dropdown_ratio:false,
+      open_dropdown_coin:false,
+      Value:'Bid / Offer',
+      Value1:'0.1',
+      Value2:'All Coins',
       coinSearchText: "",
       defaultPath: "btc_usdt",
       showSearchBox: false,
@@ -717,6 +846,47 @@ export default {
 };
 </script>
 <style> @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap'); </style>
+<style scoped>
+.select
+{
+  position: relative;
+  width: 100px;
+  height: 32px;
+  border-radius: 2px;
+  padding: 4px 8px;
+  background-color: #2c3b44;
+  color: white;
+
+}
+.select .icon {
+    position: absolute;
+    top: 6px !important;
+    pointer-events: none;
+    right: 8px !important;
+}
+.select .options{
+    position: absolute;
+    top: 42px;
+    z-index: 10000;
+    width: 100%;
+    background-color: rgb(34, 43, 47);
+    border-radius: 4px;
+}
+.select .options ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.select .options ul li
+{
+  padding: 6px;
+  cursor: pointer;
+}
+.select .options ul li:hover{
+  background-color: #2c3b44;
+}
+</style>
 <style lang="scss">
 ::-webkit-scrollbar {
   width: 4px;
@@ -816,7 +986,7 @@ export default {
     .search-svg {
       position: absolute;
       right: 0;
-      margin-right: 38px;
+      margin-right: 11px;
       margin-top: 10px;
       pointer-events: none;
     }

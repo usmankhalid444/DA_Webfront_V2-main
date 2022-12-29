@@ -926,6 +926,7 @@ export default {
       based on the direction, asc or desc:*/
           if (dir == "asc") {
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+              console.log('arslan')
               //if so, mark as a switch and break the loop:
               shouldSwitch = true;
               break;

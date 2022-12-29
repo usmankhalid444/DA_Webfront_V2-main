@@ -11,8 +11,13 @@
         <div class="col-12 my-2">
           <h5>
             Take Profit / Stop Loss
-            <span>
+            <span class="cursor-pointer"
+            @click="
+              $bvModal.show('limitorder-TPSL'),
+              $bvModal.hide('limitorder-STPSL')
+          ">
               <svg
+                
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -83,7 +88,7 @@
             </div>
             <div class="row">
               <div class="col-12 input-row">
-                <input type="text" placeholder="Price (THB)" />
+                <input type="number" placeholder="Price (THB)" />
                 <ul class="sl-ul">
                   <li class="thai-font">
                     ขายเมื่อราคา +20% (1,230,600.12 บาท)
@@ -207,10 +212,18 @@ export default {
   padding: 0px 16px 20px 16px !important;
 }
 #limitorder-STPSL___BV_modal_body_ {
-  padding: 0px 16px 26px 16px !important;
+  padding: 0px 11px 26px 16px !important;
+  width: 513px;
 }
 </style>
 <style scoped>
+.cursor-pointer{
+  cursor: pointer;
+}
+.sl-ul{
+    padding: 0px 8px !important;
+    list-style: inside !important;
+}
 hr {
   margin: 16px 0px;
   background: #28363e;

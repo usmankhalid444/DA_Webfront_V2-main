@@ -58,6 +58,7 @@
         </ul>
         <button
           class="bs-cancel-all-btn"
+          v-if="selectedopenorder == 'Limit  Orders (6)'"
           @click="$bvModal.show('cancel-all-modal')"
         >
           Cancel All
@@ -422,7 +423,7 @@
       <!-- mached tab end -->
       <!-- portfolio tab start -->
       <div class="tab-pane open-order" v-if="selectedfooter === 'Portfolio'">
-        <div class="row">
+        <div class="row m-0">
           <div
             class="col-md-12 table-responsive p-0"
             style="height: 297px; overflow: auto"
@@ -704,10 +705,13 @@ export default {
 text-align: right;
 
 }
-.matchTable  tr th:nth-child(1) {
+.portfolioTable thead tr {
+  border-bottom: 1px solid #28363e;
+}
+.matchTable  tr th:nth-child(1),.portfolioTable  tr th:nth-child(1) {
   padding-left:0px !important;
 }
-.matchTable  tr td:nth-child(1) {
+.matchTable  tr td:nth-child(1),.portfolioTable  tr td:nth-child(1)  {
   padding-left:0px !important;
 }
 .cencel-body{
@@ -1113,7 +1117,7 @@ text-align: right;
     margin-right: 40px;
   }
   .pills-tab {
-    padding: 0 24px;
+    padding: 0 12px;
   }
   .bs-bb {
     display: none;
@@ -1123,7 +1127,7 @@ text-align: right;
   }
 
   .tab-pane {
-     padding: 0 1.5rem;
+     padding: 0 12px;
    }
 }
 @media only screen and (min-width: 1024px) {

@@ -19,7 +19,7 @@
         </ul>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-12" style="display: flex;align-items: end; flex-wrap:wrap">
       <div class="search-input">
         <input type="text" placeholder="ค้นหาเหรียญ" />
         <span
@@ -61,14 +61,51 @@
         </button>
       </div>
       <div class="select-status">
-        <select>
+        <div class="second-selectbox">
+          <div
+                  class="select"
+                  tabindex="0"
+                  @click="open_dropdown = !open_dropdown"
+                  @blur="open_dropdown = false"
+                >
+                  <span class="text" style="left: 15px;">{{ Value }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
+                    ><svg
+                      width="12"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="options"
+                    v-show="open_dropdown"
+                  >
+                    <ul>
+                      <li @click="(Value = 'Volvo')">Volvo</li>
+                      <li @click="(Value = 'Saab')">Saab</li>
+                      <li @click="(Value = 'Opel')">Opel</li>
+                      <li @click="(Value = 'Audi')">Audi</li>
+                    </ul>
+                  </div>
+                </div>
+        </div>
+        <!-- <select>
           <option value="" selected disabled hidden>All Status</option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
           <option value="opel">Opel</option>
           <option value="audi">Audi</option>
-        </select>
-        <span
+        </select> -->
+        <!-- <span
           ><svg
             width="12"
             height="8"
@@ -81,7 +118,7 @@
               fill="#677F8E"
             />
           </svg>
-        </span>
+        </span> -->
       </div>
       <div class="filter-date-picker">
         <date-picker v-model="time3" format="DD/MM/YY" range style="width:221px"></date-picker>
@@ -95,12 +132,13 @@
         class="col-md-12 table-responsive p-0 m-0"
         style="height: 297px; overflow: auto"
       >
-        <table class="table table-borderless text-start p-0">
+        <table class="table table-borderless text-start p-0" id="myTable">
           <thead>
             <tr>
               <th scope="col">
                 Date
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -121,6 +159,7 @@
               <th scope="col">
                 B/S
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -141,6 +180,7 @@
               <th scope="col">
                 Coin
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -161,6 +201,7 @@
               <th scope="col">
                 Status
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -181,6 +222,7 @@
               <th scope="col">
                 Amount
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -201,6 +243,7 @@
               <th scope="col">
                 Price
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -221,6 +264,7 @@
               <th scope="col">
                 Fee + VAT
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -241,6 +285,7 @@
               <th scope="col">
                 Total
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -261,6 +306,7 @@
               <th scope="col">
                 Type
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -281,6 +327,7 @@
               <th scope="col">
                 TP/SL Conditions
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -302,7 +349,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>25/09/22 <span>19:53</span></td>
+              <td>25/09/2022 <span>14:53</span></td>
               <td class="green">B</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -314,7 +361,7 @@
               <td>TP: 1,000,000.00 (+20%)</td>
             </tr>
             <tr>
-              <td>25/09/22 <span>19:53</span></td>
+              <td>25/09/22 <span>13:53</span></td>
               <td class="red">S</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -326,7 +373,7 @@
               <td>TP: 1,000,000.00 (+20%) | SL: 789,000.00 (-20%)</td>
             </tr>
             <tr>
-              <td>25/09/22 <span>19:53</span></td>
+              <td>25/09/2023 <span>19:56</span></td>
               <td class="green">B</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -338,7 +385,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>25/09/22 <span>19:53</span></td>
+              <td>23/09/24 <span>19:00</span></td>
               <td class="red">S</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -358,12 +405,13 @@
         class="col-md-12 table-responsive p-0"
         style="height: 297px; overflow: auto"
       >
-        <table class="table table-borderless text-start p-0">
+        <table class="table table-borderless text-start p-0" id="myTable">
           <thead>
             <tr>
               <th scope="col">
                 Date
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -384,6 +432,7 @@
               <th scope="col">
                 B/S
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -404,6 +453,7 @@
               <th scope="col">
                 Coin
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -424,6 +474,7 @@
               <th scope="col">
                 Status
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -444,6 +495,7 @@
               <th scope="col">
                 Amount
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -464,6 +516,7 @@
               <th scope="col">
                 Price
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -484,6 +537,7 @@
               <th scope="col">
                 Fee + VAT
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -504,6 +558,7 @@
               <th scope="col">
                 Total
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -524,6 +579,7 @@
               <th scope="col">
                 Trailing Cond.
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -544,6 +600,7 @@
               <th scope="col">
                 Start Price (THB)
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -564,6 +621,7 @@
               <th scope="col">
                 Expired Date
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -584,6 +642,7 @@
               <th scope="col">
                 SL Conditon
                 <svg
+                @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -605,7 +664,7 @@
           </thead>
           <tbody>
             <tr>
-              <td>28/09/22 <span>20:53</span></td>
+              <td>28/09/2022 <span>20:53</span></td>
               <td class="red">B</td>
               <td>ETH</td>
               <td>Matched</td>
@@ -619,7 +678,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>28/09/22 <span>20:53</span></td>
+              <td>28/09/22 <span>18:53</span></td>
               <td class="green">B</td>
               <td>ETH</td>
               <td>Matched</td>
@@ -633,7 +692,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>28/09/22 <span>20:53</span></td>
+              <td>28/10/22 <span>10:53</span></td>
               <td class="red">B</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -647,7 +706,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>28/09/22 <span>20:53</span></td>
+              <td>28/09/2020 <span>20:30</span></td>
               <td class="green">B</td>
               <td>ETH</td>
               <td>Matched</td>
@@ -673,14 +732,114 @@ export default {
   components: { DatePicker },
   data() {
     return {
+      open_dropdown:false,
+      Value:'All Status',
       time3: null,
       active_tab: "Limit & Market Orders",
       activeBtn: "all",
     };
   },
+  methods: {
+    sortTable(n) {
+      
+      var table,
+        rows,
+        switching,
+        i,
+        x,
+        y,
+        shouldSwitch,
+        dir,
+        switchcount = 0;
+      table = document.getElementById("myTable");
+      switching = true;
+      //Set the sorting direction to ascending:
+      dir = "asc";
+      /*Make a loop that will continue until
+  no switching has been done:*/
+      while (switching) {
+        //start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        
+        /*Loop through all table rows (except the
+    first, which contains table headers):*/
+        for (i = 1; i < rows.length - 1; i++) {
+          //start by saying there should be no switching:
+          shouldSwitch = false;
+          /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+          x = rows[i].getElementsByTagName("TD")[n];
+          y = rows[i + 1].getElementsByTagName("TD")[n];
+          console.log(x)
+          // console.log(y)
+          /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+          if (dir == "asc") {
+            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+             
+              //if so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          } else if (dir == "desc") {
+            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+              //if so, mark as a switch and break the loop:
+              shouldSwitch = true;
+              break;
+            }
+          }
+        }
+        if (shouldSwitch) {
+          /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+          switching = true;
+          //Each time a switch is done, increase this count by 1:
+          switchcount++;
+        } else {
+          /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+          if (switchcount == 0 && dir == "asc") {
+            dir = "desc";
+            switching = true;
+          }
+        }
+      }
+    },
+  }
 };
 </script>
 <style scoped>
+.select
+{
+  background: #222B2F;
+  border-radius: 4px;
+  width: 142px;
+  height: 40px;
+}
+.select .options{
+    position: absolute;
+    top: 42px;
+    z-index: 1;
+    width: 100%;
+    background-color: rgb(34, 43, 47);
+    border-radius: 4px;
+}
+.select .options ul
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.select .options ul li
+{
+  padding: 8px;
+  cursor: pointer;
+}
+.select .options ul li:hover{
+  background-color: #2c3b44;
+}
 .order-history
 {
   padding: 24px 25px 24px 26px !important;
@@ -689,6 +848,9 @@ export default {
   border-spacing: 0px 24px;
   border-collapse: separate;
   margin-top: 0px;
+}
+.order-history table th svg{
+  cursor: pointer;
 }
 .order-history table th:nth-child(1){
   padding-left: 0px !important;
