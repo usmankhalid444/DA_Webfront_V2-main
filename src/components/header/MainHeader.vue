@@ -4,7 +4,7 @@
     <header class="container-fluid site-main-header pmd">
       <div class="row px-0">
         <div class="col-md-12 col-lg-2 my-auto main-header-logo">
-          <span>
+          <span class="lmg">
             <b-link :to="{ path: '/' }">
               <b-img
                 :src="require('../../assets/images/logo-mh/logo.png')"
@@ -973,5 +973,10 @@ export default {
   display: flex;
   justify-content: left;
   // padding-bottom: 20px;
+}
+@media only screen and (min-width: 1280px) {
+  .lmg {
+    margin-left: 5px;
+  }
 }
 </style>

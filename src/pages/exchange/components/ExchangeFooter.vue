@@ -1,607 +1,635 @@
 <template>
   <!-- Footer -->
   <div>
-  <div class="container-fluid footer bs-bottom-section">
-    <div class="row">
-      <div class="col-md-12 p-0">
-        <ul class="nav my-4 pills-tab" role="tablist">
-          <li class="nav-item" v-for="(tab, index) in footertabs" :key="index">
-            <button
-              type="button"
-              @click="selectedfooter = tab"
-              :class="{ active: selectedfooter === tab }"
-            >
-              {{ tab }}
-            </button>
-            <span class="hover-info"> Actual คือ จำนวนเหรียญที่มีในพอร์ต </span>
-          </li>
-          <li class="nav-item">
-            <router-link to="/order-history">
-              <button type="button">
-                <span
-                  ><svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.99175 0.666504C4.39175 0.666504 0.666748 4.39984 0.666748 8.99984C0.666748 13.5998 4.39175 17.3332 8.99175 17.3332C13.6001 17.3332 17.3334 13.5998 17.3334 8.99984C17.3334 4.39984 13.6001 0.666504 8.99175 0.666504ZM9.00008 15.6665C5.31675 15.6665 2.33341 12.6832 2.33341 8.99984C2.33341 5.3165 5.31675 2.33317 9.00008 2.33317C12.6834 2.33317 15.6667 5.3165 15.6667 8.99984C15.6667 12.6832 12.6834 15.6665 9.00008 15.6665ZM9.41675 4.83317H8.16675V9.83317L12.5417 12.4582L13.1667 11.4332L9.41675 9.20817V4.83317Z"
-                      fill="#677F8E"
-                    />
-                  </svg> </span
-                >Order History
-              </button>
-            </router-link>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Open Order -->
-      <div
-        class="tab-pane open-order"
-        v-if="selectedfooter === 'Open Orders (5)'"
-      >
-        <ul class="nav mr-2" id="" role="tablist">
-          <li class="nav-item">
-            <button
-              type="button"
-              v-for="(tab, index) in openordertabs"
+    <div class="container-fluid footer bs-bottom-section">
+      <div class="row">
+        <div class="col-md-12 p-0">
+          <ul class="nav my-4 pills-tab" role="tablist">
+            <li
+              class="nav-item"
+              v-for="(tab, index) in footertabs"
               :key="index"
-              @click="selectedopenorder = tab"
-              :class="{ active: selectedopenorder == tab }"
             >
-              {{ tab }}
-            </button>
-          </li>
-        </ul>
-        <button
-          class="bs-cancel-all-btn"
-          v-if="selectedopenorder == 'Limit  Orders (6)'"
-          @click="$bvModal.show('cancel-all-modal')"
-        >
-          Cancel All
-        </button>
+              <button
+                type="button"
+                @click="selectedfooter = tab"
+                :class="{ active: selectedfooter === tab }"
+              >
+                {{ tab }}
+              </button>
+              <span class="hover-info">
+                Actual คือ จำนวนเหรียญที่มีในพอร์ต
+              </span>
+            </li>
+            <li class="nav-item">
+              <router-link to="/order-history">
+                <button type="button">
+                  <span
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.99175 0.666504C4.39175 0.666504 0.666748 4.39984 0.666748 8.99984C0.666748 13.5998 4.39175 17.3332 8.99175 17.3332C13.6001 17.3332 17.3334 13.5998 17.3334 8.99984C17.3334 4.39984 13.6001 0.666504 8.99175 0.666504ZM9.00008 15.6665C5.31675 15.6665 2.33341 12.6832 2.33341 8.99984C2.33341 5.3165 5.31675 2.33317 9.00008 2.33317C12.6834 2.33317 15.6667 5.3165 15.6667 8.99984C15.6667 12.6832 12.6834 15.6665 9.00008 15.6665ZM9.41675 4.83317H8.16675V9.83317L12.5417 12.4582L13.1667 11.4332L9.41675 9.20817V4.83317Z"
+                        fill="#677F8E"
+                      />
+                    </svg> </span
+                  >Order History
+                </button>
+              </router-link>
+            </li>
+          </ul>
+        </div>
 
-        <!-- Limit & Market Order below -->
+        <!-- Open Order -->
         <div
-          class="fade show  active"
-          v-if="selectedopenorder == 'Limit  Orders (6)'"
+          class="tab-pane open-order"
+          v-if="selectedfooter === 'Open Orders (5)'"
         >
-          <div class="row lm-order-container">
+          <ul class="nav mr-2" id="" role="tablist">
+            <li class="nav-item">
+              <button
+                style="width: 158px"
+                type="button"
+                v-for="(tab, index) in openordertabs"
+                :key="index"
+                @click="selectedopenorder = tab"
+                :class="{ active: selectedopenorder == tab }"
+              >
+                {{ tab }}
+              </button>
+            </li>
+          </ul>
+          <button
+            class="bs-cancel-all-btn"
+            v-if="selectedopenorder == 'Limit  Orders (6)'"
+            @click="$bvModal.show('cancel-all-modal')"
+          >
+            Cancel All
+          </button>
+
+          <!-- Limit & Market Order below -->
+          <div
+            class="fade show active"
+            v-if="selectedopenorder == 'Limit  Orders (6)'"
+          >
+            <div class="row lm-order-container">
+              <div
+                class="col-md-12 table-responsive p-0"
+                style="height: 297px; overflow: auto"
+              >
+                <table
+                  class="table table-borderless text-start p-0 trailingTable"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <input
+                          @change="selectAllOLM"
+                          v-model="selectAll"
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </th>
+                      <th scope="col">B/S</th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Price(THB)</th>
+                      <th scope="col">Amount(BTC)</th>
+                      <th scope="col">Matched(BTC)</th>
+                      <th scope="col">Unmatched(BTC)</th>
+                      <th scope="col">Total(THB)</th>
+                      <th scope="col">Conditions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <input
+                          type="checkbox"
+                          v-model="open_limit_market[0]"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="green">B</td>
+                      <td>Coin</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td>0.0000029</td>
+                      <td>0.0000029</td>
+                      <td>0.00</td>
+                      <td>1,000.00</td>
+                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          v-model="open_limit_market[1]"
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="red">S</td>
+                      <td>Coin</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td>0.0000029</td>
+                      <td>0.0000029</td>
+                      <td>0.00</td>
+                      <td>1,000.00</td>
+                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          v-model="open_limit_market[2]"
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="green">B</td>
+                      <td>Coin</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td>0.0000029</td>
+                      <td>0.0000029</td>
+                      <td>0.00</td>
+                      <td>1,000.00</td>
+                      <td>-</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          v-model="open_limit_market[3]"
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="red">S</td>
+                      <td>Coin</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td>0.0000029</td>
+                      <td>0.0000029</td>
+                      <td>0.00</td>
+                      <td>1,000.00</td>
+                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input
+                          v-model="open_limit_market[4]"
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="green">B</td>
+                      <td>Coin</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td>0.0000029</td>
+                      <td>0.0000029</td>
+                      <td>0.00</td>
+                      <td>1,000.00</td>
+                      <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button
+                class="cancel-this-orders"
+                @click="$bvModal.show('cancel-all-modal')"
+              >
+                Cancel 4 Orders
+              </button>
+            </div>
+          </div>
+          <!-- Trailing Stop below -->
+          <div
+            class="fade show active"
+            v-if="selectedopenorder == 'Trailing Stop (3)'"
+          >
+            <div class="">
+              <div
+                class="col-md-12 table-responsive mt-3 p-0"
+                style="height: 297px; overflow: auto"
+              >
+                <table class="table table-borderless text-start p-0">
+                  <thead>
+                    <tr>
+                      <th scope="col">
+                        <input
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </th>
+                      <th scope="col">B/S</th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Start Price(THB)</th>
+                      <th scope="col">Trailing cond.</th>
+                      <th scope="col">Amount(BTC)</th>
+                      <th scope="col">Expired Date</th>
+                      <th scope="col">SL Conditions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(item, index) in 5" :key="index">
+                      <td>
+                        <input
+                          type="checkbox"
+                          class="form-check-input shadow"
+                        />
+                      </td>
+                      <td class="green">B</td>
+                      <td>BTC</td>
+                      <td>1,000,000.00</td>
+                      <td>+5,000.00</td>
+                      <td>10,000.00</td>
+                      <td>1 Month (30/07/22)</td>
+                      <td>-</td>
+                      <td>
+                        <button
+                          @click="$bvModal.show('cancel-modal')"
+                          class="btn"
+                        >
+                          Cancel
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button
+                class="cancel-this-orders"
+                @click="$bvModal.show('cancel-all-modal')"
+              >
+                Cancel 4 Orders
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- mached tab start -->
+        <div class="tab-pane open-order" v-if="selectedfooter === 'Matched'">
+          <ul class="nav mr-2" id="" role="tablist">
+            <li class="nav-item">
+              <button
+                type="button"
+                v-for="(tab, index) in matchedTabs"
+                :key="index"
+                @click="selectedMatchedTab = tab"
+                :class="{ active: selectedMatchedTab === tab }"
+              >
+                {{ tab }}
+              </button>
+            </li>
+          </ul>
+          <div v-if="selectedMatchedTab === 'Limit Orders (3)'">
+            <div class="row m-0">
+              <div
+                class="col-md-12 table-responsive mt-3 p-0"
+                style="height: 297px; overflow: auto"
+              >
+                <table class="table table-borderless text-start p-0 matchTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">B/S</th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Type</th>
+                      <th scope="col" style="width: 30px">Price(THB)</th>
+                      <th scope="col" class="text-right">Matched(BTC)</th>
+                      <th scope="col" class="text-right">Matched(THB)</th>
+                      <th colspan="3" style="width: 20%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(item, index) in 3" :key="index">
+                      <td>25/09/22 <span>19:53</span></td>
+                      <td class="green">B</td>
+                      <td>BTC</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td class="text-right">1</td>
+                      <td class="text-right">10,000</td>
+                      <td colspan="3"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div v-if="selectedMatchedTab === 'Market Order (2)'">
+            <div class="row m-0">
+              <div
+                class="col-md-12 table-responsive mt-3 p-0"
+                style="height: 297px; overflow: auto"
+              >
+                <table class="table table-borderless text-start p-0 matchTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">B/S</th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Type</th>
+                      <th scope="col" style="width: 30px">Price(THB)</th>
+                      <th scope="col" class="text-right">Matched(BTC)</th>
+                      <th scope="col" class="text-right">Matched(THB)</th>
+                      <th colspan="3" style="width: 20%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(item, index) in 2" :key="index">
+                      <td>25/09/22 <span>19:53</span></td>
+                      <td class="green">B</td>
+                      <td>BTC</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td class="text-right">1</td>
+                      <td class="text-right">10,000</td>
+                      <td colspan="3"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div v-if="selectedMatchedTab === 'Traling Stop (2)'">
+            <div class="row m-0">
+              <div
+                class="col-md-12 table-responsive mt-3 p-0"
+                style="height: 297px; overflow: auto"
+              >
+                <table class="table table-borderless text-start p-0 matchTable">
+                  <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">B/S</th>
+                      <th scope="col">Coin</th>
+                      <th scope="col">Type</th>
+                      <th scope="col" style="width: 30px">Price(THB)</th>
+                      <th scope="col" class="text-right">Matched(BTC)</th>
+                      <th scope="col" class="text-right">Matched(THB)</th>
+                      <th colspan="3" style="width: 20%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(item, index) in 2" :key="index">
+                      <td>25/09/22 <span>19:53</span></td>
+                      <td class="red">S</td>
+                      <td>ETH</td>
+                      <td>Market</td>
+                      <td>898,000.00</td>
+                      <td class="text-right">8</td>
+                      <td class="text-right">5,000</td>
+                      <td colspan="3"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- mached tab end -->
+        <!-- portfolio tab start -->
+        <div class="tab-pane open-order" v-if="selectedfooter === 'Portfolio'">
+          <div class="row m-0">
             <div
               class="col-md-12 table-responsive p-0"
               style="height: 297px; overflow: auto"
             >
-              <table class="table table-borderless text-start p-0 trailingTable">
+              <table
+                class="table table-borderless text-start p-0 portfolioTable"
+              >
                 <thead>
                   <tr>
-                    <th scope="col">
-                      <input
-                        @change="selectAllOLM"
-                        v-model="selectAll"
-                        type="checkbox"
-                        class="form-check-input shadow"
-                      />
-                    </th>
-                    <th scope="col">B/S</th>
                     <th scope="col">Coin</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Price(THB)</th>
-                    <th scope="col">Amount(BTC)</th>
-                    <th scope="col">Matched(BTC)</th>
-                    <th scope="col">Unmatched(BTC)</th>
-                    <th scope="col">Total(THB)</th>
-                    <th scope="col">Conditions</th>
+                    <th scope="col">
+                      Value
+                      <span>
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
+                            fill="#677F8E"
+                          />
+                        </svg>
+                      </span>
+                    </th>
+                    <th scope="col" class="text-center">Avg. Cost</th>
+                    <th scope="col">Last Price</th>
+                    <th scope="col" class="text-center">Total</th>
+                    <th scope="col" class="text-center">Unrealized (Est.)</th>
+                    <th scope="col">Realized (Today)</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <input
-                        type="checkbox"
-                        v-model="open_limit_market[0]"
-                        class="form-check-input shadow"
-                      />
-                    </td>
-                    <td class="green">B</td>
-                    <td>Coin</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td>0.0000029</td>
-                    <td>0.0000029</td>
-                    <td>0.00</td>
-                    <td>1,000.00</td>
-                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input
-                        v-model="open_limit_market[1]"
-                        type="checkbox"
-                        class="form-check-input shadow"
-                      />
-                    </td>
-                    <td class="red">S</td>
-                    <td>Coin</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td>0.0000029</td>
-                    <td>0.0000029</td>
-                    <td>0.00</td>
-                    <td>1,000.00</td>
-                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input
-                        v-model="open_limit_market[2]"
-                        type="checkbox"
-                        class="form-check-input shadow"
-                      />
-                    </td>
-                    <td class="green">B</td>
-                    <td>Coin</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td>0.0000029</td>
-                    <td>0.0000029</td>
-                    <td>0.00</td>
-                    <td>1,000.00</td>
-                    <td>-</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input
-                        v-model="open_limit_market[3]"
-                        type="checkbox"
-                        class="form-check-input shadow"
-                      />
-                    </td>
-                    <td class="red">S</td>
-                    <td>Coin</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td>0.0000029</td>
-                    <td>0.0000029</td>
-                    <td>0.00</td>
-                    <td>1,000.00</td>
-                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input
-                        v-model="open_limit_market[4]"
-                        type="checkbox"
-                        class="form-check-input shadow"
-                      />
-                    </td>
-                    <td class="green">B</td>
-                    <td>Coin</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td>0.0000029</td>
-                    <td>0.0000029</td>
-                    <td>0.00</td>
-                    <td>1,000.00</td>
-                    <td>TP:1,000,000.00(+20%)|SL:789,000.00(-20%)</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
+                  <tr v-for="(item, index) in 4" :key="index">
+                    <td>ETH<span>Ethereum</span></td>
+                    <td>1.00</td>
+                    <td class="text-center">70,723.16</td>
+                    <td>39,720.00</td>
+                    <td class="text-center">1,000,000.00</td>
+                    <td class="red text-center">-29,775.29(-42.10%)</td>
+                    <td>0.00 (0.00%)</td>
+                    <td
+                      @click="$bvModal.show('portfolio-detail')"
+                      class="orange"
+                    >
+                      ดูรายละเอียด
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <button
-              class="cancel-this-orders"
-              @click="$bvModal.show('cancel-all-modal')"
-            >
-              Cancel 4 Orders
-            </button>
           </div>
         </div>
-        <!-- Trailing Stop below -->
-        <div
-          class="fade show  active"
-          v-if="selectedopenorder == 'Trailing Stop (3)'"
+        <!-- portfolio tab end -->
+        <!-- order historoy tab start -->
+        <div class="tab-pane open-order" v-if="selectedfooter === 'history'">
+          <ul class="nav mx-2" id="" role="tablist">
+            <li class="nav-item">
+              <button
+                type="button"
+                v-for="(tab, index) in HistoryTabs"
+                :key="index"
+                @click="selectedHistoryTab = tab"
+                :class="{ active: selectedHistoryTab === tab }"
+              >
+                {{ tab }}
+              </button>
+            </li>
+          </ul>
+          <div v-if="selectedMatchedTab === 'Limit Orders'">Limit Orders</div>
+          <div v-if="selectedMatchedTab === 'Market Order'">Market Order</div>
+          <div v-if="selectedMatchedTab === 'Traling Stop'">Traling Stop</div>
+        </div>
+        <!-- order history tab end -->
+        <PortfolioDetailModal />
+        <!-- cancel all modal -->
+        <b-modal
+          class="bs-cancel-all-modal"
+          id="cancel-all-modal"
+          :hide-footer="true"
+          :hide-header="true"
         >
-          <div class="">
-            <div
-              class="col-md-12 table-responsive mt-3 p-0"
-              style="height: 297px; overflow: auto"
-            >
-              <table class="table table-borderless text-start p-0 ">
-                <thead>
-                  <tr>
-                    <th scope="col">
-                      <input type="checkbox" class="form-check-input shadow" />
-                    </th>
-                    <th scope="col">B/S</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Start Price(THB)</th>
-                    <th scope="col">Trailing cond.</th>
-                    <th scope="col">Amount(BTC)</th>
-                    <th scope="col">Expired Date</th>
-                    <th scope="col">SL Conditions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in 5" :key="index">
-                    <td>
-                      <input type="checkbox" class="form-check-input shadow" />
-                    </td>
-                    <td class="green">B</td>
-                    <td>BTC</td>
-                    <td>1,000,000.00</td>
-                    <td>+5,000.00</td>
-                    <td>10,000.00</td>
-                    <td>1 Month (30/07/22)</td>
-                    <td>-</td>
-                    <td>
-                      <button
-                        @click="$bvModal.show('cancel-modal')"
-                        class="btn"
-                      >
-                        Cancel
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <button
-              class="cancel-this-orders"
-              @click="$bvModal.show('cancel-all-modal')"
-            >
-              Cancel 4 Orders
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- mached tab start -->
-      <div class="tab-pane open-order" v-if="selectedfooter === 'Matched'">
-        <ul class="nav mr-2" id="" role="tablist">
-          <li class="nav-item">
-            <button
-              type="button"
-              v-for="(tab, index) in matchedTabs"
-              :key="index"
-              @click="selectedMatchedTab = tab"
-              :class="{ active: selectedMatchedTab === tab }"
-            >
-              {{ tab }}
-            </button>
-          </li>
-        </ul>
-        <div v-if="selectedMatchedTab === 'Limit Orders (3)'">
-          <div class="row m-0">
-            <div
-              class="col-md-12 table-responsive mt-3 p-0"
-              style="height: 297px; overflow: auto"
-            >
-              <table  class="table table-borderless text-start p-0 matchTable">
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">B/S</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Type</th>
-                    <th scope="col" style="width: 30px;">Price(THB)</th>
-                    <th scope="col" class=" text-right">Matched(BTC)</th>
-                    <th scope="col" class="text-right">Matched(THB)</th>
-                    <th  colspan="3" style="width:20%"></th>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in 3" :key="index">
-                    <td>25/09/22 <span>19:53</span></td>
-                    <td class="green">B</td>
-                    <td>BTC</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td class="text-right">1</td>
-                    <td class="text-right">10,000</td>
-                    <td colspan="3"></td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div v-if="selectedMatchedTab === 'Market Order (2)'">
-          <div class="row m-0">
-            <div
-              class="col-md-12 table-responsive mt-3 p-0"
-              style="height: 297px; overflow: auto"
-            >
-              <table class="table table-borderless text-start p-0 matchTable">
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">B/S</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Type</th>
-                    <th scope="col" style="width: 30px;">Price(THB)</th>
-                    <th scope="col" class=" text-right">Matched(BTC)</th>
-                    <th scope="col" class="text-right">Matched(THB)</th>
-                    <th  colspan="3" style="width:20%"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in 2" :key="index">
-                    <td>25/09/22 <span>19:53</span></td>
-                    <td class="green">B</td>
-                    <td>BTC</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td class="text-right">1</td>
-                    <td class="text-right">10,000</td>
-                    <td colspan="3"></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-        <div v-if="selectedMatchedTab === 'Traling Stop (2)'">
-          <div class="row m-0">
-            <div
-              class="col-md-12 table-responsive mt-3 p-0"
-              style="height: 297px; overflow: auto"
-            >
-              <table class="table table-borderless text-start p-0 matchTable">
-                <thead>
-                  <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">B/S</th>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Type</th>
-                    <th scope="col" style="width: 30px;">Price(THB)</th>
-                    <th scope="col" class=" text-right">Matched(BTC)</th>
-                    <th scope="col" class="text-right">Matched(THB)</th>
-                    <th  colspan="3" style="width:20%"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) in 2" :key="index">
-                    <td>25/09/22 <span>19:53</span></td>
-                    <td class="red">S</td>
-                    <td>ETH</td>
-                    <td>Market</td>
-                    <td>898,000.00</td>
-                    <td class="text-right">8</td>
-                    <td class="text-right">5,000</td>
-                    <td colspan="3"></td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- mached tab end -->
-      <!-- portfolio tab start -->
-      <div class="tab-pane open-order" v-if="selectedfooter === 'Portfolio'">
-        <div class="row m-0">
-          <div
-            class="col-md-12 table-responsive p-0"
-            style="height: 297px; overflow: auto"
-          >
-            <table class="table table-borderless text-start p-0 portfolioTable">
-              <thead>
-                <tr>
-                  <th scope="col">Coin</th>
-                  <th scope="col">Value <span >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
-                  fill="#677F8E"
-                />
-              </svg>
-            </span></th>
-                  <th scope="col" class="text-center">Avg. Cost </th>
-                  <th scope="col">Last Price</th>
-                  <th scope="col" class="text-center">Total</th>
-                  <th scope="col" class="text-center">Unrealized (Est.)</th>
-                  <th scope="col">Realized (Today)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(item, index) in 4" :key="index">
-                  <td>ETH<span>Ethereum</span></td>
-                  <td>1.00</td>
-                  <td class="text-center">70,723.16</td>
-                  <td>39,720.00</td>
-                  <td class="text-center ">1,000,000.00</td>
-                  <td class="red text-center">-29,775.29(-42.10%)</td>
-                  <td>0.00 (0.00%)</td>
-                  <td @click="$bvModal.show('portfolio-detail')" class="orange">
-                    ดูรายละเอียด
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!-- portfolio tab end -->
-      <!-- order historoy tab start -->
-      <div class="tab-pane open-order" v-if="selectedfooter === 'history'">
-        <ul class="nav mx-2" id="" role="tablist">
-          <li class="nav-item">
-            <button
-              type="button"
-              v-for="(tab, index) in HistoryTabs"
-              :key="index"
-              @click="selectedHistoryTab = tab"
-              :class="{ active: selectedHistoryTab === tab }"
-            >
-              {{ tab }}
-            </button>
-          </li>
-        </ul>
-        <div v-if="selectedMatchedTab === 'Limit Orders'">Limit Orders</div>
-        <div v-if="selectedMatchedTab === 'Market Order'">Market Order</div>
-        <div v-if="selectedMatchedTab === 'Traling Stop'">Traling Stop</div>
-      </div>
-      <!-- order history tab end -->
-      <PortfolioDetailModal />
-      <!-- cancel all modal -->
-      <b-modal
-        class="bs-cancel-all-modal"
-        id="cancel-all-modal"
-        :hide-footer="true"
-        :hide-header="true"
-      >
-        <div class="bs-cancel-all-modal">
-          <p class="ca-modal-title">
-            <span>Cancel</span> 
-            <span
-              style="cursor: pointer"
-              @click="$bvModal.hide('cancel-all-modal')"
-              ><svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
-                  fill="#677F8E"
-                />
-              </svg>
-            </span>
-          </p>
-          <div class="cencel-body">
-            <p class="content-text">
-              ท่านต้องการยกเลิกคำสั่งทั้ง <span>4 รายการ</span> หรือไม่
+          <div class="bs-cancel-all-modal">
+            <p class="ca-modal-title">
+              <span>Cancel</span>
+              <span
+                style="cursor: pointer"
+                @click="$bvModal.hide('cancel-all-modal')"
+                ><svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+                    fill="#677F8E"
+                  />
+                </svg>
+              </span>
             </p>
-            <div class="col-12 form-group form-check">
-              <label class="checkbox-input" style="margin-bottom: 16px;">
-                <input type="checkbox" class="form-check-input"/>
-                <span>ไม่ต้องแจ้งเตือนอีก</span></label
-              >
-            </div>
-            <div class="cencel-btn">
-              <div>
-                <button class="orange-btn">ยืนยัน</button>
+            <div class="cencel-body">
+              <p class="content-text">
+                ท่านต้องการยกเลิกคำสั่งทั้ง <span>4 รายการ</span> หรือไม่
+              </p>
+              <div class="col-12 form-group form-check">
+                <label class="checkbox-input" style="margin-bottom: 16px">
+                  <input type="checkbox" class="form-check-input" />
+                  <span>ไม่ต้องแจ้งเตือนอีก</span></label
+                >
               </div>
-              <div>
-                <button class="gray-btn">ยกเลิก</button>
+              <div class="cencel-btn">
+                <div>
+                  <button class="orange-btn">ยืนยัน</button>
+                </div>
+                <div>
+                  <button class="gray-btn">ยกเลิก</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </b-modal>
-      <!-- cancel modal -->
-      <b-modal
-        class="bs-cancel-modal"
-        id="cancel-modal"
-        :hide-footer="true"
-        :hide-header="true"
-      >
-        <div class="bs-cancel-modal">
-          <p class="c-modal-title">
-            <span>Cancel</span>
-            <span @click="$bvModal.hide('cancel-modal')"
-              ><svg
-                width="14"
-                height="15"
-                viewBox="0 0 14 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
-                  fill="#677F8E"
-                />
-              </svg>
-            </span>
-          </p>
-          <div class="cencel_model_main">
-          <div class="row m-0 ">
-            <div class="col-4 title p-0 ">
-              <p>Coin</p>
-              <p>Order</p>
-              <p>Price</p>
-              <p>Amount</p>
-              <p>Total</p>
-            </div>
-            <div class="col-8 value p-0">
-              <p>BTC/THB</p>
-              <p><span class="buy-tag">BUY</span>Limit</p>
-              <p>739,000.00 THB (Limit)</p>
-              <p>10,000 THB</p>
-              <p>0.01353 BTC</p>
-            </div>
-            <div class="col-12  form-group form-check p-0 " style="margin-top: 12px;margin-bottom: 20px;">
-              <label class="checkbox-input m-0">
-                <input type="checkbox" class="form-check-input" style="margin-left:0px"/>
-                <span>ไม่ต้องแจ้งเตือนอีก</span></label>
-            </div>
-          <div class="cencel-btn p-0">
-            <div>
-              <button class="orange-btn">ยืนยัน</button>
-            </div>
-            <div>
-              <button class="gray-btn">ยกเลิก</button>
+        </b-modal>
+        <!-- cancel modal -->
+        <b-modal
+          class="bs-cancel-modal"
+          id="cancel-modal"
+          :hide-footer="true"
+          :hide-header="true"
+        >
+          <div class="bs-cancel-modal">
+            <p class="c-modal-title">
+              <span>Cancel</span>
+              <span @click="$bvModal.hide('cancel-modal')"
+                ><svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+                    fill="#677F8E"
+                  />
+                </svg>
+              </span>
+            </p>
+            <div class="cencel_model_main">
+              <div class="row m-0">
+                <div class="col-4 title p-0">
+                  <p>Coin</p>
+                  <p>Order</p>
+                  <p>Price</p>
+                  <p>Amount</p>
+                  <p>Total</p>
+                </div>
+                <div class="col-8 value p-0">
+                  <p>BTC/THB</p>
+                  <p><span class="buy-tag">BUY</span>Limit</p>
+                  <p>739,000.00 THB (Limit)</p>
+                  <p>10,000 THB</p>
+                  <p>0.01353 BTC</p>
+                </div>
+                <div
+                  class="col-12 form-group form-check p-0"
+                  style="margin-top: 12px; margin-bottom: 20px"
+                >
+                  <label class="checkbox-input m-0">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      style="margin-left: 0px"
+                    />
+                    <span>ไม่ต้องแจ้งเตือนอีก</span></label
+                  >
+                </div>
+                <div class="cencel-btn p-0">
+                  <div>
+                    <button class="orange-btn">ยืนยัน</button>
+                  </div>
+                  <div>
+                    <button class="gray-btn">ยกเลิก</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </b-modal>
       </div>
-      </div>
-      </b-modal>
     </div>
-  </div>
-   <div class="bs-bb">
+    <div class="bs-bb">
       <span class="red conection"
         ><svg
           width="10"
@@ -624,7 +652,7 @@
       <span>ETH/THB</span>
       <span>10,089</span>
       <span class="red">(-6.46%)</span>
-       <span class="gray">|</span>
+      <span class="gray">|</span>
       <span>SOL/THB</span>
       <span>38.98</span>
       <span class="green">(+4.46%)</span>
@@ -661,7 +689,7 @@
         </span>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -695,65 +723,71 @@ export default {
 };
 </script>
 <style>
-#cancel-all-modal___BV_modal_body_,#cancel-modal___BV_modal_body_{
+#cancel-all-modal___BV_modal_body_,
+#cancel-modal___BV_modal_body_ {
   padding: 0px !important;
 }
 </style>
 <style scoped>
-.text-right
-{
-text-align: right;
-
+.text-right {
+  text-align: right;
 }
 .portfolioTable thead tr {
   border-bottom: 1px solid #28363e;
 }
-.matchTable  tr th:nth-child(1),.portfolioTable  tr th:nth-child(1) {
-  padding-left:0px !important;
+.matchTable tr th:nth-child(1),
+.portfolioTable tr th:nth-child(1) {
+  padding-left: 0px !important;
 }
-.matchTable  tr td:nth-child(1),.portfolioTable  tr td:nth-child(1)  {
-  padding-left:0px !important;
+.matchTable tr td:nth-child(1),
+.matchTable tr td {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
-.cencel-body{
-  padding:20px 16px 16px;
+.portfolioTable tr td:nth-child(1) {
+  padding-left: 0px !important;
+}
+.portfolioTable tr td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.cencel-body {
+  padding: 20px 16px 16px;
 }
 .cencel-btn {
   display: flex;
 }
-.cencel-btn button{
+.cencel-btn button {
   width: 155px !important;
   height: 36px !important;
   margin-right: 16px;
-
 }
-.c-modal-title{
+.c-modal-title {
   margin: 0px;
   padding: 24px 0px;
 }
-.cencel_model_main{
+.cencel_model_main {
   padding: 0px 0px 24px 16px !important;
 }
-.cencel_model_main p{
+.cencel_model_main p {
   margin-bottom: 8px !important;
 }
 </style>
 <style scoped lang="scss">
 // custome
-.pills-tab{
-  margin-top:29px !important;
-  margin-bottom:26 !important
+.pills-tab {
+  margin-top: 29px !important;
+  margin-bottom: 26 !important;
 }
 
-.trailingTable{
+.trailingTable {
   margin-left: -6px;
 }
-.portfolioTable tr th svg{
+.portfolioTable tr th svg {
   height: 12px;
   width: 12px;
   margin-top: -2px;
 }
-
-  
 
 /* Footer */
 
@@ -789,7 +823,7 @@ text-align: right;
   line-height: 19px;
 }
 
-.footer .pills-tab li button:hover{
+.footer .pills-tab li button:hover {
   color: #d6dde1;
   cursor: pointer;
 }
@@ -797,21 +831,22 @@ text-align: right;
 .footer .open-order li {
   border-radius: 4px;
   border: 1px solid #28363e;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
 }
-.footer .open-order ul li button:last-child{
+.footer .open-order ul li button:last-child {
   margin-right: 0px !important;
 }
 .footer .open-order ul li button {
   background: none;
   border: none;
   border-radius: 2px;
-  font-size: 14px;
   width: 103px;
-  line-height: 22px;
   height: 32px;
   margin-right: 13px !important;
   color: #677f8e;
-  font-style: normal;
   margin: 1px;
   padding: 3px 0px;
 }
@@ -820,9 +855,7 @@ text-align: right;
   color: white;
   background-color: #2c3b44;
   border-radius: 2px;
-  font-size: 14px;
   width: 108px;
-  font-style: normal;
 }
 
 /* Footer Table */
@@ -863,15 +896,16 @@ text-align: right;
 
 .footer table td {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 14px;
+  line-height: 24px;
   color: #d6dde1;
   border-bottom: 1px solid #28363e;
   vertical-align: middle;
 }
 .footer table .green {
   color: #40994f;
-   display: table-cell !important;
+  display: table-cell !important;
 }
 
 .footer table .red {
@@ -890,7 +924,7 @@ text-align: right;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  width:76px;
+  width: 76px;
   height: 36px;
   padding: 8px 16px;
   background: #38454d;
@@ -905,7 +939,7 @@ text-align: right;
   color: #d6dde1;
   font-style: normal;
   font-weight: 500;
-  width:96px;
+  width: 96px;
   height: 36px;
   font-size: 14px;
   padding: 8px 16px;
@@ -934,13 +968,14 @@ text-align: right;
   .ca-modal-title {
     text-align: center;
     font-size: 18px;
+    line-height: 27px;
     color: white;
     font-weight: 600;
     margin: 0px;
     padding: 24px 0px;
     span:nth-child(2) {
-        position: absolute;
-        margin-left: 82px;
+      position: absolute;
+      margin-left: 82px;
     }
   }
   .content-text {
@@ -961,6 +996,7 @@ text-align: right;
     color: #0a0d10;
     background-color: #f38220;
     height: 40px;
+    line-height: 24px;
     &:hover {
       background-color: #f28e38;
     }
@@ -971,6 +1007,7 @@ text-align: right;
     color: white;
     background-color: #222b2f;
     height: 40px;
+    line-height: 24px;
     &:hover {
       background-color: #38454d;
     }
@@ -980,13 +1017,16 @@ text-align: right;
   .c-modal-title {
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
     font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
     span:nth-child(2) {
       position: absolute;
       margin-left: 111px;
       cursor: pointer;
-  }
+    }
   }
   .orange-btn {
     width: 100%;
@@ -994,6 +1034,11 @@ text-align: right;
     color: #0a0d10;
     background-color: #f38220;
     height: 40px;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
     &:hover {
       background-color: #f28e38;
     }
@@ -1004,6 +1049,11 @@ text-align: right;
     color: white;
     background-color: #222b2f;
     height: 40px;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
     &:hover {
       background-color: #38454d;
     }
@@ -1075,14 +1125,14 @@ text-align: right;
 }
 .bs-bb {
   position: fixed;
-    bottom: 0;
-    width: 101%;
+  bottom: 0;
+  width: 101%;
   background-color: #0a0d10;
   padding: 8px 0;
   padding-left: 24px;
   margin: 0 -22px;
   margin-top: 30px;
-  .conection{
+  .conection {
     margin-right: 16px;
   }
   span {
@@ -1094,8 +1144,8 @@ text-align: right;
   span.red {
     color: #de2d40;
   }
-  span.gray{
-    color: #28363E;
+  span.gray {
+    color: #28363e;
   }
   span.green {
     color: #40994f;
@@ -1127,8 +1177,8 @@ text-align: right;
   }
 
   .tab-pane {
-     padding: 0 12px;
-   }
+    padding: 0 12px;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .bs-bb {

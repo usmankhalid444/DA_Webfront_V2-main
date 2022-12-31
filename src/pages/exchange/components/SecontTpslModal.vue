@@ -11,13 +11,14 @@
         <div class="col-12 my-2">
           <h5>
             Take Profit / Stop Loss
-            <span class="cursor-pointer"
-            @click="
-              $bvModal.show('limitorder-TPSL'),
-              $bvModal.hide('limitorder-STPSL')
-          ">
+            <span
+              class="cursor-pointer"
+              @click="
+                $bvModal.show('limitorder-TPSL'),
+                  $bvModal.hide('limitorder-STPSL')
+              "
+            >
               <svg
-                
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -217,12 +218,12 @@ export default {
 }
 </style>
 <style scoped>
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
-.sl-ul{
-    padding: 0px 8px !important;
-    list-style: inside !important;
+.sl-ul {
+  padding: 0px 8px !important;
+  list-style: inside !important;
 }
 hr {
   margin: 16px 0px;
@@ -230,6 +231,8 @@ hr {
 }
 .stop-loss-detail-modal .tab {
   color: #677f8e;
+  line-height: 14px;
+  height: 24px;
 }
 .stop-loss-detail-modal .tab.active {
   color: white !important;
@@ -239,5 +242,6 @@ hr {
 }
 .stop-loss-detail-modal h5 {
   padding: 24px 0px;
+  line-height: 24px;
 }
 </style>

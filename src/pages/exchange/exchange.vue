@@ -1,14 +1,17 @@
 <template>
   <div class="container-fluid buy-sell mb-3 p-0">
     <div class="row p-0">
-      <div class="col-12 col-lg-8 col-xl-9">
+      <div class="col-12 col-lg-9 col-xl-9">
         <div class="row">
           <!-- here -->
 
           <div class="col-12 top-search-row">
             <div class="row">
-              <div class="col-11 col-md-4 col-lg-5 col-xl-3" style="padding-left: 24px !important;">
-                <div class="position-relative search-container m-0">
+              <div
+                class="col-11 col-md-4 col-lg-4 col-xl-3"
+                style="padding-left: 24px !important"
+              >
+                <div class="position-relative search-container">
                   <div>
                     <span class="search-svg"
                       ><svg
@@ -30,21 +33,27 @@
                         src="../../assets/images/coin_32/btc.png"
                         alt="coin-image"
                       />
-                      <span class="btc-text">BTC /</span>
+                      <span v-if="btc_text" class="btc-text">BTC /</span>
                     </span>
                     <input
+                      @click="btc_text = false"
                       v-model="coinSearchText"
                       @focus="showSearchBox = true"
                       @focusout="showSearchBox = false"
                       class="ml-4 coins-search-input text-uppercase"
-                      :class="`${coinSearchText.length == 0 ? 'ml-4' : 'ml-1'}`"
+                      :class="
+                        `${coinSearchText.length == 0 ? 'ml-4' : 'ml-1'}` &&
+                        btc_text
+                          ? 'btc-text-true'
+                          : 'btc-text-false'
+                      "
                       type="text"
                       placeholder="THB"
-                      maxlength="4"
+                      maxlength="10"
                     />
                   </div>
 
-                  <div v-if="showSearchBox"  class="searching-box">
+                  <div v-if="showSearchBox" class="searching-box">
                     <p class="thai-font search-box-title">ค้นหาล่าสุด</p>
                     <div class="grid">
                       <div class="row sb-row">
@@ -65,7 +74,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row  sb-row">
+                      <div class="row sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -83,7 +92,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row  sb-row">
+                      <div class="row sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -101,7 +110,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row  sb-row">
+                      <div class="row sb-row">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -124,12 +133,14 @@
                 </div>
               </div>
               <div
-                class="col-12 col-md-8 col-lg-7 col-xl-9 my-auto trading-scores"
+                class="col-12 col-md-8 col-lg-8 col-xl-9 my-auto trading-scores"
               >
-                <span class="live-amount-title" :class="priceInfo.textColor">{{
-                  formatPrice(priceInfo.last)
-                }}</span>
-                <span class="live-amount-value" :class="priceInfo.textColor"
+                <span
+                  class="live-amount-title red"
+                  :class="priceInfo.textColor"
+                  >{{ formatPrice(priceInfo.last) }}</span
+                >
+                <span class="live-amount-value red" :class="priceInfo.textColor"
                   >({{ priceInfo.pChg }}%)</span
                 >
                 <span class="title">24h High:</span>
@@ -141,57 +152,52 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-6 col-xl-4 bs-left-table" style="padding-left: 24px;">
+          <div
+            class="col-12 col-lg-4 col-xl-4 bs-left-table c-p"
+            style="padding-left: 24px"
+          >
             <div
-              class="
-                bid-offer-container
-                d-flex
-                justify-content-between
-                align-center
-              "
+              class="bid-offer-container d-flex justify-content-between align-center"
             >
               <div class="d-flex justify-content-start align-center">
                 <div
-                class="select"
-                tabindex="0"
-                @click="open_dropdown_coin = !open_dropdown_coin"
-                @blur="open_dropdown_coin = false"
-              >
-                <span class="text" style="left: 15px;">{{ Value }}</span>
-                <span
-                  class="icon"
-                  :class="open_dropdown_coin? 'rotate-sc-icon' : ''"
-                  ><svg
-                    width="8"
-                    height="8"
-                    viewBox="0 0 12 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                      fill="#677F8E"
-                    />
-                  </svg>
-                </span>
-                <div
-                  class="options"
-                  v-show="open_dropdown_coin"
-                  style="
-                  left: 0px;
-                  top: 33px;
-                  "
+                  class="select"
+                  tabindex="0"
+                  @click="open_dropdown_coin = !open_dropdown_coin"
+                  @blur="open_dropdown_coin = false"
                 >
-                  <ul>
-                    <li @click="(Value = 'Bid / Offer')">Bid / Offer</li>
-                    <li @click="(Value = 'Bid')">Bid</li>
-                    <li @click="(Value = 'Offer')">Offer</li>
-                    <li @click="(Value = 'All Coins')">All Coins</li>
-                    <li @click="(Value = 'Fav')">Fav</li>
-                    <li @click="(Value = 'Coin Ticker')">Coin Ticker</li>
-                  </ul>
+                  <span class="text" style="left: 15px">{{ Value }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown_coin ? 'rotate-sc-icon' : ''"
+                    ><svg
+                      width="8"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="options"
+                    v-show="open_dropdown_coin"
+                    style="left: 0px; top: 33px"
+                  >
+                    <ul>
+                      <li @click="Value = 'Bid / Offer'">Bid / Offer</li>
+                      <li @click="Value = 'Bid'">Bid</li>
+                      <li @click="Value = 'Offer'">Offer</li>
+                      <li @click="Value = 'All Coins'">All Coins</li>
+                      <li @click="Value = 'Fav'">Fav</li>
+                      <li @click="Value = 'Coin Ticker'">Coin Ticker</li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
                 <!-- <select>
                   <option value="">Bid / Offer</option>
                   <option value="">Bid</option>
@@ -215,49 +221,44 @@
                   </svg>
                 </div> -->
               </div>
-              <div
-                class=" d-flex justify-content-start align-center"
-              >
-              <div
-              class="select ratioSelect"
-              tabindex="0"
-              @click="open_dropdown_ratio = !open_dropdown_ratio"
-              @blur="open_dropdown_ratio = false"
-            >
-              <span class="text" style="left: 15px;">{{ Value1 }}</span>
-              <span
-                class="icon"
-                :class="open_dropdown_ratio? 'rotate-sc-icon' : ''"
-                ><svg
-                  width="8"
-                  height="8"
-                  viewBox="0 0 12 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+              <div class="d-flex justify-content-start align-center">
+                <div
+                  class="select ratioSelect"
+                  tabindex="0"
+                  @click="open_dropdown_ratio = !open_dropdown_ratio"
+                  @blur="open_dropdown_ratio = false"
                 >
-                  <path
-                    d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                    fill="#677F8E"
-                  />
-                </svg>
-              </span>
-              <div
-                class="options"
-                v-show="open_dropdown_ratio"
-                style="
-                left: 0px;
-                top: 33px;
-                "
-              >
-                <ul>
-                  <li @click="(Value1 = '0.1')">0.1</li>
-                  <li @click="(Value1 = '0.01')">0.01</li>
-                  <li @click="(Value1 = '0.001')">0.001</li>
-                  <li @click="(Value1 = '0.0001')">0.0001</li>
-                  <li @click="(Value1 = '0.00001')">0.00001</li>
-                </ul>
-              </div>
-            </div>
+                  <span class="text" style="left: 15px">{{ Value1 }}</span>
+                  <span
+                    class="icon"
+                    :class="open_dropdown_ratio ? 'rotate-sc-icon' : ''"
+                    ><svg
+                      width="8"
+                      height="8"
+                      viewBox="0 0 12 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                        fill="#677F8E"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="options"
+                    v-show="open_dropdown_ratio"
+                    style="left: 0px; top: 33px"
+                  >
+                    <ul>
+                      <li @click="Value1 = '0.1'">0.1</li>
+                      <li @click="Value1 = '0.01'">0.01</li>
+                      <li @click="Value1 = '0.001'">0.001</li>
+                      <li @click="Value1 = '0.0001'">0.0001</li>
+                      <li @click="Value1 = '0.00001'">0.00001</li>
+                    </ul>
+                  </div>
+                </div>
                 <!-- <select>
                   <option value="">0.1</option>
                   <option value="">0.01</option>
@@ -319,8 +320,8 @@
             <!-- buy / sell live scores table end -->
           </div>
 
-          <div class="col-12 col-lg-6 col-xl-8 p-0">
-            <div class="chart p-0">
+          <div class="col-12 col-lg-8 col-xl-8 p-0">
+            <div class="p-0">
               <iframe
                 id="mydiv"
                 ref="myid"
@@ -345,50 +346,47 @@
         </div>
       </div>
 
-      <div class="col-12 col-lg-4 col-xl-3 bs-right-table">
+      <div class="col-12 col-lg-3 col-xl-3 bs-right-table c-p">
         <div class="all-coins-container">
           <div
-          class="select ratioSelect"
-          tabindex="0"
-          @click="open_dropdown_right = !open_dropdown_right"
-          @blur="open_dropdown_right = false"
-          style="width:120px !important"
-        >
-          <span class="text" style="left: 15px;">{{ Value2 }}</span>
-          <span
-            class="icon"
-            :class="open_dropdown_right? 'rotate-sc-icon' : ''"
-            ><svg
-              width="8"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                fill="#677F8E"
-              />
-            </svg>
-          </span>
-          <div
-            class="options"
-            v-show="open_dropdown_right"
-            style="
-            left: 0px;
-            top: 33px;
-            "
+            class="select ratioSelect"
+            tabindex="0"
+            @click="open_dropdown_right = !open_dropdown_right"
+            @blur="open_dropdown_right = false"
+            style="width: 120px !important"
           >
-          <ul>
-            <li @click="(Value2 = 'Bid / Offer')">Bid / Offer</li>
-            <li @click="(Value2 = 'Bid')">Bid</li>
-            <li @click="(Value2 = 'Offer')">Offer</li>
-            <li @click="(Value2 = 'All Coins')">All Coins</li>
-            <li @click="(Value2 = 'Fav')">Fav</li>
-            <li @click="(Value2 = 'Coin Ticker')">Coin Ticker</li>
-          </ul>
+            <span class="text" style="left: 15px">{{ Value2 }}</span>
+            <span
+              class="icon"
+              :class="open_dropdown_right ? 'rotate-sc-icon' : ''"
+              ><svg
+                width="8"
+                height="8"
+                viewBox="0 0 12 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                  fill="#677F8E"
+                />
+              </svg>
+            </span>
+            <div
+              class="options"
+              v-show="open_dropdown_right"
+              style="left: 0px; top: 33px"
+            >
+              <ul>
+                <li @click="Value2 = 'Bid / Offer'">Bid / Offer</li>
+                <li @click="Value2 = 'Bid'">Bid</li>
+                <li @click="Value2 = 'Offer'">Offer</li>
+                <li @click="Value2 = 'All Coins'">All Coins</li>
+                <li @click="Value2 = 'Fav'">Fav</li>
+                <li @click="Value2 = 'Coin Ticker'">Coin Ticker</li>
+              </ul>
+            </div>
           </div>
-        </div>
           <!-- <select>
             <option value="">All Coins</option>
             <option value="">Bid</option>
@@ -417,7 +415,7 @@
           <table class="table table-borderless">
             <thead>
               <tr class="sticky-top fixed">
-                <th style="width: 50%">Coin</th>
+                <th>Coin</th>
                 <th>Price (THB)</th>
                 <th>
                   %Chg
@@ -477,7 +475,7 @@
           <table class="table table-borderless p-0">
             <thead>
               <tr class="sticky-top">
-                <th style="width: 45%">Time</th>
+                <th style="width: 40%">Time</th>
                 <th>Price (THB)</th>
                 <th>Volume (BTC)</th>
               </tr>
@@ -509,12 +507,12 @@ export default {
   },
   data() {
     return {
-      open_dropdown_right:false,
-      open_dropdown_ratio:false,
-      open_dropdown_coin:false,
-      Value:'Bid / Offer',
-      Value1:'0.1',
-      Value2:'All Coins',
+      open_dropdown_right: false,
+      open_dropdown_ratio: false,
+      open_dropdown_coin: false,
+      Value: "Bid / Offer",
+      Value1: "0.1",
+      Value2: "All Coins",
       coinSearchText: "",
       defaultPath: "btc_usdt",
       showSearchBox: false,
@@ -544,7 +542,8 @@ export default {
       },
       coinMarket: [],
       chartSymbolUrl: "http://27.254.47.24/libchart/chart?symbol=BTC%2FTHB",
-      test: ""
+      test: "",
+      btc_text: true,
     };
   },
   methods: {
@@ -580,7 +579,8 @@ export default {
 
         this.currentCoin.symbol = (dataArr[0] + "/" + dataArr[1]).toUpperCase();
         let symbolEncode = encodeURIComponent(this.currentCoin.symbol);
-        this.chartSymbolUrl = "http://27.254.47.24/libchart/chart?symbol="+symbolEncode;
+        this.chartSymbolUrl =
+          "http://27.254.47.24/libchart/chart?symbol=" + symbolEncode;
       }
 
       // setTimeout(function () {
@@ -845,45 +845,46 @@ export default {
   },
 };
 </script>
-<style> @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap'); </style>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,600&display=swap");
+</style>
 <style scoped>
-.select
-{
+.select {
   position: relative;
-  width: 100px;
+  width: 101px;
   height: 32px;
   border-radius: 2px;
   padding: 4px 8px;
   background-color: #2c3b44;
   color: white;
-
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
 }
 .select .icon {
-    position: absolute;
-    top: 6px !important;
-    pointer-events: none;
-    right: 8px !important;
+  position: absolute;
+  /* top: 6px !important; */
+  pointer-events: none;
+  right: 8px !important;
 }
-.select .options{
-    position: absolute;
-    top: 42px;
-    z-index: 10000;
-    width: 100%;
-    background-color: rgb(34, 43, 47);
-    border-radius: 4px;
+.select .options {
+  position: absolute;
+  top: 42px;
+  z-index: 10000;
+  width: 100%;
+  background-color: rgb(34, 43, 47);
+  border-radius: 4px;
 }
-.select .options ul
-{
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
+.select .options ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
-.select .options ul li
-{
+.select .options ul li {
   padding: 6px;
   cursor: pointer;
 }
-.select .options ul li:hover{
+.select .options ul li:hover {
   background-color: #2c3b44;
 }
 </style>
@@ -971,14 +972,20 @@ export default {
       color: white;
       width: 100%;
       font-size: 18px;
-      caret-color: #F38220;
+      line-height: 24px;
+      caret-color: #f38220;
       font-weight: 600;
-      padding-left: 90px;
       border-radius: 4px !important;
       padding-top: 6.5px;
       padding-bottom: 6.5px;
       padding-right: 60px;
       background-color: #222b2f;
+    }
+    .btc-text-true {
+      padding-left: 90px;
+    }
+    .btc-text-false {
+      padding-left: 40px;
     }
     .coins-search-input::placeholder {
       color: #9bacb6;
@@ -994,7 +1001,7 @@ export default {
       position: absolute;
       font-size: 18px;
       left: 10px;
-      top: 4.5px;
+      top: 3.5px;
       pointer-events: none;
       .coin-img {
         width: 23px;
@@ -1005,12 +1012,19 @@ export default {
         top: 1.5px;
         margin-left: 7px;
         display: inline-block;
+        font-family: "Roboto Flex";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
       }
     }
   }
   .trading-scores {
     .live-amount-title {
+      font-weight: 600;
       font-size: 18px;
+      line-height: 24px;
     }
     .live-amount-title.red {
       color: #de2d40;
@@ -1019,7 +1033,9 @@ export default {
       color: #40994f;
     }
     .live-amount-value {
+      font-weight: 400;
       font-size: 14px;
+      line-height: 24px;
       margin-left: 8px;
       margin-right: 16px;
     }
@@ -1031,11 +1047,15 @@ export default {
     }
     .title {
       color: #9bacb6;
+      font-weight: 400;
       font-size: 14px;
+      line-height: 24px;
       margin-right: 8px;
     }
     .value {
+      font-weight: 500;
       font-size: 14px;
+      line-height: 24px;
       margin-right: 16px;
     }
   }
@@ -1157,7 +1177,7 @@ export default {
 
   span {
     position: absolute;
-    top: 6px;
+    // top: 6px;
     pointer-events: none;
     right: 8px;
   }
@@ -1194,7 +1214,7 @@ export default {
   span {
     position: absolute;
     pointer-events: none;
-    top: 6px;
+    // top: 6px;
     right: 8px;
   }
   select {
@@ -1211,8 +1231,9 @@ export default {
   width: 100%;
   overflow: hidden;
 }
-.bs-left-table table tr th , .bs-left-table table tr td{
-   padding-left: 0!important;
+.bs-left-table table tr th,
+.bs-left-table table tr td {
+  padding-left: 0 !important;
 }
 
 .buy-sell table th {
@@ -1220,7 +1241,7 @@ export default {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
-
+  line-height: 14px;
   /* identical to box height */
 
   color: #677f8e;
@@ -1230,6 +1251,7 @@ export default {
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
+  line-height: 14px;
   /* Status/Negative */
   color: #d6dde1;
   svg {
@@ -1316,7 +1338,7 @@ export default {
 #limitorder-TPSLB___BV_modal_content_,
 #limitorder-TPSL___BV_modal_content_,
 #limitorder-stop-loss___BV_modal_content_ {
-  width:360px;
+  width: 360px;
   margin: 0 auto;
 }
 
@@ -1663,8 +1685,8 @@ export default {
   .buy-sell {
     .search-container {
       .searching-box {
-          width: 593px;
-          height: 240px;
+        width: 593px;
+        height: 240px;
       }
     }
   }
@@ -1694,16 +1716,47 @@ export default {
     height: 446px;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .c-p {
+    padding: 0 2px;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .bs-table-s {
+    margin-right: 24px;
+  }
+  .tab-pane {
+    padding: 0;
+    margin: 0 24px;
+  }
+  .pills-tab {
+    padding: 0;
+    margin: 0 24px;
+  }
+  .bs-table-l {
+    margin-left: 20px;
+  }
+  .bid-offer-container {
+    margin-left: 20px;
+  }
+  .buy-sell .search-container {
+    margin-left: 20px !important;
+  }
+  .buy-sell .trading-scores .live-amount-title {
+    margin-left: 16px;
+  }
+}
 @media only screen and (min-width: 1536px) {
 }
 
 .iframe-chart {
-  width: 49.9vw;
+  // width: 49.9vw;
   height: 45.5vh;
+  width: 100%;
 }
 @media only screen and (max-width: 1536px) {
   .iframe-chart {
-    width: 49.9vw;
+    // width: 49.9vw;
     height: 58.5vh;
   }
 }

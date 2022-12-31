@@ -1,5 +1,5 @@
 <template>
-  <div class="grid order-history ">
+  <div class="grid order-history">
     <div class="row m-0">
       <h1 class="p-0">Order History</h1>
       <div class="menu-tabs p-0">
@@ -19,7 +19,10 @@
         </ul>
       </div>
     </div>
-    <div class="col-12" style="display: flex;align-items: end; flex-wrap:wrap">
+    <div
+      class="col-12"
+      style="display: flex; align-items: end; flex-wrap: wrap"
+    >
       <div class="search-input">
         <input type="text" placeholder="ค้นหาเหรียญ" />
         <span
@@ -63,40 +66,35 @@
       <div class="select-status">
         <div class="second-selectbox">
           <div
-                  class="select"
-                  tabindex="0"
-                  @click="open_dropdown = !open_dropdown"
-                  @blur="open_dropdown = false"
-                >
-                  <span class="text" style="left: 15px;">{{ Value }}</span>
-                  <span
-                    class="icon"
-                    :class="open_dropdown ? 'rotate-sc-icon' : ''"
-                    ><svg
-                      width="12"
-                      height="8"
-                      viewBox="0 0 12 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
-                        fill="#677F8E"
-                      />
-                    </svg>
-                  </span>
-                  <div
-                    class="options"
-                    v-show="open_dropdown"
-                  >
-                    <ul>
-                      <li @click="(Value = 'Volvo')">Volvo</li>
-                      <li @click="(Value = 'Saab')">Saab</li>
-                      <li @click="(Value = 'Opel')">Opel</li>
-                      <li @click="(Value = 'Audi')">Audi</li>
-                    </ul>
-                  </div>
-                </div>
+            class="select"
+            tabindex="0"
+            @click="open_dropdown = !open_dropdown"
+            @blur="open_dropdown = false"
+          >
+            <span class="text" style="left: 15px">{{ Value }}</span>
+            <span class="icon" :class="open_dropdown ? 'rotate-sc-icon' : ''"
+              ><svg
+                width="12"
+                height="8"
+                viewBox="0 0 12 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1.41 0.589966L6 5.16997L10.59 0.589966L12 1.99997L6 7.99997L0 1.99997L1.41 0.589966Z"
+                  fill="#677F8E"
+                />
+              </svg>
+            </span>
+            <div class="options" v-show="open_dropdown">
+              <ul>
+                <li @click="Value = 'All Status'">All Status</li>
+                <li @click="Value = 'Saab'">Saab</li>
+                <li @click="Value = 'Opel'">Opel</li>
+                <li @click="Value = 'Audi'">Audi</li>
+              </ul>
+            </div>
+          </div>
         </div>
         <!-- <select>
           <option value="" selected disabled hidden>All Status</option>
@@ -121,7 +119,12 @@
         </span> -->
       </div>
       <div class="filter-date-picker">
-        <date-picker v-model="time3" format="DD/MM/YY" range style="width:221px"></date-picker>
+        <date-picker
+          v-model="time3"
+          format="DD/MM/YY"
+          range
+          style="width: 221px"
+        ></date-picker>
       </div>
       <div class="export-button">
         <button>Export to Exel</button>
@@ -138,7 +141,7 @@
               <th scope="col">
                 Date
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -159,7 +162,7 @@
               <th scope="col">
                 B/S
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -180,7 +183,7 @@
               <th scope="col">
                 Coin
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -201,7 +204,7 @@
               <th scope="col">
                 Status
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -222,7 +225,7 @@
               <th scope="col">
                 Amount
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -243,7 +246,7 @@
               <th scope="col">
                 Price
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -264,7 +267,7 @@
               <th scope="col">
                 Fee + VAT
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -285,7 +288,7 @@
               <th scope="col">
                 Total
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -306,7 +309,7 @@
               <th scope="col">
                 Type
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -327,7 +330,7 @@
               <th scope="col">
                 TP/SL Conditions
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -411,7 +414,7 @@
               <th scope="col">
                 Date
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -432,7 +435,7 @@
               <th scope="col">
                 B/S
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -453,7 +456,7 @@
               <th scope="col">
                 Coin
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -474,7 +477,7 @@
               <th scope="col">
                 Status
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -495,7 +498,7 @@
               <th scope="col">
                 Amount
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -516,7 +519,7 @@
               <th scope="col">
                 Price
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -537,7 +540,7 @@
               <th scope="col">
                 Fee + VAT
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -558,7 +561,7 @@
               <th scope="col">
                 Total
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -579,7 +582,7 @@
               <th scope="col">
                 Trailing Cond.
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -600,7 +603,7 @@
               <th scope="col">
                 Start Price (THB)
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -621,7 +624,7 @@
               <th scope="col">
                 Expired Date
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -642,7 +645,7 @@
               <th scope="col">
                 SL Conditon
                 <svg
-                @click="sortTable(0)"
+                  @click="sortTable(0)"
                   width="6"
                   height="12"
                   viewBox="0 0 6 12"
@@ -732,8 +735,8 @@ export default {
   components: { DatePicker },
   data() {
     return {
-      open_dropdown:false,
-      Value:'All Status',
+      open_dropdown: false,
+      Value: "All Status",
       time3: null,
       active_tab: "Limit & Market Orders",
       activeBtn: "all",
@@ -741,7 +744,6 @@ export default {
   },
   methods: {
     sortTable(n) {
-      
       var table,
         rows,
         switching,
@@ -761,7 +763,7 @@ export default {
         //start by saying: no switching is done:
         switching = false;
         rows = table.rows;
-        
+
         /*Loop through all table rows (except the
     first, which contains table headers):*/
         for (i = 1; i < rows.length - 1; i++) {
@@ -771,13 +773,12 @@ export default {
       one from current row and one from the next:*/
           x = rows[i].getElementsByTagName("TD")[n];
           y = rows[i + 1].getElementsByTagName("TD")[n];
-          console.log(x)
+          console.log(x);
           // console.log(y)
           /*check if the two rows should switch place,
       based on the direction, asc or desc:*/
           if (dir == "asc") {
             if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-             
               //if so, mark as a switch and break the loop:
               shouldSwitch = true;
               break;
@@ -807,63 +808,58 @@ export default {
         }
       }
     },
-  }
+  },
 };
 </script>
 <style scoped>
-.select
-{
-  background: #222B2F;
+.select {
+  background: #222b2f;
   border-radius: 4px;
   width: 142px;
   height: 40px;
 }
-.select .options{
-    position: absolute;
-    top: 42px;
-    z-index: 1;
-    width: 100%;
-    background-color: rgb(34, 43, 47);
-    border-radius: 4px;
+.select .options {
+  position: absolute;
+  top: 42px;
+  z-index: 1;
+  width: 100%;
+  background-color: rgb(34, 43, 47);
+  border-radius: 4px;
 }
-.select .options ul
-{
-    list-style: none;
-    padding: 0px;
-    margin: 0px;
+.select .options ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
-.select .options ul li
-{
+.select .options ul li {
   padding: 8px;
   cursor: pointer;
 }
-.select .options ul li:hover{
+.select .options ul li:hover {
   background-color: #2c3b44;
 }
-.order-history
-{
+.order-history {
   padding: 24px 25px 24px 26px !important;
 }
-.order-history table{
+.order-history table {
   border-spacing: 0px 24px;
   border-collapse: separate;
   margin-top: 0px;
 }
-.order-history table th svg{
+.order-history table th svg {
   cursor: pointer;
 }
-.order-history table th:nth-child(1){
+.order-history table th:nth-child(1) {
   padding-left: 0px !important;
 }
-.order-history table th
-{
+.order-history table th {
   text-align: left;
   padding: 0px;
 }
-.order-history table td{
+.order-history table td {
   padding: 0px;
 }
-.order-history table td:nth-child(1){
+.order-history table td:nth-child(1) {
   padding-left: 0px !important;
 }
 </style>
@@ -1013,7 +1009,7 @@ export default {
       color: #677f8e;
       border-radius: 4px;
       border: 1px solid #28363e;
-      &:active{
+      &:active {
         border: 1px solid white;
         color: white;
         background-color: #38454d;
@@ -1045,8 +1041,12 @@ export default {
       color: #677f8e;
       margin-left: 5px;
     }
-    tr {
-      line-height: 30px;
+    tr td {
+      // line-height: 30px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
     }
     input {
       background: #222b2f;

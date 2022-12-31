@@ -4,9 +4,9 @@
       <div class="justify-content-center">
         <div class="col-md-12">
           <ul class="nav nav-ul">
-            <li style="margin-left:40px" class="nav-item">
+            <li style="margin-left: 40px" class="nav-item">
               <button
-              style="margin-right:24px"
+                style="margin-right: 24px"
                 type="button"
                 v-for="(tab, index) in ordertabs"
                 :key="index"
@@ -25,169 +25,260 @@
             class="fade show active tab-pane"
             v-show="selectedorder === 'Limit Order'"
           >
-          <div style="padding-bottom: 24px;">
-            <div class="row">
-              <div class="col-md-6" style="padding-right: 16px">
-                <div class="form-group bs-lp-input">
-                  <input type="number" max="20000" v-model="buying_amount"  style="margin-bottom: "/>
-                  <span class="currency">THB</span>
-                  <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
-                </div>
-                <div class="input-group-bottom-text d-flex justify-content-between align-center">
-                  <p>ยอดเงินที่ซื้อได้</p>
-                  <p>20,000THB</p>
-                </div>
-                <!-- timeline start -->
-                <div class="timeline-bar">
-                  <b-progress height="2px" :value="limitOrder" style="margin: auto;
-                  height: 2px;
-                  background-color: #566a76;">
-                  </b-progress>
-                  <div class="spots">
-                    <div class="spot">
-                      <span class="dot align-self-baseline " :class="{active:limitOrder>=0}"></span>
-                      <span>0%</span>
-                    </div>
-                    <div class="spot">
-                      <span class="dot " :class="{active:limitOrder>=25}"></span>
-                      <span>25%</span>
-                    </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:limitOrder>=50}"></span>
-                      <span>50%</span>
-                    </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:limitOrder>=75}"></span>
-                      <span>75%</span>
-                    </div>
-                    <div class="spot">
-                      <span class="dot  align-self-end" :class="{active:limitOrder==100}"></span>
-                      <span>100%</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- timeline end -->
-                <div class="form-group bs-lp-input">
-                  <input type="number" v-model="selected_buy_score" />
-                  <span class="currency">THB</span>
-                  <span class="text">ราคาต่อ BTC</span>
-                </div>
-
-                <div class="form-group bs-lp-input">
-                  <input
-                    type="text"
-                    :value="buying_amount / selected_buy_score"
-                    readonly="readonly"
-                  />
-                  <span class="currency">BTC</span>
-                  <span class="text">BTC ราคาต่อ</span>
-                </div>
-                <div class="form-group form-check">
-                  <label>
+            <div style="padding-bottom: 24px">
+              <div class="row">
+                <div class="col-md-6" style="padding-right: 16px">
+                  <div class="form-group bs-lp-input">
                     <input
-                      type="checkbox"
-                      class="form-check-input"
-                      value="false"
-                      v-model="profitLoss"
+                      type="number"
+                      max="20000"
+                      v-model="buying_amount"
+                      style="margin-bottom: "
                     />
-                    <p>Take Profit / Stop Loss</p></label
+                    <span class="currency">THB</span>
+                    <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
+                  </div>
+                  <div
+                    class="input-group-bottom-text d-flex justify-content-between align-center"
                   >
-                </div>
-
-                <div class="form-group">
-                  <button
-                    type="button"
-                    class="buy-btn"
-                    v-b-modal.limitorder-TPSLB
-                    @click="show_TPSLB_order = true"
-                  >
-                    Buy
-                  </button>
-
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
-                </div>
-              </div>
-              <div class="col-md-6" style="padding-left: 16px">
-                <div class="form-group bs-lp-input">
-                  <input type="number" v-model="selling_amount" />
-                  <span class="currency">THB</span>
-                  <span class="text">จำนวนที่ต้องการขาย</span>
-                </div>
-                  <div class="input-group-bottom-text d-flex justify-content-between align-center">
-                  <p>มูลค่า BTC ที่มี</p>
-                  <p>9,86,937.9THB</p>
-                </div>
+                    <p>ยอดเงินที่ซื้อได้</p>
+                    <p>20,000THB</p>
+                  </div>
                   <!-- timeline start -->
                   <div class="timeline-bar">
-                    <b-progress height="2px" :value="selling_limit_order" style="margin: auto;
-                    height: 2px;
-                    background-color: #566a76;">
+                    <b-progress
+                      height="2px"
+                      :value="limitOrder"
+                      style="
+                        margin: auto;
+                        height: 2px;
+                        background-color: #566a76;
+                      "
+                    >
                     </b-progress>
                     <div class="spots">
-                      <div class="spot">
-                        <span class="dot align-self-baseline " :class="{active:selling_limit_order>=0}"></span>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="buying_amount = 0"
+                      >
+                        <span
+                          class="dot align-self-baseline"
+                          :class="{ active: limitOrder >= 0 }"
+                        ></span>
                         <span>0%</span>
                       </div>
-                      <div class="spot">
-                        <span class="dot " :class="{active:selling_limit_order>=25}"></span>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="buying_amount = 5000"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: limitOrder >= 25 }"
+                        ></span>
                         <span>25%</span>
                       </div>
-                      <div class="spot">
-                        <span class="dot" :class="{active:selling_limit_order>=50}"></span>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="buying_amount = 10000"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: limitOrder >= 50 }"
+                        ></span>
                         <span>50%</span>
                       </div>
-                      <div class="spot">
-                        <span class="dot" :class="{active:selling_limit_order>=75}"></span>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="buying_amount = 15000"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: limitOrder >= 75 }"
+                        ></span>
                         <span>75%</span>
                       </div>
-                      <div class="spot">
-                        <span class="dot  align-self-end" :class="{active:selling_limit_order==100}"></span>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="buying_amount = 20000"
+                      >
+                        <span
+                          class="dot align-self-end"
+                          :class="{ active: limitOrder == 100 }"
+                        ></span>
                         <span>100%</span>
                       </div>
                     </div>
                   </div>
                   <!-- timeline end -->
-                <div class="form-group bs-lp-input">
-                  <input type="number" v-model="selected_sell_score" />
-                  <span class="currency">BTC</span>
-                  <span class="text">ราคาต่อ</span>
-                </div>
+                  <div class="form-group bs-lp-input">
+                    <input type="number" v-model="selected_buy_score" />
+                    <span class="currency">THB</span>
+                    <span class="text">ราคาต่อ BTC</span>
+                  </div>
 
-                <div class="form-group bs-lp-input">
-                  <input
-                    type="text"
-                    :value="selling_amount / selected_sell_score"
-                    readonly="readonly"
-                  />
-                  <span class="currency">BTC</span>
-                  <span class="text">จำนวน BTC ที่ขาย</span>
-                </div>
-                <div class="form-group form-check">
-                  <label>
+                  <div class="form-group bs-lp-input">
                     <input
-                      type="checkbox"
-                      class="form-check-input"
-                      data-toggle="modal"
-                      data-target="#limit-stop"
-                      value="false"
-                      v-model="SL"
+                      type="text"
+                      :value="buying_amount / selected_buy_score"
+                      readonly="readonly"
                     />
-                    <p>Stop Loss</p></label
-                  >
+                    <span class="currency">BTC</span>
+                    <span class="text">BTC ราคาต่อ</span>
+                  </div>
+                  <div class="form-group form-check">
+                    <label>
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        value="false"
+                        v-model="profitLoss"
+                      />
+                      <p>Take Profit / Stop Loss</p></label
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="buy-btn"
+                      v-b-modal.limitorder-TPSLB
+                      @click="show_TPSLB_order = true"
+                    >
+                      ซื้อ
+                    </button>
+
+                    <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <button
-                    type="button"
-                    class="sell-btn"
-                    v-b-modal.limitorder-TPSLB
-                    @click="show_TPSLB_order = true"
+                <div class="col-md-6" style="padding-left: 16px">
+                  <div class="form-group bs-lp-input">
+                    <input type="number" v-model="selling_amount" />
+                    <span class="currency">THB</span>
+                    <span class="text">จำนวนที่ต้องการขาย</span>
+                  </div>
+                  <div
+                    class="input-group-bottom-text d-flex justify-content-between align-center"
                   >
-                    Sell
-                  </button>
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
+                    <p>มูลค่า BTC ที่มี</p>
+                    <p>9,86,937.9THB</p>
+                  </div>
+                  <!-- timeline start -->
+                  <div class="timeline-bar">
+                    <b-progress
+                      height="2px"
+                      :value="selling_limit_order"
+                      style="
+                        margin: auto;
+                        height: 2px;
+                        background-color: #566a76;
+                      "
+                    >
+                    </b-progress>
+                    <div class="spots">
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="selling_amount = 0"
+                      >
+                        <span
+                          class="dot align-self-baseline"
+                          :class="{ active: selling_limit_order >= 0 }"
+                        ></span>
+                        <span>0%</span>
+                      </div>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="selling_amount = 246734.475"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: selling_limit_order >= 25 }"
+                        ></span>
+                        <span>25%</span>
+                      </div>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="selling_amount = 493468.95"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: selling_limit_order >= 50 }"
+                        ></span>
+                        <span>50%</span>
+                      </div>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="selling_amount = 740203.425"
+                      >
+                        <span
+                          class="dot"
+                          :class="{ active: selling_limit_order >= 75 }"
+                        ></span>
+                        <span>75%</span>
+                      </div>
+                      <div
+                        class="spot"
+                        style="cursor: pointer"
+                        @click="selling_amount = 986937.9"
+                      >
+                        <span
+                          class="dot align-self-end"
+                          :class="{ active: selling_limit_order == 100 }"
+                        ></span>
+                        <span>100%</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- timeline end -->
+                  <div class="form-group bs-lp-input">
+                    <input type="number" v-model="selected_sell_score" />
+                    <span class="currency">BTC</span>
+                    <span class="text">ราคาต่อ</span>
+                  </div>
+
+                  <div class="form-group bs-lp-input">
+                    <input
+                      type="text"
+                      :value="selling_amount / selected_sell_score"
+                      readonly="readonly"
+                    />
+                    <span class="currency">BTC</span>
+                    <span class="text">จำนวน BTC ที่ขาย</span>
+                  </div>
+                  <div class="form-group form-check">
+                    <label>
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        data-toggle="modal"
+                        data-target="#limit-stop"
+                        value="false"
+                        v-model="SL"
+                      />
+                      <p>Stop Loss</p></label
+                    >
+                  </div>
+                  <div class="form-group">
+                    <button
+                      type="button"
+                      class="sell-btn"
+                      v-b-modal.limitorder-TPSLB
+                      @click="show_TPSLB_order = true"
+                    >
+                      ขาย
+                    </button>
+                    <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
+                  </div>
                 </div>
               </div>
-            </div>
             </div>
           </div>
 
@@ -203,35 +294,74 @@
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
-                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                <div
+                  class="input-group-bottom-text d-flex justify-content-between align-center"
+                >
                   <p>ยอดเงินที่ซื้อได้</p>
                   <p>20,000THB</p>
                 </div>
-                 <!-- timeline start -->
-                 <div class="timeline-bar">
-                  <b-progress height="2px" :value="market_buying_limit_order" style="margin: auto;
-                  height: 2px;
-                  background-color: #566a76;">
+                <!-- timeline start -->
+                <div class="timeline-bar">
+                  <b-progress
+                    height="2px"
+                    :value="market_buying_limit_order"
+                    style="margin: auto; height: 2px; background-color: #566a76"
+                  >
                   </b-progress>
                   <div class="spots">
-                    <div class="spot">
-                      <span class="dot align-self-baseline " :class="{active:market_buying_limit_order>=0}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_buying_value = 0"
+                    >
+                      <span
+                        class="dot align-self-baseline"
+                        :class="{ active: market_buying_limit_order >= 0 }"
+                      ></span>
                       <span>0%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot " :class="{active:market_buying_limit_order>=25}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_buying_value = 5000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_buying_limit_order >= 25 }"
+                      ></span>
                       <span>25%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:market_buying_limit_order>=50}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_buying_value = 10000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_buying_limit_order >= 50 }"
+                      ></span>
                       <span>50%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:market_buying_limit_order>=75}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_buying_value = 15000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_buying_limit_order >= 75 }"
+                      ></span>
                       <span>75%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot  align-self-end" :class="{active:market_buying_limit_order==100}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_buying_value = 20000"
+                    >
+                      <span
+                        class="dot align-self-end"
+                        :class="{ active: market_buying_limit_order == 100 }"
+                      ></span>
                       <span>100%</span>
                     </div>
                   </div>
@@ -266,9 +396,9 @@
                     class="buy-btn"
                     data-toggle="modal"
                   >
-                    Buy
+                    ซื้อ
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
+                  <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
                 </div>
               </div>
               <div class="col-md-6">
@@ -277,40 +407,79 @@
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
-                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                <div
+                  class="input-group-bottom-text d-flex justify-content-between align-center"
+                >
                   <p>มูลค่า BTC ที่มี</p>
                   <p>9,86,937.9 THB</p>
                 </div>
-                  <!-- timeline start -->
-                  <div class="timeline-bar">
-                    <b-progress height="2px" :value="market_selling_limit_order" style="margin: auto;
-                    height: 2px;
-                    background-color: #566a76;">
-                    </b-progress>
-                    <div class="spots">
-                      <div class="spot">
-                        <span class="dot align-self-baseline " :class="{active:market_selling_limit_order>=0}"></span>
-                        <span>0%</span>
-                      </div>
-                      <div class="spot">
-                        <span class="dot " :class="{active:market_selling_limit_order>=25}"></span>
-                        <span>25%</span>
-                      </div>
-                      <div class="spot">
-                        <span class="dot" :class="{active:market_selling_limit_order>=50}"></span>
-                        <span>50%</span>
-                      </div>
-                      <div class="spot">
-                        <span class="dot" :class="{active:market_selling_limit_order>=75}"></span>
-                        <span>75%</span>
-                      </div>
-                      <div class="spot">
-                        <span class="dot  align-self-end" :class="{active:market_selling_limit_order==100}"></span>
-                        <span>100%</span>
-                      </div>
+                <!-- timeline start -->
+                <div class="timeline-bar">
+                  <b-progress
+                    height="2px"
+                    :value="market_selling_limit_order"
+                    style="margin: auto; height: 2px; background-color: #566a76"
+                  >
+                  </b-progress>
+                  <div class="spots">
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_selling_value = 0"
+                    >
+                      <span
+                        class="dot align-self-baseline"
+                        :class="{ active: market_selling_limit_order >= 0 }"
+                      ></span>
+                      <span>0%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_selling_value = 246734.475"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_selling_limit_order >= 25 }"
+                      ></span>
+                      <span>25%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_selling_value = 493468.95"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_selling_limit_order >= 50 }"
+                      ></span>
+                      <span>50%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_selling_value = 740203.425"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: market_selling_limit_order >= 75 }"
+                      ></span>
+                      <span>75%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="market_selling_value = 986937.9"
+                    >
+                      <span
+                        class="dot align-self-end"
+                        :class="{ active: market_selling_limit_order == 100 }"
+                      ></span>
+                      <span>100%</span>
                     </div>
                   </div>
-                  <!-- timeline end -->
+                </div>
+                <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input
                     type="text"
@@ -340,9 +509,9 @@
                     type="button"
                     class="sell-btn"
                   >
-                    Sell
+                    ขาย
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
+                  <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
                 </div>
               </div>
             </div>
@@ -356,39 +525,78 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="triling_buying_value"/>
+                  <input type="number" v-model="triling_buying_value" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
-                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                <div
+                  class="input-group-bottom-text d-flex justify-content-between align-center"
+                >
                   <p>ยอดเงินที่ซื้อได้</p>
                   <p>20,000 THB</p>
                 </div>
-                 <!-- timeline start -->
-                 <div class="timeline-bar">
-                  <b-progress height="2px" :value="triling_buying_limit_order" style="margin: auto;
-                  height: 2px;
-                  background-color: #566a76;">
+                <!-- timeline start -->
+                <div class="timeline-bar">
+                  <b-progress
+                    height="2px"
+                    :value="triling_buying_limit_order"
+                    style="margin: auto; height: 2px; background-color: #566a76"
+                  >
                   </b-progress>
                   <div class="spots">
-                    <div class="spot">
-                      <span class="dot align-self-baseline " :class="{active:triling_buying_limit_order>=0}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_buying_value = 0"
+                    >
+                      <span
+                        class="dot align-self-baseline"
+                        :class="{ active: triling_buying_limit_order >= 0 }"
+                      ></span>
                       <span>0%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot " :class="{active:triling_buying_limit_order>=25}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_buying_value = 5000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_buying_limit_order >= 25 }"
+                      ></span>
                       <span>25%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:triling_buying_limit_order>=50}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_buying_value = 10000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_buying_limit_order >= 50 }"
+                      ></span>
                       <span>50%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot" :class="{active:triling_buying_limit_order>=75}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_buying_value = 15000"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_buying_limit_order >= 75 }"
+                      ></span>
                       <span>75%</span>
                     </div>
-                    <div class="spot">
-                      <span class="dot  align-self-end" :class="{active:triling_buying_limit_order==100}"></span>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_buying_value = 20000"
+                    >
+                      <span
+                        class="dot align-self-end"
+                        :class="{ active: triling_buying_limit_order == 100 }"
+                      ></span>
                       <span>100%</span>
                     </div>
                   </div>
@@ -414,18 +622,68 @@
                 </div> -->
                 <span class="massage">จะซื้อเมื่อราคา วกกลับจากราคา Low</span>
                 <div class="form-group mb-5 bs-lp-input">
-                  <input type="text"  readonly value="0" style="padding-right: 60px;margin-top: 5px;"/>
-                  <span class="currency dropdown-trailing">THB  
-                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  <input
+                    type="text"
+                    readonly
+                    value="0"
+                    style="padding-right: 60px; margin-top: 5px"
+                  />
+                  <span class="currency dropdown-trailing"
+                    >THB
+                    <svg
+                      data-v-6409c2a8=""
+                      width="10"
+                      height="7"
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        data-v-6409c2a8=""
+                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                        fill="#677F8E"
+                      ></path>
+                    </svg>
                   </span>
-                  <span class="text">ตั้งเงื่อนไข Trailing 
-                    <svg style="cursor:pointer" data-v-aa362e22="" width="12" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-aa362e22="" d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z" fill="#677F8E"></path></svg>
+                  <span class="text"
+                    >ตั้งเงื่อนไข Trailing
+                    <svg
+                      style="cursor: pointer"
+                      data-v-aa362e22=""
+                      width="12"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        data-v-aa362e22=""
+                        d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
+                        fill="#677F8E"
+                      ></path>
+                    </svg>
                   </span>
                 </div>
                 <div class="form-group mb-1.5 bs-lp-input">
-                  <input type="text"  readonly  style="padding-right: 60px;"/>
-                  <span class="currency dropdown-trailing"  style="color: white;border-left:none">1 เดือน  
-                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  <input type="text" readonly style="padding-right: 60px" />
+                  <span
+                    class="currency dropdown-trailing"
+                    style="color: white; border-left: none"
+                    >1 เดือน
+                    <svg
+                      data-v-6409c2a8=""
+                      width="10"
+                      height="7"
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        data-v-6409c2a8=""
+                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                        fill="#677F8E"
+                      ></path>
+                    </svg>
                   </span>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
@@ -436,58 +694,97 @@
                 </div> -->
                 <div class="form-group">
                   <button
-                  style="margin-top: 11px;"
+                    style="margin-top: 11px"
                     v-b-modal.limitorder-TPSLB
                     @click="show_TPSLB_order = true"
                     type="button"
                     class="buy-btn"
                     data-toggle="modal"
                   >
-                  ซื้อ
+                    ซื้อ
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
+                  <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="triling_selling_value"/>
+                  <input type="number" v-model="triling_selling_value" />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
-                <div class="input-group-bottom-text d-flex justify-content-between align-center">
+                <div
+                  class="input-group-bottom-text d-flex justify-content-between align-center"
+                >
                   <p>มูลค่า BTC ที่มี</p>
                   <p>9,86,937.9 THB</p>
                 </div>
-         <!-- timeline start -->
-         <div class="timeline-bar">
-          <b-progress height="2px" :value="triling_selling_limit_order" style="margin: auto;
-          height: 2px;
-          background-color: #566a76;">
-          </b-progress>
-          <div class="spots">
-            <div class="spot">
-              <span class="dot align-self-baseline " :class="{active:triling_selling_limit_order>=0}"></span>
-              <span>0%</span>
-            </div>
-            <div class="spot">
-              <span class="dot " :class="{active:triling_selling_limit_order>=25}"></span>
-              <span>25%</span>
-            </div>
-            <div class="spot">
-              <span class="dot" :class="{active:triling_selling_limit_order>=50}"></span>
-              <span>50%</span>
-            </div>
-            <div class="spot">
-              <span class="dot" :class="{active:triling_selling_limit_order>=75}"></span>
-              <span>75%</span>
-            </div>
-            <div class="spot">
-              <span class="dot  align-self-end" :class="{active:triling_selling_limit_order==100}"></span>
-              <span>100%</span>
-            </div>
-          </div>
-        </div>
-        <!-- timeline end -->
+                <!-- timeline start -->
+                <div class="timeline-bar">
+                  <b-progress
+                    height="2px"
+                    :value="triling_selling_limit_order"
+                    style="margin: auto; height: 2px; background-color: #566a76"
+                  >
+                  </b-progress>
+                  <div class="spots">
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_selling_value = 0"
+                    >
+                      <span
+                        class="dot align-self-baseline"
+                        :class="{ active: triling_selling_limit_order >= 0 }"
+                      ></span>
+                      <span>0%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_selling_value = 246734.475"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_selling_limit_order >= 25 }"
+                      ></span>
+                      <span>25%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_selling_value = 493468.95"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_selling_limit_order >= 50 }"
+                      ></span>
+                      <span>50%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_selling_value = 740203.425"
+                    >
+                      <span
+                        class="dot"
+                        :class="{ active: triling_selling_limit_order >= 75 }"
+                      ></span>
+                      <span>75%</span>
+                    </div>
+                    <div
+                      class="spot"
+                      style="cursor: pointer"
+                      @click="triling_selling_value = 986937.9"
+                    >
+                      <span
+                        class="dot align-self-end"
+                        :class="{ active: triling_selling_limit_order == 100 }"
+                      ></span>
+                      <span>100%</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input type="number" value="0" />
                   <span class="currency">THB</span>
@@ -510,10 +807,29 @@
                   >
                 </div> -->
 
-                <div class="form-group  bs-lp-input" style="margin-top: 29px;">
-                  <input type="text"  readonly value="0" style="padding-right:60px"/>
-                  <span class="currency dropdown-trailing">THB  
-                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                <div class="form-group bs-lp-input" style="margin-top: 29px">
+                  <input
+                    type="text"
+                    readonly
+                    value="0"
+                    style="padding-right: 60px"
+                  />
+                  <span class="currency dropdown-trailing"
+                    >THB
+                    <svg
+                      data-v-6409c2a8=""
+                      width="10"
+                      height="7"
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        data-v-6409c2a8=""
+                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                        fill="#677F8E"
+                      ></path>
+                    </svg>
                   </span>
                   <span class="text">ตั้งเงื่อนไข Trailing</span>
                 </div>
@@ -531,23 +847,39 @@
                   >
                 </div>
                 <div class="form-group mb-1.5 bs-lp-input">
-                  <input type="text"  readonly  style="padding-right: 60px;"/>
-                  <span class="currency dropdown-trailing " style="color: white; border-left:none">1 เดือน  
-                     <svg data-v-6409c2a8="" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path data-v-6409c2a8="" d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z" fill="#677F8E"></path></svg>
+                  <input type="text" readonly style="padding-right: 60px" />
+                  <span
+                    class="currency dropdown-trailing"
+                    style="color: white; border-left: none"
+                    >1 เดือน
+                    <svg
+                      data-v-6409c2a8=""
+                      width="10"
+                      height="7"
+                      viewBox="0 0 10 7"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        data-v-6409c2a8=""
+                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
+                        fill="#677F8E"
+                      ></path>
+                    </svg>
                   </span>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
                 <div class="form-group">
                   <button
-                    style="margin-top: 11px;"
+                    style="margin-top: 11px"
                     v-b-modal.limitorder-TPSLB
                     @click="show_TPSLB_order = true"
                     type="button"
                     class="sell-btn"
                   >
-                  ขาย
+                    ขาย
                   </button>
-                  <p class="text-end p-0 m-0">Fee 0.2%</p>
+                  <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
                 </div>
               </div>
             </div>
@@ -557,10 +889,15 @@
     </div>
 
     <!-- TP/SL Order-Confirmation modal -->
-    <b-modal id="limitorder-TPSLB" :hide-footer="true"  centered :hide-header="true">
+    <b-modal
+      id="limitorder-TPSLB"
+      :hide-footer="true"
+      centered
+      :hide-header="true"
+    >
       <div class="row">
         <div class="col-12 modal-th limitorder-TPSLB">
-          <h5 >Order Confirmation</h5>
+          <h5>Order Confirmation</h5>
           <span
             class="modal-close-button"
             @click="$bvModal.hide('limitorder-TPSLB')"
@@ -584,39 +921,57 @@
       <div class="row body order-confirm">
         <div class="col-12">
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:20px">Coin</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 20px">Coin</p>
+            </div>
             <div class="col-8"><span>BTC/THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:10px">Order</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 10px">Order</p>
+            </div>
             <div class="col-8"><span class="buy-badge">BUY</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Price</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Price</p>
+            </div>
             <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Amount</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Amount</p>
+            </div>
             <div class="col-8"><span>10,000 THB</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Total</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 16px">Total</p>
+            </div>
             <div class="col-8"><span>0.01535 BTC</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Order</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Order</p>
+            </div>
             <div class="col-8"><span class="sell-badge">Sell</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Take Profit</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Take Profit</p>
+            </div>
             <div class="col-8"><span>886,800.00(+10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Stop Loss</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Stop Loss</p>
+            </div>
             <div class="col-8"><span>665,100.00(-10%)</span></div>
           </div>
           <div class="row">
-            <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Amount</p></div>
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 16px">Amount</p>
+            </div>
             <div class="col-8"><span>10,000.00 THB</span></div>
           </div>
           <div class="form-group form-check">
@@ -625,22 +980,25 @@
               <span>ไม่ต้องแจ้งเตือนอีก</span></label
             >
           </div>
-         
-          <div class="row buttons-row"  style="margin-top:8px">
+
+          <div class="row buttons-row" style="margin-top: 8px">
             <div class="col-6" style="padding-right: 8px">
-              <button type="button" class="btn yellow-btn text-center" 
-               @click="
-               $bvModal.show('limitorder-TPSLB2')
-               $bvModal.hide('limitorder-TPSLB')
-               ">
+              <button
+                type="button"
+                class="btn yellow-btn text-center"
+                @click="
+                  $bvModal.show('limitorder-TPSLB2');
+                  $bvModal.hide('limitorder-TPSLB');
+                "
+              >
                 ยืนยัน
               </button>
             </div>
             <div class="col-6" style="padding-left: 8px">
               <button
-                type="button" 
+                type="button"
                 class="btn grey-btn text-center"
-                 @click="$bvModal.hide('limitorder-TPSLB')"
+                @click="$bvModal.hide('limitorder-TPSLB')"
               >
                 ยกเลิก
               </button>
@@ -650,105 +1008,137 @@
       </div>
     </b-modal>
 
- <!-- TP/SL Order-Confirmation modal2 -->
- <b-modal id="limitorder-TPSLB2" :hide-footer="true"  centered :hide-header="true">
-  <div class="row">
-    <div class="col-12 modal-th limitorder-TPSLB">
-      <h5 >Order Confirmation</h5>
-      <span
-        class="modal-close-button"
-        @click="$bvModal.hide('limitorder-TPSLB2')"
-      >
-        <svg
-          width="14"
-          height="15"
-          viewBox="0 0 14 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
-            fill="#677F8E"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>
+    <!-- TP/SL Order-Confirmation modal2 -->
+    <b-modal
+      id="limitorder-TPSLB2"
+      :hide-footer="true"
+      centered
+      :hide-header="true"
+    >
+      <div class="row">
+        <div class="col-12 modal-th limitorder-TPSLB">
+          <h5>Order Confirmation</h5>
+          <span
+            class="modal-close-button"
+            @click="$bvModal.hide('limitorder-TPSLB2')"
+          >
+            <svg
+              width="14"
+              height="15"
+              viewBox="0 0 14 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+                fill="#677F8E"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
 
-  <div class="row body order-confirm">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:20px">Coin</p></div>
-        <div class="col-8"><span>BTC/THB</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:10px">Order</p></div>
-        <div class="col-8"><span class="buy-badge">BUY</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Price</p></div>
-        <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Amount</p></div>
-        <div class="col-8"><span>10,000 THB</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Total</p></div>
-        <div class="col-8"><span>0.01535 BTC</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Order</p></div>
-        <div class="col-8"><span class="sell-badge">Sell</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Take Profit</p></div>
-        <div class="col-8"><span>886,800.00(+10%)</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:8px">Stop Loss</p></div>
-        <div class="col-8"><span>665,100.00(-10%)</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">Amount</p></div>
-        <div class="col-8"><span>10,000.00 THB</span></div>
-      </div>
-      <div class="row">
-        <div class="col-4 m-0 p-0"><p style="margin-bottom:16px">PIN</p></div>
-        <div class="col-8"><span>
-          <input type="password" class="pin" >
-        </span></div>
-      </div>
-      <!-- <div class="form-group form-check">
+      <div class="row body order-confirm">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 20px">Coin</p>
+            </div>
+            <div class="col-8"><span>BTC/THB</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 10px">Order</p>
+            </div>
+            <div class="col-8"><span class="buy-badge">BUY</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Price</p>
+            </div>
+            <div class="col-8"><span>1,025,500.10 THB(Limit)</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Amount</p>
+            </div>
+            <div class="col-8"><span>10,000 THB</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 16px">Total</p>
+            </div>
+            <div class="col-8"><span>0.01535 BTC</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Order</p>
+            </div>
+            <div class="col-8"><span class="sell-badge">Sell</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Take Profit</p>
+            </div>
+            <div class="col-8"><span>886,800.00(+10%)</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 8px">Stop Loss</p>
+            </div>
+            <div class="col-8"><span>665,100.00(-10%)</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 16px">Amount</p>
+            </div>
+            <div class="col-8"><span>10,000.00 THB</span></div>
+          </div>
+          <div class="row">
+            <div class="col-4 m-0 p-0">
+              <p style="margin-bottom: 16px">PIN</p>
+            </div>
+            <div class="col-8">
+              <span>
+                <input type="password" class="pin" />
+              </span>
+            </div>
+          </div>
+          <!-- <div class="form-group form-check">
         <label class="checkbox-input">
           <input type="checkbox" class="form-check-input" />
           <span>ไม่ต้องแจ้งเตือนอีก</span></label
         >
       </div> -->
-     
-      <div class="row buttons-row"  style="margin-top: 24px;">
-        <div class="col-6" style="padding-right: 8px">
-          <button type="button" class="btn yellow-btn text-center">
-            ยืนยัน
-          </button>
-        </div>
-        <div class="col-6" style="padding-left: 8px">
-          <button
-            type="button" 
-            class="btn grey-btn text-center"
-             @click="$bvModal.hide('limitorder-TPSLB2')"
-          >
-            ยกเลิก
-          </button>
+
+          <div class="row buttons-row" style="margin-top: 24px">
+            <div class="col-6" style="padding-right: 8px">
+              <button type="button" class="btn yellow-btn text-center">
+                ยืนยัน
+              </button>
+            </div>
+            <div class="col-6" style="padding-left: 8px">
+              <button
+                type="button"
+                class="btn grey-btn text-center"
+                @click="$bvModal.hide('limitorder-TPSLB2')"
+              >
+                ยกเลิก
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</b-modal>
-<!--TP/SL Order-Confirmation modal2 end -->
+    </b-modal>
+    <!--TP/SL Order-Confirmation modal2 end -->
 
     <!-- TP/SL modal -->
-    <b-modal id="limitorder-TPSL" :hide-footer="true" centered  :hide-header="true">
+    <b-modal
+      id="limitorder-TPSL"
+      :hide-footer="true"
+      centered
+      :hide-header="true"
+    >
       <div class="row">
         <div class="col-12 modal-th">
           <h5>Take Profit / Stop Loss</h5>
@@ -785,13 +1175,19 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
+              line-height: 19px;
             "
           >
             อ่านคู่มือการใช้งาน
           </p>
           <p
             class="d-inline"
-            style="width: 24; height: 24px; margin-right: 16px"
+            style="
+              width: 24;
+              height: 24px;
+              margin-right: 16px;
+              line-height: 19px;
+            "
           >
             หรือ
           </p>
@@ -802,15 +1198,19 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
+              line-height: 19px;
             "
           >
             ดูวิดีโอสอนใช้งาน
           </p>
 
-          <div class="form-group form-check " style="margin-top: 24px !important;">
+          <div
+            class="form-group form-check"
+            style="margin-top: 24px !important"
+          >
             <label class="checkbox-input">
               <input type="checkbox" class="form-check-input" />
-              <span>ไม่ต้องแจ้งเตือนอีก</span></label
+              <span style="line-height: 24px">ไม่ต้องแจ้งเตือนอีก</span></label
             >
           </div>
 
@@ -836,7 +1236,7 @@
           <h5>Stop Loss</h5>
           <span
             class="modal-close-button"
-            style="position: absolute;right: 30px;"
+            style="position: absolute; right: 30px"
             @click="$bvModal.hide('limitorder-stop-loss')"
           >
             <svg
@@ -868,13 +1268,19 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
+              line-height: 19px;
             "
           >
             อ่านคู่มือการใช้งาน
           </p>
           <p
             class="d-inline"
-            style="width: 24; height: 24px; margin-right: 16px"
+            style="
+              width: 24;
+              height: 24px;
+              margin-right: 16px;
+              line-height: 19px;
+            "
           >
             หรือ
           </p>
@@ -885,6 +1291,7 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
+              line-height: 19px;
             "
           >
             ดูวิดีโอสอนใช้งาน
@@ -892,16 +1299,15 @@
           <div class="form-group form-check mt-3">
             <label class="checkbox-input">
               <input type="checkbox" class="form-check-input" />
-              <span>ไม่ต้องแจ้งเตือนอีก</span></label
+              <span style="line-height: 24px">ไม่ต้องแจ้งเตือนอีก</span></label
             >
           </div>
 
-           <div class="form-group form-check mt-3">
+          <div class="form-group form-check mt-3">
             <label class="checkbox-input">
-              <span>PIN</span>
+              <span style="line-height: 24px">PIN</span>
               <input type="checkbox" class="form-check-input" />
-              </label
-            >
+            </label>
           </div>
 
           <button
@@ -930,32 +1336,31 @@ export default {
   props: ["selected_buy_score", "selected_sell_score"],
   data() {
     return {
-      
-      limitOrder:0,
-      buying_amount_value:20000,
-      SL:false,
-      profitLoss:false,
+      limitOrder: 0,
+      buying_amount_value: 20000,
+      SL: false,
+      profitLoss: false,
       buying_amount: 0,
       selling_amount: 0,
-      total_selling_amount:986937.90,
-      selling_limit_order:0,
+      total_selling_amount: 986937.9,
+      selling_limit_order: 0,
       buying_btc: 0,
       selling_btc: 0,
       market_buying_price: 896458.67,
       market_selling_price: 896458.67,
       market_buying_value: 0,
       total_market_buying_value: 20000,
-      market_buying_limit_order:0,
+      market_buying_limit_order: 0,
       market_selling_value: 0,
-      total_market_selling_value: 986937.90,
-      market_selling_limit_order:0,
+      total_market_selling_value: 986937.9,
+      market_selling_limit_order: 0,
       triling_buying_value: 0,
       total_triling_buying_value: 20000,
-      triling_buying_limit_order:0,
+      triling_buying_limit_order: 0,
       triling_selling_value: 0,
-      total_triling_selling_value: 986937.90,
-      triling_selling_limit_order:0,
-      
+      total_triling_selling_value: 986937.9,
+      triling_selling_limit_order: 0,
+
       lot_a: "0%",
       lot_b: "0%",
       mot_a: "0%",
@@ -966,119 +1371,123 @@ export default {
       selectedorder: "Limit Order",
     };
   },
-  watch:{
-    buying_amount(newValue, oldValue){
-      if(this.buying_amount > this.buying_amount_value){
-         this.buying_amount=oldValue
+  watch: {
+    buying_amount(newValue, oldValue) {
+      if (this.buying_amount > this.buying_amount_value) {
+        this.buying_amount = oldValue;
       }
-         let p = (this.buying_amount/this.buying_amount_value )*100
-         this.limitOrder = p
+      let p = (this.buying_amount / this.buying_amount_value) * 100;
+      this.limitOrder = p;
     },
-    selling_amount(newValue, oldValue){
-      if(this.selling_amount > this.total_selling_amount){
-         this.selling_amount=oldValue
+    selling_amount(newValue, oldValue) {
+      if (this.selling_amount > this.total_selling_amount) {
+        this.selling_amount = oldValue;
       }
-         let p = (this.selling_amount/this.total_selling_amount )*100
-         this.selling_limit_order = p
+      let p = (this.selling_amount / this.total_selling_amount) * 100;
+      this.selling_limit_order = p;
     },
-    market_buying_value(newValue, oldValue){
-      if(this.market_buying_value > this.total_market_buying_value){
-         this.market_buying_value=oldValue
+    market_buying_value(newValue, oldValue) {
+      if (this.market_buying_value > this.total_market_buying_value) {
+        this.market_buying_value = oldValue;
       }
-         let p = (this.market_buying_value/this.total_market_buying_value )*100
-         this.market_buying_limit_order = p
+      let p = (this.market_buying_value / this.total_market_buying_value) * 100;
+      this.market_buying_limit_order = p;
     },
-    market_selling_value(newValue, oldValue){
-      if(this.market_selling_value > this.total_market_selling_value){
-         this.market_selling_value=oldValue
+    market_selling_value(newValue, oldValue) {
+      if (this.market_selling_value > this.total_market_selling_value) {
+        this.market_selling_value = oldValue;
       }
-         let p = (this.market_selling_value/this.total_market_selling_value )*100
-         this.market_selling_limit_order = p
+      let p =
+        (this.market_selling_value / this.total_market_selling_value) * 100;
+      this.market_selling_limit_order = p;
     },
-    triling_buying_value(newValue, oldValue){
-      if(this.triling_buying_value > this.total_triling_buying_value){
-         this.triling_buying_value=oldValue
+    triling_buying_value(newValue, oldValue) {
+      if (this.triling_buying_value > this.total_triling_buying_value) {
+        this.triling_buying_value = oldValue;
       }
-         let p = (this.triling_buying_value/this.total_triling_buying_value )*100
-         this.triling_buying_limit_order = p
+      let p =
+        (this.triling_buying_value / this.total_triling_buying_value) * 100;
+      this.triling_buying_limit_order = p;
     },
-    triling_selling_value(newValue, oldValue){
-      if(this.triling_selling_value > this.total_triling_selling_value){
-         this.triling_selling_value=oldValue
+    triling_selling_value(newValue, oldValue) {
+      if (this.triling_selling_value > this.total_triling_selling_value) {
+        this.triling_selling_value = oldValue;
       }
-         let p = (this.triling_selling_value/this.total_triling_selling_value )*100
-         this.triling_selling_limit_order = p
+      let p =
+        (this.triling_selling_value / this.total_triling_selling_value) * 100;
+      this.triling_selling_limit_order = p;
     },
-    profitLoss(){
-      if(this.profitLoss==true){
-        this.$bvModal.show('limitorder-TPSL')
+    profitLoss() {
+      if (this.profitLoss == true) {
+        this.$bvModal.show("limitorder-TPSL");
       }
     },
-    SL(){
-          if(this.SL==true){
-            this.$bvModal.show('limitorder-stop-loss')
-          }
-    }
-  }
+    SL() {
+      if (this.SL == true) {
+        this.$bvModal.show("limitorder-stop-loss");
+      }
+    },
+  },
 };
 </script>
 <style>
-#limitorder-TPSLB___BV_modal_body_,#limitorder-TPSLB2___BV_modal_body_,#limitorder-stop-loss___BV_modal_body_{
+#limitorder-TPSLB___BV_modal_body_,
+#limitorder-TPSLB2___BV_modal_body_,
+#limitorder-stop-loss___BV_modal_body_ {
   padding: 0px 16px 20px 16px !important;
 }
-#limitorder-TPSLB2___BV_modal_content_{
-  width:360px;
+#limitorder-TPSLB2___BV_modal_content_ {
+  width: 360px;
   margin: 0 auto;
 }
-.timeline-bar{
+.timeline-bar {
   width: 100%;
   margin: auto !important;
-  padding: 18px 0px 42px !important; 
-  position:relative
+  padding: 18px 5px 42px !important;
+  position: relative;
 }
-.progress-bar{
+.progress-bar {
   background-color: #f38220 !important;
 }
 </style>
 <style scoped>
-.pin{
-padding: 8px;
-width: 160px;
-height: 36px;
-border-radius: 4px;
-background: #38454D;
-color: #FFFFFF;
+.pin {
+  padding: 8px;
+  width: 160px;
+  height: 36px;
+  border-radius: 4px;
+  background: #38454d;
+  color: #ffffff;
 }
-.massage{
+.massage {
   width: 224px;
   height: 24px;
   padding: 4px 8px;
-  background: #D6DDE1;
+  background: #d6dde1;
   border-radius: 4px;
-  color: #0A0D10;
-  font-family: 'Sarabun';
+  color: #0a0d10;
+  font-family: "Sarabun";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
 }
-.dropdown-trailing{
+.dropdown-trailing {
   padding-left: 8px;
-  border-left: 1px solid #28363E;
+  border-left: 1px solid #28363e;
 }
-.dropdown-trailing svg
-{
+.dropdown-trailing svg {
   width: 6px;
   margin-top: -4px;
 }
-.order-confirm .col-4{
+.order-confirm .col-4 {
   padding-left: 15px !important;
 }
-.spots{
+.spots {
   position: absolute;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 99%;
   margin-top: -5px;
 }
 .spots .spot {
@@ -1088,11 +1497,11 @@ color: #FFFFFF;
   align-items: center;
   color: #9bacb6;
 }
-.spots .spot .active{
-    background: #f38220 !important;
-    border-color: #203864 !important; 
+.spots .spot .active {
+  background: #f38220 !important;
+  border-color: #203864 !important;
 }
-.spots .spot .dot{
+.spots .spot .dot {
   background: #1c262b;
   border: 1px solid #566a76;
   height: 8px;
@@ -1101,22 +1510,21 @@ color: #FFFFFF;
   display: block;
   margin-bottom: 4px;
 }
-.modal-th{
-  padding: 24px 0px ;
+.modal-th {
+  padding: 24px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.modal-th>h5{
+.modal-th > h5 {
   margin-right: 42px;
   margin-bottom: 0px;
 }
-.limitorder-TPSLB > h5{
-  margin-right:52px  !important
+.limitorder-TPSLB > h5 {
+  margin-right: 52px !important;
 }
 </style>
 <style lang="scss">
-
 .modal-content {
   // width: 360px;
   background-color: #141b1f !important;
@@ -1153,8 +1561,8 @@ color: #FFFFFF;
   span {
     display: inline-block;
     margin-left: 8px;
-    margin-top: 3px;
-    line-height: 19px;
+    line-height: 24px;
+    // margin-top: 3px;
   }
 }
 .limitorder-STPSL {
@@ -1242,34 +1650,35 @@ color: #FFFFFF;
   vertical-align: middle;
 }
 
-.sells .form-check input[type="checkbox"]{
+.sells .form-check input[type="checkbox"] {
   border: none !important;
   box-shadow: none !important;
 }
-.form-check-input:checked[type=checkbox] {
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='111827' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e") !important
+.form-check-input:checked[type="checkbox"] {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='111827' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e") !important;
 }
 .modal-body .checkbox:checked {
   background-color: #f38220;
-  outline:none !important
+  outline: none !important;
 }
 
 .modal-body .yellow-btn {
-  padding: 8px 16px;
+  // padding: 8px 16px;
   gap: 4px;
   background: #f38220;
   color: #0a0d10;
   border-radius: 4px;
   font-family: "Sarabun";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
+  line-height: 24px;
   width: 100%;
   height: 40px;
 }
 
 .modal-body .grey-btn {
-  padding: 8px 16px;
+  // padding: 8px 16px;
   gap: 4px;
   background: #222b2f;
   color: #ffffff;
@@ -1278,6 +1687,7 @@ color: #FFFFFF;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  line-height: 24px;
   width: 100%;
   height: 40px;
 }
@@ -1310,7 +1720,7 @@ color: #FFFFFF;
   // margin-left: 24px;
 }
 
-.buy-sell .sells li button:hover{
+.buy-sell .sells li button:hover {
   color: #d6dde1;
   cursor: pointer;
 }
@@ -1341,35 +1751,38 @@ color: #FFFFFF;
     top: 55%;
     transform: translateY(-90%);
     pointer-events: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
   }
 }
-.input-group-bottom-text{
+.input-group-bottom-text {
   font-size: 14px;
   font-weight: 400;
-  color: #677F8E;
+  color: #677f8e;
   margin-top: -8px;
-  margin-bottom: 8px;
-p{
-  margin-bottom: 0 !important;
-}
+  // margin-bottom: 8px;
+  p {
+    margin-bottom: 0 !important;
+  }
 }
 .sells .tab-content {
   margin-top: 20px;
-  padding: 0 40px;
 }
 .sells input {
   width: 100%;
   text-align: right;
   border: none;
-  outline:none !important ;
+  outline: none !important ;
   padding: 8px 45px 8px 142px;
   margin-bottom: 15px;
   height: 40px;
   font-style: normal;
   font-size: 14px;
+  line-height: 24px;
   background: #222b2f;
   border-radius: 4px;
-  color: #9bacb6;
+  color: #566a76;
 
   font-family: "sarabun";
   &::placeholder {
@@ -1382,14 +1795,15 @@ p{
   display: block;
   background-color: rgba(64, 153, 79, 1);
   color: #ffffff;
-  font-style: normal;
-  padding: 8px;
-  gap: 8px;
   border: none;
   margin-bottom: 15px;
   height: 40px;
-  font-size: 14px;
   border-radius: 4px;
+  font-family: "Noto Sans Thai";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
   &:hover {
     background-color: var(--green-positiveHover);
   }
@@ -1402,6 +1816,10 @@ p{
   background: #f38220;
   color: #0a0d10;
   font-family: "sarabun";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
   font-weight: 500;
   margin-top: 16px;
   // margin-bottom: 16px;
@@ -1415,13 +1833,14 @@ p{
   display: block;
   background-color: #de2d40;
   color: #ffffff;
-  font-style: normal;
-  padding: 8px;
-  gap: 8px;
   border: none;
   margin-bottom: 15px;
   height: 40px;
-  font-size: 14px;
+  font-family: "Noto Sans Thai";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
   border-radius: 4px;
   &:hover {
     background-color: var(--red-negativeHover);
@@ -1430,19 +1849,28 @@ p{
 
 .sells p {
   color: #677f8e;
+  font-family: "Sarabun";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+}
+.sells .fees {
+  font-family: "Roboto Flex";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
+  color: #677f8e;
 }
 
-.sells label p{
+.sells label p {
   color: #d6dde1;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  margin-top: 5px;
-    margin-left: 3px
+  line-height: 24px;
+  margin-left: 3px;
   input {
     margin-top: -0.5px;
   }
@@ -1565,6 +1993,8 @@ p{
   }
   .w-title {
     color: #d6dde1;
+    line-height: 24px;
+    font-family: "Roboto Flex";
   }
   .buy-tag {
     color: #40994f;
@@ -1612,20 +2042,26 @@ p{
       background-color: #222b2f;
       padding: 10px 8px;
       color: white;
+      font-family: "Sarabun";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
     }
     input::placeholder {
       color: #566a76;
     }
-   input:focus{
-    outline: none !important;
-    // border: ;
-   }
+    input:focus {
+      outline: none !important;
+      // border: ;
+    }
   }
   .sl-ul {
     margin: 10px 0;
     padding: 0 20px;
     color: #9bacb6;
     list-style-type: disc;
+    line-height: 24px;
   }
   button.stpsl-submit {
     background-color: #40994f;
@@ -1657,6 +2093,7 @@ p{
       margin-left: 1px;
       padding: 8px;
       cursor: pointer;
+      line-height: 24px;
     }
     .sa-tab.active,
     .sa-tab-first.active,
@@ -1670,6 +2107,7 @@ p{
       margin-left: 1px;
       padding: 8px;
       cursor: pointer;
+      line-height: 24px;
     }
     .sa-tab-last {
       border-radius: 0px 4px 4px 0px;
@@ -1677,12 +2115,23 @@ p{
       margin-left: 1px;
       padding: 8px;
       cursor: pointer;
+      line-height: 24px;
     }
   }
   .top-row {
     padding-bottom: 5px;
     margin-bottom: 20px;
     border-bottom: 5px solid #0a0d10;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .sells .tab-content {
+    padding: 0 40px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .sells .tab-content {
+    padding: 0 10px;
   }
 }
 </style>
