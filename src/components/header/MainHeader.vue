@@ -974,9 +974,9 @@ export default {
   justify-content: left;
   // padding-bottom: 20px;
 }
-@media only screen and (min-width: 1280px) {
-  .lmg {
-    margin-left: 5px;
-  }
-}
+// @media only screen and (min-width: 1280px) {
+//   .lmg {
+//     margin-left: 5px;
+//   }
+// }
 </style>

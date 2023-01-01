@@ -46,7 +46,7 @@
 
         <!-- Open Order -->
         <div
-          class="tab-pane open-order"
+          class="tab-pane open-order b-order"
           v-if="selectedfooter === 'Open Orders (5)'"
         >
           <ul class="nav mr-2" id="" role="tablist">
@@ -254,7 +254,7 @@
           >
             <div class="">
               <div
-                class="col-md-12 table-responsive mt-3 p-0"
+                class="col-md-12 table-responsive mt-3 p-0 trailingTable"
                 style="height: 297px; overflow: auto"
               >
                 <table class="table table-borderless text-start p-0">
@@ -312,7 +312,10 @@
           </div>
         </div>
         <!-- mached tab start -->
-        <div class="tab-pane open-order" v-if="selectedfooter === 'Matched'">
+        <div
+          class="tab-pane open-order b-order"
+          v-if="selectedfooter === 'Matched'"
+        >
           <ul class="nav mr-2" id="" role="tablist">
             <li class="nav-item">
               <button
@@ -434,7 +437,10 @@
         </div>
         <!-- mached tab end -->
         <!-- portfolio tab start -->
-        <div class="tab-pane open-order" v-if="selectedfooter === 'Portfolio'">
+        <div
+          class="tab-pane open-order b-order"
+          v-if="selectedfooter === 'Portfolio'"
+        >
           <div class="row m-0">
             <div
               class="col-md-12 table-responsive p-0"
@@ -493,7 +499,10 @@
         </div>
         <!-- portfolio tab end -->
         <!-- order historoy tab start -->
-        <div class="tab-pane open-order" v-if="selectedfooter === 'history'">
+        <div
+          class="tab-pane open-order b-order"
+          v-if="selectedfooter === 'history'"
+        >
           <ul class="nav mx-2" id="" role="tablist">
             <li class="nav-item">
               <button

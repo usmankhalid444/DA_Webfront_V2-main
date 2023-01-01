@@ -1725,22 +1725,22 @@ export default {
   .bs-table-s {
     margin-right: 24px;
   }
-  .tab-pane {
+  .b-order {
     padding: 0;
     margin: 0 24px;
   }
   .pills-tab {
     padding: 0;
-    margin: 0 24px;
+    margin: 0 16px;
   }
   .bs-table-l {
-    margin-left: 20px;
+    margin-left: 13px;
   }
   .bid-offer-container {
-    margin-left: 20px;
+    margin-left: 13px;
   }
   .buy-sell .search-container {
-    margin-left: 20px !important;
+    margin-left: 13px !important;
   }
   .buy-sell .trading-scores .live-amount-title {
     margin-left: 16px;
