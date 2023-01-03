@@ -39,7 +39,7 @@
                       @click="btc_text = false"
                       v-model="coinSearchText"
                       @focus="showSearchBox = true"
-                      @focusout="showSearchBox = false"
+                      @focusout="(btc_text = true), (showSearchBox = false)"
                       class="ml-4 coins-search-input text-uppercase"
                       :class="
                         `${coinSearchText.length == 0 ? 'ml-4' : 'ml-1'}` &&
@@ -48,7 +48,7 @@
                           : 'btc-text-false'
                       "
                       type="text"
-                      placeholder="THB"
+                      :placeholder="btc_text ? 'THB' : ''"
                       maxlength="10"
                     />
                   </div>
@@ -56,7 +56,7 @@
                   <div v-if="showSearchBox" class="searching-box">
                     <p class="thai-font search-box-title">ค้นหาล่าสุด</p>
                     <div class="grid">
-                      <div class="row sb-row">
+                      <div class="row sb-row" @click="btc_text = true">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -74,7 +74,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row sb-row">
+                      <div class="row sb-row" @click="btc_text = true">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -92,7 +92,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row sb-row">
+                      <div class="row sb-row" @click="btc_text = true">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -110,7 +110,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="row sb-row">
+                      <div class="row sb-row" @click="btc_text = true">
                         <div class="col-5 col-lg-6">
                           <img
                             class="sb-coin-img d-inline"
@@ -516,8 +516,8 @@ export default {
       coinSearchText: "",
       defaultPath: "btc_usdt",
       showSearchBox: false,
-      selected_sell_score: null,
-      selected_buy_score: null,
+      selected_sell_score: 0,
+      selected_buy_score: 0,
       currentCoin: {
         base: "",
         coin: "",
@@ -1725,14 +1725,14 @@ export default {
   .bs-table-s {
     margin-right: 24px;
   }
-  .b-order {
-    padding: 0;
-    margin: 0 24px;
-  }
-  .pills-tab {
-    padding: 0;
-    margin: 0 16px;
-  }
+  // .b-order {
+  //   padding: 0;
+  //   margin: 0 13px;
+  // }
+  // .pills-tab {
+  //   padding: 0;
+  //   margin: 0 16px;
+  // }
   .bs-table-l {
     margin-left: 13px;
   }

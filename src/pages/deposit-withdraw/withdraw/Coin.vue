@@ -144,6 +144,8 @@ export default {
     button {
       display: inline-block;
       font-size: 16px;
+      line-height: 19px;
+
       padding: 15px 0;
       margin-left: 20px;
       border-bottom: 2px solid transparent;

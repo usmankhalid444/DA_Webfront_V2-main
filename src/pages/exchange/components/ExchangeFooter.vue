@@ -1176,7 +1176,7 @@ export default {
     margin-right: 40px;
   }
   .pills-tab {
-    padding: 0 12px;
+    padding: 0 24px;
   }
   .bs-bb {
     display: none;
@@ -1186,7 +1186,7 @@ export default {
   }
 
   .tab-pane {
-    padding: 0 12px;
+    padding: 0 24px;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1198,9 +1198,14 @@ export default {
     width: 100%;
   }
 }
+@media only screen and (max-width: 1024px) {
+  .pills-tab {
+    padding: 0 11px;
+  }
+}
 @media (min-width: 1400px) {
   .bs-cancel-all-btn {
-    margin-right: 90px;
+    margin-right: 52px;
   }
 }
 </style>

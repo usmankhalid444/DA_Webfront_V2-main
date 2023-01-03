@@ -51,16 +51,16 @@
         </div>
         <div class="row top-row">
           <div class="col-3 ts-title">Order</div>
-          <div class="col-9 ts-value">
+          <div class="col-9 ts-value p-0">
             <span class="sell-tag">SELL</span> <span>BTC</span>
             <span class="gs">/THB</span>
           </div>
 
           <div class="col-3 mt-2 ts-title">Price</div>
-          <div class="col-9 mt-2 ts-value">1,025,500.10 THB (Limit)</div>
+          <div class="col-9 mt-2 ts-value p-0">1,025,500.10 THB (Limit)</div>
 
           <div class="col-3 mt-2 ts-title">Amount</div>
-          <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
+          <div class="col-9 mt-2 ts-value p-0">0.00973 BTC (10,000 THB)</div>
           <div class="mt-2 border-line"></div>
         </div>
 
@@ -246,7 +246,7 @@ export default {
 }
 hr {
   margin: 16px 0px;
-  background: #28363e;
+  color: #28363e;
 }
 .stop-loss-detail-modal .header {
   padding: 24px 0px;

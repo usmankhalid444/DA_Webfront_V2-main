@@ -42,7 +42,7 @@
                     class="input-group-bottom-text d-flex justify-content-between align-center"
                   >
                     <p>ยอดเงินที่ซื้อได้</p>
-                    <p>20,000THB</p>
+                    <p>20,000 THB</p>
                   </div>
                   <!-- timeline start -->
                   <div class="timeline-bar">
@@ -124,7 +124,7 @@
                   <div class="form-group bs-lp-input">
                     <input
                       type="text"
-                      :value="buying_amount / selected_buy_score"
+                      :value="buying_amount / selected_buy_score || 0"
                       readonly="readonly"
                     />
                     <span class="currency">BTC</span>
@@ -165,7 +165,7 @@
                     class="input-group-bottom-text d-flex justify-content-between align-center"
                   >
                     <p>มูลค่า BTC ที่มี</p>
-                    <p>9,86,937.9THB</p>
+                    <p>9,86,937.9 THB</p>
                   </div>
                   <!-- timeline start -->
                   <div class="timeline-bar">
@@ -247,7 +247,7 @@
                   <div class="form-group bs-lp-input">
                     <input
                       type="text"
-                      :value="selling_amount / selected_sell_score"
+                      :value="selling_amount / selected_sell_score || 0"
                       readonly="readonly"
                     />
                     <span class="currency">BTC</span>
@@ -298,7 +298,7 @@
                   class="input-group-bottom-text d-flex justify-content-between align-center"
                 >
                   <p>ยอดเงินที่ซื้อได้</p>
-                  <p>20,000THB</p>
+                  <p>20,000 THB</p>
                 </div>
                 <!-- timeline start -->
                 <div class="timeline-bar">
@@ -370,7 +370,7 @@
                 <div class="form-group bs-lp-input">
                   <input
                     type="text"
-                    :value="market_buying_value / market_buying_price"
+                    :value="market_buying_value / market_buying_price || 0"
                     readonly
                   />
                   <span class="currency">THB</span>
@@ -628,23 +628,44 @@
                     value="0"
                     style="padding-right: 60px; margin-top: 5px"
                   />
-                  <span class="currency dropdown-trailing"
-                    >THB
-                    <svg
-                      data-v-6409c2a8=""
-                      width="10"
-                      height="7"
-                      viewBox="0 0 10 7"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="select-container-1"
+                    tabindex="0"
+                    @click="open_dropdown1 = !open_dropdown1"
+                    @blur="open_dropdown1 = false"
+                  >
+                    <div style="display: inline" class="text">
+                      {{ selected_option }}
+                    </div>
+                    <div
+                      style="display: inline"
+                      class="icon"
+                      :class="open_dropdown1 ? 'rotate-sc-icon' : ''"
                     >
-                      <path
-                        data-v-6409c2a8=""
-                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
-                        fill="#677F8E"
-                      ></path>
-                    </svg>
-                  </span>
+                      <svg
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.333984 0.666748L3.66732 4.00008L7.00065 0.666748H0.333984Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="options"
+                      :class="open_dropdown1 ? 'show' : 'hidden'"
+                    >
+                      <ul>
+                        <li @click="selected_option = 'THB'">THB</li>
+                        <li @click="selected_option = '%'">%</li>
+                      </ul>
+                    </div>
+                  </div>
+
                   <span class="text"
                     >ตั้งเงื่อนไข Trailing
                     <svg
@@ -666,25 +687,43 @@
                 </div>
                 <div class="form-group mb-1.5 bs-lp-input">
                   <input type="text" readonly style="padding-right: 60px" />
-                  <span
-                    class="currency dropdown-trailing"
-                    style="color: white; border-left: none"
-                    >1 เดือน
-                    <svg
-                      data-v-6409c2a8=""
-                      width="10"
-                      height="7"
-                      viewBox="0 0 10 7"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="select-container-3"
+                    tabindex="0"
+                    @click="open_dropdown2 = !open_dropdown2"
+                    @blur="open_dropdown2 = false"
+                  >
+                    <div style="display: inline" class="text">
+                      {{ selected_option3 }}
+                    </div>
+                    <div
+                      style="display: inline"
+                      class="icon"
+                      :class="open_dropdown2 ? 'rotate-sc-icon' : ''"
                     >
-                      <path
-                        data-v-6409c2a8=""
-                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
-                        fill="#677F8E"
-                      ></path>
-                    </svg>
-                  </span>
+                      <svg
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.333984 0.666748L3.66732 4.00008L7.00065 0.666748H0.333984Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="options"
+                      :class="open_dropdown2 ? 'show' : 'hidden'"
+                    >
+                      <ul>
+                        <li @click="selected_option3 = '1 เดือน'">1 เดือน</li>
+                        <li @click="selected_option3 = '3 เดือน'">3 เดือน</li>
+                      </ul>
+                    </div>
+                  </div>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
                 <!-- <div class="form-group bs-lp-input">
@@ -814,23 +853,43 @@
                     value="0"
                     style="padding-right: 60px"
                   />
-                  <span class="currency dropdown-trailing"
-                    >THB
-                    <svg
-                      data-v-6409c2a8=""
-                      width="10"
-                      height="7"
-                      viewBox="0 0 10 7"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="select-container-2"
+                    tabindex="0"
+                    @click="open_dropdown3 = !open_dropdown3"
+                    @blur="open_dropdown3 = false"
+                  >
+                    <div style="display: inline" class="text">
+                      {{ selected_option2 }}
+                    </div>
+                    <div
+                      style="display: inline"
+                      class="icon"
+                      :class="open_dropdown3 ? 'rotate-sc-icon' : ''"
                     >
-                      <path
-                        data-v-6409c2a8=""
-                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
-                        fill="#677F8E"
-                      ></path>
-                    </svg>
-                  </span>
+                      <svg
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.333984 0.666748L3.66732 4.00008L7.00065 0.666748H0.333984Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="options"
+                      :class="open_dropdown3 ? 'show' : 'hidden'"
+                    >
+                      <ul>
+                        <li @click="selected_option2 = 'THB'">THB</li>
+                        <li @click="selected_option2 = '%'">%</li>
+                      </ul>
+                    </div>
+                  </div>
                   <span class="text">ตั้งเงื่อนไข Trailing</span>
                 </div>
                 <div class="form-group form-check">
@@ -848,25 +907,43 @@
                 </div>
                 <div class="form-group mb-1.5 bs-lp-input">
                   <input type="text" readonly style="padding-right: 60px" />
-                  <span
-                    class="currency dropdown-trailing"
-                    style="color: white; border-left: none"
-                    >1 เดือน
-                    <svg
-                      data-v-6409c2a8=""
-                      width="10"
-                      height="7"
-                      viewBox="0 0 10 7"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <div
+                    class="select-container-3"
+                    tabindex="0"
+                    @click="open_dropdown4 = !open_dropdown4"
+                    @blur="open_dropdown4 = false"
+                  >
+                    <div style="display: inline" class="text">
+                      {{ selected_option4 }}
+                    </div>
+                    <div
+                      style="display: inline"
+                      class="icon"
+                      :class="open_dropdown4 ? 'rotate-sc-icon' : ''"
                     >
-                      <path
-                        data-v-6409c2a8=""
-                        d="M1.175 0.158447L5 3.97511L8.825 0.158447L10 1.33345L5 6.33345L0 1.33345L1.175 0.158447Z"
-                        fill="#677F8E"
-                      ></path>
-                    </svg>
-                  </span>
+                      <svg
+                        width="7"
+                        height="4"
+                        viewBox="0 0 7 4"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.333984 0.666748L3.66732 4.00008L7.00065 0.666748H0.333984Z"
+                          fill="#677F8E"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="options"
+                      :class="open_dropdown4 ? 'show' : 'hidden'"
+                    >
+                      <ul>
+                        <li @click="selected_option4 = '1 เดือน'">1 เดือน</li>
+                        <li @click="selected_option4 = '2 เดือน'">2 เดือน</li>
+                      </ul>
+                    </div>
+                  </div>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
                 <div class="form-group">
@@ -1133,12 +1210,7 @@
     <!--TP/SL Order-Confirmation modal2 end -->
 
     <!-- TP/SL modal -->
-    <b-modal
-      id="limitorder-TPSL"
-      :hide-footer="true"
-      centered
-      :hide-header="true"
-    >
+    <b-modal id="limitorder-TPSL" :hide-footer="true" :hide-header="true">
       <div class="row">
         <div class="col-12 modal-th">
           <h5>Take Profit / Stop Loss</h5>
@@ -1163,8 +1235,8 @@
       </div>
 
       <div class="row body thai-font">
-        <div class="col-md-12">
-          <p>
+        <div class="col-md-12" style="padding: 0 16px">
+          <p style="margin-bottom: 16px">
             ตั้งค่าคำสั่งขายอัตโนมัติเพื่อ Take Profit หรือ Stop Loss
             เมื่อถึงเงื่อนไขที่เรากำหนด
           </p>
@@ -1208,7 +1280,7 @@
             class="form-group form-check"
             style="margin-top: 24px !important"
           >
-            <label class="checkbox-input">
+            <label class="checkbox-input m-0">
               <input type="checkbox" class="form-check-input" />
               <span style="line-height: 24px">ไม่ต้องแจ้งเตือนอีก</span></label
             >
@@ -1257,7 +1329,7 @@
 
       <div class="row body thai-font">
         <div class="col-md-12">
-          <p>
+          <p style="margin-bottom: 18.5px">
             ตั้งค่าคำสั่งขายอัตโนมัติเพื่อ Take Profit หรือ Stop Loss
             เมื่อถึงเงื่อนไขที่เรากำหนด
           </p>
@@ -1369,6 +1441,14 @@ export default {
       tst_b: "0%",
       ordertabs: ["Limit Order", "Market Order", "Trailing Stop"],
       selectedorder: "Limit Order",
+      open_dropdown1: false,
+      open_dropdown2: false,
+      open_dropdown3: false,
+      open_dropdown4: false,
+      selected_option: "THB",
+      selected_option2: "THB",
+      selected_option3: "1 เดือน",
+      selected_option4: "1 เดือน",
     };
   },
   watch: {
@@ -1450,7 +1530,7 @@ export default {
   background-color: #f38220 !important;
 }
 </style>
-<style scoped>
+<style scoped lang="scss">
 .pin {
   padding: 8px;
   width: 160px;
@@ -1515,11 +1595,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  span {
+    position: absolute;
+    right: 30px;
+  }
 }
 .modal-th > h5 {
-  margin-right: 42px;
+  /* margin-right: 42px; */
   margin-bottom: 0px;
 }
+
 .limitorder-TPSLB > h5 {
   margin-right: 52px !important;
 }
@@ -2126,12 +2211,173 @@ export default {
 }
 @media only screen and (min-width: 1024px) {
   .sells .tab-content {
-    padding: 0 40px;
+    padding: 0 38px;
   }
 }
 @media only screen and (max-width: 1024px) {
   .sells .tab-content {
     padding: 0 10px;
+  }
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+.select-container-1 {
+  color: #d6dde1;
+  border-radius: 4px;
+  height: 35px;
+  width: 70px;
+  margin: auto 0;
+  display: flex;
+  top: 8px;
+  align-items: center;
+  right: -8px;
+  position: absolute;
+  cursor: pointer;
+  .icon {
+    pointer-events: none;
+    position: absolute;
+    right: 15px;
+  }
+  .rotate-sc-icon {
+    transform: rotateX(180deg);
+  }
+  .text {
+    padding-left: 15px;
+  }
+  .options {
+    position: absolute;
+    bottom: -82px;
+    width: 90%;
+    background-color: #222b2f;
+    border-radius: 4px;
+    z-index: 100;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 4px;
+        &:hover {
+          background-color: #2c3b44;
+        }
+      }
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+}
+.select-container-2 {
+  color: #d6dde1;
+  border-radius: 4px;
+  height: 35px;
+  width: 70px;
+  margin: auto 0;
+  display: flex;
+  top: 4px;
+  align-items: center;
+  right: -8px;
+  position: absolute;
+  cursor: pointer;
+  .icon {
+    pointer-events: none;
+    position: absolute;
+    right: 15px;
+  }
+  .rotate-sc-icon {
+    transform: rotateX(180deg);
+  }
+  .text {
+    padding-left: 15px;
+  }
+  .options {
+    position: absolute;
+    bottom: -82px;
+    width: 90%;
+    background-color: #222b2f;
+    border-radius: 4px;
+    z-index: 100;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 4px;
+        &:hover {
+          background-color: #2c3b44;
+        }
+      }
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+}
+.select-container-3 {
+  color: #d6dde1;
+  height: 35px;
+  width: 70px;
+  margin: auto 0;
+  display: flex;
+  top: 4px;
+  align-items: center;
+  right: 7px;
+  position: absolute;
+  cursor: pointer;
+  .icon {
+    pointer-events: none;
+    position: absolute;
+    right: 1px;
+  }
+  .rotate-sc-icon {
+    transform: rotateX(180deg);
+  }
+  .text {
+    padding-left: 15px;
+  }
+  .options {
+    position: absolute;
+    bottom: -82px;
+    width: 130%;
+    background-color: #222b2f;
+    border-radius: 4px;
+    z-index: 100;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 15px;
+        border-radius: 4px;
+        &:hover {
+          background-color: #2c3b44;
+        }
+      }
+    }
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
   }
 }
 </style>

@@ -52,15 +52,21 @@
         <div class="row top-row">
           <div class="col-3 mt-2 ts-title">Order</div>
           <div class="col-9 mt-2 ts-value">
-            <span class="buy-tag">BUY</span> <span>BTC</span>
-            <span class="gs">/THB</span>
+            <div style="margin-left: 13px">
+              <span class="buy-tag">BUY</span> <span>BTC</span>
+              <span class="gs">/THB</span>
+            </div>
           </div>
 
           <div class="col-3 mt-2 ts-title">Price</div>
-          <div class="col-9 mt-2 ts-value">1,025,500.10 THB (Limit)</div>
+          <div class="col-9 mt-2 ts-value">
+            <div style="margin-left: 13px">1,025,500.10 THB (Limit)</div>
+          </div>
 
           <div class="col-3 mt-2 ts-title">Amount</div>
-          <div class="col-9 mt-2 ts-value">0.00973 BTC (10,000 THB)</div>
+          <div class="col-9 mt-2 ts-value">
+            <div style="margin-left: 13px">0.00973 BTC (10,000 THB)</div>
+          </div>
         </div>
         <div class="row">
           <div class="col-3 form-group form-check" style="padding-left: 2.5em">
@@ -70,7 +76,7 @@
             </label>
           </div>
 
-          <div class="col-9" style="padding: 0 12px 0 36px">
+          <div class="col-9" style="padding: 0 20px 0 36px">
             <div class="row tabs-container">
               <div
                 class="col-6 tab"
@@ -107,7 +113,7 @@
               <span class="w-title">Stop Loss</span>
             </label>
           </div>
-          <div class="col-9" style="padding: 0 12px 0 36px">
+          <div class="col-9" style="padding: 0 20px 0 36px">
             <div class="row tabs-container">
               <div
                 class="col-6 tab"
@@ -135,8 +141,10 @@
             </div>
           </div>
         </div>
-        <hr />
-        <div class="row">
+        <div
+          class="row"
+          style="border-top: 1px solid #28363e; padding-top: 16px"
+        >
           <div class="col-3 w-title my-auto">Sell Amount</div>
           <div class="col-9" style="padding-left: 36px">
             <div class="row sa-tabs">

@@ -18,7 +18,7 @@
       <div class="row mt-3 center-section">
         <div class="col-12 p-lg-0">
           <div class="row margin-l-24">
-            <div class="col-5 col-md-4 my-auto thai-font p-0">
+            <div class="col-5 col-md-4 my-auto thai-font p-0 l-24">
               เลือกช่องทางการฝาก
             </div>
             <div class="col-7 col-md-8">
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div class="row mt-3 margin-l-24" v-if="currentSettings === 'qr'">
-            <div class="col-5 col-md-4 my-auto thai-font p-0">
+            <div class="col-5 col-md-4 my-auto thai-font p-0 l-24">
               จำนวนเงินที่ต้องการฝาก
             </div>
             <div class="col-7 col-md-8 input-container">
@@ -192,6 +192,7 @@ export default {
     button {
       display: inline-block;
       font-size: 16px;
+      line-height: 19px;
       padding: 15px 0;
       margin-left: 24px;
       border-bottom: 2px solid transparent;
@@ -208,6 +209,9 @@ export default {
     }
   }
   .center-section {
+    .l-24 {
+      line-height: 24px;
+    }
     .select-container {
       background-color: #222b2f;
       color: #d6dde1;
@@ -276,6 +280,11 @@ export default {
     }
     .info {
       color: #d6dde1;
+      font-family: "Sarabun";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 24px;
       p {
         margin: 0;
       }
