@@ -24,7 +24,7 @@
               </div>
             </div>
           </div>
-          <div class="row px-4 pt-4">
+          <div class="row px-3 pt-4" style="margin-left: 14px;">
             <div class="col-10">
               <table class="table width-table">
                 <thead>
@@ -251,18 +251,19 @@
                   <div class="container">
                     <div
                       class="row"
-                      style="padding-top: 3%; padding-bottom: 3%"
+                      style="padding-top: 24px; padding-bottom: 24px"
                     >
-                      <div class="">
+                      <div class="p-0">
                         <div class="d-flex justify-content-between">
                           <h5 class="modal-title m-auto text-center">
-                            เปลี่ยนแปลงชื่อ-นามสกุล
+                            เปลี่ยนแปลงชื่อ-นามสกุล2
                           </h5>
                           <button
                             type="button"
                             class="close"
                             data-dismiss="modal"
                             aria-label="Close"
+                            style="margin-right:30.5px"
                           >
                             <span
                               aria-hidden="true"
@@ -281,12 +282,12 @@
                     <div class="row">
                       <div class="col">
                         <div class="current-name d-flex borderBottom-in-modal">
-                          <p class="text-grey" style="margin-top: 1rem">
+                          <p class="text-grey">
                             ชื่อ-นามสกุลปัจจุบัน
                           </p>
                           <p
                             class="text-dark-grey"
-                            style="margin-left: 15px; margin-top: 1rem; margin-bottom:28px"
+                            style="margin-left: 15px; margin-bottom:28px"
                           >
                             ณัฐฐา มั่นใจ
                           </p>
@@ -294,13 +295,13 @@
                       </div>
 
                       <div class="heading-new-Surname">
-                        <p class="mt-4 text-dark-grey">ชื่อ-นามสกุลใหม่</p>
+                        <p class="mt-4 text-dark-grey m-0">ชื่อ-นามสกุลใหม่</p>
                       </div>
                     </div>
                     <!-- name input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%"
+                      style="width: 90%; margin-top:18px;"
                     >
                       <p class="text-dark-grey mt-2">ชื่อ</p>
                       <div class="name-input" style="width: 75%">
@@ -2444,7 +2445,7 @@ export default {
   padding: 24px 0px 21px 24px;
 }
 .box-personal-info {
-  padding: 12px 28px 12px 28px;
+  padding: 12px 28px 12px 29px;
   border-radius: 3px;
   /* remove width if not responsive */
   width: 359px;

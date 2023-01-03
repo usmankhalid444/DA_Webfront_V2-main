@@ -189,7 +189,8 @@ export default Vue.extend({
 }
 .hr {
   border-bottom: 1px solid #677f8e;
-  margin: 24px;
+  margin: 14px auto;
+  width: 218px;
 }
 
 .mx-auto {
