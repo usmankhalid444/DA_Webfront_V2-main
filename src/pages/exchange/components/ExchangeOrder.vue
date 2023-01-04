@@ -3,7 +3,10 @@
     <div class="sells p-0">
       <div class="justify-content-center">
         <div class="col-md-12">
-          <ul class="nav nav-ul" style="border-top: 1px solid #28363e">
+          <ul
+            class="nav nav-ul"
+            style="border-top: 1px solid #28363e; margin-right: 3px"
+          >
             <li style="margin-left: 40px" class="nav-item">
               <button
                 style="margin-right: 24px"

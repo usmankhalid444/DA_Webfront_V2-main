@@ -919,6 +919,7 @@ export default {
   .top-search-row {
     padding: 10px;
     border-bottom: 1px solid #28363e;
+    margin-right: -9px;
   }
   .search-container {
     position: relative;
