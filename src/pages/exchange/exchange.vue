@@ -1272,7 +1272,6 @@ export default {
 
 .buy-sell table .text-last-price {
   font-weight: 600;
-  font-size: 18px;
 }
 
 .buy-sell table .green {
@@ -1720,10 +1719,16 @@ export default {
   .buy-sell .chart {
     height: 446px;
   }
+  .buy-sell table .text-last-price {
+    font-size: 18px;
+  }
 }
 @media only screen and (max-width: 1024px) {
   .c-p {
     padding: 0 2px;
+  }
+  .buy-sell table .text-last-price {
+    font-size: 14px;
   }
 }
 @media only screen and (min-width: 1280px) {
