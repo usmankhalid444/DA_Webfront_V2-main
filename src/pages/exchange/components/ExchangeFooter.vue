@@ -1194,7 +1194,7 @@ export default {
 }
 @media (min-width: 1400px) {
   .bs-cancel-all-btn {
-    margin-right: 52px;
+    margin-right: 50px;
   }
 }
 .h-info-c {

@@ -32,7 +32,7 @@
               </svg>
               <span
                 @click="$bvModal.hide('limitorder-SSL')"
-                style="position: absolute; right: 15px; cursor: pointer"
+                style="position: absolute; right: 5px; cursor: pointer"
                 ><svg
                   width="14"
                   height="15"

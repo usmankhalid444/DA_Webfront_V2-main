@@ -9,7 +9,7 @@
             <div class="row top-search-row">
               <div
                 class="col-11 col-md-4 col-lg-4 col-xl-3"
-                style="padding-left: 13px !important"
+                style="padding-left: 15px !important"
               >
                 <div class="position-relative search-container">
                   <div>
