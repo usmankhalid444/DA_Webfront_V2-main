@@ -5,8 +5,8 @@
         <div class="row">
           <!-- here -->
 
-          <div class="col-12 top-search-row">
-            <div class="row">
+          <div class="col-12">
+            <div class="row top-search-row">
               <div
                 class="col-11 col-md-4 col-lg-4 col-xl-3"
                 style="padding-left: 24px !important"

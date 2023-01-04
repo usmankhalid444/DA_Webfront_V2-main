@@ -3,7 +3,7 @@
     <div class="sells p-0">
       <div class="justify-content-center">
         <div class="col-md-12">
-          <ul class="nav nav-ul">
+          <ul class="nav nav-ul" style="border-top: 1px solid #28363e">
             <li style="margin-left: 40px" class="nav-item">
               <button
                 style="margin-right: 24px"
@@ -2225,159 +2225,161 @@ export default {
 .show {
   display: block;
 }
-.select-container-1 {
-  color: #d6dde1;
-  border-radius: 4px;
-  height: 35px;
-  width: 70px;
-  margin: auto 0;
-  display: flex;
-  top: 8px;
-  align-items: center;
-  right: -8px;
-  position: absolute;
-  cursor: pointer;
-  .icon {
-    pointer-events: none;
-    position: absolute;
-    right: 15px;
-  }
-  .rotate-sc-icon {
-    transform: rotateX(180deg);
-  }
-  .text {
-    padding-left: 15px;
-  }
-  .options {
-    position: absolute;
-    bottom: -82px;
-    width: 90%;
-    background-color: #222b2f;
+.sells {
+  .select-container-1 {
+    color: #d6dde1;
     border-radius: 4px;
-    z-index: 100;
-    ul {
-      margin: 0;
-      padding: 0;
-      li {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding: 0 15px;
-        border-radius: 4px;
-        &:hover {
-          background-color: #2c3b44;
+    height: 35px;
+    width: 70px;
+    margin: auto 0;
+    display: flex;
+    top: 8px;
+    align-items: center;
+    right: -8px;
+    position: absolute;
+    cursor: pointer;
+    .icon {
+      pointer-events: none;
+      position: absolute;
+      right: 15px;
+    }
+    .rotate-sc-icon {
+      transform: rotateX(180deg);
+    }
+    .text {
+      padding-left: 15px;
+    }
+    .options {
+      position: absolute;
+      bottom: -82px;
+      width: 90%;
+      background-color: #222b2f;
+      border-radius: 4px;
+      z-index: 100;
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 0 15px;
+          border-radius: 4px;
+          &:hover {
+            background-color: #2c3b44;
+          }
         }
       }
     }
+    .hidden {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
   }
-  .hidden {
-    display: none;
-  }
-  .show {
-    display: block;
-  }
-}
-.select-container-2 {
-  color: #d6dde1;
-  border-radius: 4px;
-  height: 35px;
-  width: 70px;
-  margin: auto 0;
-  display: flex;
-  top: 4px;
-  align-items: center;
-  right: -8px;
-  position: absolute;
-  cursor: pointer;
-  .icon {
-    pointer-events: none;
-    position: absolute;
-    right: 15px;
-  }
-  .rotate-sc-icon {
-    transform: rotateX(180deg);
-  }
-  .text {
-    padding-left: 15px;
-  }
-  .options {
-    position: absolute;
-    bottom: -82px;
-    width: 90%;
-    background-color: #222b2f;
+  .select-container-2 {
+    color: #d6dde1;
     border-radius: 4px;
-    z-index: 100;
-    ul {
-      margin: 0;
-      padding: 0;
-      li {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding: 0 15px;
-        border-radius: 4px;
-        &:hover {
-          background-color: #2c3b44;
+    height: 35px;
+    width: 70px;
+    margin: auto 0;
+    display: flex;
+    top: 4px;
+    align-items: center;
+    right: -8px;
+    position: absolute;
+    cursor: pointer;
+    .icon {
+      pointer-events: none;
+      position: absolute;
+      right: 15px;
+    }
+    .rotate-sc-icon {
+      transform: rotateX(180deg);
+    }
+    .text {
+      padding-left: 15px;
+    }
+    .options {
+      position: absolute;
+      bottom: -82px;
+      width: 90%;
+      background-color: #222b2f;
+      border-radius: 4px;
+      z-index: 100;
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 0 15px;
+          border-radius: 4px;
+          &:hover {
+            background-color: #2c3b44;
+          }
         }
       }
     }
+    .hidden {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
   }
-  .hidden {
-    display: none;
-  }
-  .show {
-    display: block;
-  }
-}
-.select-container-3 {
-  color: #d6dde1;
-  height: 35px;
-  width: 70px;
-  margin: auto 0;
-  display: flex;
-  top: 4px;
-  align-items: center;
-  right: 7px;
-  position: absolute;
-  cursor: pointer;
-  .icon {
-    pointer-events: none;
+  .select-container-3 {
+    color: #d6dde1;
+    height: 35px;
+    width: 70px;
+    margin: auto 0;
+    display: flex;
+    top: 4px;
+    align-items: center;
+    right: 7px;
     position: absolute;
-    right: 1px;
-  }
-  .rotate-sc-icon {
-    transform: rotateX(180deg);
-  }
-  .text {
-    padding-left: 15px;
-  }
-  .options {
-    position: absolute;
-    bottom: -82px;
-    width: 130%;
-    background-color: #222b2f;
-    border-radius: 4px;
-    z-index: 100;
-    ul {
-      margin: 0;
-      padding: 0;
-      li {
-        display: flex;
-        align-items: center;
-        height: 40px;
-        padding: 0 15px;
-        border-radius: 4px;
-        &:hover {
-          background-color: #2c3b44;
+    cursor: pointer;
+    .icon {
+      pointer-events: none;
+      position: absolute;
+      right: 1px;
+    }
+    .rotate-sc-icon {
+      transform: rotateX(180deg);
+    }
+    .text {
+      padding-left: 15px;
+    }
+    .options {
+      position: absolute;
+      bottom: -82px;
+      width: 130%;
+      background-color: #222b2f;
+      border-radius: 4px;
+      z-index: 100;
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          display: flex;
+          align-items: center;
+          height: 40px;
+          padding: 0 15px;
+          border-radius: 4px;
+          &:hover {
+            background-color: #2c3b44;
+          }
         }
       }
     }
-  }
-  .hidden {
-    display: none;
-  }
-  .show {
-    display: block;
+    .hidden {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
   }
 }
 </style>

@@ -1135,11 +1135,12 @@ export default {
 .bs-bb {
   position: fixed;
   bottom: 0;
-  width: 101%;
+  width: 100%;
   background-color: #0a0d10;
-  padding: 8px 0;
-  padding-left: 24px;
-  margin: 0 -22px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 28px;
+  padding-right: 10px;
   margin-top: 30px;
   .conection {
     margin-right: 16px;
