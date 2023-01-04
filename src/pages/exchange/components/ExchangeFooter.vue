@@ -17,9 +17,6 @@
               >
                 {{ tab }}
               </button>
-              <span class="hover-info">
-                Actual คือ จำนวนเหรียญที่มีในพอร์ต
-              </span>
             </li>
             <li class="nav-item">
               <router-link to="/order-history">
@@ -350,7 +347,9 @@
                   </thead>
                   <tbody>
                     <tr v-for="(item, index) in 3" :key="index">
-                      <td>25/09/22 <span>19:53</span></td>
+                      <td style="padding-left: 0">
+                        25/09/22 <span>19:53</span>
+                      </td>
                       <td class="green">B</td>
                       <td>BTC</td>
                       <td>Market</td>
@@ -444,30 +443,36 @@
           <div class="row m-0">
             <div
               class="col-md-12 table-responsive p-0"
-              style="height: 297px; overflow: auto"
+              style="height: 297px; overflow: visible"
             >
               <table
                 class="table table-borderless text-start p-0 portfolioTable"
+                style="overflow: visible"
               >
                 <thead>
                   <tr>
                     <th scope="col">Coin</th>
                     <th scope="col">
-                      Value
-                      <span>
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
-                            fill="#677F8E"
-                          />
-                        </svg>
-                      </span>
+                      <div class="h-info-c">
+                        Value
+                        <span class="icon">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16H11V14H9V16ZM10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM10 18C5.59 18 2 14.41 2 10C2 5.59 5.59 2 10 2C14.41 2 18 5.59 18 10C18 14.41 14.41 18 10 18ZM10 4C7.79 4 6 5.79 6 8H8C8 6.9 8.9 6 10 6C11.1 6 12 6.9 12 8C12 10 9 9.75 9 13H11C11 10.75 14 10.5 14 8C14 5.79 12.21 4 10 4Z"
+                              fill="#677F8E"
+                            />
+                          </svg>
+                        </span>
+                        <span class="hover-info">
+                          Actual คือ จำนวนเหรียญที่มีในพอร์ต
+                        </span>
+                      </div>
                     </th>
                     <th scope="col" class="text-center">Avg. Cost</th>
                     <th scope="col">Last Price</th>
@@ -1105,23 +1110,6 @@ export default {
   }
   .footer .pills-tab li {
     position: relative;
-    &:hover .hover-info {
-      display: flex;
-    }
-    .hover-info {
-      position: absolute;
-      width: 240px;
-      height: 32px;
-      background-color: #d6dde1;
-      border-radius: 4px;
-      top: 26px;
-      left: 0px;
-      color: #0a0d10;
-      display: none;
-      justify-items: center;
-      align-items: center;
-      padding-left: 10px;
-    }
     button {
       margin-right: 6px;
     }
@@ -1207,6 +1195,32 @@ export default {
 @media (min-width: 1400px) {
   .bs-cancel-all-btn {
     margin-right: 52px;
+  }
+}
+.h-info-c {
+  position: relative;
+  display: inline;
+  &:hover .hover-info {
+    display: flex;
+  }
+  span.hover-info {
+    position: absolute;
+    width: 240px;
+    height: 32px;
+    background-color: #d6dde1;
+    border-radius: 4px;
+    top: -35px;
+    left: -140px;
+    color: #0a0d10;
+    display: none;
+    justify-items: center;
+    align-items: center;
+    padding-left: 10px;
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
   }
 }
 </style>

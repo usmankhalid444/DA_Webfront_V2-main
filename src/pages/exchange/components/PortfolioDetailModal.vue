@@ -33,7 +33,7 @@
           </div>
           <div class="col-6">
             <div class="row">
-              <div class="col-6  p-0">
+              <div class="col-6 p-0">
                 <button class="buy-btn mr-14">Buy</button>
               </div>
               <div class="col-6 m-0 p-0">
@@ -54,7 +54,7 @@
             <p class="c-value mb-0">0.0098</p>
           </div>
         </div>
-        <div class="row body-container dc1" style="margin-top:4px">
+        <div class="row body-container dc1" style="margin-top: 4px">
           <div class="col-5">
             <p class="c-title">Market Value</p>
             <p class="c-title">Total Cost</p>
@@ -69,13 +69,13 @@
           </div>
         </div>
         <div class="f-buttons">
-          <div >
+          <div>
             <button class="thai-font">ฝาก BTC</button>
           </div>
-          <div >
+          <div>
             <button class="thai-font">ถอน BTC</button>
           </div>
-          <div ><button>Order History</button></div>
+          <div><button>Order History</button></div>
         </div>
       </div>
     </b-modal>
@@ -90,30 +90,30 @@ export default {};
   width: 456px;
 }
 
-#portfolio-detail___BV_modal_body_{
-  padding:0px !important;
+#portfolio-detail___BV_modal_body_ {
+  padding: 0px !important;
 }
 </style>
 <style scoped>
-.btns{
+.btns {
   margin-bottom: 24px !important;
 }
 </style>
 <style lang="scss">
 .portfolio-detail-modal {
-  padding: 0px  24px !important;
+  padding: 0px 24px !important;
 }
-.portfolio-detail-modal .heading{
+.portfolio-detail-modal .heading {
   padding-bottom: 8px !important;
   height: 56px !important;
   padding-top: 24px !important;
 }
-.mr-14{
+.mr-14 {
   margin-right: 14px !important;
 }
-.dc1{
+.dc1 {
   padding: 12px 0px 7px !important;
-  border-radius: 8px 8px 0px 0px
+  border-radius: 8px 8px 0px 0px;
 }
 .portfolio-detail-modal {
   padding: 0 10px;
@@ -124,7 +124,9 @@ export default {};
   }
   .pair {
     margin: 0;
+    font-weight: 600;
     font-size: 24px;
+    line-height: 24px;
     color: #d6dde1;
     span {
       color: #677f8e;
@@ -133,23 +135,32 @@ export default {};
   .live-scores {
     color: #40994f;
     margin: 0;
-    margin-top: -6px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
   }
   .buy-btn {
-    font-size: 16px;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
     font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     color: white;
     background-color: #40994f;
     border-radius: 4px;
-    width:96px;
+    width: 96px;
     height: 40px;
     &:hover {
       background-color: var(--green-positiveHover);
     }
   }
   .sell-btn {
-    font-size: 16px;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
     font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     color: white;
     background-color: #de2d40;
     border-radius: 4px;
@@ -161,7 +172,7 @@ export default {};
   }
   .c-title {
     color: #677f8e;
-    margin-bottom: 8px ;
+    margin-bottom: 8px;
   }
   .c-value {
     color: #d6dde1;
@@ -184,9 +195,14 @@ export default {};
       background-color: #222b2f;
       border-radius: 4px;
       height: 40px;
-      width:124px;
+      width: 124px;
       margin-right: 16px;
-      &:active{
+      font-family: "Sarabun";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
+      &:active {
         color: var(--bs-btn-active-color);
         background-color: var(--bs-btn-active-bg);
         border: 1px solid white !important;

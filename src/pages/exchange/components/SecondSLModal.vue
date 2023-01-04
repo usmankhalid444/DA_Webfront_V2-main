@@ -111,7 +111,7 @@
               <span class="w-title m-0">Stop Loss</span>
             </label>
           </div>
-          <div class="col-9">
+          <div class="col-9" style="padding-right: 20px">
             <div class="row tabs-container">
               <div
                 class="col-6 tab"

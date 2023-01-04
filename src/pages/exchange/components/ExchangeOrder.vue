@@ -1378,13 +1378,6 @@
             >
           </div>
 
-          <div class="form-group form-check mt-3">
-            <label class="checkbox-input">
-              <span style="line-height: 24px">PIN</span>
-              <input type="checkbox" class="form-check-input" />
-            </label>
-          </div>
-
           <button
             @click="
               $bvModal.hide('limitorder-stop-loss');

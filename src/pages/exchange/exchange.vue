@@ -9,7 +9,7 @@
             <div class="row top-search-row">
               <div
                 class="col-11 col-md-4 col-lg-4 col-xl-3"
-                style="padding-left: 24px !important"
+                style="padding-left: 13px !important"
               >
                 <div class="position-relative search-container">
                   <div>
@@ -417,7 +417,7 @@
               <tr class="sticky-top fixed">
                 <th>Coin</th>
                 <th>Price (THB)</th>
-                <th>
+                <th style="text-align: right">
                   %Chg
                   <svg
                     width="6"
@@ -464,7 +464,9 @@
                   {{ item.symbol }}
                 </td>
                 <td>{{ formatPrice(item.price) }}</td>
-                <td :class="item.color">{{ item.pChg }}%</td>
+                <td :class="item.color" style="text-align: right">
+                  {{ item.pChg }}%
+                </td>
               </tr>
             </tbody>
           </table>
@@ -477,14 +479,16 @@
               <tr class="sticky-top">
                 <th style="width: 40%">Time</th>
                 <th>Price (THB)</th>
-                <th>Volume (BTC)</th>
+                <th style="text-align: right">Volume (BTC)</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="(item, index) in ticker.tickerRows" :key="'a' + index">
                 <td>{{ item.time }}</td>
                 <td>{{ formatPrice(item.price) }}</td>
-                <td class="text-center">{{ formatPrice(item.amount, 6) }}</td>
+                <td style="text-align: right">
+                  {{ formatPrice(item.amount, 6) }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -1263,7 +1267,7 @@ export default {
 .buy-sell table .red {
   color: #de2d40;
   cursor: pointer;
-  display: inline-block;
+  // display: inline-block;
 }
 
 .buy-sell table .text-last-price {
