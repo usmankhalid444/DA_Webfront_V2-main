@@ -1731,6 +1731,21 @@ export default {
     font-size: 14px;
   }
 }
+@media only screen and (max-width: 848px) {
+  .c-p {
+    padding: 0 40px;
+  }
+  .pills-tab {
+    padding-left: 30px !important;
+  }
+  .iframe-chart {
+    padding: 0 30px;
+  }
+  .bs-table-l {
+    padding-left: 10px;
+    margin-bottom: 20px;
+  }
+}
 @media only screen and (min-width: 1280px) {
   .bs-table-s {
     margin-right: 24px;

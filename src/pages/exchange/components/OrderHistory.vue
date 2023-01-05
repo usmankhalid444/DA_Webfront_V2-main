@@ -364,7 +364,7 @@
               <td>TP: 1,000,000.00 (+20%)</td>
             </tr>
             <tr>
-              <td>25/09/22 <span>13:53</span></td>
+              <td>25/09/2022 <span>13:53</span></td>
               <td class="red">S</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -388,7 +388,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>23/09/24 <span>19:00</span></td>
+              <td>23/09/2024 <span>19:00</span></td>
               <td class="red">S</td>
               <td>BTC</td>
               <td>Matched</td>
@@ -681,7 +681,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>28/09/22 <span>18:53</span></td>
+              <td>28/09/2022 <span>18:53</span></td>
               <td class="green">B</td>
               <td>ETH</td>
               <td>Matched</td>
@@ -695,7 +695,7 @@
               <td>-</td>
             </tr>
             <tr>
-              <td>28/10/22 <span>10:53</span></td>
+              <td>28/10/2022 <span>10:53</span></td>
               <td class="red">B</td>
               <td>BTC</td>
               <td>Matched</td>

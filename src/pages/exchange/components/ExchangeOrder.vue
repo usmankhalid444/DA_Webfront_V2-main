@@ -28,7 +28,7 @@
             class="fade show active tab-pane"
             v-show="selectedorder === 'Limit Order'"
           >
-            <div style="padding-bottom: 24px">
+            <div>
               <div class="row">
                 <div class="col-md-6" style="padding-right: 16px">
                   <div class="form-group bs-lp-input">
@@ -1849,6 +1849,7 @@ export default {
 }
 .sells .tab-content {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .sells input {
   width: 100%;
@@ -2213,6 +2214,11 @@ export default {
 @media only screen and (max-width: 1024px) {
   .sells .tab-content {
     padding: 0 10px;
+  }
+}
+@media only screen and (max-width: 848px) {
+  .sells .tab-content {
+    padding: 0 40px;
   }
 }
 .hidden {
