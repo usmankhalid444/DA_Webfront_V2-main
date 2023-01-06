@@ -674,7 +674,7 @@
                 </svg>
               </span>
             </p>
-            <div class="cencel_model_main">
+            <div class="cencel_model_main" style="padding: 0 !important">
               <div class="row m-0">
                 <div class="col-4 title p-0">
                   <p>Coin</p>
@@ -690,20 +690,14 @@
                   <p>10,000 THB</p>
                   <p>0.01353 BTC</p>
                 </div>
-                <div
-                  class="col-12 form-group form-check p-0"
-                  style="margin-top: 12px; margin-bottom: 20px"
-                >
-                  <label class="checkbox-input m-0">
-                    <input
-                      type="checkbox"
-                      class="form-check-input"
-                      style="margin-left: 0px"
-                    />
-                    <span>ไม่ต้องแจ้งเตือนอีก</span></label
-                  >
+                <div class="col-4 title p-0">
+                  <p style="color: #9bacb6">Pin</p>
                 </div>
-                <div class="cencel-btn p-0">
+                <div class="col-8 value p-0">
+                  <input class="password" value="*****" type="text" />
+                </div>
+
+                <div class="cencel-btn p-0" style="margin-top: 24px">
                   <div>
                     <button class="orange-btn">ยืนยัน</button>
                   </div>
@@ -1159,6 +1153,18 @@ export default {
     }
   }
   .value {
+    .password {
+      width: 148px;
+      height: 36px;
+      background: #38454d;
+      padding: 0 8px;
+      border-radius: 4px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ffffff;
+    }
     p {
       color: #d6dde1;
       span.buy-tag {
