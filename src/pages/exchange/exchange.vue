@@ -1341,6 +1341,7 @@ export default {
 
 /* Modals */
 #cancel-modal___BV_modal_content_,
+#cancel-second-modal___BV_modal_content_,
 #cancel-all-modal___BV_modal_content_,
 #limitorder-TPSLB___BV_modal_content_,
 #limitorder-TPSL___BV_modal_content_,
