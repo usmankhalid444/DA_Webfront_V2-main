@@ -252,7 +252,9 @@
                   >
                     <ul>
                       <li @click="Value1 = '0.1'">0.1</li>
-                      <li @click="Value1 = '0.01'">0.01</li>
+                      <li @click="Value1 = '0.01'" style="color: #f38220">
+                        0.01
+                      </li>
                       <li @click="Value1 = '0.001'">0.001</li>
                       <li @click="Value1 = '0.0001'">0.0001</li>
                       <li @click="Value1 = '0.00001'">0.00001</li>
@@ -921,7 +923,7 @@ export default {
 /* Buy & Sell */
 .buy-sell {
   .top-search-row {
-    padding: 10px;
+    padding: 13.5px;
     border-bottom: 1px solid #28363e;
     margin-right: -9px;
   }
@@ -1304,6 +1306,7 @@ export default {
   padding: 0;
   font-size: 16px;
   font-weight: 600;
+  line-height: 20px;
   color: white;
 }
 

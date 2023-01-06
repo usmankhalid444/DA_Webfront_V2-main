@@ -911,6 +911,8 @@ export default {
   h1 {
     font-size: 24px;
     font-weight: 500;
+    line-height: 24px;
+    margin-bottom: 18px;
   }
   .menu-tabs ul {
     padding: 0;
@@ -919,6 +921,7 @@ export default {
       display: inline-block;
       color: #677f8e;
       font-size: 16px;
+      line-height: 19px;
       margin-right: 20px;
       padding: 10px 0;
       cursor: pointer;
@@ -933,6 +936,7 @@ export default {
     display: inline;
     margin-right: 15px;
     input {
+      line-height: 24px;
       width: 142px;
       height: 40px;
       padding-left: 40px;
@@ -957,6 +961,7 @@ export default {
     display: inline;
     margin-right: 15px;
     button {
+      line-height: 24px;
       color: #9bacb6;
       width: 73px;
       height: 40px;
@@ -1004,6 +1009,11 @@ export default {
   .export-button {
     display: inline-block;
     button {
+      font-family: "Sarabun";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 24px;
       width: 124px;
       height: 40px;
       color: #677f8e;

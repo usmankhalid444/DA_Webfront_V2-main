@@ -631,6 +631,80 @@
                 </div>
                 <div class="cencel-btn p-0">
                   <div>
+                    <button
+                      @click="
+                        $bvModal.show('cancel-second-modal'),
+                          $bvModal.hide('cancel-modal')
+                      "
+                      class="orange-btn"
+                    >
+                      ยืนยัน
+                    </button>
+                  </div>
+                  <div>
+                    <button class="gray-btn">ยกเลิก</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </b-modal>
+        <!-- cancel second modal -->
+        <b-modal
+          class="bs-cancel-modal"
+          id="cancel-second-modal"
+          :hide-footer="true"
+          :hide-header="true"
+        >
+          <div class="bs-cancel-modal">
+            <p class="c-modal-title">
+              <span>Cancel</span>
+              <span @click="$bvModal.hide('cancel-second-modal')"
+                ><svg
+                  width="14"
+                  height="15"
+                  viewBox="0 0 14 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 1.91L12.59 0.5L7 6.09L1.41 0.5L0 1.91L5.59 7.5L0 13.09L1.41 14.5L7 8.91L12.59 14.5L14 13.09L8.41 7.5L14 1.91Z"
+                    fill="#677F8E"
+                  />
+                </svg>
+              </span>
+            </p>
+            <div class="cencel_model_main">
+              <div class="row m-0">
+                <div class="col-4 title p-0">
+                  <p>Coin</p>
+                  <p>Order</p>
+                  <p>Price</p>
+                  <p>Amount</p>
+                  <p>Total</p>
+                </div>
+                <div class="col-8 value p-0">
+                  <p>BTC/THB</p>
+                  <p><span class="buy-tag">BUY</span>Limit</p>
+                  <p>739,000.00 THB (Limit)</p>
+                  <p>10,000 THB</p>
+                  <p>0.01353 BTC</p>
+                </div>
+                <div
+                  class="col-12 form-group form-check p-0"
+                  style="margin-top: 12px; margin-bottom: 20px"
+                >
+                  <label class="checkbox-input m-0">
+                    <input
+                      type="checkbox"
+                      class="form-check-input"
+                      style="margin-left: 0px"
+                    />
+                    <span>ไม่ต้องแจ้งเตือนอีก</span></label
+                  >
+                </div>
+                <div class="cencel-btn p-0">
+                  <div>
                     <button class="orange-btn">ยืนยัน</button>
                   </div>
                   <div>
@@ -815,7 +889,7 @@ export default {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 14px;
+  line-height: 19px;
   background: none;
   align-items: center;
   color: #677f8e;
@@ -938,9 +1012,10 @@ export default {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  line-height: 24px;
   width: 76px;
   height: 36px;
-  padding: 8px 16px;
+  padding: 0 16px;
   background: #38454d;
   border-radius: 4px;
   border: none;
@@ -956,7 +1031,8 @@ export default {
   width: 96px;
   height: 36px;
   font-size: 14px;
-  padding: 8px 16px;
+  line-height: 24px;
+  padding: 0 16px;
   background: #38454d;
   border-radius: 4px;
   border: none;
@@ -980,16 +1056,18 @@ export default {
 }
 .bs-cancel-all-modal {
   .ca-modal-title {
-    text-align: center;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
+    font-weight: 600;
     font-size: 18px;
     line-height: 27px;
+    text-align: center;
     color: white;
-    font-weight: 600;
     margin: 0px;
     padding: 24px 0px;
     span:nth-child(2) {
       position: absolute;
-      margin-left: 82px;
+      margin-left: 108px;
     }
   }
   .content-text {
@@ -1011,6 +1089,8 @@ export default {
     background-color: #f38220;
     height: 40px;
     line-height: 24px;
+    font-weight: 500;
+    font-family: "Sarabun";
     &:hover {
       background-color: #f28e38;
     }
@@ -1022,6 +1102,7 @@ export default {
     background-color: #222b2f;
     height: 40px;
     line-height: 24px;
+    font-family: "Sarabun";
     &:hover {
       background-color: #38454d;
     }
@@ -1079,6 +1160,7 @@ export default {
   }
   .value {
     p {
+      color: #d6dde1;
       span.buy-tag {
         color: #40994f;
         background: rgba(82, 154, 96, 0.16);
@@ -1127,8 +1209,8 @@ export default {
   background-color: #0a0d10;
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-left: 28px;
-  padding-right: 10px;
+  padding-left: 23px;
+  padding-right: 3px;
   margin-top: 30px;
   .conection {
     margin-right: 16px;

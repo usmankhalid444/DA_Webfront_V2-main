@@ -219,6 +219,11 @@
               </li> -->
               <!-- new deposit and withdraw -->
               <li class="listmenu">
+                <div class="dropbtn">
+                  <b-link class="hovername">My Page</b-link>
+                </div>
+              </li>
+              <li class="listmenu">
                 <div class="dropdown dropdown-togglemenu">
                   <button
                     class="dropbtn"
@@ -261,7 +266,7 @@
                   </div>
                 </div>
               </li>
-              <li class="listmenu">
+              <!-- <li class="listmenu">
                 <div class="dropbtn">
                   <b-link
                     :to="{ path: '/news' }"
@@ -274,7 +279,7 @@
                     >News</b-link
                   >
                 </div>
-              </li>
+              </li> -->
               <li class="listmenu">
                 <div class="dropbtn">
                   <b-link

@@ -69,7 +69,7 @@
                           class="dot align-self-baseline"
                           :class="{ active: limitOrder >= 0 }"
                         ></span>
-                        <span>0%</span>
+                        <span class="font-s">0%</span>
                       </div>
                       <div
                         class="spot"
@@ -80,7 +80,7 @@
                           class="dot"
                           :class="{ active: limitOrder >= 25 }"
                         ></span>
-                        <span>25%</span>
+                        <span class="font-s">25%</span>
                       </div>
                       <div
                         class="spot"
@@ -91,7 +91,7 @@
                           class="dot"
                           :class="{ active: limitOrder >= 50 }"
                         ></span>
-                        <span>50%</span>
+                        <span class="font-s">50%</span>
                       </div>
                       <div
                         class="spot"
@@ -102,7 +102,7 @@
                           class="dot"
                           :class="{ active: limitOrder >= 75 }"
                         ></span>
-                        <span>75%</span>
+                        <span class="font-s">75%</span>
                       </div>
                       <div
                         class="spot"
@@ -113,7 +113,7 @@
                           class="dot align-self-end"
                           :class="{ active: limitOrder == 100 }"
                         ></span>
-                        <span>100%</span>
+                        <span class="font-s">100%</span>
                       </div>
                     </div>
                   </div>
@@ -192,7 +192,7 @@
                           class="dot align-self-baseline"
                           :class="{ active: selling_limit_order >= 0 }"
                         ></span>
-                        <span>0%</span>
+                        <span class="font-s">0%</span>
                       </div>
                       <div
                         class="spot"
@@ -203,7 +203,7 @@
                           class="dot"
                           :class="{ active: selling_limit_order >= 25 }"
                         ></span>
-                        <span>25%</span>
+                        <span class="font-s">25%</span>
                       </div>
                       <div
                         class="spot"
@@ -214,7 +214,7 @@
                           class="dot"
                           :class="{ active: selling_limit_order >= 50 }"
                         ></span>
-                        <span>50%</span>
+                        <span class="font-s">50%</span>
                       </div>
                       <div
                         class="spot"
@@ -225,7 +225,7 @@
                           class="dot"
                           :class="{ active: selling_limit_order >= 75 }"
                         ></span>
-                        <span>75%</span>
+                        <span class="font-s">75%</span>
                       </div>
                       <div
                         class="spot"
@@ -236,7 +236,7 @@
                           class="dot align-self-end"
                           :class="{ active: selling_limit_order == 100 }"
                         ></span>
-                        <span>100%</span>
+                        <span class="font-s">100%</span>
                       </div>
                     </div>
                   </div>
@@ -321,7 +321,7 @@
                         class="dot align-self-baseline"
                         :class="{ active: market_buying_limit_order >= 0 }"
                       ></span>
-                      <span>0%</span>
+                      <span class="font-s">0%</span>
                     </div>
                     <div
                       class="spot"
@@ -332,7 +332,7 @@
                         class="dot"
                         :class="{ active: market_buying_limit_order >= 25 }"
                       ></span>
-                      <span>25%</span>
+                      <span class="font-s">25%</span>
                     </div>
                     <div
                       class="spot"
@@ -343,7 +343,7 @@
                         class="dot"
                         :class="{ active: market_buying_limit_order >= 50 }"
                       ></span>
-                      <span>50%</span>
+                      <span class="font-s">50%</span>
                     </div>
                     <div
                       class="spot"
@@ -354,7 +354,7 @@
                         class="dot"
                         :class="{ active: market_buying_limit_order >= 75 }"
                       ></span>
-                      <span>75%</span>
+                      <span class="font-s">75%</span>
                     </div>
                     <div
                       class="spot"
@@ -365,7 +365,7 @@
                         class="dot align-self-end"
                         :class="{ active: market_buying_limit_order == 100 }"
                       ></span>
-                      <span>100%</span>
+                      <span class="font-s">100%</span>
                     </div>
                   </div>
                 </div>
@@ -434,7 +434,7 @@
                         class="dot align-self-baseline"
                         :class="{ active: market_selling_limit_order >= 0 }"
                       ></span>
-                      <span>0%</span>
+                      <span class="font-s">0%</span>
                     </div>
                     <div
                       class="spot"
@@ -445,7 +445,7 @@
                         class="dot"
                         :class="{ active: market_selling_limit_order >= 25 }"
                       ></span>
-                      <span>25%</span>
+                      <span class="font-s">25%</span>
                     </div>
                     <div
                       class="spot"
@@ -456,7 +456,7 @@
                         class="dot"
                         :class="{ active: market_selling_limit_order >= 50 }"
                       ></span>
-                      <span>50%</span>
+                      <span class="font-s">50%</span>
                     </div>
                     <div
                       class="spot"
@@ -467,7 +467,7 @@
                         class="dot"
                         :class="{ active: market_selling_limit_order >= 75 }"
                       ></span>
-                      <span>75%</span>
+                      <span class="font-s">75%</span>
                     </div>
                     <div
                       class="spot"
@@ -478,7 +478,7 @@
                         class="dot align-self-end"
                         :class="{ active: market_selling_limit_order == 100 }"
                       ></span>
-                      <span>100%</span>
+                      <span class="font-s">100%</span>
                     </div>
                   </div>
                 </div>
@@ -556,7 +556,7 @@
                         class="dot align-self-baseline"
                         :class="{ active: triling_buying_limit_order >= 0 }"
                       ></span>
-                      <span>0%</span>
+                      <span class="font-s">0%</span>
                     </div>
                     <div
                       class="spot"
@@ -567,7 +567,7 @@
                         class="dot"
                         :class="{ active: triling_buying_limit_order >= 25 }"
                       ></span>
-                      <span>25%</span>
+                      <span class="font-s">25%</span>
                     </div>
                     <div
                       class="spot"
@@ -578,7 +578,7 @@
                         class="dot"
                         :class="{ active: triling_buying_limit_order >= 50 }"
                       ></span>
-                      <span>50%</span>
+                      <span class="font-s">50%</span>
                     </div>
                     <div
                       class="spot"
@@ -589,7 +589,7 @@
                         class="dot"
                         :class="{ active: triling_buying_limit_order >= 75 }"
                       ></span>
-                      <span>75%</span>
+                      <span class="font-s">75%</span>
                     </div>
                     <div
                       class="spot"
@@ -600,7 +600,7 @@
                         class="dot align-self-end"
                         :class="{ active: triling_buying_limit_order == 100 }"
                       ></span>
-                      <span>100%</span>
+                      <span class="font-s">100%</span>
                     </div>
                   </div>
                 </div>
@@ -778,7 +778,7 @@
                         class="dot align-self-baseline"
                         :class="{ active: triling_selling_limit_order >= 0 }"
                       ></span>
-                      <span>0%</span>
+                      <span class="font-s">0%</span>
                     </div>
                     <div
                       class="spot"
@@ -789,7 +789,7 @@
                         class="dot"
                         :class="{ active: triling_selling_limit_order >= 25 }"
                       ></span>
-                      <span>25%</span>
+                      <span class="font-s">25%</span>
                     </div>
                     <div
                       class="spot"
@@ -800,7 +800,7 @@
                         class="dot"
                         :class="{ active: triling_selling_limit_order >= 50 }"
                       ></span>
-                      <span>50%</span>
+                      <span class="font-s">50%</span>
                     </div>
                     <div
                       class="spot"
@@ -811,7 +811,7 @@
                         class="dot"
                         :class="{ active: triling_selling_limit_order >= 75 }"
                       ></span>
-                      <span>75%</span>
+                      <span class="font-s">75%</span>
                     </div>
                     <div
                       class="spot"
@@ -822,7 +822,7 @@
                         class="dot align-self-end"
                         :class="{ active: triling_selling_limit_order == 100 }"
                       ></span>
-                      <span>100%</span>
+                      <span class="font-s">100%</span>
                     </div>
                   </div>
                 </div>
@@ -1250,7 +1250,7 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
-              line-height: 19px;
+              line-height: 24px;
             "
           >
             อ่านคู่มือการใช้งาน
@@ -1261,7 +1261,7 @@
               width: 24;
               height: 24px;
               margin-right: 16px;
-              line-height: 19px;
+              line-height: 24px;
             "
           >
             หรือ
@@ -1273,7 +1273,7 @@
               height: 24px;
               margin-right: 16px;
               color: #f38220;
-              line-height: 19px;
+              line-height: 24px;
             "
           >
             ดูวิดีโอสอนใช้งาน
@@ -1559,6 +1559,9 @@ export default {
 .order-confirm .col-4 {
   padding-left: 15px !important;
 }
+.order-confirm span {
+  line-height: 24px;
+}
 .spots {
   position: absolute;
   display: flex;
@@ -1585,6 +1588,13 @@ export default {
   border-radius: 50%;
   display: block;
   margin-bottom: 4px;
+}
+.font-s {
+  font-family: "Roboto Flex";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
 }
 .modal-th {
   padding: 24px 0px;
@@ -1691,7 +1701,7 @@ export default {
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
-  line-height: 18px;
+  line-height: 18px !important;
   text-align: center;
 }
 
@@ -1703,7 +1713,7 @@ export default {
   background: #eb475129;
   color: #eb4751;
   border-radius: 2px;
-  line-height: 18px;
+  line-height: 18px !important;
   text-align: center;
   text-transform: uppercase;
 }
@@ -1818,6 +1828,7 @@ export default {
     display: none;
   }
   span.currency {
+    font-family: "Roboto Flex";
     position: absolute;
     right: 10px;
     top: 55%;
@@ -1835,6 +1846,7 @@ export default {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    font-family: "Sarabun";
   }
 }
 .input-group-bottom-text {
@@ -1865,8 +1877,6 @@ export default {
   background: #222b2f;
   border-radius: 4px;
   color: #566a76;
-
-  font-family: "sarabun";
   &::placeholder {
     color: #9bacb6;
   }
@@ -1953,6 +1963,7 @@ export default {
   font-size: 14px;
   line-height: 24px;
   margin-left: 3px;
+  font-family: "Roboto Flex";
   input {
     margin-top: -0.5px;
   }
@@ -2084,6 +2095,7 @@ export default {
     border-radius: 2px;
     font-size: 12px;
     font-weight: 600;
+    line-height: 18px;
     padding: 2px 4px;
     margin-right: 6px;
   }
@@ -2091,8 +2103,10 @@ export default {
     color: #eb4751;
     background: rgba(235, 71, 81, 0.16);
     border-radius: 2px;
-    font-size: 12px;
+    font-style: normal;
     font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
     padding: 2px 4px;
     margin-right: 6px;
   }
@@ -2148,8 +2162,11 @@ export default {
   button.stpsl-submit {
     background-color: #40994f;
     border-radius: 4px;
-    font-size: 16px;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
     font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     margin: 16px auto;
     width: 255px;
     height: 40px;
@@ -2160,8 +2177,11 @@ export default {
   button.ssl-submit {
     background-color: #de2d40;
     border-radius: 4px;
-    font-size: 16px;
+    font-family: "Noto Sans Thai";
+    font-style: normal;
     font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
     margin: 0 auto;
     width: 255px;
     height: 40px;
