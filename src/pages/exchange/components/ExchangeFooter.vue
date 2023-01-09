@@ -1248,7 +1248,7 @@ export default {
   .bs-cancel-all-btn {
     // float: right;
     position: absolute;
-    right: 68px;
+    right: 76px;
     margin-top: -35px;
     // margin-right: 40px;
   }
