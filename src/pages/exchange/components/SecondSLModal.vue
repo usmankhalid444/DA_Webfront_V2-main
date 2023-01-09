@@ -261,9 +261,15 @@ hr {
   color: #677f8e;
   line-height: 14px;
   height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .stop-loss-detail-modal .tab.active {
   color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .top-row {
   line-height: 24px;

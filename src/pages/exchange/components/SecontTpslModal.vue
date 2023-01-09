@@ -49,7 +49,7 @@
             </span>
           </h5>
         </div>
-        <div class="row top-row">
+        <div class="row top-row" style="margin-right: -3px; margin-left: -9px">
           <div class="col-3 mt-2 ts-title">Order</div>
           <div class="col-9 mt-2 ts-value">
             <div style="margin-left: 13px">
@@ -241,9 +241,15 @@ hr {
   color: #677f8e;
   line-height: 14px;
   height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .stop-loss-detail-modal .tab.active {
   color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .top-row {
   line-height: 24px;

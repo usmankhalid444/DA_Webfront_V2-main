@@ -166,7 +166,7 @@
                   @click="open_dropdown_coin = !open_dropdown_coin"
                   @blur="open_dropdown_coin = false"
                 >
-                  <span class="text" style="left: 15px">{{ Value }}</span>
+                  <span class="text" style="left: 8px">{{ Value }}</span>
                   <span
                     class="icon"
                     :class="open_dropdown_coin ? 'rotate-sc-icon' : ''"
@@ -189,12 +189,42 @@
                     style="left: 0px; top: 33px"
                   >
                     <ul>
-                      <li @click="Value = 'Bid / Offer'">Bid / Offer</li>
-                      <li @click="Value = 'Bid'">Bid</li>
-                      <li @click="Value = 'Offer'">Offer</li>
-                      <li @click="Value = 'All Coins'">All Coins</li>
-                      <li @click="Value = 'Fav'">Fav</li>
-                      <li @click="Value = 'Coin Ticker'">Coin Ticker</li>
+                      <li
+                        :class="{ 'orange-text': Value === 'Bid / Offer' }"
+                        @click="Value = 'Bid / Offer'"
+                      >
+                        Bid / Offer
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value === 'Bid' }"
+                        @click="Value = 'Bid'"
+                      >
+                        Bid
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value === 'Offer' }"
+                        @click="Value = 'Offer'"
+                      >
+                        Offer
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value === 'All Coins' }"
+                        @click="Value = 'All Coins'"
+                      >
+                        All Coins
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value === 'Fav' }"
+                        @click="Value = 'Fav'"
+                      >
+                        Fav
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value === 'Coin Ticker' }"
+                        @click="Value = 'Coin Ticker'"
+                      >
+                        Coin Ticker
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -228,7 +258,7 @@
                   @click="open_dropdown_ratio = !open_dropdown_ratio"
                   @blur="open_dropdown_ratio = false"
                 >
-                  <span class="text" style="left: 15px">{{ Value1 }}</span>
+                  <span class="text" style="left: 10px">{{ Value1 }}</span>
                   <span
                     class="icon"
                     :class="open_dropdown_ratio ? 'rotate-sc-icon' : ''"
@@ -251,13 +281,36 @@
                     style="left: 0px; top: 33px"
                   >
                     <ul>
-                      <li @click="Value1 = '0.1'">0.1</li>
-                      <li @click="Value1 = '0.01'" style="color: #f38220">
+                      <li
+                        :class="{ 'orange-text': Value1 === '0.1' }"
+                        @click="Value1 = '0.1'"
+                      >
+                        0.1
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value1 === '0.01' }"
+                        @click="Value1 = '0.01'"
+                      >
                         0.01
                       </li>
-                      <li @click="Value1 = '0.001'">0.001</li>
-                      <li @click="Value1 = '0.0001'">0.0001</li>
-                      <li @click="Value1 = '0.00001'">0.00001</li>
+                      <li
+                        :class="{ 'orange-text': Value1 === '0.001' }"
+                        @click="Value1 = '0.001'"
+                      >
+                        0.001
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value1 === '0.0001' }"
+                        @click="Value1 = '0.0001'"
+                      >
+                        0.0001
+                      </li>
+                      <li
+                        :class="{ 'orange-text': Value1 === '0.00001' }"
+                        @click="Value1 = '0.00001'"
+                      >
+                        0.00001
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -357,7 +410,7 @@
             @blur="open_dropdown_right = false"
             style="width: 120px !important"
           >
-            <span class="text" style="left: 15px">{{ Value2 }}</span>
+            <span class="text" style="left: 8px">{{ Value2 }}</span>
             <span
               class="icon"
               :class="open_dropdown_right ? 'rotate-sc-icon' : ''"
@@ -380,12 +433,42 @@
               style="left: 0px; top: 33px"
             >
               <ul>
-                <li @click="Value2 = 'Bid / Offer'">Bid / Offer</li>
-                <li @click="Value2 = 'Bid'">Bid</li>
-                <li @click="Value2 = 'Offer'">Offer</li>
-                <li @click="Value2 = 'All Coins'">All Coins</li>
-                <li @click="Value2 = 'Fav'">Fav</li>
-                <li @click="Value2 = 'Coin Ticker'">Coin Ticker</li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'Bid / Offer' }"
+                  @click="Value2 = 'Bid / Offer'"
+                >
+                  Bid / Offer
+                </li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'Bid' }"
+                  @click="Value2 = 'Bid'"
+                >
+                  Bid
+                </li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'Offer' }"
+                  @click="Value2 = 'Offer'"
+                >
+                  Offer
+                </li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'All Coins' }"
+                  @click="Value2 = 'All Coins'"
+                >
+                  All Coins
+                </li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'Fav' }"
+                  @click="Value2 = 'Fav'"
+                >
+                  Fav
+                </li>
+                <li
+                  :class="{ 'orange-text': Value2 === 'Coin Ticker' }"
+                  @click="Value2 = 'Coin Ticker'"
+                >
+                  Coin Ticker
+                </li>
               </ul>
             </div>
           </div>
@@ -878,8 +961,8 @@ export default {
   top: 42px;
   z-index: 10000;
   width: 100%;
-  background-color: rgb(34, 43, 47);
-  border-radius: 4px;
+  background-color: #1c262b;
+  border-radius: 2px;
 }
 .select .options ul {
   list-style: none;
@@ -892,6 +975,7 @@ export default {
 }
 .select .options ul li:hover {
   background-color: #2c3b44;
+  border-radius: 2px;
 }
 </style>
 <style lang="scss">
@@ -934,10 +1018,10 @@ export default {
     .searching-box {
       z-index: 1;
       position: absolute;
-      margin-top: 5px;
+      margin-top: 7px;
       height: auto;
       background-color: #1c262b;
-      padding: 15px 20px;
+      padding: 15px 16px;
       .search-box-title {
         font-size: 16px;
         font-weight: 700;
@@ -967,6 +1051,7 @@ export default {
       .sb-increasing-trend {
         color: #40994f;
         font-size: 16px;
+        text-align: right;
       }
       .sb-finding-coin {
         font-size: 12px;
@@ -1233,7 +1318,9 @@ export default {
     color: white;
   }
 }
-
+.orange-text {
+  color: #f38220;
+}
 .buy-sell table {
   width: 100%;
   overflow: hidden;
@@ -1349,7 +1436,10 @@ export default {
   width: 360px;
   margin: 0 auto;
 }
-
+#limitorder-TPSL___BV_modal_content_,
+#limitorder-stop-loss___BV_modal_content_ {
+  margin-top: 100px;
+}
 #limit-TPSL .modal-content .modal-body {
   width: 100%;
 }
@@ -1769,7 +1859,7 @@ export default {
     margin-left: 13px;
   }
   .buy-sell .search-container {
-    margin-left: 13px !important;
+    margin-left: 8px !important;
   }
   .buy-sell .trading-scores .live-amount-title {
     margin-left: 16px;

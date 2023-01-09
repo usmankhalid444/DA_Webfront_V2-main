@@ -50,8 +50,9 @@
                   >Touch ID / Face ID</b-link
                 >
               </div>
-              <div class="hr"></div>
+             
             </li>
+            <div class="hr"></div>
             <li class="nav-item menu-item">
               <div class="menu-item">
                 <b-link
@@ -134,7 +135,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-9">
+        <div class="col-9 p-0">
           <section>
             <router-view></router-view>
           </section>
@@ -176,20 +177,21 @@ export default Vue.extend({
   /* width: 272px; */
 }
 .setting-heading {
-  padding: 24px 0px 10px 24px;
+  padding: 24px 0px 13px 24px;
 }
 .tab-heading{
   font-weight: 600 !important;
   font-size: 24px !important;
   line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
+  margin: 0px;
 }
 .green {
   color: var(--green-positive);
 }
 .hr {
   border-bottom: 1px solid #677f8e;
-  margin: 14px auto;
+  margin: 16px auto;
   width: 218px;
 }
 
@@ -204,17 +206,18 @@ export default Vue.extend({
 .menu-item {
   /* margin-right: 32px !important; */
   position: relative !important;
-  font-weight: 400 !important;
-  font-size: 14px !important;
-  line-height: 24px !important;
-  font-family: "sarabun" !important;
+   width: 264px;
+   height: 40px;
 }
 
 .mx-auto .colormiddle {
-  padding: 10px 20px;
+  padding: 8px 24px;
+  font-family: 'Sarabun' !important;
+  line-height: 24px;
+  font-weight: 400 !important;
+  font-size: 14px !important;
   text-align: center;
   /* height: 64px; */
-  border-bottom: 2px solid transparent;
   display: flex;
   transition: 0.4s;
   cursor: pointer !important;
@@ -222,10 +225,10 @@ export default Vue.extend({
 .mx-auto .colormiddle.active {
   border-left: 4px solid #f38220 !important;
   /* text-align: center; */
+  padding: 8px 20px;
   color: var(--primary) !important;
   background-color: #38454d;
-  font-weight: 400 !important;
-  font-size: 14px !important;
+  
 }
 .mx-auto .colormiddle:hover {
   /* border-left-color: #f38220 !important; */

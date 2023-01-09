@@ -54,7 +54,7 @@
             <p class="c-value mb-0">0.0098</p>
           </div>
         </div>
-        <div class="row body-container dc1" style="margin-top: 4px">
+        <div class="row body-container dc1" style="margin-top: 1px">
           <div class="col-5">
             <p class="c-title">Market Value</p>
             <p class="c-title">Total Cost</p>

@@ -46,8 +46,8 @@
           class="tab-pane open-order b-order"
           v-if="selectedfooter === 'Open Orders (5)'"
         >
-          <ul class="nav mr-2" id="" role="tablist">
-            <li class="nav-item">
+          <ul class="nav mr-2 mb-3" id="" role="tablist">
+            <li class="nav-item" style="width: 334px">
               <button
                 style="width: 158px"
                 type="button"
@@ -67,8 +67,7 @@
           >
             Cancel All
           </button>
-
-          <!-- Limit & Market Order below -->
+          <!-- Limit & traling stop below -->
           <div
             class="fade show active"
             v-if="selectedopenorder == 'Limit  Orders (6)'"
@@ -314,8 +313,9 @@
           v-if="selectedfooter === 'Matched'"
         >
           <ul class="nav mr-2" id="" role="tablist">
-            <li class="nav-item">
+            <li class="nav-item" style="width: 377px">
               <button
+                style="width: 115px"
                 type="button"
                 v-for="(tab, index) in matchedTabs"
                 :key="index"
@@ -694,7 +694,7 @@
                   <p style="color: #9bacb6">Pin</p>
                 </div>
                 <div class="col-8 value p-0">
-                  <input class="password" value="*****" type="text" />
+                  <input class="password" value="*****" type="password" />
                 </div>
 
                 <div class="cencel-btn p-0" style="margin-top: 24px">
@@ -925,7 +925,6 @@ export default {
   background: none;
   border: none;
   border-radius: 2px;
-  width: 103px;
   height: 32px;
   margin-right: 13px !important;
   color: #677f8e;
@@ -937,7 +936,6 @@ export default {
   color: white;
   background-color: #2c3b44;
   border-radius: 2px;
-  width: 108px;
 }
 
 /* Footer Table */
@@ -1248,9 +1246,11 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .bs-cancel-all-btn {
-    float: right;
-    margin-top: -20px;
-    margin-right: 40px;
+    // float: right;
+    position: absolute;
+    right: 68px;
+    margin-top: -35px;
+    // margin-right: 40px;
   }
   .pills-tab {
     padding: 0 24px;

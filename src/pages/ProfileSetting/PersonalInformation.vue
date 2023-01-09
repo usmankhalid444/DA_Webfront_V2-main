@@ -1,47 +1,47 @@
 <template>
   <div class="wrapper">
-    <div class="container px-7">
-      <div class="row">
-        <div class="col">
+    <div class="container p-0">
+      <div class="row m-0">
+        <div class="col p-0">
           <div class="Heading">
-            <h1 class="page-heading">ข้อมูลส่วนตัว</h1>
+            <h1 class="page-heading m-0">ข้อมูลส่วนตัว</h1>
           </div>
-          <div class="row px-3">
-            <div class="col-5">
+          <div class="row m-0">
+            <div class="col-5  p-0">
               <div class="box-personal-info bg-box">
                 <div class="firt-line d-flex justify-content-between">
-                  <p class="text-box">Krit Samroengraj</p>
-                  <p class="text-box">เลขที่บัญชี 123123</p>
+                  <p class="text-box" >Krit Samroengraj</p>
+                  <p class="text-box" style="width: 109px; margin-bottom:21px">เลขที่บัญชี 123123</p>
                 </div>
                 <div class="second-line d-flex justify-content-between">
                   <p class="text-box">วงเงินซื้อขาย</p>
-                  <p class="text-box">xxx,xxx บาท</p>
+                  <p class="text-box" style="width: 109px;  margin-bottom:21px">xxx,xxx บาท</p>
                 </div>
                 <div class="third-line d-flex justify-content-between">
-                  <p class="text-box">เงินสดคงเหลือ</p>
-                  <p class="text-box">xxx,xxx บาท</p>
+                  <p class="text-box m-0">เงินสดคงเหลือ</p>
+                  <p class="text-box  m-0" style="width: 109px;  margin-bottom:21px">xxx,xxx บาท</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="row px-3 pt-4" style="margin-left: 14px;">
-            <div class="col-10">
+          <div class="row m-0">
+            <div class="col-10 p-0">
               <table class="table width-table">
                 <thead>
                   <th scope="col"></th>
                 </thead>
                 <tbody>
-                  <tr class="name-surname border-bottom-table">
-                    <td class="table-text name-surname ps-0">
-                      <p style="margin-top: 1rem">ชื่อ-นามสกุล</p>
+                  <tr class="name-surname border-bottom-table ">
+                    <td class="table-text name-surname p-0 pb24">
+                      <p class="m-0">ชื่อ-นามสกุล</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">กฤษณ์ สำเริงราชย์</p>
+                    <td class="table-text-white p-0">
+                      <p class="m-0">กฤษณ์ สำเริงราชย์</p>
                     </td>
-                    <td style="width: 7%;  padding-right:0px">
+                    <td style="width:7%;" class="p-0">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        class="table-text-yellow correct-button m-0"
+                        style=""
                         @click="showModalSurnameChange = true"
                       >
                         แก้ไข
@@ -49,17 +49,17 @@
                     </td>
                   </tr>
 
-                  <tr class="telephone-number border-bottom-table">
-                    <td class="table-text ps-0">
-                      <p style="margin-top: 1rem">ชเบอร์โทรศัพท์</p>
+                  <tr class="telephone-number border-bottom-table ">
+                    <td class="table-text p-0 pb24 pt20">
+                      <p class="m-0">ชเบอร์โทรศัพท์</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">096-807-9333</p>
+                    <td class="table-text-white p-0 pt20">
+                      <p class="m-0">096-807-9333</p>
                     </td>
-                    <td style="width: 7%;  padding-right:0px">
+                    <td style="width:7%;" class="p-0 pt20">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        class="table-text-yellow correct-button m-0"
+                       
                         @click="showModalEditPhoneNumber = true"
                       >
                         แก้ไข
@@ -68,16 +68,16 @@
                   </tr>
 
                   <tr class="Email border-bottom-table">
-                    <td class="table-text ps-0">
-                      <p style="margin-top: 1rem">Email</p>
+                    <td class="table-text p-0 pb24 pt20">
+                      <p class="m-0">Email</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">krith2536@gmail.com</p>
+                    <td class="table-text-white p-0 pt20">
+                      <p  class="m-0">krith2536@gmail.com</p>
                     </td>
-                    <td style="width: 7%;  padding-right:0px">
+                    <td style="width: 7%;" class="p-0 pt20">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        class="table-text-yellow correct-button m-0"
+                       
                         @click="showModalEditEmail = true"
                       >
                         แก้ไข
@@ -86,18 +86,17 @@
                   </tr>
 
                   <tr class="address border-bottom-table">
-                    <td class="table-text ps-0">
-                      <p style="margin-top: 1rem">ที่อยู่</p>
+                    <td class="table-text p-0 pb24 pt20">
+                      <p class="m-0">ที่อยู่</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">
+                    <td class="table-text-white p-0 pt20">
+                      <p class="m-0">
                         188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240
                       </p>
                     </td>
-                    <td style="width: 7%;  padding-right:0px">
+                    <td style="width: 7%;" class="p-0 pt20">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        class="table-text-yellow correct-button m-0"
                         @click="showModalEditAddress = true"
                       >
                         แก้ไข
@@ -106,18 +105,18 @@
                   </tr>
 
                   <tr class="address border-bottom-table">
-                    <td class="table-text ps-0">
-                      <p style="margin-top: 1rem">ที่อยู่ตามบัตรประชาชน</p>
+                    <td class="table-text p-0 pb24 pt20">
+                      <p class="m-0">ที่อยู่ตามบัตรประชาชน</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">
+                    <td class="table-text-white p-0 pt20">
+                      <p class="m-0">
                         188/56 นวมินทร์42 เขตบึงกุ่ม แขวงคลองกุ่ม กรุงเทพ 10240
                       </p>
                     </td>
-                    <td style="width: 7%;  padding-right:0px">
+                    <td style="width: 7%;" class="p-0 pt20">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem"
+                        class="table-text-yellow correct-button m-0"
+                      
                         @click="showModalEditAddressIdCard = true"
                       >
                         แก้ไข
@@ -126,19 +125,18 @@
                   </tr>
 
                   <tr class="address border-bottom-end">
-                    <td class="table-text ps-0">
-                      <p style="margin-top: 1rem">สถานที่ทำงาน</p>
+                    <td class="table-text p-0 pb24 pt20">
+                      <p class="m-0">สถานที่ทำงาน</p>
                     </td>
-                    <td class="table-text-white">
-                      <p style="margin-top: 1rem">
+                    <td class="table-text-white p-0 pt20">
+                      <p class="m-0">
                         ชื่อที่ทำงาน xxxxx อาชีพ xxxxx <br />
                         ตำแหน่งงาน xxxx รายได้ xxxxxxx
                       </p>
                     </td>
-                    <td style="width: 7%; padding-right:0px">
+                    <td style="width: 7%;" class=" p-0 pt20">
                       <p
-                        class="table-text-yellow correct-button"
-                        style="margin-top: 1rem "
+                        class="table-text-yellow correct-button m-0"
                         @click="showModalEditWorkplace = true"
                       >
                         แก้ไข
@@ -248,22 +246,28 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header" style="border-bottom: none;">
-                  <div class="container">
+                  <div class="container p-0">
                     <div
-                      class="row"
+                      class="row m-0"
                       style="padding-top: 24px; padding-bottom: 24px"
                     >
                       <div class="p-0">
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between position-relative">
                           <h5 class="modal-title m-auto text-center">
-                            เปลี่ยนแปลงชื่อ-นามสกุล2
+                            เปลี่ยนแปลงชื่อ-นามสกุล
                           </h5>
                           <button
                             type="button"
                             class="close"
                             data-dismiss="modal"
                             aria-label="Close"
-                            style="margin-right:30.5px"
+                            style="
+                            position: absolute;
+                            right: 30px;
+                            padding: 0px;
+                            line-height: 0px;
+                            top: 14px;
+                        "
                           >
                             <span
                               aria-hidden="true"
@@ -277,31 +281,31 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body scroller">
-                  <div class="container" style="padding-left: 24px;">
-                    <div class="row">
-                      <div class="col">
+                <div class="modal-body scroller1">
+                  <div class="container m-0 p-0" style="padding-left: 24px !important;">
+                    <div class="row m-0">
+                      <div class="col p-0">
                         <div class="current-name d-flex borderBottom-in-modal">
                           <p class="text-grey">
                             ชื่อ-นามสกุลปัจจุบัน
                           </p>
                           <p
                             class="text-dark-grey"
-                            style="margin-left: 15px; margin-bottom:28px"
+                            style="margin-left: 16px; margin-bottom:28px"
                           >
                             ณัฐฐา มั่นใจ
                           </p>
                         </div>
                       </div>
 
-                      <div class="heading-new-Surname">
+                      <div class="heading-new-Surname p-0">
                         <p class="mt-4 text-dark-grey m-0">ชื่อ-นามสกุลใหม่</p>
                       </div>
                     </div>
                     <!-- name input -->
                     <div
                       class="wraper-input d-flex justify-content-between"
-                      style="width: 90%; margin-top:18px;"
+                      style="width: 90%;margin-top:12px"
                     >
                       <p class="text-dark-grey mt-2">ชื่อ</p>
                       <div class="name-input" style="width: 75%">
@@ -543,14 +547,14 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header"  style="border-bottom: none;">
-                  <div class="container">
+                <div class="modal-header" style="border-bottom: none;">
+                  <div class="container p-0">
                     <div
-                      class="row"
-                      style="padding-top: 3%; padding-bottom: 3%"
+                      class="row m-0"
+                      style="padding-top: 24px; padding-bottom: 24px"
                     >
-                      <div class="">
-                        <div class="d-flex justify-content-around">
+                      <div class="p-0">
+                        <div class="d-flex justify-content-between position-relative">
                           <h5 class="modal-title m-auto text-center">
                             ถ่ายรูปเซลฟี่หน้าตรง
                           </h5>
@@ -559,6 +563,13 @@
                             class="close"
                             data-dismiss="modal"
                             aria-label="Close"
+                            style="
+                            position: absolute;
+                            right: 30px;
+                            padding: 0px;
+                            line-height: 0px;
+                            top: 14px;
+                        "
                           >
                             <span
                               aria-hidden="true"
@@ -572,10 +583,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body scroller">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
+                <div class="modal-body scroller" style="padding:0px 24px">
+                  <div class="container p-0">
+                    <div class="row m-0">
+                      <div class="col p-0">
                         <div class="otp-number">
                           <p
                             class="text-grey text-center"
@@ -605,12 +616,16 @@
                         </div>
                         <div class="button-camera-open">
                           <div
-                            class="buttonConfirm d-grid gap-2 mb-4"
+                            class="buttonConfirm d-grid gap-2"
                             style="width: 78%"
                           >
                             <button
                               type="button"
                               class="btn btn-primary btn-text-sarabun"
+                              style="
+                              width: 293px;
+                              height: 40px;
+                              margin: auto;"
                             >
                               <img
                                 src="../../assets/images/profile-setting/photo_camera_black.png"
@@ -640,22 +655,30 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header"  style="border-bottom: none;">
-                  <div class="container">
+              
+                                <div class="modal-header" style="border-bottom: none;">
+                  <div class="container p-0">
                     <div
-                      class="row"
-                      style="padding-top: 3%; padding-bottom: 3%"
+                      class="row m-0"
+                      style="padding-top: 24px; padding-bottom: 24px"
                     >
-                      <div class="">
-                        <div class="d-flex justify-content-between">
+                      <div class="p-0">
+                        <div class="d-flex justify-content-between position-relative">
                           <h5 class="modal-title m-auto text-center">
-                            เปลี่ยนแปลงเบอร์โทรศัพท์
+                             เปลี่ยนแปลงเบอร์โทรศัพท์
                           </h5>
                           <button
                             type="button"
                             class="close"
                             data-dismiss="modal"
                             aria-label="Close"
+                            style="
+                            position: absolute;
+                            right: 30px;
+                            padding: 0px;
+                            line-height: 0px;
+                            top: 14px;
+                        "
                           >
                             <span
                               aria-hidden="true"
@@ -670,16 +693,16 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                  <div class="container" style="padding-left: 24px;">
-                    <div class="row">
-                      <div class="col">
+                  <div class="container" style="padding:0px  24px;">
+                    <div class="row m-0">
+                      <div class="col p-0">
                         <div class="current-name d-flex borderBottom-in-modal">
-                          <p class="text-dark-grey" style="margin-top: 1rem">
+                          <p class="text-dark-grey" style="margin-top: 8px;margin-bottom: 28px">
                             เบอร์โทรศัพท์ปัจจุบัน
                           </p>
                           <p
                             class="text-grey"
-                            style="margin-left: 15px; margin-top: 1rem"
+                            style="margin-top: 8px;margin-bottom: 28px ; margin-left:28px"
                           >
                             096-807-9333
                           </p>
@@ -705,7 +728,7 @@
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button marginTopBottom32 text-center">
+                    <div class="button  text-center" style="margin-top: 40px;margin-bottom: 48px;">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -878,22 +901,29 @@
           <div class="modal-wrapper">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <div class="modal-header"  style="border-bottom: none;">
-                  <div class="container">
+                <div class="modal-header" style="border-bottom: none;">
+                  <div class="container p-0">
                     <div
-                      class="row"
-                      style="padding-top: 3%; padding-bottom: 3%"
+                      class="row m-0"
+                      style="padding-top: 24px; padding-bottom: 24px"
                     >
-                      <div class="">
-                        <div class="d-flex justify-content-between">
-                          <h5 class="modal-title text-center m-auto">
-                            เปลี่ยนแปลงอีเมล
+                      <div class="p-0">
+                        <div class="d-flex justify-content-between position-relative">
+                          <h5 class="modal-title m-auto text-center">
+                           เปลี่ยนแปลงอีเมล
                           </h5>
                           <button
                             type="button"
-                            class="close mr-2"
+                            class="close"
                             data-dismiss="modal"
                             aria-label="Close"
+                            style="
+                            position: absolute;
+                            right: 30px;
+                            padding: 0px;
+                            line-height: 0px;
+                            top: 14px;
+                        "
                           >
                             <span
                               aria-hidden="true"
@@ -907,17 +937,17 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal-body modal-padding">
-                  <div class="container" style="padding-left: 24px;">
-                    <div class="row">
-                      <div class="col">
-                        <div class="current-name d-flex borderBottom-in-modal">
-                          <p class="text-dark-grey" style="margin-top: 1rem">
+                <div class="modal-body">
+                  <div class="container p-0" style="padding-left: 24px !important ;">
+                    <div class="row m-0">
+                      <div class="col p-0">
+                        <div class="current-name d-flex borderBottom-in-modal" style="width: 432px;">
+                          <p class="text-dark-grey" style="margin-top: 8px ; margin-bottom:24px">
                             อีเมลปัจจุบัน
                           </p>
                           <p
                             class="text-grey"
-                            style="margin-left: 45px; margin-top: 1rem"
+                            style="margin-left: 39px; margin-top: 8px ; margin-bottom:24px"
                           >
                             khembearland@gmail.com
                           </p>
@@ -926,25 +956,25 @@
                     </div>
                     <!-- new email input -->
                     <div
-                      class="wraper-input d-flex justify-content-between"
+                      class="wraper-input d-flex "
                       style="width: 90%; margin-top: 24px"
                     >
-                      <p class="text-dark-grey mt-2">อีเมลใหม่</p>
+                      <p class="text-dark-grey mt-2 mb-0">อีเมลใหม่</p>
                       <div class="name-input" style="width: 70%">
                         <label for="inputPassword2" class="visually-hidden"
                           >ระบุอีเมล</label
                         >
                         <input
                           type="text"
-                          class="form-control mb-3"
-                          style="max-width: 240px"
+                          class="form-control"
+                          style="max-width: 240px ; margin-left:56px"
                           placeholder="ระบุอีเมล"
                         />
                       </div>
                     </div>
 
                     <!-- modal button bottom -->
-                    <div class="button marginTopBottom32 text-center">
+                    <div class="button  text-center" style="margin:40px 0px 48px">
                       <button
                         type="button"
                         class="btn btn-primary btn-text-sarabun"
@@ -2431,29 +2461,36 @@ export default {
 };
 </script>
 <style scoped>
+.pb24{
+  padding-bottom:24px !important
+}
+.pt20{
+  padding-top: 20px !important;
+}
 .bg-box {
   background-color: #1c262b;
 }
 .page-heading{
+  padding: 24px 0px 21px 105px;
   font-weight: 600 !important;
   font-size: 24px !important;
   line-height: 36px !important;
   font-family: "Noto Sans Thai" !important;
   color: #d6dde1;
 }
-.Heading {
-  padding: 24px 0px 21px 24px;
-}
 .box-personal-info {
   padding: 12px 28px 12px 29px;
   border-radius: 3px;
   /* remove width if not responsive */
   width: 359px;
+  margin-left: 82px;
+  height: 138px;
 }
 .text-box {
   color: #9bacb6;
   font-size: 14px;
   font-weight: 400;
+  line-height: 24px;
   font-family: "Sarabun" !important;
   cursor: pointer;
 }
@@ -2463,12 +2500,16 @@ export default {
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
+  width:68px;
+  height:40px
 }
 .text-box:hover {
   color: #ffff;
 }
 .width-table {
-  /* width: 764px; */
+  margin-left: 105px;
+  margin-top: 41px;
+  width: 764px;
 }
 
 .table-text {
@@ -2520,6 +2561,8 @@ export default {
   border-radius: 4px;
   justify-content: center;
   border: 1px dashed #28363e;
+  width: 432px;
+  height: 120px;
 }
 .attachment-wrap-skull {
   background-color: #192126;
@@ -2528,6 +2571,8 @@ export default {
   border-radius: 4px;
   justify-content: center;
   border: 1px dashed #28363e;
+  width: 432px;
+  height: 206px;
 }
 .image-note {
   color: #d6dde1;
@@ -2539,19 +2584,22 @@ export default {
 }
 .note-list {
   color: #9bacb6;
+  line-height:24px;
   font-size: 14px;
   font-weight: 400;
+  margin-bottom: 0px;
   font-family: "Sarabun" !important;
 }
 /* modal */
 .marginTopBottom32{
-  margin-top: 32px;
+  margin-top: 48px;
   margin-bottom: 32px;
 }
 .buttonSuccess{
   font-size: 16px!important;
   font-weight: 700!important;
   font-family: "Noto Sans Thai"!important;
+  
 }
 .modal-title{
   color: #D6DDE1;

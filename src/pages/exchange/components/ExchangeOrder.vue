@@ -7,7 +7,7 @@
             class="nav nav-ul"
             style="border-top: 1px solid #28363e; margin-right: 3px"
           >
-            <li style="margin-left: 40px" class="nav-item">
+            <li style="margin-left: 35px" class="nav-item">
               <button
                 style="margin-right: 24px"
                 type="button"
@@ -640,11 +640,7 @@
                     <div style="display: inline" class="text">
                       {{ selected_option }}
                     </div>
-                    <div
-                      style="display: inline"
-                      class="icon"
-                      :class="open_dropdown1 ? 'rotate-sc-icon' : ''"
-                    >
+                    <div style="display: inline" class="icon">
                       <svg
                         width="7"
                         height="4"
@@ -688,7 +684,10 @@
                     </svg>
                   </span>
                 </div>
-                <div class="form-group mb-1.5 bs-lp-input">
+                <div
+                  class="form-group mb-1.5 bs-lp-input"
+                  style="margin-top: -5px"
+                >
                   <input type="text" readonly style="padding-right: 60px" />
                   <div
                     class="select-container-3"
@@ -699,11 +698,7 @@
                     <div style="display: inline" class="text">
                       {{ selected_option3 }}
                     </div>
-                    <div
-                      style="display: inline"
-                      class="icon"
-                      :class="open_dropdown2 ? 'rotate-sc-icon' : ''"
-                    >
+                    <div style="display: inline" class="icon">
                       <svg
                         width="7"
                         height="4"
@@ -865,11 +860,7 @@
                     <div style="display: inline" class="text">
                       {{ selected_option2 }}
                     </div>
-                    <div
-                      style="display: inline"
-                      class="icon"
-                      :class="open_dropdown3 ? 'rotate-sc-icon' : ''"
-                    >
+                    <div style="display: inline" class="icon">
                       <svg
                         width="7"
                         height="4"
@@ -895,7 +886,7 @@
                   </div>
                   <span class="text">ตั้งเงื่อนไข Trailing</span>
                 </div>
-                <div class="form-group form-check">
+                <div class="form-group form-check" style="margin-top: -7px">
                   <label>
                     <input
                       type="checkbox"
@@ -919,11 +910,7 @@
                     <div style="display: inline" class="text">
                       {{ selected_option4 }}
                     </div>
-                    <div
-                      style="display: inline"
-                      class="icon"
-                      :class="open_dropdown4 ? 'rotate-sc-icon' : ''"
-                    >
+                    <div style="display: inline" class="icon">
                       <svg
                         width="7"
                         height="4"
@@ -1517,10 +1504,11 @@ export default {
   margin: 0 auto;
 }
 .timeline-bar {
-  width: 100%;
+  width: 101%;
   margin: auto !important;
   padding: 18px 5px 42px !important;
   position: relative;
+  margin-left: -5px !important;
 }
 .progress-bar {
   background-color: #f38220 !important;
@@ -1744,6 +1732,9 @@ export default {
 .sells .form-check input[type="checkbox"] {
   border: none !important;
   box-shadow: none !important;
+  &:focus {
+    box-shadow: none;
+  }
 }
 .form-check-input:checked[type="checkbox"] {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='111827' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e") !important;
@@ -1766,6 +1757,9 @@ export default {
   line-height: 24px;
   width: 100%;
   height: 40px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .modal-body .grey-btn {
@@ -1781,6 +1775,9 @@ export default {
   line-height: 24px;
   width: 100%;
   height: 40px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .modal-footer {
@@ -1832,7 +1829,7 @@ export default {
     position: absolute;
     right: 10px;
     top: 55%;
-    transform: translateY(-90%);
+    transform: translateY(-95%);
     color: #9bacb6;
     pointer-events: none;
   }
@@ -1841,7 +1838,7 @@ export default {
     left: 10px;
     color: #9bacb6;
     top: 55%;
-    transform: translateY(-90%);
+    transform: translateY(-95%);
     pointer-events: none;
     font-weight: 400;
     font-size: 14px;
@@ -1888,7 +1885,7 @@ export default {
   background-color: rgba(64, 153, 79, 1);
   color: #ffffff;
   border: none;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   height: 40px;
   border-radius: 4px;
   font-family: "Noto Sans Thai";
@@ -1926,7 +1923,7 @@ export default {
   background-color: #de2d40;
   color: #ffffff;
   border: none;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   height: 40px;
   font-family: "Noto Sans Thai";
   font-style: normal;
@@ -2377,7 +2374,7 @@ export default {
     .options {
       position: absolute;
       bottom: -82px;
-      width: 130%;
+      width: 110%;
       background-color: #222b2f;
       border-radius: 4px;
       z-index: 100;

@@ -127,7 +127,7 @@
         ></date-picker>
       </div>
       <div class="export-button">
-        <button>Export to Exel</button>
+        <button>Export to Excel</button>
       </div>
     </div>
     <div v-if="active_tab === 'Limit & Market Orders'" class="row m-0">
