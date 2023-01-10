@@ -30,9 +30,10 @@
           >
             <div>
               <div class="row">
-                <div class="col-md-6" style="padding-right: 16px">
+                <div class="col-md-6">
                   <div class="form-group bs-lp-input">
                     <input
+                      :class="buying_amount === 0 ? 'c-dull' : 'c-white'"
                       type="number"
                       max="20000"
                       v-model="buying_amount"
@@ -119,13 +120,22 @@
                   </div>
                   <!-- timeline end -->
                   <div class="form-group bs-lp-input">
-                    <input type="number" v-model="selected_buy_score" />
+                    <input
+                      :class="selected_buy_score === 0 ? 'c-dull' : 'c-white'"
+                      type="number"
+                      v-model="selected_buy_score"
+                    />
                     <span class="currency">THB</span>
                     <span class="text">ราคาต่อ BTC</span>
                   </div>
 
                   <div class="form-group bs-lp-input">
                     <input
+                      :class="
+                        buying_amount / selected_buy_score === 0
+                          ? 'c-dull'
+                          : 'c-white'
+                      "
                       type="text"
                       :value="buying_amount / selected_buy_score || 0"
                       readonly="readonly"
@@ -136,6 +146,7 @@
                   <div class="form-group form-check">
                     <label>
                       <input
+                        :class="profitLoss === 0 ? 'c-dull' : 'c-white'"
                         type="checkbox"
                         class="form-check-input"
                         value="false"
@@ -158,9 +169,13 @@
                     <p class="text-end p-0 m-0 fees">Fee 0.2%</p>
                   </div>
                 </div>
-                <div class="col-md-6" style="padding-left: 16px">
+                <div class="col-md-6">
                   <div class="form-group bs-lp-input">
-                    <input type="number" v-model="selling_amount" />
+                    <input
+                      :class="selling_amount === 0 ? 'c-dull' : 'c-white'"
+                      type="number"
+                      v-model="selling_amount"
+                    />
                     <span class="currency">THB</span>
                     <span class="text">จำนวนที่ต้องการขาย</span>
                   </div>
@@ -242,13 +257,22 @@
                   </div>
                   <!-- timeline end -->
                   <div class="form-group bs-lp-input">
-                    <input type="number" v-model="selected_sell_score" />
+                    <input
+                      :class="selected_sell_score === 0 ? 'c-dull' : 'c-white'"
+                      type="number"
+                      v-model="selected_sell_score"
+                    />
                     <span class="currency">BTC</span>
                     <span class="text">ราคาต่อ</span>
                   </div>
 
                   <div class="form-group bs-lp-input">
                     <input
+                      :class="
+                        selling_amount / selected_sell_score === 0
+                          ? 'c-dull'
+                          : 'c-white'
+                      "
                       type="text"
                       :value="selling_amount / selected_sell_score || 0"
                       readonly="readonly"
@@ -293,7 +317,11 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="market_buying_value" />
+                  <input
+                    :class="market_buying_value === 0 ? 'c-dull' : 'c-white'"
+                    type="number"
+                    v-model="market_buying_value"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
@@ -372,6 +400,11 @@
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input
+                    :class="
+                      market_buying_value / market_buying_price === 0
+                        ? 'c-dull'
+                        : 'c-white'
+                    "
                     type="text"
                     :value="market_buying_value / market_buying_price || 0"
                     readonly
@@ -406,7 +439,11 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="market_selling_value" />
+                  <input
+                    :class="market_selling_value === 0 ? 'c-dull' : 'c-white'"
+                    type="number"
+                    v-model="market_selling_value"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
@@ -485,6 +522,11 @@
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
                   <input
+                    :class="
+                      market_selling_value / market_selling_price === 0
+                        ? 'c-dull'
+                        : 'c-white'
+                    "
                     type="text"
                     :value="market_selling_value / market_selling_price"
                   />
@@ -528,7 +570,11 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="triling_buying_value" />
+                  <input
+                    :class="triling_buying_value === 0 ? 'c-dull' : 'c-white'"
+                    type="number"
+                    v-model="triling_buying_value"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนเงินที่ต้องการซื้อ</span>
                 </div>
@@ -606,7 +652,11 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="number" value="0" />
+                  <input
+                    type="number"
+                    :class="triling_input1 === 0 ? 'c-dull' : 'c-white'"
+                    v-model="triling_input1"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
@@ -628,7 +678,8 @@
                   <input
                     type="text"
                     readonly
-                    value="0"
+                    :class="triling_input2 === 0 ? 'c-dull' : 'c-white'"
+                    v-model="triling_input2"
                     style="padding-right: 60px; margin-top: 5px"
                   />
                   <div
@@ -745,7 +796,11 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group bs-lp-input">
-                  <input type="number" v-model="triling_selling_value" />
+                  <input
+                    :class="triling_selling_value === 0 ? 'c-dull' : 'c-white'"
+                    type="number"
+                    v-model="triling_selling_value"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">จำนวนที่ต้องการขาย</span>
                 </div>
@@ -823,7 +878,11 @@
                 </div>
                 <!-- timeline end -->
                 <div class="form-group bs-lp-input">
-                  <input type="number" value="0" />
+                  <input
+                    type="number"
+                    :class="triling_input4 === 0 ? 'c-dull' : 'c-white'"
+                    v-model="triling_input4"
+                  />
                   <span class="currency">THB</span>
                   <span class="text">ตั้งราคาให้ระบบเริ่มทำงาน</span>
                 </div>
@@ -846,9 +905,10 @@
 
                 <div class="form-group bs-lp-input" style="margin-top: 29px">
                   <input
+                    :class="triling_input3 === 0 ? 'c-dull' : 'c-white'"
+                    v-model="triling_input3"
                     type="text"
                     readonly
-                    value="0"
                     style="padding-right: 60px"
                   />
                   <div
@@ -1415,7 +1475,11 @@ export default {
       triling_selling_value: 0,
       total_triling_selling_value: 986937.9,
       triling_selling_limit_order: 0,
-
+      triling_input1: 0,
+      triling_input2: 0,
+      triling_input3: 0,
+      triling_input4: 0,
+      triling_input5: 0,
       lot_a: "0%",
       lot_b: "0%",
       mot_a: "0%",
@@ -1873,10 +1937,15 @@ export default {
   line-height: 24px;
   background: #222b2f;
   border-radius: 4px;
-  color: #566a76;
   &::placeholder {
     color: #9bacb6;
   }
+}
+.c-white {
+  color: #d6dde1;
+}
+.c-dull {
+  color: #566a76;
 }
 
 .sells .buy-btn {

@@ -132,7 +132,12 @@
             </div>
             <div class="row">
               <div class="col-12 input-row">
-                <input type="text" placeholder="Price (THB)" />
+                <input
+                  type="number"
+                  min="0"
+                  oninput="validity.valid||(value='');"
+                  placeholder="Price (THB)"
+                />
                 <ul class="thai-font sl-ul">
                   <li>ขายเมื่อราคา +20% (1,230,600.12 บาท)</li>
                   <li>กำไรประมาณ 1,995.62 บาท</li>

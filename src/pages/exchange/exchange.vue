@@ -1865,14 +1865,18 @@ export default {
     margin-left: 16px;
   }
 }
-@media only screen and (min-width: 1536px) {
+@media only screen and (min-width: 1280px) {
+  .iframe-chart {
+    margin-left: 1.5px;
+  }
 }
 
 .iframe-chart {
-  // width: 49.9vw;
   height: 45.5vh;
-  width: 100%;
+  width: 99%;
+  margin-left: 1.5px;
 }
+
 @media only screen and (max-width: 1536px) {
   .iframe-chart {
     // width: 49.9vw;
